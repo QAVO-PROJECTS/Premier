@@ -79,7 +79,7 @@ const Navbar = () => {
 
 
                         </ul>
-                        <li className="nav-item dropdown ">
+                        <li className="nav-item dropdown " style={{cursor:"pointer"}}>
                             <a
                                 className="nav-link dropdown-toggle"
                                 data-bs-toggle="dropdown"

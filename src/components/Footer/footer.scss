@@ -1,0 +1,53 @@
+.footer{
+  padding: 70px 0;
+  background-color: #F3F7FF;
+  position: relative;
+  .footer-content{
+    img{
+      margin-bottom: 20px;
+    }
+    p{
+      width: 85%;
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 20px;
+      line-height: 23.04px
+    ;
+    }
+    .icon{
+      background-color: black;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      padding: 4px;
+      color: white;
+      margin: 0 20px 0 0 ;
+    }
+  }
+  .footer-service{
+    h3{
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    li{
+      margin-bottom: 15px;
+      font-weight: 400;
+    }
+  }
+  .vector{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  h6{
+    color: #676767;
+    font-size: 14px;
+    font-weight: 400;
+    span{
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.53);
+    }
+  }
+
+}
