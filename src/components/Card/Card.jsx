@@ -5,7 +5,7 @@ import  image from "../../images/5b9cf82fb66a7a54720e233be60ac45e.jpg"
 import {FaStar} from "react-icons/fa";
 function Card() {
     return (
-        <div className={"col-3"}>
+        <div className={"col-md-4 col-sm-6 col-xs-12"}>
             <div className={"card"}>
                 <div className={"image"}>
                     <img src={image} alt=""/>
