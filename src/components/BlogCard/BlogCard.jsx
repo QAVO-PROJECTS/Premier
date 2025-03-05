@@ -2,7 +2,7 @@ import image from "../../images/8ddf844515ec7e41368a02a2aa6e44cd.jpg"
 import "./blogCard.scss"
 function BlogCard({index}) {
     return (
-        <div className={"col-3"}>
+        <div className={"col-3 w-100"}>
             <div className={"blog-card"}>
                 <div className={"image"}>
                     <img src={image} alt=""/>

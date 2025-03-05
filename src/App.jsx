@@ -1,11 +1,9 @@
 import React from 'react'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Layout from './components/Layout'
-import Card from "./components/Card/Card.jsx";
-import ReserveCard from "./components/ReserveCard/ReserveCard.jsx";
-import BlogCard from "./components/BlogCard/BlogCard.jsx";
 import Home from "./pages/Home/Home.jsx";
 import CurvedSlider from "./components/CurvedSlider/CurvedSlider.jsx";
+import Contact from "./pages/Contact/Contact.jsx";
 
 const App = () => {
     const router = createBrowserRouter([
@@ -16,6 +14,10 @@ const App = () => {
                 {
                     path:"/",
                     element:<Home/>
+                },
+                {
+                    path:"/contact",
+                    element:<Contact/>
                 }
             ]
         }
@@ -26,7 +28,7 @@ const App = () => {
         <div>
             <RouterProvider router={router}/>
 
-            <CurvedSlider/>
+            {/*<CurvedSlider/>*/}
         </div>
     )
 }
