@@ -7,7 +7,7 @@ import image from '../../images/14b27fe7450f54d11627f5cb8e073b76.jpg'
 import "./reserveCard.scss"
 function ReserveCard() {
     return (
-        <div className={"col-3"}>
+        <div className={"col-4 w-100"}>
             <div className={"reserveCard"}>
                 <div className={"image"}>
                     <img src={image} alt=''/>

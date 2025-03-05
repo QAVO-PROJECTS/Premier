@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import  aze from "../../images/azerbaijan.png"
 import  rus from "../../images/circle.png"
 import  eng from "../../images/uk.png"
-import  logo from "../../images/Untitled-3 1.png"
+import  logo from "../../images/Logo Esas.png"
 import  "./navbar.scss"
 const Navbar = () => {
     return (
@@ -14,7 +14,7 @@ const Navbar = () => {
             >
                 <div className="container">
                     <a className="navbar-brand" href="#">
-                        <img src={logo} alt="" style={{width:"100px",height:"65px"}}/>
+                        <img src={logo} alt="" style={{width:"150px",height:"65px"}}/>
                     </a>
                     <button
                         className="navbar-toggler"

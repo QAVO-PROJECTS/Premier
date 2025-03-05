@@ -1,0 +1,34 @@
+.tour-blog{
+  padding: 60px 0;
+  background-color: #F3F7FF;
+  margin-bottom: 150px;
+  .head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    h2{
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 47.73px;
+      margin-bottom: 30px;
+    }
+    p{
+      color: #5F5F5F;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      width: 75%;
+    }
+    button{
+      background-color: black;
+      color: white;
+      font-weight: 500;
+      line-height: 24px;
+      padding: 15px 20px;
+      border-radius: 27px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

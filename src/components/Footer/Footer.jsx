@@ -1,6 +1,6 @@
 import React from 'react'
 import "./footer.scss"
-import  logo from "../../images/Untitled-3 1.png"
+import  logo from "../../images/Logo Esas.png"
 import foot from  "../../images/Vector.png"
 import { FaFacebookF} from "react-icons/fa";
 import {FaInstagram, FaXTwitter} from "react-icons/fa6";
@@ -11,7 +11,7 @@ const Footer = () => {
         <div className={"row gy-5"}>
             <div className={"col-4"}>
              <div className={"footer-content"}>
-               <img src={logo} alt=""/>
+               <img src={logo} alt="" style={{width:"150px",height:"65px"}}/>
                <p> Dünyanı kəşf etmək, yeni təcrübələr yaşamaq və yaddaqalan anlar yaratmaq üçün mükəmməl səyahət seçimidir."</p>
                <div className={"social-media"}>
                  <FaFacebookF className={"icon"}/>

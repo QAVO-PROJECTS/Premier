@@ -5,6 +5,7 @@ import Card from "./components/Card/Card.jsx";
 import ReserveCard from "./components/ReserveCard/ReserveCard.jsx";
 import BlogCard from "./components/BlogCard/BlogCard.jsx";
 import Home from "./pages/Home/Home.jsx";
+import CurvedSlider from "./components/CurvedSlider/CurvedSlider.jsx";
 
 const App = () => {
     const router = createBrowserRouter([
@@ -20,16 +21,12 @@ const App = () => {
         }
     ])
 
-    const arr = new Array(5).fill(0)
 
     return (
         <div>
             <RouterProvider router={router}/>
-            {/*<div className={"row"}>*/}
-            {/*    {arr && arr.map((item, index) => <BlogCard key={index} index={index}/>)}*/}
-            {/*    <Card/>*/}
-            {/*    <ReserveCard/>*/}
-            {/*</div>*/}
+
+            <CurvedSlider/>
         </div>
     )
 }

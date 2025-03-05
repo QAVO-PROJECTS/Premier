@@ -1,0 +1,51 @@
+.slider-container {
+  position: relative;
+  padding: 50px 0;
+}
+
+.curved-swiper {
+  overflow: visible;
+}
+
+.curved-slide {
+  transform-origin: center;
+  transition: transform 0.5s ease-in-out, opacity 0.5s;
+}
+
+/* Ortadakı (aktiv) slayd düz qalsın */
+.curved-slide.active {
+  transform: rotate(0deg) translateY(0);
+  opacity: 1;
+}
+
+/* Sol tərəfdə olan slaydlar */
+.curved-slide:not(.active):nth-child(even) {
+  transform: rotate(-10deg) translateY(20px);
+  opacity: 0.8;
+}
+
+.curved-slide:not(.active):nth-child(odd) {
+  transform: rotate(10deg) translateY(20px);
+  opacity: 0.8;
+}
+
+/* Hover zamanı animasiya */
+.curved-slide:hover .testimonial-card {
+  transform: scale(1.05);
+}
+
+.testimonial-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
