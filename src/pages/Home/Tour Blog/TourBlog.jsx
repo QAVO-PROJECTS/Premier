@@ -19,10 +19,7 @@ function TourBlog() {
                     </div>
                     <button>Hamısına bax   <FaArrowRightLong /></button>
                 </div>
-                <div className={"col-12 text-end paginate"} style={{marginBottom:"40px"}}>
-                    <button ref={prevRef}  className={"white"}><FaArrowLeft /></button>
-                    <button ref={nextRef}  className={"blue"} ><FaArrowRight /></button>
-                </div>
+
                 <div className={"row slider-row"}>
                     <Swiper
                         slidesPerView={4}
@@ -46,6 +43,11 @@ function TourBlog() {
 
                         {arr && arr.map((item, index) => <SwiperSlide><BlogCard key={index} index={index}/></SwiperSlide>)}
                     </Swiper>
+                </div>
+
+                <div className={"col-12 text-end paginate"} style={{marginTop:"40px"}}>
+                    <button ref={prevRef}  className={"white"}><FaArrowLeft /></button>
+                    <button ref={nextRef}  className={"blue"} ><FaArrowRight /></button>
                 </div>
             </div>
         </div>

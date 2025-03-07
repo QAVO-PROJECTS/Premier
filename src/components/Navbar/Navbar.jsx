@@ -6,6 +6,7 @@ import  eng from "../../images/uk.png"
 import  logo from "../../images/Logo Esas.png"
 import  "./navbar.scss"
 const Navbar = () => {
+    const lang = "eng"
     return (
         <div className="navbar-sec">
             <nav
@@ -85,22 +86,22 @@ const Navbar = () => {
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
-                                Lang
+                                {lang ==="aze" ? <img src={aze} alt="" style={{width:"30px",height:"30px"}}/> : (lang==="eng") ? <img src={eng} alt="" style={{width:"30px",height:"30px"}}/> : (lang==="rus") ? <img src={rus} alt="" style={{width:"30px",height:"30px"}}/> : ""}
                             </a>
                             <ul className="dropdown-menu">
                                 <li>
                                     <Link className="dropdown-item " >
-                                        <img src={aze} alt="" style={{width:"30px",height:"30px"}}/> AZE
+                                        <img src={aze} alt="" style={{width:"30px",height:"30px",marginRight:"10px"}}/> AZE
                                     </Link>
                                 </li>
                                 <li>
                                     <Link className="dropdown-item" >
-                                        <img src={rus} alt="" style={{width:"30px",height:"30px"}}/> RUS
+                                        <img src={rus} alt="" style={{width:"30px",height:"30px",marginRight:"10px"}}/> RUS
                                     </Link>
                                 </li>
                                 <li>
                                     <a className="dropdown-item" >
-                                        <img src={eng} alt="" style={{width:"30px",height:"30px"}}/> ENG
+                                        <img src={eng} alt="" style={{width:"30px",height:"30px",marginRight:"10px"}}/> ENG
                                     </a>
                                 </li>
                             </ul>

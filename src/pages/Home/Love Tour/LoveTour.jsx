@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import './loveTour.scss'
 import ReserveCard from "../../../components/ReserveCard/ReserveCard.jsx";
 import 'swiper/css';
@@ -6,9 +6,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import {FaArrowLeft, FaArrowRight} from "react-icons/fa6";
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import ReserveModal from "../../../components/Modal/Modal.jsx";
 function LoveTour() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
+    const [open, setOpen] = useState(false)
     return (
         <div className={"love-tour"}>
             <div className={"container"}>
@@ -22,7 +24,7 @@ function LoveTour() {
                 </div>
                 <div className={"row slider-row"}>
                     <Swiper
-                        slidesPerView={3.5}
+                        slidesPerView={3}
                         spaceBetween={30}
                         grabCursor={true}
                         navigation={{
@@ -51,7 +53,8 @@ function LoveTour() {
                         <SwiperSlide><ReserveCard/></SwiperSlide>
                     </Swiper>
                 </div>
-                <div className={"text-center more"} style={{marginTop:"70px"}}><button>Ətraflı bax</button></div>
+                <div className={"text-center more"} style={{marginTop:"70px"}}><button onClick={() => setOpen(true)}>Ətraflı bax</button></div>
+                {open && <ReserveModal open={open} setOpen={setOpen}/>}
             </div>
         </div>
     );

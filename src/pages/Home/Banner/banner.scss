@@ -33,33 +33,19 @@
   .choosen{
     position: absolute;
     left: 0;
-    width: max-content;
+    width: 65%;
     box-shadow: 1px 1px 16px 0px #5A5A5A1C;
     padding: 14px;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 25px;
     z-index: 999;
-    .choose{
-      display: flex;
-      gap: 10px;
-      padding: 15px 55px 15px 14px;
-      background-color: #F3F3F3CF;
-      border-radius: 15px;
-      .icon{
-        font-size: 20px;
-      }
-      p{
-        margin: 0 0 5px;
-        font-weight: 700;
-        line-height: 19.09px;
-        color: #333333;
-      }
-      span{
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 19.09px;
-        color: #7C7C7C;
-      }
+    input{
+      width: 100%;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: none;
+      font-size: 20px;
+      outline: none;
     }
     button{
       padding: 10px 20px;
@@ -70,5 +56,9 @@
       border: none;
       font-size: 25px;
     }
+  }
+  .plane-image{
+    position: absolute;
+    bottom: 0;
   }
 }

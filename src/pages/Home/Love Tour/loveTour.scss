@@ -1,5 +1,6 @@
 .love-tour{
   padding: 20px 0 100px;
+  position: relative;
   .title{
     text-align: center;
     h2{
@@ -17,12 +18,13 @@
     }
   }
   .paginate{
+      padding: 16px;
     button {
       width: 40px;
       height: 40px;
       border-radius: 50%;
       border: none;
-      font-size: 20px;
+      font-size: 17px;
       cursor: pointer;
       margin-left: 15px;
     }
@@ -56,6 +58,6 @@
     height: 100%;
   }
   .slider-row{
-    width: 109%;
+    width: 100%;
   }
 }
