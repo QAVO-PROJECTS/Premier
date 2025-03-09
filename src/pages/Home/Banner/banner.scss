@@ -1,6 +1,6 @@
 .banner{
-  padding: 0 0  100px ;
-
+  padding: 100px 0  100px ;
+overflow: hidden;
   .container {
     position: relative;
   }
@@ -23,7 +23,7 @@
   }
   .image{
     position: relative;
-    width: 117%;
+    width: 148%;
     z-index: -1;
     img{
       width: 100%;
@@ -38,7 +38,7 @@
     padding: 14px;
     background-color: white;
     border-radius: 25px;
-    z-index: 999;
+    z-index: 9;
     input{
       width: 100%;
       padding: 10px 16px;

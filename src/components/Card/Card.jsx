@@ -16,9 +16,8 @@ function Card() {
                 <div className={"card-content"}>
                     <div className={"text"}>
                         <h3>Yunanistan</h3>
-                        <p>$ 350 / <span>person</span></p>
                     </div>
-                    <button><FaArrowRightLong /></button>
+                    <button><FaArrowRightLong className={'mb-1'}/></button>
                 </div>
             </div>
         </div>

@@ -15,11 +15,7 @@ function ReserveCard() {
                 <div className={"card-content"}>
                     <div className={"text"}>
                         <h3>Yunanistan</h3>
-                        <p>
-                            <sup>$</sup>
-                            681
-                            <sub>/ person</sub>
-                        </p>
+
                         <li><CiCalendarDate  className={"icon"}/>  10.06.2025 - 16.06.2025</li>
                         <li><TbBed  className={"icon"}/>  Hoteldə gecələmə</li>
                         <li><LuTicketPercent  className={"icon"}/>  Aviabilet</li>

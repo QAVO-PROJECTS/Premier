@@ -2,6 +2,10 @@
   height: 100px;
   align-content: center;
   border-bottom: 1px solid #74747440;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
   li{
     font-size: 20px;
   }
