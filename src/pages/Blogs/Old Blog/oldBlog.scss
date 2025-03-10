@@ -1,0 +1,91 @@
+.oldBlog {
+  padding: 0 0 100px;
+
+  .title {
+    position: relative;
+    height: 62px;
+    padding-bottom: 12px;
+    align-content: center;
+    border-bottom: 0.75px solid #ABABAB;
+    margin-bottom: 60px;
+
+    div {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #F3F7FF;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    h2 {
+      margin-left: 25px;
+      margin-bottom: 0;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 100%;
+
+    }
+  }
+
+  .image {
+    height: 540px;
+    align-content: end;
+    background: linear-gradient(
+                    180deg, /* Yukarıdan aşağıya doğru */
+                    rgba(0, 0, 0, 0) 0%, /* Üst kısım tamamen şeffaf başlar */
+                    rgba(0, 0, 0, 0.5) 100% /* Alt kısım yarı saydam siyah */
+    ), url("../../../images/pexels-pavel-danilyuk-8294664 1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px;
+    overflow: hidden;
+
+    .text {
+      padding: 40px;
+      color: white;
+
+      .date {
+        width: max-content;
+        padding: 5.5px 16px;
+        background-color: #F2F6FF;
+        color: #3E86F5;
+        border-radius: 20px;
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 40px;
+        vertical-align: middle;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        color: #F5F5F5;
+        margin: 0;
+      }
+    }
+  }
+
+  .blogs {
+    padding: 40px;
+    border: 1px solid #DFDFDF;
+    height: 540px;
+    overflow: hidden;
+    border-radius: 10px;
+
+    .cards {
+      height: 100%;
+      overflow-y: auto;
+      padding: 5px;
+
+    }
+  }
+}

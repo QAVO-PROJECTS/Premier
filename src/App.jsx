@@ -2,9 +2,8 @@ import React from 'react'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from "./pages/Home/Home.jsx";
-import CurvedSlider from "./components/CurvedSlider/CurvedSlider.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
-import Modal from "./components/Modal/Modal.jsx";
+import Blogs from "./pages/Blogs/Blogs.jsx";
 
 const App = () => {
     const router = createBrowserRouter([
@@ -19,6 +18,10 @@ const App = () => {
                 {
                     path:"/contact",
                     element:<Contact/>
+                },
+                {
+                    path:"/blog",
+                    element:<Blogs/>
                 }
             ]
         }
