@@ -1,0 +1,39 @@
+.banner{
+  padding: 200px 0 100px ;
+  margin-bottom: 200px;
+  position: relative;
+  .head{
+    margin-bottom: 80px;
+    p{
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21.48px;
+      color: #7C7C7C;
+      span{
+        color: #2F2F2F;
+      }
+    }
+  }
+  .title{
+    text-align: center;
+    margin-bottom: 80px;
+    h2{
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 54px;
+      margin-bottom: 16px;
+    }
+    p{
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 32px;
+      color: #909090;
+    }
+  }
+  img{
+    width: 100%;
+    position: absolute;
+    top: -130px;
+    z-index: -1;
+  }
+}
