@@ -24,7 +24,7 @@ import sponsor18 from "../../../sponsor Image/Wizz_Air-Logowine 1.png";
 const sponsorImages = [
     sponsor1, sponsor2, sponsor3, sponsor4, sponsor5, sponsor6,
     sponsor7, sponsor8, sponsor9, sponsor10, sponsor11, sponsor12,
-    sponsor13, sponsor14, sponsor15, sponsor16, sponsor17, sponsor18,
+    sponsor13, sponsor14, sponsor15, sponsor17, sponsor18,
 ];
 
 

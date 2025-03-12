@@ -1,36 +1,44 @@
-.banner{
-  padding: 100px 0  100px ;
-overflow: hidden;
+.banner-home {
+  padding: 100px 0 100px;
+  overflow: hidden;
+
   .container {
     position: relative;
   }
-  h1{
+
+  h1 {
     font-weight: 700;
-    width:90%;
+    width: 90%;
     font-size: 48px;
     line-height: 72px;
-  span{
-    font-size: 48px;
-    color: #0D60FE;
+
+    span {
+      font-size: 48px;
+      color: #0D60FE;
+    }
   }
-  }
-  p{
+
+  p {
     font-weight: 400;
     font-size: 20px;
     line-height: 32px;
     color: #7C7C7C;
     margin-bottom: 44px;
   }
-  .image{
+
+  .image {
     position: relative;
     width: 148%;
     z-index: -1;
-    img{
+
+    img {
       width: 100%;
-      z-index: -1 ;
+
+      z-index: -1;
     }
   }
-  .choosen{
+
+  .choosen {
     position: absolute;
     left: 0;
     width: 65%;
@@ -39,7 +47,8 @@ overflow: hidden;
     background-color: white;
     border-radius: 25px;
     z-index: 9;
-    input{
+
+    input {
       width: 100%;
       padding: 10px 16px;
       border-radius: 10px;
@@ -47,7 +56,8 @@ overflow: hidden;
       font-size: 20px;
       outline: none;
     }
-    button{
+
+    button {
       padding: 10px 20px;
       background-color: #0D60FE;
       border-radius: 15px;
@@ -57,7 +67,8 @@ overflow: hidden;
       font-size: 25px;
     }
   }
-  .plane-image{
+
+  .plane-image {
     position: absolute;
     bottom: 0;
   }

@@ -6,7 +6,7 @@ import plane from "../../../images/Plane vector 2.png"
 
 function Banner() {
     return (
-        <div className={"banner"}>
+        <div className={"banner-home"}>
             <div className={"container"}>
                 <div className={"row"}>
                     <div className={"col-6 align-content-center left"}>
@@ -17,7 +17,7 @@ function Banner() {
                            <input type={"text"} placeholder={" Hara getmək istəyirsiniz ? Şəhər, ölkə və ya tur adı daxil edin..."}/>
                             <button><CiSearch/></button>
                         </div>
-                        <img src={plane} alt="" style={{marginTop:"200px"}} className={"plane-image"}/>
+                        <img src={plane} alt="" style={{marginTop:"500px"}} className={"plane-image"}/>
                     </div>
                     <div className={"col-6"}>
                         <div className={"image"}>

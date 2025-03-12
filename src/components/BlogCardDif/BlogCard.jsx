@@ -4,7 +4,7 @@ import {GoArrowRight} from "react-icons/go";
 function BlogCard({index}) {
     return (
         <div className={"col-3"}>
-            <div className={"blog-card"}>
+            <div className={"blog-card-dif"}>
                 <div className={"image"}>
                     <img src={image} alt=""/>
                 </div>
@@ -15,7 +15,7 @@ function BlogCard({index}) {
                 }}>12.02.2025</div>
                 <h5>Təyyarə biletlərini daha ucuz necə almaq olar?</h5>
                 <p>Ən ucuz biletləri tapmaq üçün hansı günlərdə bron etməli, hansı axtarış motorlarından istifadə etməli</p>
-                <button style={{textAlign:"end"
+                <button className={"button"} style={{textAlign:"end"
                 }}>Ətraflı oxu  <GoArrowRight/></button>
             </div>
         </div>

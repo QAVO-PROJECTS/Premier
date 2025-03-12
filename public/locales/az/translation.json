@@ -1,0 +1,204 @@
+{
+  "navbar": {
+    "home": "Ana səhifə",
+    "about": "Haqqında",
+    "contact": "Əlaqə",
+    "login": "Daxil ol",
+    "register": "Qeydiyyat",
+    "logout": "Çıxış",
+    "sign": "Daxil ol",
+    "products": "Məhsullar",
+    "lang": "Dil"
+  },
+  "home": {
+    "hero": {
+      "title": "Funksiyalarla birləşdirilmiş incə dizayn",
+      "button": "İndi alın",
+      "contact": "Ekspertimizlə əlaqə saxlayın",
+      "wood": "Ağacdan stul",
+      "premium": "Premium Elit",
+      "percent": "25% ENDİRİM",
+      "explore": "Ətraflı"
+    },
+    "best": {
+      "title": "Həftənin ən çox satılanları"
+    },
+    "browse": {
+      "title": "Otaqlara görə göz atın",
+      "bedroom": "Yataq otağı",
+      "livingroom": "Qonaq otağı",
+      "walkCloset": "Giyim otağı",
+      "kitchen": "Mətbəx",
+      "products": "məhsul"
+    },
+    "topSeller": {
+      "title": "Ən çox satılan mebel"
+    },
+    "special": {
+      "title": "Xüsusi təkliflər",
+      "button": "İndi Gözdən keçirin",
+      "specialDiscount": "Xüsusi Endirim",
+      "discount": "ENDİRİM",
+      "weekly": "Həftəlik Endirim",
+      "birthday": "Doğum günü Endirimi",
+      "seeAll": "Hamısına bax"
+    },
+    "luxury": {
+      "title": "Dəbdəbəli Mebel Ən Keyfiyyətli Materiallardan Başlar",
+      "button": "Daha çox öyrənin"
+    }
+  },
+  "footer": {
+    "footerTop": {
+      "title": "Sizi gözləyən əsas yeniliklər!",
+      "description": "Abunə olun və 20% ENDİRİM əldə edin!",
+      "email": "Sizin Email *",
+      "subscribe": "Abunə ol"
+    },
+    "footerMiddle": {
+      "title": "Bizimlə əlaqə saxlayın",
+      "address": "Ünvan",
+      "phone": "Telefon",
+      "openinHours": "İş saatları",
+      "street": "Küçə adı"
+    },
+    "footerBottom": {
+      "shopCategory": {
+        "title": "Mağaza Kateqoriyaları",
+        "armchair": "Kreslolar",
+        "bed": "Çarpayılar",
+        "chairs": "Kreslolar",
+        "decor": "Dekor",
+        "sofa": "Divanlar",
+        "table": "Masalar",
+        "storage": "Saxlama"
+      },
+      "usefulLinks": {
+        "title": "Faydalı Linklər",
+        "careers": "Karyera",
+        "delivery": "Çatdırılma",
+        "help": "Yardım Mərkəzi",
+        "returns": "Qaytarmalar və Geri Ödənişlər",
+        "newsletter": "Xəbər bülleteni",
+        "status": "Vəziyyət",
+        "testimonials": "Rəylər"
+      },
+      "account": {
+        "title": "Hesab",
+        "dashboard": "İdarə paneli",
+        "wishlist": "İstək siyahısı",
+        "shipping": "Çatdırılma və Çatdırılma",
+        "affiliate": "Affiliate Proqramı",
+        "brand": "Brend Aktivləri",
+        "support": "Dəstək",
+        "recommendations": "Tövsiyələr"
+      },
+      "about": {
+        "title": "Şirkət haqqında",
+        "aboutUs": "Haqqımızda",
+        "ourPartner": "Partnyorlarımız",
+        "location": "Məkan",
+        "design": "Dizayn xidmətləri",
+        "howItWorks": "Necə işləyir",
+        "customers": "Müştərilər",
+        "otherInfo": "Digər Məlumat"
+      },
+      "copyright": "Copyright © 2025 - CreativeThemes",
+      "privacy": "Məxfilik Siyasəti",
+      "terms": "Qaydalar və Şərtlər",
+      "siteMap": "Sayt Xəritəsi"
+    }
+  },
+  "shop": {
+    "banner": {
+      "title": "Mağaza",
+      "home": "Ana səhifə",
+      "shop": "Mağaza"
+    },
+    "categorys": {
+      "armchair": "Kreslolar",
+      "bed": "Çarpayılar",
+      "chairs": "Kreslolar",
+      "decor": "Dekor",
+      "sofa": "Divanlar",
+      "table": "Masalar",
+      "storage": "Saxlama",
+      "products": "məhsul",
+      "all": "Hamısı"
+    },
+    "sort": {
+      "title": "Qiymətə görə sırala",
+      "lowToHigh": "Aşağıdan yuxarıya",
+      "highToLow": "Yuxarıdan aşağıya"
+    },
+    "search": "Axtarış..."
+  },
+  "pagination": {
+    "previous": "Əvvəlki",
+    "next": "Sonrakı"
+  },
+  "about": {
+    "banner": {
+      "title": "Bizim haqqımızda",
+      "home": "Ana səhifə",
+      "about": "Haqqımızda"
+    },
+    "ourTeam":{
+        "title":"Bizim komanda",
+        "seller":"Satıcı",
+        "manager":"Menecer",
+        "boss":"Rəhbər",
+        "bossWife":"Rəhbərin xanımı"
+    },
+    "furniture":{
+        "title":"Ömür boyu davam edəcək mebel",
+        "button":"Daha çox öyrənin"
+    }
+  },
+  "contact": {
+    "banner": {
+        "title": "Əlaqə",
+        "home": "Ana səhifə",
+        "contact": "Əlaqə"
+    },
+    "contactForm": {
+        "title": "Bizimlə Əlaqə saxlayın",
+        "name": "Adınız",
+        "email": "Email",
+        "subject": "Mövzu",
+        "message": "Mesaj",
+        "send": "Göndər",
+        "furniture":"Mebel mağazaları və salonlar",
+        "address":"Ünvan",
+        "phone":"Telefon",
+        "mail":"Email"
+    }
+  },
+  "faq":{
+    "title":"Tez-tez verilən suallar",
+    "ask1":"Telefonla sifariş edə bilərəmmi?",
+    "ask2":"Hədiyyə kartları satırsınız?",
+    "ask3":"Kataloq məhsullarını onlayn sifariş edə bilərəmmi?",
+    "ask4":"Zəmanət suallarıma kim cavab verə bilər?",
+    "ask5":"Sizə lazım olan şey yoxdur?",
+    "ask6":"Magna ac placerat vestibulum?"
+
+  },
+  "wishlist": "İstək siyahısı",
+  "basket":{
+    "title":"Səbət",
+    "product":"Məhsul",
+    "price":"Qiymət",
+    "count":"Miqdar",
+    "total":"Cəmi",
+    "setting":"Quraşdırma",
+    "promo":"Promo Kod",
+    "checkout":"Ödəniş",
+    "applyPromo":"Promo Kodu tətbiq edin",
+    "enterPromo":"Promo Kodu daxil edin",
+    "discountTotal":"Endirimli Cəm"
+  },
+  "card":{
+    "addToCart":"Səbətə əlavə et"
+  }
+}

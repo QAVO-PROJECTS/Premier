@@ -16,7 +16,6 @@ import sponsor12 from "../../../sponsor Image/Lufthansa-Logo 1.png";
 import sponsor13 from "../../../sponsor Image/Pegasus_Airlines-Logo.wine 1.png";
 import sponsor14 from "../../../sponsor Image/Qatar_Airways-Logo.wine 1.png";
 import sponsor15 from "../../../sponsor Image/Turkish_Airlines_logo_2019_compact.svg 1.png";
-import sponsor16 from "../../../sponsor Image/Utair_logo.svg 1.png";
 import sponsor17 from "../../../sponsor Image/Vueling-Logo.wine 1.png";
 import sponsor18 from "../../../sponsor Image/Wizz_Air-Logowine 1.png";
 
@@ -24,7 +23,7 @@ import sponsor18 from "../../../sponsor Image/Wizz_Air-Logowine 1.png";
 const sponsorImages = [
     sponsor1, sponsor2, sponsor3, sponsor4, sponsor5, sponsor6,
     sponsor7, sponsor8, sponsor9, sponsor10, sponsor11, sponsor12,
-    sponsor13, sponsor14, sponsor15, sponsor16, sponsor17, sponsor18,
+    sponsor13, sponsor14, sponsor15, sponsor17, sponsor18,
 ];
 
 

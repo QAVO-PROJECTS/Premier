@@ -46,7 +46,7 @@ const Navbar = () => {
                                 </a>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <Link className="dropdown-item">
+                                        <Link className="dropdown-item" to={'/tours'}>
                                              Ölkədaxili
                                         </Link>
                                     </li>

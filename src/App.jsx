@@ -6,7 +6,12 @@ import Contact from "./pages/Contact/Contact.jsx";
 import Blogs from "./pages/Blogs/Blogs.jsx";
 import About from "./pages/About/About.jsx";
 import Services from "./pages/Services/Services.jsx";
-
+import Tours from "./pages/Tours/Tours.jsx";
+import NotFound from "./pages/Not Found/NotFound.jsx";
+import './App.css'
+import {ThreeDots} from "react-loader-spinner";
+import StartPage from "./pages/StartPage/StartPage.jsx";
+import TourDetail from "./pages/Tour Detail Page/TourDetail.jsx";
 const App = () => {
     const router = createBrowserRouter([
         {
@@ -32,8 +37,20 @@ const App = () => {
                 {
                     path:"/services",
                     element:<Services/>
+                },
+                {
+                    path:"/tours",
+                    element:<Tours/>
+                },
+                {
+                    path:"/tours/:tourId",
+                    element:<TourDetail/>
                 }
             ]
+        },
+        {
+            path:"*",
+            element:<NotFound/>
         }
     ])
 
@@ -41,6 +58,7 @@ const App = () => {
     return (
         <div>
             <RouterProvider router={router}/>
+            {/*<StartPage/>*/}
         </div>
     )
 }

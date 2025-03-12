@@ -1,6 +1,6 @@
 import React from 'react';
 import "./review.scss"
-import plane from  "../../../images/Plane vector.png"
+import plane from  "../../../images/airp.png"
 import CurvedSlider from "../../../components/CurvedSlider/CurvedSlider.jsx";
 function Review() {
     return (
@@ -14,7 +14,7 @@ function Review() {
 
                 </div>
                 <div className={"text-center"}>
-                    <img src={plane} alt=""/>
+                    <img src={plane} alt="" />
                 </div>
             </div>
         </div>
