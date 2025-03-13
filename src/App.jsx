@@ -9,10 +9,19 @@ import Services from "./pages/Services/Services.jsx";
 import Tours from "./pages/Tours/Tours.jsx";
 import NotFound from "./pages/Not Found/NotFound.jsx";
 import './App.css'
-import {ThreeDots} from "react-loader-spinner";
-import StartPage from "./pages/StartPage/StartPage.jsx";
 import TourDetail from "./pages/Tour Detail Page/TourDetail.jsx";
+import Admin from "./Admin/Admin.jsx";
+import Cookies from "js-cookie";
+import AdminBlog from "./Admin/Admin Blog/AdminBlog.jsx";
+import AdminCity from "./Admin/Admin City/AdminCity.jsx";
+import AdminCountry from "./Admin/Admin Country/AdminCountry.jsx";
+import AdminCustomerView from "./Admin/Admin Customer View/AdminCustomerView.jsx";
 const App = () => {
+    const token = Cookies.get("premierTourToken");
+
+    if (!token) {
+        Cookies.set("premierTourToken", "null");
+    }
     const router = createBrowserRouter([
         {
             path: '/',
@@ -51,6 +60,26 @@ const App = () => {
         {
             path:"*",
             element:<NotFound/>
+        },
+        {
+            path:"/admin",
+            element:<Admin/>,
+        },
+        {
+            path:"/admin/blog",
+            element:<AdminBlog/>,
+        },
+        {
+            path:"/admin/cities",
+            element:<AdminCity/>,
+        },
+        {
+            path:"/admin/countries",
+            element:<AdminCountry/>,
+        },
+        {
+            path:"/admin/customersViews",
+            element:<AdminCustomerView/>
         }
     ])
 
@@ -59,6 +88,7 @@ const App = () => {
         <div>
             <RouterProvider router={router}/>
             {/*<StartPage/>*/}
+
         </div>
     )
 }
