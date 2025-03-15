@@ -1,0 +1,16 @@
+.start-page-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(215,233,255,1) 0%, rgba(215,233,255,0) 50%, rgba(215,233,255,1) 100%);
+  background-size: 100% 100%;
+
+  img {
+    width: 250px;
+  }
+}

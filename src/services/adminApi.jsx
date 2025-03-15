@@ -13,6 +13,14 @@ export const adminApi = createApi({
             },
         }),
         endpoints: (builder) => ({
+            postAdminLogin: builder.mutation({
+                query: (admin) => ({
+                    url: `/Admin/login`,
+                    method: 'POST',
+                    body: admin,
+                    headers: {'Content-Type': 'application/json'}
+                }),
+            }),
             getAllBlogs: builder.query({
                 query: () => ({
                     url: `/Blog/get-all-blogs`,
@@ -120,6 +128,31 @@ export const adminApi = createApi({
                     method: 'DELETE',
                 }),
             }),
+            getAllTours: builder.query({
+                query: () => ({
+                    url: `/Tour/get-all-tours`,
+                }),
+            }),
+            postTour: builder.mutation({
+                query: (data) => ({
+                    url: `/Tour/create-tour`,
+                    method: 'POST',
+                    body: data,
+                }),
+            }),
+            putTour: builder.mutation({
+                query: (customerData) => ({
+                    url: `/Tour/update-tour`,
+                    method: 'PUT',
+                    body: customerData,
+                }),
+            }),
+            deleteTour: builder.mutation({
+                query: (id) => ({
+                    url: `/Tour/delete-tour/${id}`,
+                    method: 'DELETE',
+                }),
+            }),
         }),
     })
 
@@ -129,16 +162,26 @@ export const {
     useGetBlogByIdQuery,
     usePutBlogMutation,
     useDeleteBlogMutation,
+
     useGetAllCitiesQuery,
     usePostCityMutation,
     usePutCityMutation,
     useDeleteCityMutation,
+
     useGetAllCountriesQuery,
     usePostCountryMutation,
     usePutCountryMutation,
     useDeleteCountryMutation,
+
     useGetAllCustomerViewsQuery,
     usePostCustomerViewMutation,
     usePutCustomerViewMutation,
     useDeleteCustomerViewMutation,
+
+    useGetAllToursQuery,
+    usePostTourMutation,
+    usePutTourMutation,
+    useDeleteTourMutation,
+
+    usePostAdminLoginMutation,
 } = adminApi
