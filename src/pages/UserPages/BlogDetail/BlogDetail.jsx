@@ -4,6 +4,7 @@ import {FiCopy} from "react-icons/fi";
 import {FaArrowRightLong, FaXTwitter} from "react-icons/fa6";
 import {FaFacebook, FaLinkedin} from "react-icons/fa";
 import image1 from "../../../assets/contentIage.jpg"
+import BlogDetailCard from "../../../components/UserComponents/BlogDetailCard/BlogDetailCard.jsx";
 function BlogDetail() {
     return (
         <div id={"blog-detail"}>
@@ -86,7 +87,8 @@ function BlogDetail() {
                     </div>
                     <p>Dünyanı kəşf etməyə hazırsınız? Səyahət hekayələri, faydalı məsləhətlər və unudulmaz məkanlar haqqında yazılar burada!</p>
                     <div className={"row gy-3"}>
-
+                        <BlogDetailCard/>
+                        <BlogDetailCard/>
                     </div>
                 </div>
             </div>

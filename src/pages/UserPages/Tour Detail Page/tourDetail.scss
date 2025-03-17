@@ -187,3 +187,20 @@
   }
 
 }
+// Desktop ve mobil görünürlük ayarları
+@media (max-width: 767.98px) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}

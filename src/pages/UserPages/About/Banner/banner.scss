@@ -57,10 +57,10 @@
   .banner-image {
     width: 100%;
     position: absolute;
-    top: -130px;
+    top: -20px;
     z-index: -1;
     @media (max-width: 1200px) {
-      // Buraya ek responsive özellikler eklenebilir
+
     }
     @media (max-width: 768px) {
       height: 700px;

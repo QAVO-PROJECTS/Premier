@@ -1,153 +1,91 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import './navbar.scss';
 import { Link } from "react-router-dom";
-import aze from "../../../assets/azerbaijan.png";
-import rus from "../../../assets/circle.png";
-import eng from "../../../assets/uk.png";
-import logo from "../../../assets/Logo Esas.png";
-import "./navbar.scss";
 
-const Navbar = () => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-    const lang = "eng";
+import flagAz from '/src/assets/azerbaijan.png';
+import flagEn from '/src/assets/uk.png';
+import flagRu from '/src/assets/circle.png';
+import image1 from '/src/assets/Logo Esas.png';
+import { FaChevronDown } from "react-icons/fa";
 
-    const toggleDropdown = () => {
-        setIsDropdownOpen((prev) => !prev);
+function Navbar() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+    const [toursDropdownOpen, setToursDropdownOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
     };
 
-    const toggleBurger = () => {
-        setIsBurgerOpen((prev) => {
-            const newState = !prev;
-            console.log(newState);
-            return newState;
-        });
+    const toggleLangDropdown = () => {
+        setLangDropdownOpen(!langDropdownOpen);
+    };
+
+    const toggleToursDropdown = () => {
+        setToursDropdownOpen(!toursDropdownOpen);
     };
 
     return (
-        <div className="navbar-sec">
-            <nav className="navbar navbar-expand-md" aria-label="Fourth navbar example">
-                <div className="container p-0">
-                    <a className="navbar-brand" href="#">
-                        <img src={logo} alt="Logo" style={{ width: "150px", height: "65px" }} />
-                    </a>
-                    <button
-                        className="navbar-toggler"
-                        type="button"
-                        onClick={toggleBurger}
-                    >
-                        <span className="navbar-toggler-icon" />
-                    </button>
-                    <div
-                        className={`collapse navbar-collapse ${isBurgerOpen ? "show" : ""}`}
-                        id="navbarsExample04"
-                        style={{ backgroundColor: "white" }}
-                    >
-                        <ul className="navbar-nav m-auto mb-2 mb-md-0 gap-3">
-                            <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/">
-                                    Home
-                                </Link>
-                            </li>
-                            <li className="nav-item dropdown">
-                                <a
-                                    className="nav-link dropdown-toggle"
-                                    href="#"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    Tours
-                                </a>
-                                <ul className="dropdown-menu">
-                                    <li>
-                                        <Link className="dropdown-item" to="/tours">
-                                            Ölkədaxili
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link className="dropdown-item" to="/tours">
-                                            Ölkəxarici
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/about">
-                                    About
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/contact">
-                                    Contact
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/blog">
-                                    Blog
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/services">
-                                    Services
-                                </Link>
-                            </li>
-                        </ul>
+        <section id="myNavbar">
+            <div className="container">
+                <div className="wrapper">
+                    <div className="logo">
+                        <img src={image1} alt="Logo"/>
                     </div>
-                    <div
-                        className="nav-item dropdown"
-                        style={{
-                            cursor: "pointer"
-                        }}
-                    >
-                        <div className="nav-link dropdown-toggle" onClick={toggleDropdown}>
-                            {lang === "aze" ? (
-                                <img src={aze} alt="AZE" style={{ width: "30px", height: "30px" }} />
-                            ) : lang === "eng" ? (
-                                <img src={eng} alt="ENG" style={{ width: "30px", height: "30px" }} />
-                            ) : lang === "rus" ? (
-                                <img src={rus} alt="RUS" style={{ width: "30px", height: "30px" }} />
-                            ) : (
-                                ""
-                            )}
+                    <nav className={`nav-links ${menuOpen ? 'active' : ''}`}>
+                        <Link to="/" className="link">Home</Link>
+                        <div className="dropdown tours-dropdown">
+                            <button className="dropbtn link" onClick={toggleToursDropdown} style={{
+                                fontStyle: '23px !important',
+                            }}>
+                                Tours <FaChevronDown/>
+                            </button>
+                            <div className={`dropdown-content ${toursDropdownOpen ? 'show' : ''}`}>
+                                <div>
+                                    <Link to={"/tours"}>Ölkədaxili</Link>
+                                </div>
+                                <div>
+                                    <Link to={""}>Ölkəxarici</Link>
+                                </div>
+                            </div>
                         </div>
-                        {isDropdownOpen && (
-                            <ul className="dropdown-menu show">
-                                <li>
-                                    <Link className="dropdown-item">
-                                        <img
-                                            src={aze}
-                                            alt="AZE"
-                                            style={{ width: "30px", height: "30px", marginRight: "10px" }}
-                                        />{" "}
-                                        AZE
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link className="dropdown-item">
-                                        <img
-                                            src={rus}
-                                            alt="RUS"
-                                            style={{ width: "30px", height: "30px", marginRight: "10px" }}
-                                        />{" "}
-                                        RUS
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link className="dropdown-item">
-                                        <img
-                                            src={eng}
-                                            alt="ENG"
-                                            style={{ width: "30px", height: "30px", marginRight: "10px" }}
-                                        />{" "}
-                                        ENG
-                                    </Link>
-                                </li>
-                            </ul>
-                        )}
+                        <Link to="/about" className="link">About</Link>
+                        <Link to="/contact" className="link">Contact</Link>
+                        <Link to="/blog" className="link">Blogs</Link>
+                        <Link to="/services" className="link">Services</Link>
+                    </nav>
+                    <div className="language">
+                        <div className="dropdown" onClick={toggleLangDropdown}>
+                            <button className="dropbtn">
+                                <img src={flagAz} alt="AZ Flag"/>
+                                <FaChevronDown/>
+                            </button>
+                            <div className={`dropdown-content ${langDropdownOpen ? 'show' : ''}`}>
+                                <div>
+                                    <img src={flagAz} alt="AZ"/>
+                                    AZ
+                                </div>
+                                <div>
+                                    <img src={flagEn} alt="EN"/>
+                                    EN
+                                </div>
+                                <div>
+                                    <img src={flagRu} alt="RU"/>
+                                    RU
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Hamburger menü */}
+                    <div className="burger" onClick={toggleMenu}>
+                        <div className="line1"></div>
+                        <div className="line2"></div>
+                        <div className="line3"></div>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </section>
     );
-};
+}
 
 export default Navbar;

@@ -1,15 +1,201 @@
-.navbar-sec{
-  padding: 0 16px;
-  align-content: center;
-  border-bottom: 1px solid #74747440;
+#myNavbar {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 16px;
   position: fixed;
-  width: 100%;
-  z-index: 999;
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  z-index: 1000;
   background-color: white;
-  li{
-    font-size: 20px;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo img {
+      width: 200px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+
+      .link {
+        margin: 0 20px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #5F5F5F;
+        font-weight: 500;
+      }
+
+      .dropdown {
+        position: relative;
+        cursor: pointer;
+
+        .dropbtn {
+          background: none;
+          border: none;
+          font-size: 20px;
+          color: #5F5F5F;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+
+          svg {
+            margin-left: 5px;
+          }
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          background-color: white;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+          transition: opacity 0.3s ease, max-height 0.3s ease;
+          opacity: 0;
+          max-height: 0;
+          overflow: hidden;
+          z-index: 1001;
+          border-radius: 10px;
+          width: 200px;
+
+          div {
+            padding: 10px 32px;
+            font-size: 20px;
+            border-bottom: 1px solid #ececec;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #f1f1f1;
+            }
+          }
+        }
+
+        .dropdown-content.show {
+          display: block;
+          opacity: 1;
+          max-height: 200px; // Ayarlanabilir yükseklik
+        }
+      }
+    }
+
+    .language {
+      position: relative;
+
+      .dropdown {
+        position: relative;
+        cursor: pointer;
+
+        .dropbtn {
+          background: none;
+          border: none;
+          font-size: 16px;
+
+          img {
+            width: 30px;
+            margin-right: 10px;
+          }
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          right: 0;
+          background-color: white;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+          transition: opacity 0.3s ease;
+          opacity: 0;
+          z-index: 1001;
+          top: 60px;
+          border-radius: 10px;
+
+          div {
+            padding: 10px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-size: 20px;
+            gap: 16px;
+            border-bottom: 1px solid #ececec;
+
+            img {
+              width: 30px;
+              margin-right: 8px;
+            }
+
+            &:hover {
+              background-color: #f1f1f1;
+            }
+          }
+        }
+
+        .dropdown-content.show {
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+
+    .burger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+
+      div {
+        height: 3px;
+        background-color: black;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 970px) {
+  #myNavbar {
+    .wrapper {
+      .logo {
+        img {
+          width: 150px;
+        }
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: white;
+        overflow: hidden;
+        max-height: 0;
+        margin-top: 20px;
+
+        .link,
+        .dropdown {
+          margin-top: 10px;
+          margin-bottom: 5px;
+          font-size: 23px;
+          font-weight: 500;
+          color: #5F5F5F;
+        }
+      }
+
+      .nav-links.active {
+        max-height: 300px;
+      }
+
+      .burger {
+        display: flex;
+      }
+    }
   }
 }
