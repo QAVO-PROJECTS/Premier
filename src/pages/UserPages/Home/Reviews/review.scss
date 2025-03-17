@@ -1,7 +1,9 @@
 .review {
   padding: 100px 0 130px;
     overflow-x: hidden;
-
+  .reviewImg{
+    width: 100%;
+  }
   .container {
     overflow-x: hidden;
     .title {

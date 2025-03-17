@@ -16,6 +16,7 @@ import MainPage from "../pages/MainPage/index.jsx";
 import AdminPage from "../components/AdminComponents/AdminPage/index.jsx";
 import AdminLogin from "../pages/AdminPages/Admin Login/index.jsx";
 import ProtectedRoute from "../ProtectedRoute.jsx";
+import BlogDetail from "../pages/UserPages/BlogDetail/BlogDetail.jsx";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
             {
                 path: "/tours/:tourId",
                 element: <TourDetail />
+            },
+            {
+                path: "/blogs/:blogId",
+                element: <BlogDetail/>
             }
         ]
     },

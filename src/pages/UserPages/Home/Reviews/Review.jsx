@@ -14,7 +14,7 @@ function Review() {
 
                 </div>
                 <div className={"text-center"}>
-                    <img src={plane} alt="" />
+                    <img src={plane} alt="" className={"reviewImg"} />
                 </div>
             </div>
         </div>

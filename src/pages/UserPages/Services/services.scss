@@ -1,16 +1,18 @@
 .services {
   padding: 0 0 100px;
-  .servis-card{
+
+  .servis-card {
     text-align: center;
     box-shadow: 1px 1px 22.9px 9px #97979729;
     padding: 80px 40px 60px;
     position: relative;
     border-radius: 12px;
-    transition: all .3s ease-in-out;
-    .servis-card-icon{
+    transition: all 0.3s ease-in-out;
+
+    .servis-card-icon {
       width: 165px;
       height: 165px;
-      left: 127px;
+      left: 35%;
       gap: 10px;
       border-radius: 12px;
       padding: 38px 52px 52px 52px;
@@ -18,23 +20,44 @@
       position: absolute;
       top: -35%;
       background-color: white;
-      font-size: 55px;
+      font-size: 55px; // LG ölçü
       color: #0D60FE;
+
+
     }
-    h5{
+
+    h5 {
       font-weight: 500;
-      font-size: 30px;
+      font-size: 30px; // LG
       line-height: 100%;
       margin-bottom: 16px;
+
+      @media (max-width: 991.98px) {
+        font-size: 25px;
+      }
+      @media (max-width: 767.98px) {
+        font-size: 20px;
+      }
     }
-    p{
+
+    p {
       font-weight: 400;
-      font-size: 18px;
+      font-size: 18px; // LG
       line-height: 30px;
       margin-bottom: 30px;
       color: #7C7C7C;
+
+      @media (max-width: 991.98px) {
+        font-size: 16px;
+        line-height: 28px;
+      }
+      @media (max-width: 767.98px) {
+        font-size: 14px;
+        line-height: 24px;
+      }
     }
-    button{
+
+    button {
       width: 68px;
       height: 68px;
       gap: 10px;
@@ -42,33 +65,83 @@
       border: none;
       background: white;
       box-shadow: 1px 1px 19.2px 1px #0D60FE2B;
-      a{
+
+      a {
         color: #0D60FE;
-        font-size: 30px;
-      }
-      .icon{
-        margin-top: -3px;
+        font-size: 30px; // LG
+        @media (max-width: 991.98px) {
+          font-size: 25px;
+        }
+        @media (max-width: 767.98px) {
+          font-size: 20px;
+        }
       }
 
+      .icon {
+        margin-top: -3px;
+      }
     }
-  &:hover{
-    background-color: #F3F7FF;
+
+    &:hover {
+      background-color: #F3F7FF;
+    }
   }
-  }
-  .services-more{
+
+  .services-more {
     padding: 0 175px;
-    h3{
+    @media (max-width: 991.98px) {
+      padding: 0;
+    }
+    @media (max-width: 767.98px) {
+      padding: 0;
+    }
+
+    h3 {
       font-weight: 500;
-      font-size: 30px;
+      font-size: 30px; // LG
       line-height: 38px;
       margin-bottom: 24px;
+
+      @media (max-width: 991.98px) {
+        font-size: 25px;
+        line-height: 34px;
+      }
+      @media (max-width: 767.98px) {
+        font-size: 20px;
+        line-height: 30px;
+      }
     }
-    p{
+
+    p {
       font-weight: 400;
-      font-size: 20px;
+      font-size: 20px; // LG
       line-height: 35px;
       color: #535862;
       margin-bottom: 70px;
+
+      @media (max-width: 991.98px) {
+        font-size: 18px;
+        line-height: 32px;
+      }
+      @media (max-width: 767.98px) {
+        font-size: 16px;
+        line-height: 28px;
+      }
+    }
+  }
+  .banner{
+    position: relative;
+    .servis-banner-image{
+      width: 100%;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      @media (max-width: 991.98px) {
+        height: 1100px;
+      }
+      @media (max-width: 767.98px) {
+        height: 500px;
+      }
     }
   }
 }

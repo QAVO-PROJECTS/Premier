@@ -11,11 +11,11 @@ function ReserveModal({ open, setOpen }) {
                     <h2>Formanı dolduraraq rezervasiya edin</h2>
                     <form>
                         <div className="row">
-                            <div className="col-6">
+                            <div className="col-lg-6">
                                 <label>Adınız</label>
                                 <input type="text" placeholder="Ad" required />
                             </div>
-                            <div className="col-6">
+                            <div className="col-lg-6">
                                 <label>Soyadınız</label>
                                 <input type="text" placeholder="Soyad" required />
                             </div>

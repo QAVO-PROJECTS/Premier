@@ -1,29 +1,65 @@
 .banner-home {
   padding: 100px 0 100px;
   overflow: hidden;
-
+  position: relative;
+  @media (max-width: 991.98px) {
+    height: 700px;
+  }
+  @media (max-width: 767.98px) {
+    height: 700px;
+  }
   .container {
     position: relative;
   }
-
+  .home-banner{
+    position: absolute;
+    top: -10%;
+    width: 100%;
+    z-index: -1;
+  }
   h1 {
     font-weight: 700;
     width: 90%;
-    font-size: 48px;
-    line-height: 72px;
+    font-size: 48px; // LG ölçü
+    line-height: 72px; // LG ölçü
+
+    @media (max-width: 991.98px) { // MD ölçü
+      font-size: 40px;
+      line-height: 60px;
+    }
+    @media (max-width: 767.98px) { // SM ölçü
+      font-size: 34px;
+      line-height: 52px;
+    }
 
     span {
-      font-size: 48px;
+      font-size: 48px; // LG ölçü
       color: #0D60FE;
+
+      @media (max-width: 991.98px) {
+        font-size: 40px;
+      }
+      @media (max-width: 767.98px) {
+        font-size: 34px;
+      }
     }
   }
 
   p {
     font-weight: 400;
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 20px; // LG ölçü
+    line-height: 32px; // LG ölçü
     color: #7C7C7C;
     margin-bottom: 44px;
+
+    @media (max-width: 991.98px) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+    @media (max-width: 767.98px) {
+      font-size: 16px;
+      line-height: 26px;
+    }
   }
 
   .image {
@@ -33,7 +69,6 @@
 
     img {
       width: 100%;
-
       z-index: -1;
     }
   }
@@ -47,14 +82,27 @@
     background-color: white;
     border-radius: 25px;
     z-index: 9;
+    @media (max-width: 991.98px) {
+      width: 100%;
+    }
+    @media (max-width: 767.98px) {
+      width: 100%;
+    }
 
     input {
       width: 100%;
       padding: 10px 16px;
       border-radius: 10px;
       border: none;
-      font-size: 20px;
+      font-size: 20px; // LG ölçü
       outline: none;
+
+      @media (max-width: 991.98px) {
+        font-size: 18px;
+      }
+      @media (max-width: 767.98px) {
+        font-size: 16px;
+      }
     }
 
     button {
@@ -64,12 +112,28 @@
       color: white;
       font-weight: 900;
       border: none;
-      font-size: 25px;
+      font-size: 25px; // LG ölçü
+
+      @media (max-width: 991.98px) {
+        font-size: 22px;
+      }
+      @media (max-width: 767.98px) {
+        font-size: 20px;
+      }
     }
   }
 
   .plane-image {
     position: absolute;
     bottom: 0;
+    margin-top:500px;
+    @media (max-width: 991.98px) {
+      bottom: -125%;
+      width: 100%;
+    }
+    @media (max-width: 767.98px) {
+      bottom: -125%;
+      width: 100%;
+    }
   }
 }

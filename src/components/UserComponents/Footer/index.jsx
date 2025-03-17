@@ -8,7 +8,7 @@ const Footer = () => {
     <div className={"footer"}>
       <div className="container">
         <div className={"row gy-5"}>
-            <div className={"col-4"}>
+            <div className={"col-lg-4 col-md-6"}>
              <div className={"footer-content"}>
                <img src={logo} alt="" style={{width:"150px",height:"65px"}}/>
                <p> Dünyanı kəşf etmək, yeni təcrübələr yaşamaq və yaddaqalan anlar yaratmaq üçün mükəmməl səyahət seçimidir."</p>
@@ -19,9 +19,9 @@ const Footer = () => {
                </div>
              </div>
             </div>
-            <div className={"col-7"}>
+            <div className={"col-lg-7 col-md-6"}>
               <div className={"row"}>
-                <div className={"col-4"}>
+                <div className={"col-lg-4 col-md-6"}>
                   <div className={"footer-service"}>
                     <h3>Keçidlər</h3>
                     <li>Ana səhifə</li>
@@ -30,7 +30,7 @@ const Footer = () => {
                     <li>Əlaqə</li>
                   </div>
                 </div>
-                <div className={"col-4"}>
+                <div className={"col-lg-4 col-md-6"}>
                   <div className={"footer-service"}>
                     <h3>Şərtlər və Qaydalar</h3>
                     <li>Rezervasiya və ödənişlər</li>
@@ -39,7 +39,7 @@ const Footer = () => {
                     <li>Müştəri Məsuliyyəti</li>
                   </div>
                 </div>
-                <div className={"col-4"}>
+                <div className={"col-lg-4 col-md-6"}>
                   <div className={"footer-service"}>
                     <h3>Əlaqə məlumatları</h3>
                     <li>+994 70 654 34 98</li>

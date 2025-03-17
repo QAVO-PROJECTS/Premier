@@ -3,7 +3,7 @@ import "./index.scss"
 import {GoArrowRight} from "react-icons/go";
 function BlogCardDif({index}) {
     return (
-        <div className={"col-3"}>
+        <div className={"col-lg-3 col-md-6"}>
             <div className={"blog-card-dif"}>
                 <div className={"image"}>
                     <img src={image} alt=""/>

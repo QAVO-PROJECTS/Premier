@@ -14,15 +14,15 @@ function TourBlog() {
 
     useEffect(() => {
         if (swiperInstance && prevRef.current && nextRef.current) {
-            // Navigation düymələrinin elementlərini yenidən təyin edirik
+            // Yenidən navigation düymələrinin elementlərini təyin edirik
             swiperInstance.params.navigation.prevEl = prevRef.current;
             swiperInstance.params.navigation.nextEl = nextRef.current;
-            // Əvvəlki navigation instance-nu yox edərək yenidən initialize edirik
+            // Mövcud navigation instance-ni yenidən initialize edirik
             swiperInstance.navigation.destroy();
             swiperInstance.navigation.init();
             swiperInstance.navigation.update();
         }
-    }, [swiperInstance, prevRef.current, nextRef.current]);
+    }, [swiperInstance]);
 
     return (
         <div className="tour-blog">
@@ -30,9 +30,11 @@ function TourBlog() {
                 <div className="head">
                     <div className="title">
                         <h2>Səyahət Bloqu</h2>
-                        <p>Dünyanı kəşf etməyə hazırsınız? Səyahət hekayələri, faydalı məsləhətlər və unudulmaz məkanlar haqqında yazılar burada!</p>
+                        <p>
+                            Dünyanı kəşf etməyə hazırsınız? Səyahət hekayələri, faydalı məsləhətlər və unudulmaz məkanlar haqqında yazılar burada!
+                        </p>
                     </div>
-                    <button>
+                    <button className={"d-none d-md-block"}>
                         Hamısına bax <FaArrowRightLong />
                     </button>
                 </div>
@@ -40,15 +42,33 @@ function TourBlog() {
                 <div className="row slider-row">
                     <Swiper
                         onSwiper={setSwiperInstance}
-                        slidesPerView={4}
+                        breakpoints={{
+                            0: {
+                                slidesPerView: 1,
+                            },
+                            768: {
+                                slidesPerView: 2,
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                            },
+                            1440: {
+                                slidesPerView: 4,
+                            },
+                        }}
                         spaceBetween={30}
                         grabCursor={true}
                         navigation={{
                             prevEl: prevRef.current,
-                            nextEl: nextRef.current
+                            nextEl: nextRef.current,
                         }}
                         modules={[Navigation]}
                         className="mySwiper"
+                        onBeforeInit={(swiper) => {
+                            // Bu callback sayəsində navigation elementləri ilkin olaraq təyin edilir
+                            swiper.params.navigation.prevEl = prevRef.current;
+                            swiper.params.navigation.nextEl = nextRef.current;
+                        }}
                     >
                         {arr.map((item, index) => (
                             <SwiperSlide key={index}>

@@ -17,18 +17,18 @@ function Contact() {
                     <h2>Bizimlə Əlaqə</h2>
                     <p>Səyahətinizlə bağlı suallarınız var? Elə indi bizimlə əlaqə saxlayın və xəyalınızdakı turu birlikdə gerçəkləşdirək</p>
                 </div>
-                <div className={"row gx-5"}>
-                    <div className={"col-6"}>
+                <div className={"row gx-5 gy-5"}>
+                    <div className={"col-lg-6 col-md-6"}>
                         <div className={"form"}>
                             <h2>Formanı dolduraraq bizimlə əlaqə saxlayın</h2>
                             <form>
 
                                 <div className={"row"}>
-                                    <div className={'col-6'}>
+                                    <div className={'col-lg-6 '}>
                                         <label>Adınız</label>
                                         <input type="text" placeholder="Ad" required/>
                                     </div>
-                                    <div className={"col-6"}>
+                                    <div className={"col-lg-6  "}>
                                         <label>Soyadınız</label>
                                         <input type="text" placeholder="Soyad" required/>
                                     </div>
@@ -49,7 +49,7 @@ function Contact() {
                             </form>
                         </div>
                     </div>
-                    <div className={"col-6"}>
+                    <div className={"col-lg-6 col-md-6"}>
                         <div className={"contact-part"}>
                             <div className={"header"}>
                                 <h5>Sosyal Medya:</h5>
@@ -61,7 +61,7 @@ function Contact() {
                                 </div>
                             </div>
                             <div className={"row gy-4"}>
-                                <div className={"col-6"}>
+                                <div className={"col-lg-6"}>
                                     <div className={"contact-card"}>
                                         <div className={"icon blue"}>
                                             <MdLocationOn />
@@ -72,7 +72,7 @@ function Contact() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={"col-6"}>
+                                <div className={"col-lg-6"}>
                                     <div className={"contact-card"}>
                                         <div className={"icon orange"}>
                                             <FaPhone />
@@ -83,7 +83,7 @@ function Contact() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={"col-6"}>
+                                <div className={"col-lg-6"}>
                                     <div className={"contact-card"}>
                                         <div className={"icon green"}>
                                             <RiMailOpenFill />
@@ -94,7 +94,7 @@ function Contact() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={"col-6"}>
+                                <div className={"col-lg-6"}>
                                     <div className={"contact-card"}>
                                         <div className={"icon purple"}>
                                             <MdWatchLater />

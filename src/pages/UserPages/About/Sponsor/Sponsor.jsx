@@ -5,7 +5,7 @@ import sponsor1 from "../../../../assets/sponsor Image/Air_Arabia-Logo.wine 1.pn
 import sponsor2 from "../../../../assets/sponsor Image/Air_Astana-Logo.wine 1.png";
 import sponsor3 from "../../../../assets/sponsor Image/Air_France-Logo.wine 1.png";
 import sponsor4 from "../../../../assets/sponsor Image/AJet_logo.svg 1.png";
-import sponsor5 from "../../../../assets/sponsor Image/Austrian_Airlines\'_logo_(2018) 1.png";
+import sponsor5 from "../../../../assets/sponsor Image/Austrian_Airlines'_logo_(2018) 1.png"
 import sponsor6 from "../../../../assets/sponsor Image/Azerbaijan_Airlines-Logo.wine 1.png";
 import sponsor7 from "../../../../assets/sponsor Image/British_Airways-Logo.wine 1.png";
 import sponsor8 from "../../../../assets/sponsor Image/czech-airlines-thumb 1.png";
@@ -16,7 +16,6 @@ import sponsor12 from "../../../../assets/sponsor Image/Lufthansa-Logo 1.png";
 import sponsor13 from "../../../../assets/sponsor Image/Pegasus_Airlines-Logo.wine 1.png";
 import sponsor14 from "../../../../assets/sponsor Image/Qatar_Airways-Logo.wine 1.png";
 import sponsor15 from "../../../../assets/sponsor Image/Turkish_Airlines_logo_2019_compact.svg 1.png";
-import sponsor16 from "../../../../assets/sponsor Image/Utair_logo.svg 1.png";
 import sponsor17 from "../../../../assets/sponsor Image/Vueling-Logo.wine 1.png";
 import sponsor18 from "../../../../assets/sponsor Image/Wizz_Air-Logowine 1.png";
 

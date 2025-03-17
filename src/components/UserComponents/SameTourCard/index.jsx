@@ -3,10 +3,11 @@ import image2 from '/src/assets/cover.png'
 import image3 from '/src/assets/cover1.png'
 import image4 from "/src/assets/Vector 14.png"
 import {IoArrowBack} from "react-icons/io5";
+import image from "/src/assets/tour.jpg"
 
-function SameTourCard({title,image,index}) {
+function SameTourCard({title,asdasd,index}) {
     return (
-        <div className={"col-4"}>
+        <div className={"col-lg-4 col-md-6 "}>
             <section id={"sameTourCard"}>
                 <img src={image} alt={"Image"} className={"cardImage"}/>
                 <img src={image2} alt={"Image"} className={"posBotLeft"}/>

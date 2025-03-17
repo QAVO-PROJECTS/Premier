@@ -15,12 +15,12 @@ function NewBlog() {
                     <h2>Ən Yeni</h2>
                 </div>
                 <div className={"row"}>
-                    <div className={"col-6"}>
+                    <div className={"col-lg-6"}>
                         <div className={"image"}>
                             <img src={image} alt=""/>
                         </div>
                     </div>
-                    <div className={"col-6"}>
+                    <div className={"col-lg-6"}>
                         <div className={"text"}>
                             <div className={"date"}>
                                 02.03.2025

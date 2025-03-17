@@ -4,9 +4,19 @@
     margin-bottom: 80px;
     p{
       font-weight: 400;
-      font-size: 18px;
+      font-size: 18px; // LG ölçü
       line-height: 21.48px;
       color: #7C7C7C;
+
+      @media (max-width: 991.98px) { // MD ölçü
+        font-size: 16px;
+        line-height: 19.1px;
+      }
+      @media (max-width: 767.98px) { // SM ölçü
+        font-size: 14px;
+        line-height: 16.7px;
+      }
+
       span{
         color: #2F2F2F;
       }
@@ -33,9 +43,15 @@
       margin-left: 25px;
       margin-bottom: 0;
       font-weight: 700;
-      font-size: 28px;
+      font-size: 28px; // LG ölçü
       line-height: 100%;
 
+      @media (max-width: 991.98px) { // MD ölçü
+        font-size: 24px;
+      }
+      @media (max-width: 767.98px) { // SM ölçü
+        font-size: 20px;
+      }
     }
   }
   .image{
@@ -58,22 +74,48 @@
     }
     h3{
       font-weight: 700;
-      font-size: 22px;
+      font-size: 22px; // LG ölçü
       line-height: 36px;
       margin-bottom: 24px;
+
+      @media (max-width: 991.98px) { // MD ölçü
+        font-size: 20px;
+        line-height: 33px;
+      }
+      @media (max-width: 767.98px) { // SM ölçü
+        font-size: 18px;
+        line-height: 30px;
+      }
     }
     p{
       font-weight: 400;
-      font-size: 17px;
+      font-size: 17px; // LG ölçü
       line-height: 36px;
       color: #969696;
+
+      @media (max-width: 991.98px) { // MD ölçü
+        font-size: 15px;
+        line-height: 32px;
+      }
+      @media (max-width: 767.98px) { // SM ölçü
+        font-size: 13px;
+        line-height: 28px;
+      }
     }
     button{
       background-color: inherit;
       border: none;
       color: #F178B6;
-      font-size: 16px;
+      font-size: 16px; // LG ölçü
       align-content: center;
+
+      @media (max-width: 991.98px) { // MD ölçü
+        font-size: 14px;
+      }
+      @media (max-width: 767.98px) { // SM ölçü
+        font-size: 12px;
+      }
+
       .icon{
         margin-top: -2px;
       }

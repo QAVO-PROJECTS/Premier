@@ -14,7 +14,7 @@ function Banner() {
                 </div>
 
             </div>
-            <img  src={image} alt=''/>
+            <img  src={image} alt='' className={'banner-image'} />
         </div>
 );
 }

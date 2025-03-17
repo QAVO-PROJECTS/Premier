@@ -1,5 +1,12 @@
 #sameTourCard {
   position: relative;
+  width: 100%;
+
+  @media (max-width: 767.98px) {
+    .posTop {
+      margin-top: -100px;
+    }
+  }
 
   .cardImage {
     width: 100%;
@@ -10,10 +17,10 @@
 
   .posBotLeft {
     position: absolute;
-    bottom: 0;
     left: 0;
     z-index: 1;
     filter: brightness(0) invert(1);
+    bottom: -1px;
   }
 
   .posTopRight {
@@ -30,7 +37,12 @@
     right: 0;
     left: 0;
     z-index: 1;
+    width: 100.5%;
     filter: brightness(0) invert(1);
+
+    @media (max-width: 767.98px) {
+      z-index: -1;
+    }
   }
 
   .arrow {
@@ -55,7 +67,8 @@
     left: 0;
     z-index: 2;
     border: 1px solid black;
-    width: 190px;
+    max-width: 190px;
+    width: 100%;
     height: 55px;
     border-radius: 25px;
     display: flex;

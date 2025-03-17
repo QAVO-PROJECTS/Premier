@@ -11,7 +11,27 @@ function Cards() {
                 <div className={"row gy-5"} style={{marginBottom:"60px"}} >
                     {arr && arr.map((item, index) => <Index key={index} index={index}/>)}
                 </div>
-                <Pagination/>
+                <div className="d-none d-md-block">
+                    <Pagination/>
+                </div>
+                {/* SM və daha aşağı ekranlarda "Ətraflı bax" düyməsi göstər */}
+                <div className="d-block d-md-none text-center">
+                    <button
+                        className="btn"
+                        style={{
+                            height: "63px",
+                            gap: "8px",
+                            padding: "18px 47.5px",
+                            borderRadius: "52px",
+                            border: "1px solid #000000",
+                            background: "inherit",
+                            fontWeight: "500",
+                            fontSize: "18px",
+                            lineHeight: "100%",
+                        }}>
+                        Ətraflı bax
+                    </button>
+                </div>
 
             </div>
         </div>

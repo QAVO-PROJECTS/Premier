@@ -43,7 +43,7 @@ function TourDetail() {
                     <p>Ana səhifə / Turlar / <span>Monteneqro</span></p>
                 </div>
                 <div className={"row mb-5"}>
-                    <div className={"col-5"}>
+                    <div className={"col-lg-5"}>
                         <Swiper
                             spaceBetween={10}
                             thumbs={{swiper: thumbsSwiper}}
@@ -81,45 +81,45 @@ function TourDetail() {
                             </SwiperSlide>
                         </Swiper>
                     </div>
-                    <div className={"col-7"}>
+                    <div className={"col-lg-7"}>
                         <div className={'content'}>
                             <h3>Monteneqro Turu – Adriatik Sahillərində Unudulmaz Səyahət</h3>
                             <p>Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
                                 bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
                                 milli parkı kimi unikal yerləri kəşf edəcəksiniz.Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
-                                bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
-                                milli parkı kimi unikal yerləri kəşf edəcəksiniz.Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
-                                bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
-                                milli parkı kimi unikal yerləri kəşf edəcəksiniz.Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
-                                bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
-                                milli parkı kimi unikal yerləri kəşf edəcəksiniz.Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
-                                bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
-                                milli parkı kimi unikal yerləri kəşf edəcəksiniz.Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
-                                bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
-                                milli parkı kimi unikal yerləri kəşf edəcəksiniz.Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
-                                bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
-                                milli parkı kimi unikal yerləri kəşf edəcəksiniz.Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
-                                bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
-                                milli parkı kimi unikal yerləri kəşf edəcəksiniz.Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
-                                bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
-                                milli parkı kimi unikal yerləri kəşf edəcəksiniz.Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
-                                bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
-                                milli parkı kimi unikal yerləri kəşf edəcəksiniz.Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
-                                bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
-                                milli parkı kimi unikal yerləri kəşf edəcəksiniz.</p>
+                                bir ölkədir..</p>
                             <h5>Tura daxildir</h5>
-                            <div className={"settings"}>
-                                <div className={"setting"}><CiCalendarDate className={"icon"}/> 10.06.2025 - 16.06.2025
+                            <div className={"settings row gy-3"}>
+                                <div className={"col-lg-5"}>
+                                    <div className={"setting"}><CiCalendarDate className={"icon"}/> 10.06.2025 - 16.06.2025
+                                    </div>
                                 </div>
-                                <div className={"setting"}><TbBed className={"icon"}/> Hoteldə gecələmə</div>
-                                <div className={"setting"}><LuTicketPercent className={"icon"}/> Aviabilet</div>
-                                <div className={"setting"}><LiaHeadsetSolid className={"icon"}/> Viza dəstəyi</div>
-                                <div className={"setting"}><PiTruck className={"icon"}/> Transfer</div>
-                                <div className={"setting"}><VscPerson className={"icon"}/> Tur bələdçisi</div>
+                                <div className={"col-lg-5"}>
+                                    <div className={"setting"}><TbBed className={"icon"}/> Hoteldə gecələmə</div>
+
+                                </div>
+                                <div className={"col-lg-4"}>
+                                    <div className={"setting"}><LuTicketPercent className={"icon"}/> Aviabilet</div>
+
+                                </div>
+                                <div className={"col-lg-4"}>
+                                    <div className={"setting"}><LiaHeadsetSolid className={"icon"}/> Viza dəstəyi</div>
+
+                                </div>
+                                <div className={"col-lg-3"}>
+                                    <div className={"setting"}><PiTruck className={"icon"}/> Transfer</div>
+
+                                </div>
+                                <div className={"col-lg-4"}>
+                                    <div className={"setting"}><VscPerson className={"icon"}/> Tur bələdçisi</div>
+
+                                </div>
+
+
                             </div>
                             <h5>Əlavə məlumat üçün bizimlə əlaqə</h5>
-                            <div className={"row"}>
-                                <div className={"col-6"}>
+                            <div className={"row gy-3"}>
+                                <div className={"col-lg-6"}>
                                     <div className={"contact-card"}>
                                         <div className={"icon green"}>
                                             <RiMailOpenFill/>
@@ -130,7 +130,7 @@ function TourDetail() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={"col-6"}>
+                                <div className={"col-lg-6"}>
                                     <div className={"contact-card"}>
                                         <div className={"icon orange"}>
                                             <FaPhone/>
@@ -146,7 +146,9 @@ function TourDetail() {
                         </div>
                     </div>
                 </div>
-                <div className={"row"}>
+                <div className={"row"} style={{
+                    rowGap: '50px'
+                }}>
                     <div className={"col-12"}>
                         <div className={"same-content"}>
                             <h1>Oxşar Turlar</h1>

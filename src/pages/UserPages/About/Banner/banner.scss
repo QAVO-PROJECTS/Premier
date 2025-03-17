@@ -1,39 +1,69 @@
-.banner{
-  padding: 200px 0 100px ;
+.banner {
+  padding: 200px 0 100px;
   margin-bottom: 200px;
   position: relative;
-  .head{
+  @media (max-width: 1200px) {
+    margin-bottom: 75px;
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 75px;
+  }
+  .head {
     margin-bottom: 80px;
-    p{
+    p {
       font-weight: 400;
-      font-size: 18px;
+      font-size: 18px; // lg
       line-height: 21.48px;
       color: #7C7C7C;
-      span{
+      @media (max-width: 1200px) {
+        font-size: 16px; // md
+      }
+      @media (max-width: 768px) {
+        font-size: 14px; // sm
+      }
+      span {
         color: #2F2F2F;
       }
     }
   }
-  .title{
+  .title {
     text-align: center;
     margin-bottom: 80px;
-    h2{
+    h2 {
       font-weight: 700;
-      font-size: 36px;
+      font-size: 36px; // lg
       line-height: 54px;
       margin-bottom: 16px;
+      @media (max-width: 1200px) {
+        font-size: 32px; // md
+      }
+      @media (max-width: 768px) {
+        font-size: 28px; // sm
+      }
     }
-    p{
+    p {
       font-weight: 400;
-      font-size: 20px;
+      font-size: 20px; // lg
       line-height: 32px;
       color: #909090;
+      @media (max-width: 1200px) {
+        font-size: 18px; // md
+      }
+      @media (max-width: 768px) {
+        font-size: 16px; // sm
+      }
     }
   }
-  img{
+  .banner-image {
     width: 100%;
     position: absolute;
     top: -130px;
     z-index: -1;
+    @media (max-width: 1200px) {
+      // Buraya ek responsive özellikler eklenebilir
+    }
+    @media (max-width: 768px) {
+      height: 700px;
+    }
   }
 }

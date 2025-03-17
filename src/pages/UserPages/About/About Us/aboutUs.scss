@@ -1,59 +1,103 @@
-.aboutUs{
-  .image{
+.aboutUs {
+
+  .row {
+    margin-bottom: 50px;
+    row-gap: 50px;
+  }
+  @media (max-width: 767.98px) { // SM ölçü üçün
+    .box {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .image {
     width: 100%;
     height: 435px;
     border-radius: 12px;
     overflow: hidden;
-    img{
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
   }
-  .content{
-
-    h1{
+  .content {
+    h1 {
       font-weight: 400;
-      font-size: 80px;
+      font-size: 80px; // LG: ən böyük ölçü
       line-height: 100%;
       color: #C6C6C6;
       margin-bottom: 16px;
-    }
-    h4{
-      font-weight: 700;
-      font-size: 21px;
-      line-height: 36px;
-      margin-bottom: 16px;
-    }
-    p{
-      font-weight: 400;
-      font-size: 19px;
-      line-height: 33px;
-      color: #969696;
-    }
-    button{
-      border: none;
-      background-color: inherit;
-      color:#0D60FE;
-      font-weight: 500;
-      .icon{
-        margin-top: -2px;
 
+      @media (max-width: 991.98px) { // MD ölçü üçün
+        font-size: 60px;
+      }
+      @media (max-width: 767.98px) { // SM ölçü üçün
+        font-size: 40px;
       }
     }
+    h4 {
+      font-weight: 700;
+      font-size: 21px; // LG
+      line-height: 36px;
+      margin-bottom: 16px;
 
+      @media (max-width: 991.98px) {
+        font-size: 18px;
+        line-height: 32px;
+      }
+      @media (max-width: 767.98px) {
+        font-size: 16px;
+        line-height: 28px;
+      }
+    }
+    p {
+      font-weight: 400;
+      font-size: 19px; // LG
+      line-height: 33px;
+      color: #969696;
+
+      @media (max-width: 991.98px) {
+        font-size: 16px;
+        line-height: 28px;
+      }
+      @media (max-width: 767.98px) {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+    button {
+      border: none;
+      background-color: inherit;
+      color: #0D60FE;
+      font-weight: 500;
+      .icon {
+        margin-top: -2px;
+      }
+    }
   }
-
-  .right{
+  .right {
     padding: 40px 0 40px 45px;
+    @media (max-width: 991.98px) {
+      padding: 0;
+    }
+    @media (max-width: 767.98px) {
+      padding: 0;
+    }
   }
-  .left{
+  .left {
     padding: 40px 45px 40px 0;
+    @media (max-width: 991.98px) {
+      padding: 0;
+    }
+    @media (max-width: 767.98px) {
+      padding: 0;
+    }
   }
-  .button{
+  .button {
     text-align: center;
     margin-bottom: 110px;
-    button{
+    button {
       height: 63px;
       gap: 8px;
       padding: 18px 60px;

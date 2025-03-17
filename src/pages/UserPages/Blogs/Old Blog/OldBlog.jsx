@@ -11,7 +11,7 @@ function OldBlog() {
                     <h2>Öncəki bloqlar</h2>
                 </div>
                 <div className={"row"}>
-                    <div className={'col-7'}>
+                    <div className={'col-lg-7'}>
                         <div className={"image"}>
                         <div className={"text"}>
                             <div className={"date"}>
@@ -24,7 +24,7 @@ function OldBlog() {
                         </div>
                         </div>
                     </div>
-                    <div className={'col-5'}>
+                    <div className="col-lg-5 d-none d-lg-block">
                         <div className={"blogs"}>
                             <div className={"cards"}>
                                 <Index/>

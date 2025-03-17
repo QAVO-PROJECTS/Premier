@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import image from "../../../assets/Rectangle 39858.png";
 import {LuIdCard, LuTicketPercent} from "react-icons/lu";
 import {GoArrowRight} from "react-icons/go";
@@ -19,12 +19,12 @@ function Services() {
                     </div>
 
                 </div>
-                <img src={image} alt=''/>
+                <img src={image} alt='' className={"servis-banner-image"}/>
             </div>
             <div className={"container"}>
                 <div className={"services-card"}>
-                    <div className={"row"} style={{marginBottom: "90px"}}>
-                        <div className={"col-4"}>
+                    <div className={"row "} style={{marginBottom: "90px",rowGap:"200px"}}>
+                        <div className={"col-lg-4"}>
                             <div className={"servis-card"}>
                                 <div className={"servis-card-icon"}>
                                     <LuTicketPercent/>
@@ -34,7 +34,7 @@ function Services() {
                                 <button><a href="#1"><GoArrowRight className={"icon"}/></a></button>
                             </div>
                         </div>
-                        <div className={"col-4"}>
+                        <div className={"col-lg-4"}>
                             <div className={"servis-card"}>
                                 <div className={"servis-card-icon"}>
                                     <LuIdCard/>
@@ -44,7 +44,7 @@ function Services() {
                                 <button><a href="#2"><GoArrowRight className={"icon"}/></a></button>
                             </div>
                         </div>
-                        <div className={"col-4"}>
+                        <div className={"col-lg-4"}>
                             <div className={"servis-card"}>
                                 <div className={"servis-card-icon"}>
                                     <IoBusSharp/>
