@@ -1,4 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Index from "../../../../components/UserComponents/Card/index.jsx";
 import "./popular.scss";
 import { FaArrowLeft } from "react-icons/fa6";
@@ -19,10 +21,18 @@ function Popular() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
 
+    // AOS animasiyalarını ilkinləşdiririk
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    }, []);
+
     return (
-        <div className={"popular"}>
-            <div className={"container"}>
-                <div className={"title"}>
+        <div className={"popular"} data-aos="fade-up">
+            <div className={"container"} data-aos="fade-up">
+                <div className={"title"} data-aos="fade-right">
                     <h2>{t("home.popular.title", "Ən Populyar Ölkələr")}</h2>
                     <p>
                         {t(
@@ -31,7 +41,7 @@ function Popular() {
                         )}
                     </p>
                 </div>
-                <div className={"row p-5"}>
+                <div className={"row p-5"} data-aos="fade-left">
                     <div className={"col-12 text-end d-none d-md-block"} style={{ marginBottom: "40px" }}>
                         <button ref={prevRef} className={"white"}>
                             <FaArrowLeft />
@@ -80,7 +90,7 @@ function Popular() {
                     </Swiper>
                 </div>
             </div>
-            <div className={"background"}></div>
+            <div className={"background"} data-aos="zoom-in"></div>
         </div>
     );
 }

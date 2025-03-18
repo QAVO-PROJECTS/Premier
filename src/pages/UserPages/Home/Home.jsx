@@ -31,12 +31,12 @@ function Home() {
 
     return (
         <>
-            <div data-aos="fade-up"><Banner/></div>
-            <div data-aos="zoom-in"><Popular/></div>
-            <div data-aos="fade-right"><LoveTour/></div>
-            <div data-aos="flip-left"><TourBlog/></div>
-            <div data-aos="fade-up"><Sponsor/></div>
-            <div data-aos="fade-down"><Review/></div>
+            <div ><Banner/></div>
+            <div ><Popular/></div>
+            <div><LoveTour/></div>
+            <div ><TourBlog/></div>
+            <div ><Sponsor/></div>
+            <div ><Review/></div>
         </>
     );
 }

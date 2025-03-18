@@ -1,4 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './loveTour.scss';
 import ReserveCard from "../../../../components/UserComponents/ReserveCard/ReserveCard.jsx";
 import 'swiper/css';
@@ -19,6 +21,14 @@ function LoveTour() {
     const { data: getAllTours } = useGetAllToursQuery();
     const tours = getAllTours?.data;
 
+    // AOS animasiyalarını ilkinləşdiririk
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    }, []);
+
     // Kartın "Rezervasiya et" düyməsinə basılınca çağırılan funksiya
     const handleCardOpen = (tour) => {
         console.log("Selected tour id:", tour?.id);
@@ -27,15 +37,15 @@ function LoveTour() {
     };
 
     return (
-        <div className="love-tour">
-            <div className="container">
-                <div className="title">
+        <div className="love-tour" data-aos="fade-up">
+            <div className="container" data-aos="fade-up">
+                <div className="title" data-aos="fade-right">
                     <h2>{t("home.loveTour.title", "Ən çox seçilən və sevilən turlar")}</h2>
                     <p>
                         {t("home.loveTour.subtitle", "Ən çox tələb olunan turlarımızla siz də unudulmaz xatirələr yaradın. Rahat uçuşlar, lüks otellər və maraqlı marşrutlarla sizə xüsusi təkliflər təqdim edirik.")}
                     </p>
                 </div>
-                <div className="col-12 text-end paginate d-none d-md-block" style={{ marginBottom: "40px" }}>
+                <div className="col-12 text-end paginate d-none d-md-block" style={{ marginBottom: "40px" }} data-aos="fade-left">
                     <button ref={prevRef} className="white">
                         <FaArrowLeft />
                     </button>
@@ -43,7 +53,7 @@ function LoveTour() {
                         <FaArrowRight />
                     </button>
                 </div>
-                <div className="row slider-row">
+                <div className="row slider-row" data-aos="zoom-in">
                     <Swiper
                         spaceBetween={30}
                         grabCursor={true}
@@ -75,7 +85,7 @@ function LoveTour() {
                         ))}
                     </Swiper>
                 </div>
-                <div className="text-center more" style={{ marginTop: "70px" }}>
+                <div className="text-center more" style={{ marginTop: "70px" }} data-aos="fade-up">
                     <button onClick={() => setOpen(true)}>{t("home.loveTour.button", "Ətraflı bax")}</button>
                 </div>
                 {/* Modal LoveTour bölməsində render olunur və seçilmiş turun məlumatı oraya ötürülür */}

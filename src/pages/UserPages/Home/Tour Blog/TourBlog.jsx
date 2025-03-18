@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './tourBlog.scss';
 import { FaArrowLeft, FaArrowRight, FaArrowRightLong } from "react-icons/fa6";
 import Index from "../../../../components/UserComponents/BlogCard/index.jsx";
@@ -14,6 +16,14 @@ function TourBlog() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const [swiperInstance, setSwiperInstance] = useState(null);
+
+    // AOS animasiyalarını ilkinləşdiririk
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    }, []);
 
     useEffect(() => {
         if (swiperInstance && prevRef.current && nextRef.current) {
@@ -31,9 +41,9 @@ function TourBlog() {
     const blogs = getAllBlogs?.data.slice(0, 8);
 
     return (
-        <div className="tour-blog">
-            <div className="container">
-                <div className="head">
+        <div className="tour-blog" data-aos="fade-up">
+            <div className="container" data-aos="fade-up">
+                <div className="head" data-aos="fade-right">
                     <div className="title">
                         <h2>{t("home.tourBlog.title", "Səyahət Bloqu")}</h2>
                         <p>
@@ -43,12 +53,12 @@ function TourBlog() {
                             )}
                         </p>
                     </div>
-                    <button className={"d-none d-md-block"}>
+                    <button className={"d-none d-md-block"} data-aos="zoom-in">
                         {t("home.tourBlog.button", "Hamısına bax")} <FaArrowRightLong />
                     </button>
                 </div>
 
-                <div className="row slider-row">
+                <div className="row slider-row" data-aos="fade-left">
                     <Swiper
                         onSwiper={setSwiperInstance}
                         breakpoints={{
@@ -80,14 +90,14 @@ function TourBlog() {
                         }}
                     >
                         {blogs && blogs.map((blog, index) => (
-                            <SwiperSlide key={index}>
+                            <SwiperSlide key={index} data-aos="fade-up">
                                 <Index index={index} blog={blog} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
 
-                <div className="col-12 text-end paginate" style={{ marginTop: "40px" }}>
+                <div className="col-12 text-end paginate" style={{ marginTop: "40px" }} data-aos="fade-up">
                     <button ref={prevRef} className="white">
                         <FaArrowLeft />
                     </button>
