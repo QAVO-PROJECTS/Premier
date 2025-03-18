@@ -1,11 +1,15 @@
 import React from 'react';
-import {FiArrowLeft, FiArrowRight} from "react-icons/fi";
-import './pagination.scss'
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import './pagination.scss';
+import { useTranslation } from 'react-i18next';
+
 function Pagination() {
+    const { t } = useTranslation();
+
     return (
         <div className="pagination">
             <a href="#" className="pagination__button prev">
-                <FiArrowLeft /> Əvvələ
+                <FiArrowLeft /> {t("pagination.prev", "Əvvələ")}
             </a>
 
             <ul className="pagination__list">
@@ -18,7 +22,7 @@ function Pagination() {
             </ul>
 
             <a href="#" className="pagination__button next">
-                Sonra <FiArrowRight />
+                {t("pagination.next", "Sonra")} <FiArrowRight />
             </a>
         </div>
     );

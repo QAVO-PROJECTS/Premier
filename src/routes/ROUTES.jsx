@@ -17,6 +17,7 @@ import AdminPage from "../components/AdminComponents/AdminPage/index.jsx";
 import AdminLogin from "../pages/AdminPages/Admin Login/index.jsx";
 import ProtectedRoute from "../ProtectedRoute.jsx";
 import BlogDetail from "../pages/UserPages/BlogDetail/BlogDetail.jsx";
+import AdminReserved from "../pages/AdminPages/Admin Reserved/AdminReserved.jsx";
 
 const router = createBrowserRouter([
     {
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
             {
                 path: "/admin/tours",
                 element: <AdminTour />
+            },
+            {
+                path: "/admin/reserv",
+                element: <AdminReserved />,
             }
         ]
     },

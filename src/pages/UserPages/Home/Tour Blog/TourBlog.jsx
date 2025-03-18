@@ -5,8 +5,11 @@ import Index from "../../../../components/UserComponents/BlogCard/index.jsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import 'swiper/css/navigation';
+import { useGetAllBlogsQuery } from "../../../../services/adminApi.jsx";
+import { useTranslation } from 'react-i18next';
 
 function TourBlog() {
+    const { t } = useTranslation();
     const arr = new Array(6).fill(0);
     const prevRef = useRef(null);
     const nextRef = useRef(null);
@@ -24,18 +27,24 @@ function TourBlog() {
         }
     }, [swiperInstance]);
 
+    const { data: getAllBlogs } = useGetAllBlogsQuery();
+    const blogs = getAllBlogs?.data.slice(0, 8);
+
     return (
         <div className="tour-blog">
             <div className="container">
                 <div className="head">
                     <div className="title">
-                        <h2>Səyahət Bloqu</h2>
+                        <h2>{t("home.tourBlog.title", "Səyahət Bloqu")}</h2>
                         <p>
-                            Dünyanı kəşf etməyə hazırsınız? Səyahət hekayələri, faydalı məsləhətlər və unudulmaz məkanlar haqqında yazılar burada!
+                            {t(
+                                "home.tourBlog.subtitle",
+                                "Dünyanı kəşf etməyə hazırsınız? Səyahət hekayələri, faydalı məsləhətlər və unudulmaz məkanlar haqqında yazılar burada!"
+                            )}
                         </p>
                     </div>
                     <button className={"d-none d-md-block"}>
-                        Hamısına bax <FaArrowRightLong />
+                        {t("home.tourBlog.button", "Hamısına bax")} <FaArrowRightLong />
                     </button>
                 </div>
 
@@ -70,9 +79,9 @@ function TourBlog() {
                             swiper.params.navigation.nextEl = nextRef.current;
                         }}
                     >
-                        {arr.map((item, index) => (
+                        {blogs && blogs.map((blog, index) => (
                             <SwiperSlide key={index}>
-                                <Index index={index} />
+                                <Index index={index} blog={blog} />
                             </SwiperSlide>
                         ))}
                     </Swiper>

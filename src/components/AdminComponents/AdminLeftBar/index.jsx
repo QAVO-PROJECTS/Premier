@@ -1,7 +1,7 @@
 import './index.scss'
 import logo from "../../../assets/Logo Esas.png"
 import { NavLink, useLocation } from "react-router-dom";
-import { TbLogs } from "react-icons/tb";
+import {TbLogs, TbReservedLine} from "react-icons/tb";
 import { FaRegCommentDots } from "react-icons/fa";
 import { MdOutlineAccountBalance, MdOutlineTour } from "react-icons/md";
 import { PiCityLight } from "react-icons/pi";
@@ -40,6 +40,12 @@ function AdminLeftBar() {
                 <MdOutlineTour className="icon" />
                 <NavLink to="/admin/tours">
                     Turlar
+                </NavLink>
+            </li>
+            <li className={location.pathname === "/admin/reserv" ? "selected" : ""}>
+                <TbReservedLine className="icon" />
+                <NavLink to="/admin/reserv">
+                    Rezervasiyalar
                 </NavLink>
             </li>
         </section>

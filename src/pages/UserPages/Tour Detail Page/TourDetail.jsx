@@ -1,61 +1,104 @@
-import React, {useState} from 'react';
-import './tourDetail.scss'
-import {CiCalendarDate} from "react-icons/ci";
-import {TbBed} from "react-icons/tb";
-import {LuTicketPercent} from "react-icons/lu";
-import {LiaHeadsetSolid} from "react-icons/lia";
-import {PiTruck} from "react-icons/pi";
-import {VscPerson} from "react-icons/vsc";
-import {FaPhone} from "react-icons/fa";
-import {RiMailOpenFill} from "react-icons/ri";
-import {Swiper, SwiperSlide} from "swiper/react";
+import React, { useState } from "react";
+import "./tourDetail.scss";
+import { CiCalendarDate } from "react-icons/ci";
+import { TbBed } from "react-icons/tb";
+import { LuTicketPercent } from "react-icons/lu";
+import { TfiHeadphoneAlt } from "react-icons/tfi";
+import { PiTruck } from "react-icons/pi";
+import { VscPerson } from "react-icons/vsc";
+import { FaPhone } from "react-icons/fa";
+import { RiMailOpenFill } from "react-icons/ri";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/thumbs";
-import {FreeMode, Navigation, Thumbs} from "swiper/modules";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import SameTourCard from "../../../components/UserComponents/SameTourCard/index.jsx";
-import image1 from '/src/assets/tour.jpg'
+import image1 from "/src/assets/tour.jpg";
+import { useParams } from "react-router-dom";
+import { useGetTourByIdQuery } from "../../../services/adminApi.jsx";
+import { TOUR_IMG_URL } from "../../../constants.js";
+import { useTranslation } from "react-i18next";
+
+// Əgər API-dən gələn şəkil dəyərləri yalnız fayl adıdırsa, aşağıdakı baseUrl-i uyğunlaşdırın.
+const baseUrl = "http://your-server.com/uploads/";
 
 function TourDetail() {
+    const { t } = useTranslation();
+    const { tourId } = useParams();
+    const { data: getTourById } = useGetTourByIdQuery(tourId);
+    const tour = getTourById?.data;
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const arr = [{
-        title: "İtaliya",
-        image: image1
-    },
+
+    const settings = [
         {
-            title: "İspanya ",
-            image: image1
+            icon: <CiCalendarDate className="icon" />,
+            label: tour ? `${tour.startDate} - ${tour.endDate}` : "",
+            col: "col-lg-5"
         },
         {
-            title: "Amsterdam",
-            image: image1
+            icon: <TbBed className="icon" />,
+            label: tour?.isOvernighStay
+                ? t("tourDetail.overnightYes", "Hoteldə gecələmə")
+                : t("tourDetail.overnightNo", "Hoteldə gecələmə yoxdur"),
+            col: "col-lg-5"
         },
-    ]
+        {
+            icon: <LuTicketPercent className="icon" />,
+            label: tour?.isTicket
+                ? t("tourDetail.ticketIncluded", "Aviabilet daxildir")
+                : t("tourDetail.ticketNotIncluded", "Aviabilet daxil deyil"),
+            col: "col-lg-4"
+        },
+        {
+            icon: <TfiHeadphoneAlt className="icon" />,
+            label: tour?.isVisa
+                ? t("tourDetail.visaAvailable", "Viza dəstəyi var")
+                : t("tourDetail.visaNotAvailable", "Viza dəstəyi yoxdur"),
+            col: "col-lg-4"
+        },
+        {
+            icon: <PiTruck className="icon" />,
+            label: tour?.isInsurance
+                ? t("tourDetail.insuranceIncluded", "Sığorta daxildir")
+                : t("tourDetail.insuranceNotIncluded", "Sığorta daxil deyil"),
+            col: "col-lg-3"
+        },
+        {
+            icon: <VscPerson className="icon" />,
+            label: t("tourDetail.guide", "Tur bələdçisi"),
+            col: "col-lg-4"
+        }
+    ];
+
     return (
-        <div className={"tourDetail"}>
-            <div className={"container"}>
-                <div className={"head"}>
-                    <p>Ana səhifə / Turlar / <span>Monteneqro</span></p>
+        <div className="tourDetail">
+            <div className="container">
+                <div className="head">
+                    <p>
+                        {t("tourDetail.breadcrumb", "Ana səhifə / Turlar /")}{" "}
+                        <span>{tour?.title}</span>
+                    </p>
                 </div>
-                <div className={"row mb-5"}>
-                    <div className={"col-lg-5"}>
+                <div className="row mb-5">
+                    <div className="col-lg-5">
                         <Swiper
                             spaceBetween={10}
-                            thumbs={{swiper: thumbsSwiper}}
+                            thumbs={{ swiper: thumbsSwiper }}
                             modules={[FreeMode, Thumbs]}
                             className="mySwiper2"
                         >
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="nature-1"/>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="nature-2"/>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="nature-1"/>
-                            </SwiperSlide>
+                            {tour?.tourImageUrls?.map((imgUrl, index) => (
+                                <SwiperSlide key={index}>
+                                    <img
+                                        // Əgər imgUrl tam URL deyilsə, baseUrl ilə birləşdirə bilərsiniz:
+                                        src={TOUR_IMG_URL + imgUrl}
+                                        alt={`tour image ${index}`}
+                                    />
+                                </SwiperSlide>
+                            ))}
                         </Swiper>
                         <Swiper
                             onSwiper={setThumbsSwiper}
@@ -67,78 +110,50 @@ function TourDetail() {
                             className="mySwiper"
                             navigation={true}
                         >
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="nature-1"/>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="nature-2"/>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="nature-1"/>
-                            </SwiperSlide>
+                            {tour?.tourImageUrls?.map((imgUrl, index) => (
+                                <SwiperSlide key={index}>
+                                    <img
+                                        src={TOUR_IMG_URL + imgUrl}
+                                        alt={`tour image thumb ${index}`}
+                                    />
+                                </SwiperSlide>
+                            ))}
                         </Swiper>
                     </div>
-                    <div className={"col-lg-7"}>
-                        <div className={'content'}>
-                            <h3>Monteneqro Turu – Adriatik Sahillərində Unudulmaz Səyahət</h3>
-                            <p>
-                                Mavi Adriatik dənizi, dağ mənzərələri və tarixi şəhərləri ilə səyahətsevərləri valeh edən
-                                bir ölkədir. Bu turda Kotor körfəzi, Budva çimərlikləri, Sveti Stefan adası və Durmitor
-                                milli parkı kimi unikal yerləri kəşf edəcəksiniz.
-                            </p>
-                            <h5>Tura daxildir</h5>
-                            <div className={"settings row gy-3"}>
-                                <div className={"col-lg-5"}>
-                                    <div className={"setting"}>
-                                        <CiCalendarDate className={"icon"}/> 10.06.2025 - 16.06.2025
-                                    </div>
-                                </div>
-                                <div className={"col-lg-5"}>
-                                    <div className={"setting"}>
-                                        <TbBed className={"icon"}/> Hoteldə gecələmə
-                                    </div>
-                                </div>
-                                <div className={"col-lg-4"}>
-                                    <div className={"setting"}>
-                                        <LuTicketPercent className={"icon"}/> Aviabilet
-                                    </div>
-                                </div>
-                                <div className={"col-lg-4"}>
-                                    <div className={"setting"}>
-                                        <LiaHeadsetSolid className={"icon"}/> Viza dəstəyi
-                                    </div>
-                                </div>
-                                <div className={"col-lg-3"}>
-                                    <div className={"setting"}>
-                                        <PiTruck className={"icon"}/> Transfer
-                                    </div>
-                                </div>
-                                <div className={"col-lg-4"}>
-                                    <div className={"setting"}>
-                                        <VscPerson className={"icon"}/> Tur bələdçisi
-                                    </div>
-                                </div>
-                            </div>
-                            <h5>Əlavə məlumat üçün bizimlə əlaqə</h5>
-                            <div className={"row gy-3"}>
-                                <div className={"col-lg-6"}>
-                                    <div className={"contact-card"}>
-                                        <div className={"icon green"}>
-                                            <RiMailOpenFill/>
+                    <div className="col-lg-7">
+                        <div className="content">
+                            <h3>{tour?.title}</h3>
+                            <p>{tour?.description}</p>
+                            <h5>{t("tourDetail.included", "Tura daxildir")}</h5>
+                            <div className="settings row gy-3">
+                                {settings.map((item, index) => (
+                                    <div className={item.col} key={index}>
+                                        <div className="setting">
+                                            {item.icon} {item.label}
                                         </div>
-                                        <div className={"content"}>
-                                            <p>E-mail</p>
+                                    </div>
+                                ))}
+                            </div>
+                            <h5>{t("tourDetail.contactHeading", "Əlavə məlumat üçün bizimlə əlaqə")}</h5>
+                            <div className="row gy-3">
+                                <div className="col-lg-6">
+                                    <div className="contact-card">
+                                        <div className="icon green">
+                                            <RiMailOpenFill />
+                                        </div>
+                                        <div className="content">
+                                            <p>{t("tourDetail.emailLabel", "E-mail")}</p>
                                             <span>premiertour@gmail.com</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div className={"col-lg-6"}>
-                                    <div className={"contact-card"}>
-                                        <div className={"icon orange"}>
-                                            <FaPhone/>
+                                <div className="col-lg-6">
+                                    <div className="contact-card">
+                                        <div className="icon orange">
+                                            <FaPhone />
                                         </div>
-                                        <div className={"content"}>
-                                            <p>Telefon nömrəsi</p>
+                                        <div className="content">
+                                            <p>{t("tourDetail.phoneLabel", "Telefon nömrəsi")}</p>
                                             <span>+994 55 876 44 55</span>
                                         </div>
                                     </div>
@@ -147,20 +162,22 @@ function TourDetail() {
                         </div>
                     </div>
                 </div>
-                <div className={"row"} style={{ rowGap: '50px' }}>
-                    <div className={"col-12"}>
-                        <div className={"same-content"}>
-                            <h1>Oxşar Turlar</h1>
-                            {/* Desktop için .all butonu */}
-                            <button className={"all desktop-only"}>Hamısına bax</button>
+                <div className="row" style={{ rowGap: "50px" }}>
+                    <div className="col-12">
+                        <div className="same-content">
+                            <h1>{t("tourDetail.similarTours", "Oxşar Turlar")}</h1>
+                            <button className="all desktop-only">{t("tourDetail.viewAll", "Hamısına bax")}</button>
                         </div>
                     </div>
-                    {arr.map((item, index) => (
+                    {[
+                        { title: "İtaliya", image: image1 },
+                        { title: "İspanya", image: image1 },
+                        { title: "Amsterdam", image: image1 }
+                    ].map((item, index) => (
                         <SameTourCard key={index} title={item.title} image={item.image} index={index} />
                     ))}
-                    {/* Sm için kartlardan sonra .all butonu */}
                     <div className="mobile-only">
-                        <button className="all">Hamısına bax</button>
+                        <button className="all">{t("tourDetail.viewAll", "Hamısına bax")}</button>
                     </div>
                 </div>
             </div>

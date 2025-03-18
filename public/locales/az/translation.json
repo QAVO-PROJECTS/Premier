@@ -1,204 +1,240 @@
 {
-  "navbar": {
-    "home": "Ana səhifə",
-    "about": "Haqqında",
-    "contact": "Əlaqə",
-    "login": "Daxil ol",
-    "register": "Qeydiyyat",
-    "logout": "Çıxış",
-    "sign": "Daxil ol",
-    "products": "Məhsullar",
-    "lang": "Dil"
-  },
-  "home": {
-    "hero": {
-      "title": "Funksiyalarla birləşdirilmiş incə dizayn",
-      "button": "İndi alın",
-      "contact": "Ekspertimizlə əlaqə saxlayın",
-      "wood": "Ağacdan stul",
-      "premium": "Premium Elit",
-      "percent": "25% ENDİRİM",
-      "explore": "Ətraflı"
+  "aboutUs": {
+    "section1": {
+      "number": "01",
+      "title": "Türkiyədə Yay Tətili üçün Ən Yaxşı 5 Bölgə – Antalya, Bodrum, yoxsa Kapadokya?",
+      "description": "Türkiyə yay turizmi baxımından dünyanın ən məşhur istiqamətlərindən biridir. Həm dəniz-günəş istirahəti, həm də tarixi və mədəni sərvətlərlə zəngin bölgələri ilə hər kəsin zövqünə uyğun bir yer tapmaq mümkündür.",
+      "buttonText": "Ətraflı bax"
     },
-    "best": {
-      "title": "Həftənin ən çox satılanları"
+    "section2": {
+      "number": "02",
+      "title": "Türkiyədə Yay Tətili üçün Ən Yaxşı 5 Bölgə – Antalya, Bodrum, yoxsa Kapadokya?",
+      "description": "Türkiyə yay turizmi baxımından dünyanın ən məşhur istiqamətlərindən biridir. Həm dəniz-günəş istirahəti, həm də tarixi və mədəni sərvətlərlə zəngin bölgələri ilə hər kəsin zövqünə uyğun bir yer tapmaq mümkündür.",
+      "buttonText": "Ətraflı bax"
     },
-    "browse": {
-      "title": "Otaqlara görə göz atın",
-      "bedroom": "Yataq otağı",
-      "livingroom": "Qonaq otağı",
-      "walkCloset": "Giyim otağı",
-      "kitchen": "Mətbəx",
-      "products": "məhsul"
+    "section3": {
+      "number": "03",
+      "title": "Türkiyədə Yay Tətili üçün Ən Yaxşı 5 Bölgə – Antalya, Bodrum, yoxsa Kapadokya?",
+      "description": "Türkiyə yay turizmi baxımından dünyanın ən məşhur istiqamətlərindən biridir. Həm dəniz-günəş istirahəti, həm də tarixi və mədəni sərvətlərlə zəngin bölgələri ilə hər kəsin zövqünə uyğun bir yer tapmaq mümkündür.",
+      "buttonText": "Ətraflı bax"
     },
-    "topSeller": {
-      "title": "Ən çox satılan mebel"
+    "section4": {
+      "number": "04",
+      "title": "Türkiyədə Yay Tətili üçün Ən Yaxşı 5 Bölgə – Antalya, Bodrum, yoxsa Kapadokya?",
+      "description": "Türkiyə yay turizmi baxımından dünyanın ən məşhur istiqamətlərindən biridir. Həm dəniz-günəş istirahəti, həm də tarixi və mədəni sərvətlərlə zəngin bölgələri ilə hər kəsin zövqünə uyğun bir yer tapmaq mümkündür.",
+      "buttonText": "Ətraflı bax"
     },
-    "special": {
-      "title": "Xüsusi təkliflər",
-      "button": "İndi Gözdən keçirin",
-      "specialDiscount": "Xüsusi Endirim",
-      "discount": "ENDİRİM",
-      "weekly": "Həftəlik Endirim",
-      "birthday": "Doğum günü Endirimi",
-      "seeAll": "Hamısına bax"
-    },
-    "luxury": {
-      "title": "Dəbdəbəli Mebel Ən Keyfiyyətli Materiallardan Başlar",
-      "button": "Daha çox öyrənin"
+    "moreButton": "Daha çox",
+    "banner": {
+      "breadcrumb": "Ana səhifə /",
+      "pageTitle": "Haqqımızda",
+      "mainTitle": "Haqqımızda",
+      "subtitle": "Premier Tur olaraq, müştərilərimizə unudulmaz səyahət təcrübəsi təqdim etməyi hədəfləyirik."
     }
+  },
+  "navbar": {
+    "home": "Ana Səhifə",
+    "tours": "Turlar",
+    "domestic": "Ölkədaxili",
+    "international": "Ölkəxarici",
+    "about": "Haqqımızda",
+    "contact": "Əlaqə",
+    "blogs": "Bloqlar",
+    "services": "Xidmətlər"
   },
   "footer": {
-    "footerTop": {
-      "title": "Sizi gözləyən əsas yeniliklər!",
-      "description": "Abunə olun və 20% ENDİRİM əldə edin!",
-      "email": "Sizin Email *",
-      "subscribe": "Abunə ol"
-    },
-    "footerMiddle": {
-      "title": "Bizimlə əlaqə saxlayın",
-      "address": "Ünvan",
-      "phone": "Telefon",
-      "openinHours": "İş saatları",
-      "street": "Küçə adı"
-    },
-    "footerBottom": {
-      "shopCategory": {
-        "title": "Mağaza Kateqoriyaları",
-        "armchair": "Kreslolar",
-        "bed": "Çarpayılar",
-        "chairs": "Kreslolar",
-        "decor": "Dekor",
-        "sofa": "Divanlar",
-        "table": "Masalar",
-        "storage": "Saxlama"
-      },
-      "usefulLinks": {
-        "title": "Faydalı Linklər",
-        "careers": "Karyera",
-        "delivery": "Çatdırılma",
-        "help": "Yardım Mərkəzi",
-        "returns": "Qaytarmalar və Geri Ödənişlər",
-        "newsletter": "Xəbər bülleteni",
-        "status": "Vəziyyət",
-        "testimonials": "Rəylər"
-      },
-      "account": {
-        "title": "Hesab",
-        "dashboard": "İdarə paneli",
-        "wishlist": "İstək siyahısı",
-        "shipping": "Çatdırılma və Çatdırılma",
-        "affiliate": "Affiliate Proqramı",
-        "brand": "Brend Aktivləri",
-        "support": "Dəstək",
-        "recommendations": "Tövsiyələr"
-      },
-      "about": {
-        "title": "Şirkət haqqında",
-        "aboutUs": "Haqqımızda",
-        "ourPartner": "Partnyorlarımız",
-        "location": "Məkan",
-        "design": "Dizayn xidmətləri",
-        "howItWorks": "Necə işləyir",
-        "customers": "Müştərilər",
-        "otherInfo": "Digər Məlumat"
-      },
-      "copyright": "Copyright © 2025 - CreativeThemes",
-      "privacy": "Məxfilik Siyasəti",
-      "terms": "Qaydalar və Şərtlər",
-      "siteMap": "Sayt Xəritəsi"
-    }
-  },
-  "shop": {
-    "banner": {
-      "title": "Mağaza",
-      "home": "Ana səhifə",
-      "shop": "Mağaza"
-    },
-    "categorys": {
-      "armchair": "Kreslolar",
-      "bed": "Çarpayılar",
-      "chairs": "Kreslolar",
-      "decor": "Dekor",
-      "sofa": "Divanlar",
-      "table": "Masalar",
-      "storage": "Saxlama",
-      "products": "məhsul",
-      "all": "Hamısı"
-    },
-    "sort": {
-      "title": "Qiymətə görə sırala",
-      "lowToHigh": "Aşağıdan yuxarıya",
-      "highToLow": "Yuxarıdan aşağıya"
-    },
-    "search": "Axtarış..."
-  },
-  "pagination": {
-    "previous": "Əvvəlki",
-    "next": "Sonrakı"
-  },
-  "about": {
-    "banner": {
-      "title": "Bizim haqqımızda",
-      "home": "Ana səhifə",
-      "about": "Haqqımızda"
-    },
-    "ourTeam":{
-        "title":"Bizim komanda",
-        "seller":"Satıcı",
-        "manager":"Menecer",
-        "boss":"Rəhbər",
-        "bossWife":"Rəhbərin xanımı"
-    },
-    "furniture":{
-        "title":"Ömür boyu davam edəcək mebel",
-        "button":"Daha çox öyrənin"
-    }
+    "tagline": "Dünyanı kəşf etmək, yeni təcrübələr yaşamaq və yaddaqalan anlar yaratmaq üçün mükəmməl səyahət seçimidir.",
+    "linksTitle": "Keçidlər",
+    "home": "Ana səhifə",
+    "tours": "Turlar",
+    "domesticTours": "Ölkədaxili turlar",
+    "contact": "Əlaqə",
+    "termsTitle": "Şərtlər və Qaydalar",
+    "bookingPayments": "Rezervasiya və ödənişlər",
+    "cancellationsRefunds": "Ləğv etmə və Geri Ödənişlər",
+    "travelInsurance": "Səyahət Sığortası",
+    "customerLiability": "Müştəri Məsuliyyəti",
+    "contactInfoTitle": "Əlaqə məlumatları",
+    "phone": "+994 70 654 34 98",
+    "email": "Premiertour@gmail.com",
+    "copyright": "© Copyright",
+    "rightsReserved": "Bütün hüquqlar qorunur."
   },
   "contact": {
-    "banner": {
-        "title": "Əlaqə",
-        "home": "Ana səhifə",
-        "contact": "Əlaqə"
+    "breadcrumb": "Ana səhifə /",
+    "pageTitle": "Əlaqə",
+    "title": "Bizimlə Əlaqə",
+    "subtitle": "Səyahətinizlə bağlı suallarınız var? Elə indi bizimlə əlaqə saxlayın və xəyalınızdakı turu birlikdə gerçəkləşdirək",
+    "formTitle": "Formanı dolduraraq bizimlə əlaqə saxlayın",
+    "firstNameLabel": "Adınız",
+    "firstNamePlaceholder": "Ad",
+    "lastNameLabel": "Soyadınız",
+    "lastNamePlaceholder": "Soyad",
+    "emailLabel": "Email",
+    "emailPlaceholder": "premiertour@gmail.com",
+    "phoneLabel": "Telefon Nömrəsi",
+    "phonePlaceholder": "+994 55 852 33 99",
+    "messageLabel": "Qeyd",
+    "submitButton": "Göndər",
+    "socialTitle": "Sosyal Medya:",
+    "addressLabel": "Ünvan",
+    "addressValue": "Bakı, Nizami küçəsi 45",
+    "phoneCardLabel": "Telefon nömrəsi",
+    "phoneCardValue": "+994 55 876 44 55",
+    "emailCardLabel": "E-mail",
+    "emailCardValue": "premiertour@gmail.com",
+    "hoursLabel": "İş saatı",
+    "hoursValue": "10:00 - 20:00"
+  },
+  "services": {
+    "breadcrumb": "Ana səhifə /",
+    "pageTitle": "Xidmətlərimiz",
+    "mainTitle": "Xidmətlərimiz",
+    "subtitle": "Rahat və unudulmaz səyahət üçün peşəkar xidmətlər",
+    "card1": {
+      "title": "Aviabilet satışı",
+      "description": "Dünyanın aparıcı aviaşirkətləri ilə birbaşa əməkdaşlıq."
     },
-    "contactForm": {
-        "title": "Bizimlə Əlaqə saxlayın",
-        "name": "Adınız",
-        "email": "Email",
-        "subject": "Mövzu",
-        "message": "Mesaj",
-        "send": "Göndər",
-        "furniture":"Mebel mağazaları və salonlar",
-        "address":"Ünvan",
-        "phone":"Telefon",
-        "mail":"Email"
+    "card2": {
+      "title": "Viza dəstəyi",
+      "description": "Viza üçün müraciət edən şəxslərə hərtərəfli dəstək təklif edirik."
+    },
+    "card3": {
+      "title": "Transfer xidmətləri",
+      "description": "Lüks və komfortlu nəqliyyat vasitələri ilə yüksək səviyyəli transfer."
+    },
+    "more": {
+      "section1": {
+        "title": "1. Premier Tur Aviabilet Satışı – Etibarlı və Sürətli Xidmət!",
+        "description": "Premier Tur olaraq, Beynəlxalq Hava Nəqliyyatı Assosiasiyasının (IATA) akkreditasiyasına sahibik və dünyanın aparıcı aviaşirkətləri ilə birbaşa əməkdaşlıq edirik. Bu, müştərilərimizə ən sərfəli qiymətlərlə, təhlükəsiz və etibarlı aviabilet xidmətləri təqdim etməyimizə imkan yaradır.\n✅ Rezervasiya və bilet satışı üçün rəsmi agentlik statusu\n✅ Dünyanın istənilən nöqtəsinə operativ və sərfəli aviabilet seçimləri\n✅ Qatar Airways, Türk Hava Yolları, Emirates, Lufthansa, British Airways, FlyDubai və digər aparıcı aviaşirkətlərlə əməkdaşlıq\n📍 Rahat və sərfəli səyahət üçün aviabiletinizi bizimlə sifariş edin! 🌍🎟️"
+      },
+      "section2": {
+        "title": "2. Premier Tur Aviabilet Satışı – Etibarlı və Sürətli Xidmət!",
+        "description": "Səyahət etmək üçün lazım olan viza üçün müraciət edən şəxslərə hərtərəfli dəstək təklif edirik. Xidmətlərimiz aşağıdakılardan ibarətdir:\n<strong>Viza Müraciətinin Hazırlanması:</strong> Səyahət planınıza uyğun olaraq viza üçün bütün sənədləri hazırlamağa kömək edirik. Bu, viza müraciət formasının doldurulmasından tutmuş, lazımi əlavə sənədlərin, məsələn, maliyyə və səyahət sığortası sənədlərinin hazırlanmasına qədər hər şeyi əhatə edir.\n<strong>Viza Tipinin Seçilməsi:</strong> Hansı viza növü ilə müraciət etməli olduğunuzu müəyyənləşdirməyə kömək edirik – turizm, iş, təhsil və ya digər xüsusi vizalar.\n<strong>Viza İcazələri ilə Əlaqədar Dəstək:</strong> Müraciətinizin vəziyyətini izləmək, viza icazələrinizin alınması və hər hansı bir problem yaranarsa, onu həll etmək üçün sizə dəstək veririk.\n<strong>Konsulluq və Səfirliklə Əlaqə:</strong> Konsulluq və ya səfirliklə əlaqə qurmağa kömək edirik, randevu alırıq və viza müraciətiniz üçün lazım olan məlumatları təmin edirik.\n<strong>Viza Müsahibəsi Hazırlığı:</strong> Əgər viza üçün müsahibə tələb olunursa, müsahibəyə necə hazırlıq görməyiniz və qarşılaşacağınız suallara necə cavab verməyiniz barədə sizi məlumatlandırırıq."
+      },
+      "section3": {
+        "title": "3. Transfer Xidmətləri – Rahat və Təhlükəsiz Səfərlər!",
+        "description": "Premier Tur olaraq, lüks və komfortlu nəqliyyat vasitələri ilə yüksək səviyyəli transfer xidməti təqdim edirik. Sizin rahatlığınız və təhlükəsizliyiniz bizim üçün prioritetdir!\n✅ Təhlükəsiz və peşəkar sürücülər\n✅ Komfortlu avtomobillər, mikroavtobuslar və avtobuslar\n✅ Türk, ingilis və rus dillərində danışan sürücülər\n✅ Hava limanlarında VIP qarşılama və müşayiət\n✈️ Dünya Aviaşirkətləri Xidmətinizdədir!\nPremier Tur qlobal hava yolları şəbəkəsinə çıxış təmin edərək, sizə dünyanın istənilən nöqtəsinə rahat və sərfəli uçuş imkanı yaradır.\n📍 Səyahətinizin hər anında bizimlə güvəndə olun! 🌍"
+      }
     }
   },
-  "faq":{
-    "title":"Tez-tez verilən suallar",
-    "ask1":"Telefonla sifariş edə bilərəmmi?",
-    "ask2":"Hədiyyə kartları satırsınız?",
-    "ask3":"Kataloq məhsullarını onlayn sifariş edə bilərəmmi?",
-    "ask4":"Zəmanət suallarıma kim cavab verə bilər?",
-    "ask5":"Sizə lazım olan şey yoxdur?",
-    "ask6":"Magna ac placerat vestibulum?"
-
+  "home": {
+    "bannerHome": {
+      "title": "Dünyanı <1>Premier Tour</1> ilə Kəşf Et",
+      "subtitle": "Sizin üçün ən möhtəşəm və unudulmaz turları seçirik – rahat, əyləncəli və dolğun səyahət təcrübəsi üçün bizə güvənin!",
+      "inputPlaceholder": "Hara getmək istəyirsiniz ? Şəhər, ölkə və ya tur adı daxil edin..."
+    },
+    "popular": {
+      "title": "Ən Populyar Ölkələr",
+      "subtitle": "Səyahətsevərlərin ən çox bəyəndiyi istiqamətlər! Populyar şəhərlər, rahat turlar və unikal təcrübələr sizi gözləyir."
+    },
+    "loveTour": {
+      "title": "Ən çox seçilən və sevilən turlar",
+      "subtitle": "Ən çox tələb olunan turlarımızla siz də unudulmaz xatirələr yaradın. Rahat uçuşlar, lüks otellər və maraqlı marşrutlarla sizə xüsusi təkliflər təqdim edirik.",
+      "button": "Ətraflı bax"
+    },
+    "tourBlog": {
+      "title": "Səyahət Bloqu",
+      "subtitle": "Dünyanı kəşf etməyə hazırsınız? Səyahət hekayələri, faydalı məsləhətlər və unudulmaz məkanlar haqqında yazılar burada!",
+      "button": "Hamısına bax"
+    },
+    "review": {
+      "title": "Müştəri Rəyləri"
+    }
   },
-  "wishlist": "İstək siyahısı",
-  "basket":{
-    "title":"Səbət",
-    "product":"Məhsul",
-    "price":"Qiymət",
-    "count":"Miqdar",
-    "total":"Cəmi",
-    "setting":"Quraşdırma",
-    "promo":"Promo Kod",
-    "checkout":"Ödəniş",
-    "applyPromo":"Promo Kodu tətbiq edin",
-    "enterPromo":"Promo Kodu daxil edin",
-    "discountTotal":"Endirimli Cəm"
+  "blogCard": {
+    "readMore": "Ətraflı oxu"
   },
-  "card":{
-    "addToCart":"Səbətə əlavə et"
+  "reserveCard": {
+    "overnightYes": "Hoteldə gecələmə",
+    "overnightNo": "Hoteldə gecələmə yoxdur",
+    "ticketIncluded": "Aviabilet daxildir",
+    "ticketNotIncluded": "Aviabilet daxil deyil",
+    "insuranceIncluded": "Səyahət sığortası daxildir",
+    "insuranceNotIncluded": "Səyahət sığortası daxil deyil",
+    "reserve": "Rezervasiya et"
+  },
+  "reserveModal": {
+    "formTitle": "Formanı dolduraraq rezervasiya edin",
+    "nameLabel": "Adınız",
+    "namePlaceholder": "Ad",
+    "surnameLabel": "Soyadınız",
+    "surnamePlaceholder": "Soyad",
+    "emailLabel": "Email",
+    "emailPlaceholder": "premiertour@gmail.com",
+    "phoneLabel": "Telefon Nömrəsi",
+    "phonePlaceholder": "+994 55 852 33 99",
+    "noteLabel": "Qeyd",
+    "submitButton": "Rezervasiya et"
+  },
+  "pagination": {
+    "prev": "Əvvələ",
+    "next": "Sonra"
+  },
+  "tourDetail": {
+    "breadcrumb": "Ana səhifə / Turlar /",
+    "included": "Tura daxildir",
+    "contactHeading": "Əlavə məlumat üçün bizimlə əlaqə",
+    "emailLabel": "E-mail",
+    "phoneLabel": "Telefon nömrəsi",
+    "similarTours": "Oxşar Turlar",
+    "viewAll": "Hamısına bax",
+    "overnightYes": "Hoteldə gecələmə",
+    "overnightNo": "Hoteldə gecələmə yoxdur",
+    "ticketIncluded": "Aviabilet daxildir",
+    "ticketNotIncluded": "Aviabilet daxil deyil",
+    "visaAvailable": "Viza dəstəyi var",
+    "visaNotAvailable": "Viza dəstəyi yoxdur",
+    "insuranceIncluded": "Sığorta daxildir",
+    "insuranceNotIncluded": "Sığorta daxil deyil",
+    "guide": "Tur bələdçisi"
+  },
+  "tours": {
+    "breadcrumb": "Ana səhifə / Turlar /",
+    "pageTitle": "Ölkədaxili turlar",
+    "countryLabel": "Ölkə",
+    "selectCountry": "Ölkə seç",
+    "cityLabel": "Şəhər",
+    "selectCity": "Şəhər seç",
+    "startDatePlaceholder": "Başlanğıc",
+    "endDatePlaceholder": "Son",
+    "tourTitle": "Ölkədaxili turlar",
+    "sort": "Sırala",
+    "viewMore": "Ətraflı bax"
+  },
+  "recommed": {
+    "title": "Tövsiyə olunanlar",
+    "button": "Hamısına bax"
+  },
+  "blogDetail": {
+    "breadcrumb": "Ana səhifə / Bloq /",
+    "blogHeading": "Premier Tur Səyahət Blogu",
+    "authorLabel": "Müəllif",
+    "copyLink": "Copy link",
+    "section1Title": "1. Sinqapur Changi Hava Limanı (SIN) – Dünyanın Lideri",
+    "section1Description": "Sinqapurun Changi Hava Limanı dəfələrlə dünyanın ən yaxşı hava limanı seçilib. Buraya adi hava limanı kimi baxmaq mümkün deyil – bu, əslində böyük bir istirahət və əyləncə mərkəzidir. Jewel Changi kompleksi hava limanının ən diqqətçəkən məkanlarından biridir. Burada dünyanın ən hündür qapalı şəlaləsi, yaşıl tropik bağlar və interaktiv əyləncə zonaları var. Changi hava limanında vaxt keçirmək üçün çox sayda maraqlı seçimlər mövcuddur. Sərnişinlər pulsuz kinoteatrdan istifadə edə, ticarət mərkəzində brend mağazalara baş çəkə və ya rahat lounge zonalarında dincələ bilərlər. Sərnişinlər üçün xüsusi yuxu kabinələri və rahat kreslolar da mövcuddur. Wi-Fi xidməti sürətlidir və hər kəs üçün pulsuzdur. Əgər uzun tranzitiniz varsa, Changi hava limanı sizi sıxmadan zamanınızı əyləncəli keçirməyə imkan yaradacaq ən yaxşı yerdir.",
+    "section1Emphasis": "Əgər uzun tranzitiniz varsa, Changi hava limanı sizi sıxmadan zamanınızı əyləncəli keçirməyə imkan yaradacaq ən yaxşı yerdir.",
+    "section2Title": "2. Seul Incheon Beynəlxalq Hava Limanı (ICN) – Texnologiya və Komfortun Birliyi",
+    "section2Description": "Cənubi Koreyanın paytaxtı Seulda yerləşən Incheon Beynəlxalq Hava Limanı, sərnişinlər üçün ən rahat hava limanlarından biri hesab olunur. Bura səyahətçilərə təqdim etdiyi texnoloji yeniliklər və yüksək xidmət səviyyəsi ilə tanınır. Hava limanında pulsuz duş otaqları, yüksək səviyyəli istirahət zonaları və Koreya mədəniyyətini tanıdan sərgilər var. Burada sərnişinlər üçün xüsusi buz meydançası, golf sahəsi və hətta SPA mərkəzi mövcuddur. Bunlardan əlavə, Incheon hava limanında pulsuz Wi-Fi xidməti var və çox rahat işləyir. Əgər siz gözləmə zamanı həm texnologiya, həm də rahatlıq istəyirsinizsə, Seul Incheon Beynəlxalq Hava Limanı mükəmməl seçimdir.",
+    "section3Title": "3. Sürix Hava Limanı (ZRH) – Avropanın Ən Rahat Hava Limanı",
+    "section3Description": "İsveçrənin Sürix Hava Limanı Avropanın ən rahat və səliqəli hava limanlarından biridir. Burada hər şey səmərəli və dəqiq təşkil edilib, sərnişinlər üçün rahat və stressiz mühit yaradılıb. Sürix hava limanında sürətli təhlükəsizlik yoxlamaları və pasport nəzarəti prosesi tranzit edən sərnişinlər üçün böyük üstünlükdür. Burada geniş lounge zonaları, qapalı və açıq istirahət yerləri, eləcə də müxtəlif restoranlar var. Duty-free mağazalar yüksək keyfiyyətli məhsullar təklif edir və geniş çeşidlərə malikdir.",
+    "recommendTitle": "Blogdan",
+    "viewAll": "Hamısına bax",
+    "recommendSubtitle": "Dünyanı kəşf etməyə hazırsınız? Səyahət hekayələri, faydalı məsləhətlər və unudulmaz məkanlar haqqında yazılar burada!"
+  },
+  "newBlog": {
+    "breadcrumb": "Ana səhifə /",
+    "pageTitle": "Bloq",
+    "title": "Ən Yeni",
+    "date": "02.03.2025",
+    "blogTitle": "Türkiyədə Yay Tətili üçün Ən Yaxşı 5 Bölgə – Antalya, Bodrum, yoxsa Kapadokya?",
+    "blogContent": "Türkiyə yay turizmi baxımından dünyanın ən məşhur istiqamətlərindən biridir. Həm dəniz-günəş istirahəti, həm də tarixi və mədəni sərvətlərlə zəngin bölgələri ilə hər kəsin zövqünə uyğun bir yer tapmaq mümkündür. Bəs hansı bölgə sizin üçün daha uyğundur? Gəlin, Türkiyənin ən populyar 5 yay tətili bölgəsini müqayisə edək!",
+    "readMore": "Ətraflı oxu"
+  },
+  "oldBlog": {
+    "title": "Öncəki bloqlar",
+    "mainDate": "12.02.2025",
+    "mainTitle": "Dünyanın ən yaxşı hava limanları – Harada rahat gözləmək olar?",
+    "mainContent": "Səyahət edərkən hava limanında vaxt keçirmək bəzən yorucu ola bilər, amma bəzi hava limanları sərnişinlər üçün rahat və lüks şərait yaradır."
   }
 }

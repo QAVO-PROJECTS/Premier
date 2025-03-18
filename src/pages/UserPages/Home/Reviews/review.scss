@@ -2,7 +2,12 @@
   padding: 100px 0 130px;
     overflow-x: hidden;
   .reviewImg{
-    width: 100%;
+    @media (max-width: 991.98px) {
+      width: 100%;
+    }
+    @media (max-width: 767.98px) {
+      width: 100%;
+    }
   }
   .container {
     overflow-x: hidden;

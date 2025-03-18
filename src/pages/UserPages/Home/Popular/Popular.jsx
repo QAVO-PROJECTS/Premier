@@ -12,8 +12,10 @@ import 'swiper/css/navigation';
 
 // Import required modules
 import { Navigation } from 'swiper/modules';
+import { useTranslation } from 'react-i18next';
 
 function Popular() {
+    const { t } = useTranslation();
     const prevRef = useRef(null);
     const nextRef = useRef(null);
 
@@ -21,9 +23,12 @@ function Popular() {
         <div className={"popular"}>
             <div className={"container"}>
                 <div className={"title"}>
-                    <h2>Ən Populyar Ölkələr</h2>
+                    <h2>{t("home.popular.title", "Ən Populyar Ölkələr")}</h2>
                     <p>
-                        Səyahətsevərlərin ən çox bəyəndiyi istiqamətlər! Populyar şəhərlər, rahat turlar və unikal təcrübələr sizi gözləyir.
+                        {t(
+                            "home.popular.subtitle",
+                            "Səyahətsevərlərin ən çox bəyəndiyi istiqamətlər! Populyar şəhərlər, rahat turlar və unikal təcrübələr sizi gözləyir."
+                        )}
                     </p>
                 </div>
                 <div className={"row p-5"}>

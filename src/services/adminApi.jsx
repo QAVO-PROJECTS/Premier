@@ -133,6 +133,11 @@ export const adminApi = createApi({
                     url: `/Tour/get-all-tours`,
                 }),
             }),
+            getTourById: builder.query({
+                query: (id) => ({
+                    url: `/Tour/get-tour-by-id/${id}`,
+                }),
+            }),
             postTour: builder.mutation({
                 query: (data) => ({
                     url: `/Tour/create-tour`,
@@ -150,6 +155,25 @@ export const adminApi = createApi({
             deleteTour: builder.mutation({
                 query: (id) => ({
                     url: `/Tour/delete-tour/${id}`,
+                    method: 'DELETE',
+                }),
+            }),
+            postReserve: builder.mutation({
+                query: (tour) => ({
+                    url: `/Tour/save-user-tour-info`,
+                    method: 'POST',
+                    body: tour,
+                    headers: {'Content-Type': 'application/json'}
+                }),
+            }),
+            getAllReserved: builder.query({
+                query: () => ({
+                    url: `/Tour/get-admin-user-tour-infos`,
+                }),
+            }),
+            deleteReserved: builder.mutation({
+                query: ({requestId}) => ({
+                    url: `/Tour/remove-user-tours?requestId=${requestId}`,
                     method: 'DELETE',
                 }),
             }),
@@ -179,9 +203,13 @@ export const {
     useDeleteCustomerViewMutation,
 
     useGetAllToursQuery,
+    useGetTourByIdQuery,
     usePostTourMutation,
     usePutTourMutation,
     useDeleteTourMutation,
+    usePostReserveMutation,
+    useGetAllReservedQuery,
+    useDeleteReservedMutation,
 
     usePostAdminLoginMutation,
 } = adminApi

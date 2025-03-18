@@ -1,203 +1,240 @@
 {
+  "aboutUs": {
+    "section1": {
+      "number": "01",
+      "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
+      "description": "Turkey is one of the world's most famous destinations for summer tourism. With its beach and sun holidays as well as regions rich in historical and cultural heritage, everyone can find a place that suits their taste.",
+      "buttonText": "View Details"
+    },
+    "section2": {
+      "number": "02",
+      "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
+      "description": "Turkey is one of the world's most famous destinations for summer tourism. With its beach and sun holidays as well as regions rich in historical and cultural heritage, everyone can find a place that suits their taste.",
+      "buttonText": "View Details"
+    },
+    "section3": {
+      "number": "03",
+      "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
+      "description": "Turkey is one of the world's most famous destinations for summer tourism. With its beach and sun holidays as well as regions rich in historical and cultural heritage, everyone can find a place that suits their taste.",
+      "buttonText": "View Details"
+    },
+    "section4": {
+      "number": "04",
+      "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
+      "description": "Turkey is one of the world's most famous destinations for summer tourism. With its beach and sun holidays as well as regions rich in historical and cultural heritage, everyone can find a place that suits their taste.",
+      "buttonText": "View Details"
+    },
+    "moreButton": "More",
+    "banner": {
+      "breadcrumb": "Home /",
+      "pageTitle": "About Us",
+      "mainTitle": "About Us",
+      "subtitle": "At Premier Tour, we aim to provide our clients with an unforgettable travel experience."
+    }
+  },
   "navbar": {
     "home": "Home",
+    "tours": "Tours",
+    "domestic": "Domestic",
+    "international": "International",
     "about": "About",
     "contact": "Contact",
-    "login": "Sign in",
-    "register": "Sign up",
-    "logout": "Log Out",
-    "sign": "Sign",
-    "products": "Products",
-    "lang": "Lang"
-  },
-  "home": {
-    "hero": {
-      "title": "Exquisite design combined with functionalities",
-      "button": "Shop Now",
-      "contact": "Contact with our expert",
-      "wood": "Wooden Chair",
-      "premium": "Premium Elite",
-      "percent": "25% OFF",
-      "explore": "Explore Now"
-    },
-    "best": {
-      "title": "Bestsellers of the week"
-    },
-    "browse": {
-      "title": "Browse by rooms",
-      "bedroom": "Bedroom",
-      "livingroom": "Living Room",
-      "walkCloset": "Walk-in Closet",
-      "kitchen": "Kitchen",
-      "products": "products"
-    },
-    "topSeller": {
-      "title": "Top selling furniture"
-    },
-    "special": {
-      "title": "Special Offers",
-      "button": "Browse Now",
-      "specialDiscount": "Special Discount",
-      "discount": "OFF",
-      "weekly": "Weekly Discount",
-      "birthday": "Birthday Discount",
-      "seeAll": "See All"
-    },
-    "luxury": {
-      "title": " Luxurious Furniture Starts with the Best Quality Materials",
-      "button": "Learn More"
-    }
+    "blogs": "Blogs",
+    "services": "Services"
   },
   "footer": {
-    "footerTop": {
-      "title": "Important updates waiting for you!",
-      "description": "Subscribe and grab 20% OFF!",
-      "email": "Your Email *",
-      "subscribe": "Subscribe"
-    },
-    "footerMiddle": {
-      "title": "Get in touch with us",
-      "address": "Address",
-      "phone": "Phone",
-      "openinHours": "Opening Hours",
-      "street": " Street Name"
-    },
-    "footerBottom": {
-      "shopCategory": {
-        "title": "Shop Categories",
-        "armchair": "Armchairs",
-        "bed": "Beds",
-        "chairs": "Chairs",
-        "decor": "Decor",
-        "sofa": "Sofas",
-        "table": "Tables",
-        "storage": "Storage"
-      },
-      "usefulLinks": {
-        "title": "Useful Links",
-        "careers": "Careers",
-        "delivery": "Delivery",
-        "help": "Help Center",
-        "returns": "Returns and Refunds",
-        "newsletter": "Newsletter",
-        "status": "Status",
-        "testimonials": "Testimonials"
-      },
-      "account": {
-        "title": "Account",
-        "dashboard": "Dashboard",
-        "wishlist": "Wishlist",
-        "shipping": "Shipping & Delivery",
-        "affiliate": "Affiliate Program",
-        "brand": "Brand Assets",
-        "support": "Support",
-        "recommendations": "Recommendations"
-      },
-      "about": {
-        "title": "About Company",
-        "aboutUs": "About Us",
-        "ourPartner": "Our Partners",
-        "location": "Location",
-        "design": "Design Services",
-        "howItWorks": "How it Works",
-        "customers": "Customers",
-        "otherInfo": "Other Info"
-      },
-      "copyright": "Copyright © 2025 - CreativeThemes",
-      "privacy": "Privacy Policy",
-      "terms": "Terms & Conditions",
-      "siteMap": "Site Map"
-    }
-  },
-  "shop": {
-    "banner": {
-      "title": "Shop",
-      "home": "HOME",
-      "shop": "SHOP"
-    },
-    "categorys": {
-      "armchair": "Armchairs",
-      "bed": "Beds",
-      "chairs": "Chairs",
-      "decor": "Decor",
-      "sofa": "Sofas",
-      "table": "Tables",
-      "storage": "Storage",
-      "products": "products",
-      "all": "All"
-    },
-    "sort": {
-      "title": "Price",
-      "lowToHigh": "Low to High",
-      "highToLow": "High to Low"
-    },
-    "search": "Search..."
-  },
-  "pagination": {
-    "previous": "Previous",
-    "next": "Next"
-  },
-  "about": {
-    "banner": {
-      "title": "About Us",
-      "home": "HOME",
-      "about": "ABOUT"
-    },
-    "ourTeam": {
-      "title": "Our Team",
-      "seller": "Seller",
-      "manager": "Manager",
-      "boss": "Boss",
-      "bossWife": "Boss's Wife"
-    },
-    "furniture": {
-      "title": "Furniture that will last a lifetime",
-      "button": "Learn More"
-    }
+    "tagline": "Discover the world, experience new adventures, and create unforgettable memories with the perfect travel choice.",
+    "linksTitle": "Quick Links",
+    "home": "Home",
+    "tours": "Tours",
+    "domesticTours": "Domestic Tours",
+    "contact": "Contact",
+    "termsTitle": "Terms & Conditions",
+    "bookingPayments": "Booking & Payments",
+    "cancellationsRefunds": "Cancellations & Refunds",
+    "travelInsurance": "Travel Insurance",
+    "customerLiability": "Customer Liability",
+    "contactInfoTitle": "Contact Information",
+    "phone": "+994 70 654 34 98",
+    "email": "Premiertour@gmail.com",
+    "copyright": "© Copyright",
+    "rightsReserved": "All rights reserved."
   },
   "contact": {
-    "banner": {
-      "title": "Contact Us",
-      "home": "HOME",
-      "contact": "CONTACT"
+    "breadcrumb": "Home /",
+    "pageTitle": "Contact",
+    "title": "Get in Touch",
+    "subtitle": "Have any questions about your trip? Contact us now and let’s make your dream tour come true.",
+    "formTitle": "Fill out the form to contact us",
+    "firstNameLabel": "First Name",
+    "firstNamePlaceholder": "First Name",
+    "lastNameLabel": "Last Name",
+    "lastNamePlaceholder": "Last Name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "premiertour@gmail.com",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "+994 55 852 33 99",
+    "messageLabel": "Message",
+    "submitButton": "Send",
+    "socialTitle": "Social Media:",
+    "addressLabel": "Address",
+    "addressValue": "Baku, Nizami Street 45",
+    "phoneCardLabel": "Phone Number",
+    "phoneCardValue": "+994 55 876 44 55",
+    "emailCardLabel": "E-mail",
+    "emailCardValue": "premiertour@gmail.com",
+    "hoursLabel": "Working Hours",
+    "hoursValue": "10:00 - 20:00"
+  },
+  "services": {
+    "breadcrumb": "Home /",
+    "pageTitle": "Our Services",
+    "mainTitle": "Our Services",
+    "subtitle": "Professional services for a comfortable and unforgettable journey",
+    "card1": {
+      "title": "Flight Ticket Sales",
+      "description": "Direct collaboration with leading global airlines."
     },
-    "contactForm": {
-      "title": "Get in Touch",
-      "name": "Name",
-      "email": "Email",
-      "subject": "Subject",
-      "message": "Message",
-      "send": "Send Message",
-      "furniture": "Furniture store & showrooms",
-      "address": "Address",
-      "phone": "Phone",
-      "mail": "Email"
+    "card2": {
+      "title": "Visa Support",
+      "description": "Comprehensive support for individuals applying for visas."
+    },
+    "card3": {
+      "title": "Transfer Services",
+      "description": "High-level transfer with luxurious and comfortable vehicles."
+    },
+    "more": {
+      "section1": {
+        "title": "1. Premier Tour Flight Ticket Sales – Reliable and Fast Service!",
+        "description": "As Premier Tour, we are accredited by the International Air Transport Association (IATA) and work directly with leading global airlines. This enables us to offer our customers flight ticket services at the most competitive prices, safely and reliably.\n✅ Official agency status for ticket booking and sales\n✅ Fast and affordable flight ticket options to any destination\n✅ Collaboration with leading airlines such as Qatar Airways, Turkish Airlines, Emirates, Lufthansa, British Airways, FlyDubai and others\n📍 Order your flight ticket with us for a comfortable and affordable journey! 🌍🎟️"
+      },
+      "section2": {
+        "title": "2. Premier Tour Visa Support – Reliable and Fast Service!",
+        "description": "We offer comprehensive support for individuals applying for the necessary visa to travel. Our services include:\n<strong>Visa Application Preparation:</strong> We assist in preparing all necessary documents for your visa according to your travel plan, from filling out the visa application form to preparing additional documents such as financial and travel insurance.\n<strong>Visa Type Selection:</strong> We help determine which type of visa you should apply for – tourism, business, study, or other specific visas.\n<strong>Assistance with Visa Approvals:</strong> We track your application status, help obtain visa approvals, and resolve any issues that may arise.\n<strong>Consulate and Embassy Contact:</strong> We assist in contacting the consulate or embassy, scheduling appointments, and providing necessary information for your visa application.\n<strong>Visa Interview Preparation:</strong> If an interview is required, we provide guidance on how to prepare and answer potential questions."
+      },
+      "section3": {
+        "title": "3. Transfer Services – Comfortable and Safe Journeys!",
+        "description": "As Premier Tour, we provide high-level transfer services with luxurious and comfortable vehicles. Your comfort and safety are our top priority!\n✅ Professional and safe drivers\n✅ Comfortable cars, minibuses, and buses\n✅ Drivers fluent in Turkish, English, and Russian\n✅ VIP meet-and-greet and escort services at airports\n✈️ Global airline services at your disposal!\nPremier Tour provides access to a global network of airlines, offering you comfortable and affordable flights to any destination.\n📍 Trust us every step of your journey! 🌍"
+      }
     }
   },
-  "faq": {
-    "title": "Frequently Asked Questions",
-    "ask1":"Can I order by telephone?",
-    "ask2":"Do you sell gift cards?",
-    "ask3":"Can I order catalog products online?",
-    "ask4":"Who can answer my warranty questions?",
-    "ask5":"Arcu non odio euismod lacinia at quis?",
-    "ask6":"Magna ac placerat vestibulum?"
+  "home": {
+    "bannerHome": {
+      "title": "Discover the World with <1>Premier Tour</1>",
+      "subtitle": "We select the most amazing and unforgettable tours for you – trust us for a comfortable, fun, and fulfilling travel experience!",
+      "inputPlaceholder": "Where would you like to go? Enter a city, country, or tour name..."
+    },
+    "popular": {
+      "title": "Most Popular Countries",
+      "subtitle": "The destinations loved by travelers! Popular cities, comfortable tours, and unique experiences await you."
+    },
+    "loveTour": {
+      "title": "Most Popular and Beloved Tours",
+      "subtitle": "Create unforgettable memories with our most sought-after tours. Enjoy comfortable flights, luxurious hotels, and exciting itineraries with our exclusive offers.",
+      "button": "View More"
+    },
+    "tourBlog": {
+      "title": "Travel Blog",
+      "subtitle": "Are you ready to discover the world? Find travel stories, useful tips, and articles about unforgettable places here!",
+      "button": "View All"
+    },
+    "review": {
+      "title": "Customer Reviews"
+    }
   },
-  "wishlist":"Wishlist",
-  "basket":{
-    "title":"Basket",
-    "product":"Product",
-    "price":"Total Price",
-    "count":"Count",
-    "setting":"Setting",
-    "promo":"Promo Code",
-    "total":"Total",
-    "checkout":"Checkout",
-    "applyPromo":"Apply Promo Code",
-    "enterPromo":"Enter Promo Code",
-    "discountTotal":"Discounted Total"
+  "blogCard": {
+    "readMore": "Read More"
   },
-  "card":{
-    "addToCart":"Add to Cart"
+  "reserveCard": {
+    "overnightYes": "Overnight stay included",
+    "overnightNo": "No overnight stay",
+    "ticketIncluded": "Flight ticket included",
+    "ticketNotIncluded": "Flight ticket not included",
+    "insuranceIncluded": "Travel insurance included",
+    "insuranceNotIncluded": "Travel insurance not included",
+    "reserve": "Reserve Now"
+  },
+  "reserveModal": {
+    "formTitle": "Fill out the form to make a reservation",
+    "nameLabel": "First Name",
+    "namePlaceholder": "First Name",
+    "surnameLabel": "Last Name",
+    "surnamePlaceholder": "Last Name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "premiertour@gmail.com",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "+994 55 852 33 99",
+    "noteLabel": "Note",
+    "submitButton": "Reserve Now"
+  },
+  "pagination": {
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "tourDetail": {
+    "breadcrumb": "Home / Tours /",
+    "included": "Included in the tour",
+    "contactHeading": "For more information, contact us",
+    "emailLabel": "E-mail",
+    "phoneLabel": "Phone Number",
+    "similarTours": "Similar Tours",
+    "viewAll": "View All",
+    "overnightYes": "Overnight stay included",
+    "overnightNo": "No overnight stay",
+    "ticketIncluded": "Flight ticket included",
+    "ticketNotIncluded": "Flight ticket not included",
+    "visaAvailable": "Visa support available",
+    "visaNotAvailable": "No visa support",
+    "insuranceIncluded": "Insurance included",
+    "insuranceNotIncluded": "Insurance not included",
+    "guide": "Tour guide"
+  },
+  "tours": {
+    "breadcrumb": "Home / Tours /",
+    "pageTitle": "Domestic Tours",
+    "countryLabel": "Country",
+    "selectCountry": "Select Country",
+    "cityLabel": "City",
+    "selectCity": "Select City",
+    "startDatePlaceholder": "Start",
+    "endDatePlaceholder": "End",
+    "tourTitle": "Domestic Tours",
+    "sort": "Sort",
+    "viewMore": "View More"
+  },
+  "recommed": {
+    "title": "Recommended",
+    "button": "View All"
+  },
+  "blogDetail": {
+    "breadcrumb": "Home / Blog /",
+    "blogHeading": "Premier Tour Travel Blog",
+    "authorLabel": "Author",
+    "copyLink": "Copy link",
+    "section1Title": "1. Singapore Changi Airport (SIN) – The World Leader",
+    "section1Description": "Singapore's Changi Airport has been voted the best airport in the world numerous times. It is not just an ordinary airport – it is a major leisure and entertainment center. The Jewel Changi complex is one of the most striking features of the airport, offering the world's tallest indoor waterfall, lush tropical gardens, and interactive entertainment zones. There are plenty of exciting options for spending time at Changi Airport. Passengers can enjoy a free cinema, explore branded stores in the shopping center, or relax in comfortable lounge areas. Special sleep pods and cozy seating are also available, and the Wi-Fi service is fast and free for everyone. If you have a long transit, Changi Airport is the ideal place to spend your time enjoyably without feeling cramped.",
+    "section1Emphasis": "If you have a long transit, Changi Airport is the best place to spend your time enjoyably without feeling cramped.",
+    "section2Title": "2. Seoul Incheon International Airport (ICN) – A Blend of Technology and Comfort",
+    "section2Description": "Located in Seoul, South Korea, Incheon International Airport is considered one of the most comfortable airports for passengers. It is renowned for its technological innovations and high service standards. The airport offers free shower rooms, high-quality relaxation zones, and exhibits showcasing Korean culture. Additionally, there is a dedicated ice rink, a golf course, and even a spa center. Free Wi-Fi is also available and works very well. If you desire both technology and comfort during your wait, Seoul Incheon International Airport is the perfect choice.",
+    "section3Title": "3. Zurich Airport (ZRH) – The Most Comfortable Airport in Europe",
+    "section3Description": "Zurich Airport in Switzerland is one of the most comfortable and well-organized airports in Europe. Everything is efficiently and precisely managed to create a stress-free environment for passengers. Quick security checks and passport control are significant advantages for transit passengers. The airport also features extensive lounge areas, both indoor and outdoor relaxation spaces, as well as a variety of restaurants. Duty-free stores offer high-quality products with a wide selection.",
+    "recommendTitle": "From the Blog",
+    "viewAll": "View All",
+    "recommendSubtitle": "Are you ready to discover the world? Find travel stories, useful tips, and articles about unforgettable places here!"
+  },
+  "newBlog": {
+    "breadcrumb": "Home /",
+    "pageTitle": "Blog",
+    "title": "Latest",
+    "date": "02.03.2025",
+    "blogTitle": "Top 5 Regions in Turkey for a Summer Vacation – Antalya, Bodrum, or Cappadocia?",
+    "blogContent": "Turkey is one of the most famous destinations for summer tourism in the world. With both beach and sun holidays and regions rich in historical and cultural heritage, there is a place to suit everyone's taste. Which region suits you best? Let's compare Turkey's top 5 summer vacation regions!",
+    "readMore": "Read More"
+  },
+  "oldBlog": {
+    "title": "Previous Blogs",
+    "mainDate": "12.02.2025",
+    "mainTitle": "The World's Best Airports – Where Can You Wait Comfortably?",
+    "mainContent": "While traveling, waiting at the airport can sometimes be tiring, but some airports provide comfortable and luxurious facilities for passengers."
   }
 }
