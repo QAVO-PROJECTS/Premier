@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import image from "../../../assets/Rectangle 39858.png";
+import image from "../../../assets/ServicesBannerRed.png";
 import { LuIdCard, LuTicketPercent } from "react-icons/lu";
 import { GoArrowRight } from "react-icons/go";
 import './services.scss';

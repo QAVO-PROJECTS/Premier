@@ -34,7 +34,6 @@
 
     span {
       font-size: 48px; // LG ölçü
-      color: #0D60FE;
 
       @media (max-width: 991.98px) {
         font-size: 40px;
@@ -107,7 +106,7 @@
 
     button {
       padding: 10px 20px;
-      background-color: #0D60FE;
+      background-color: #D80027;
       border-radius: 15px;
       color: white;
       font-weight: 900;
@@ -125,8 +124,8 @@
 
   .plane-image {
     position: absolute;
-    bottom: 0;
-    margin-top:500px;
+    bottom: -170px;
+    margin-top:700px;
     @media (max-width: 991.98px) {
       bottom: -125%;
       width: 100%;

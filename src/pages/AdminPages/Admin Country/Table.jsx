@@ -177,10 +177,6 @@ const CountriesTable = () => {
             formData.append(key, values[key]);
         });
 
-        for (const a of formData.entries()) {
-            console.log(a);
-        }
-
         try {
             const response = await postCountry(formData).unwrap();
             if (response?.statusCode === 201) {
@@ -199,7 +195,6 @@ const CountriesTable = () => {
 
 
     const handleDelete = async (id) => {
-        console.log(id)
         try {
             const response = await deleteCountry(id).unwrap();
             if (response?.statusCode === 200) {
@@ -243,10 +238,6 @@ const CountriesTable = () => {
             formData.append(key, values[key]);
         });
         formData.append("id", editingProduct.id);
-
-        for (const a of formData.entries()) {
-            console.log(a);
-        }
 
         try {
             const response = await putCountry(formData).unwrap();

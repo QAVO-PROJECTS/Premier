@@ -1,5 +1,5 @@
 import React from 'react';
-import main from '../../../assets/main.png'
+import main from '../../../assets/mainRed.png'
 import bg from '../../../assets/bg.png'
 import "./notFound.scss"
 import {Link} from "react-router-dom";

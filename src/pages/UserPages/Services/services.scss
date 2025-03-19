@@ -21,7 +21,7 @@
       top: -35%;
       background-color: white;
       font-size: 55px; // LG ölçü
-      color: #0D60FE;
+      color: #D80027;
 
 
     }
@@ -64,10 +64,10 @@
       border-radius: 39.5px;
       border: none;
       background: white;
-      box-shadow: 1px 1px 19.2px 1px #0D60FE2B;
+      box-shadow: 1px 1px 19.2px 1px #D800272B;
 
       a {
-        color: #0D60FE;
+        color: #D80027;
         font-size: 30px; // LG
         @media (max-width: 991.98px) {
           font-size: 25px;
@@ -83,7 +83,7 @@
     }
 
     &:hover {
-      background-color: #F3F7FF;
+      background-color: #FFFBFC;
     }
   }
 

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import flagAz from '/src/assets/azerbaijan.png';
 import flagEn from '/src/assets/uk.png';
 import flagRu from '/src/assets/circle.png';
-import image1 from '/src/assets/Logo Esas.png';
+import image1 from '/src/assets/LogoEsasRed.png';
 import { FaChevronDown } from "react-icons/fa";
 
 function Navbar() {
@@ -66,16 +66,26 @@ function Navbar() {
                             <button
                                 className="dropbtn link"
                                 onClick={toggleToursDropdown}
-                                style={{ fontSize: '23px' }}  // Düzəldilmiş inline stil
+                                style={{ fontSize: '20px' }}  // Düzəldilmiş inline stil
                             >
                                 {t("navbar.tours")} <FaChevronDown />
                             </button>
                             <div className={`dropdown-content ${toursDropdownOpen ? 'show' : ''}`}>
                                 <div>
-                                    <Link to="/tours">{t("navbar.domestic")}</Link>
+                                    <Link
+                                        to="/tours"
+                                        onClick={() => setToursDropdownOpen(false)}
+                                    >
+                                        {t("navbar.domestic")}
+                                    </Link>
                                 </div>
                                 <div>
-                                    <Link to="">{t("navbar.international")}</Link>
+                                    <Link
+                                        to="/outGoing"
+                                        onClick={() => setToursDropdownOpen(false)}
+                                    >
+                                        {t("navbar.international")}
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +116,6 @@ function Navbar() {
                             </div>
                         </div>
                     </div>
-                    {/* Hamburger menü */}
                     <div className="burger" onClick={toggleMenu}>
                         <div className="line1"></div>
                         <div className="line2"></div>

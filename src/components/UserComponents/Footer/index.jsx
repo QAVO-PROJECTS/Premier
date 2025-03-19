@@ -1,9 +1,10 @@
 import "./index.scss"
-import logo from "../../../assets/Logo Esas.png"
-import foot from "../../../assets/Vector.png"
+import logo from "../../../assets/LogoEsasRed.png"
+import foot from "../../../assets/FooterVectorRed.png"
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { useTranslation } from 'react-i18next';
+import {Link} from "react-router-dom";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -28,10 +29,10 @@ const Footer = () => {
                 <div className={"col-lg-4 col-md-6"}>
                   <div className={"footer-service"}>
                     <h3>{t("footer.linksTitle", "Keçidlər")}</h3>
-                    <li>{t("footer.home", "Ana səhifə")}</li>
-                    <li>{t("footer.tours", "Turlar")}</li>
-                    <li>{t("footer.domesticTours", "Ölkədaxili turlar")}</li>
-                    <li>{t("footer.contact", "Əlaqə")}</li>
+                    <li><Link to={"/"}>{t("footer.home", "Ana səhifə")}</Link></li>
+                    <li><Link to={"/"}>{t("footer.tours", "Ölkəxarici turlar")}</Link></li>
+                    <li><Link to={"/tours"}>{t("footer.domesticTours", "Ölkədaxili turlar")}</Link></li>
+                    <li><Link to={"/contact"}>{t("footer.contact", "Əlaqə")}</Link></li>
                   </div>
                 </div>
                 <div className={"col-lg-4 col-md-6"}>

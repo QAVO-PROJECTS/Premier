@@ -10,17 +10,26 @@ import { useTranslation } from "react-i18next";
 
 function ReserveCard({ tour, onOpen }) {
     const navigate = useNavigate();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const language = i18n.language; // Məsələn, "az", "en", "ru"
+
+    // Cari dili nəzərə alaraq title seçirik:
+    let title = tour?.title; // default Azərbaycan dili
+    if (language === 'en' && tour?.titleEng) {
+        title = tour?.titleEng;
+    } else if (language === 'ru' && tour?.titleRu) {
+        title = tour?.titleRu;
+    }
 
     return (
         <div className="col-4 w-100">
             <div className="reserveCard">
                 <div className="image" onClick={() => navigate(`/tours/${tour?.id}`)}>
-                    <img src={TOUR_CARD_IMG_URL + tour?.cardImageUrl} alt="" />
+                    <img src={TOUR_CARD_IMG_URL + tour?.cardImageUrl} alt={title} />
                 </div>
                 <div className="card-content">
                     <div className="text">
-                        <h3>{tour?.title}</h3>
+                        <h3>{title}</h3>
                         <li>
                             <CiCalendarDate className="icon" /> {tour?.startDate} - {tour?.endDate}
                         </li>
@@ -42,7 +51,9 @@ function ReserveCard({ tour, onOpen }) {
                                 ? t("reserveCard.insuranceIncluded", "Səyahət sığortası daxildir")
                                 : t("reserveCard.insuranceNotIncluded", "Səyahət sığortası daxil deyil")}
                         </li>
-                        <button onClick={onOpen}>{t("reserveCard.reserve", "Rezervasiya et")}</button>
+                        <button onClick={onOpen}>
+                            {t("reserveCard.reserve", "Rezervasiya et")}
+                        </button>
                     </div>
                 </div>
             </div>

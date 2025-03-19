@@ -18,6 +18,7 @@ import AdminLogin from "../pages/AdminPages/Admin Login/index.jsx";
 import ProtectedRoute from "../ProtectedRoute.jsx";
 import BlogDetail from "../pages/UserPages/BlogDetail/BlogDetail.jsx";
 import AdminReserved from "../pages/AdminPages/Admin Reserved/AdminReserved.jsx";
+import AdminContact from "../pages/AdminPages/Admin Contact/AdminContact.jsx";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             },
             {
                 path: "/tours",
+                element: <Tours />
+            },
+            {
+                path: "/outGoing",
                 element: <Tours />
             },
             {
@@ -89,6 +94,10 @@ const router = createBrowserRouter([
             {
                 path: "/admin/reserv",
                 element: <AdminReserved />,
+            },
+            {
+                path: "/admin/contact",
+                element: <AdminContact />,
             }
         ]
     },

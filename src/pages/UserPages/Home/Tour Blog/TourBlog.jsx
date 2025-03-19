@@ -9,6 +9,7 @@ import { Navigation } from "swiper/modules";
 import 'swiper/css/navigation';
 import { useGetAllBlogsQuery } from "../../../../services/adminApi.jsx";
 import { useTranslation } from 'react-i18next';
+import {useNavigate} from "react-router-dom";
 
 function TourBlog() {
     const { t } = useTranslation();
@@ -16,7 +17,7 @@ function TourBlog() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const [swiperInstance, setSwiperInstance] = useState(null);
-
+    const navigate = useNavigate();
     // AOS animasiyalarını ilkinləşdiririk
     useEffect(() => {
         AOS.init({
@@ -53,7 +54,7 @@ function TourBlog() {
                             )}
                         </p>
                     </div>
-                    <button className={"d-none d-md-block"} data-aos="zoom-in">
+                    <button className={"d-none d-md-block"} data-aos="zoom-in" onClick={()=>navigate("/blog")}>
                         {t("home.tourBlog.button", "Hamısına bax")} <FaArrowRightLong />
                     </button>
                 </div>

@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import "./contact.scss";
 import { RiMailOpenFill, RiWhatsappFill } from "react-icons/ri";
 import { PiInstagramLogoFill } from "react-icons/pi";
 import { AiFillTikTok } from "react-icons/ai";
 import { FaFacebook, FaPhone } from "react-icons/fa";
 import { MdLocationOn, MdWatchLater } from "react-icons/md";
-import back from "../../../assets/blue.png";
+import back from "../../../assets/ContactBannerRed.png";
 import { useTranslation } from 'react-i18next';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import {usePostContactMutation} from "../../../services/adminApi.jsx";
 
 function Contact() {
     const { t } = useTranslation();
-
+    const [postContact] = usePostContactMutation()
     // AOS animasiyalarını ilkinləşdiririk
     useEffect(() => {
         AOS.init({
@@ -20,7 +21,33 @@ function Contact() {
             once: true,
         });
     }, []);
+    const [formData, setFormData] = useState({
+        name: "",
+        surname: "",
+        email: "",
+        phoneNumber: "",
+        note: "",
+    });
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
+        const dataToSend = {
+            ...formData,
+        };
+
+        try {
+            await postContact(dataToSend).unwrap();
+            setOpen(false);
+        } catch (error) {
+            console.error("Rezervasiya göndərilməsində xəta:", error);
+        }
+    };
     return (
         <div className={"contact"} data-aos="fade-up">
             <div className={"container"} data-aos="fade-up">
@@ -43,43 +70,55 @@ function Contact() {
                     <div className={"col-lg-6 col-md-6"}>
                         <div className={"form"} data-aos="zoom-in">
                             <h2>{t("contact.formTitle", "Formanı dolduraraq bizimlə əlaqə saxlayın")}</h2>
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <div className={"row"}>
                                     <div className={'col-lg-6'}>
                                         <label>{t("contact.firstNameLabel", "Adınız")}</label>
                                         <input
                                             type="text"
+                                            name="name"
                                             placeholder={t("contact.firstNamePlaceholder", "Ad")}
                                             required
+                                            onChange={handleChange}
+                                            value={formData.name}
                                         />
                                     </div>
                                     <div className={"col-lg-6"}>
                                         <label>{t("contact.lastNameLabel", "Soyadınız")}</label>
                                         <input
                                             type="text"
+                                            name="surname"
                                             placeholder={t("contact.lastNamePlaceholder", "Soyad")}
                                             required
+                                            onChange={handleChange}
+                                            value={formData.surname}
                                         />
                                     </div>
                                     <div className={"col-12"}>
                                         <label>{t("contact.emailLabel", "Email")}</label>
                                         <input
                                             type="email"
+                                            name="email"
                                             placeholder={t("contact.emailPlaceholder", "premiertour@gmail.com")}
                                             required
+                                            onChange={handleChange}
+                                            value={formData.email}
                                         />
                                     </div>
                                     <div className={"col-12"}>
                                         <label>{t("contact.phoneLabel", "Telefon Nömrəsi")}</label>
                                         <input
                                             type="text"
-                                            placeholder={t("contact.phonePlaceholder", "+994 55 852 33 99")}
+                                            name="phoneNumber"
+                                            placeholder={t("contact.phonePlaceholder", "+994 99 999 99 99")}
                                             required
+                                            onChange={handleChange}
+                                            value={formData.phoneNumber}
                                         />
                                     </div>
                                     <div className={"col-12"}>
                                         <label>{t("contact.messageLabel", "Qeyd")}</label>
-                                        <textarea rows="5" required></textarea>
+                                        <textarea rows="5" required value={formData.note} name="note" onChange={handleChange}></textarea>
                                     </div>
                                 </div>
                                 <button type="submit">{t("contact.submitButton", "Göndər")}</button>

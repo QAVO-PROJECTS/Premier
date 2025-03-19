@@ -59,6 +59,11 @@
     justify-content: center;
     font-size: 25px;
     rotate: 135deg;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      background-color: #000000;
+      color: white;
+    }
   }
 
   .name {

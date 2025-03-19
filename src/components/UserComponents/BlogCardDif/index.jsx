@@ -1,27 +1,50 @@
-import image from "../../../assets/8ddf844515ec7e41368a02a2aa6e44cd.jpg"
-import "./index.scss"
-import {GoArrowRight} from "react-icons/go";
-import {BLOG_IMG_URL} from "../../../constants.js";
-import {useNavigate} from "react-router-dom";
-import {useTranslation} from "react-i18next";
-function BlogCardDif({index,blog}) {
+import image from "../../../assets/8ddf844515ec7e41368a02a2aa6e44cd.jpg";
+import "./index.scss";
+import { GoArrowRight } from "react-icons/go";
+import { BLOG_IMG_URL } from "../../../constants.js";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+function BlogCardDif({ index, blog }) {
     const navigate = useNavigate();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const language = i18n.language; // "az", "en", "ru", və s.
+
+    // Cari dili nəzərə alaraq title və subTitle seçirik:
+    let title = blog?.title;
+    let subTitle = blog?.subTitle;
+    if (language === "en") {
+        if (blog?.titleEng) title = blog?.titleEng;
+        if (blog?.subTitleEng) subTitle = blog?.subTitleEng;
+    } else if (language === "ru") {
+        if (blog?.titleRu) title = blog?.titleRu;
+        if (blog?.subTitleRu) subTitle = blog?.subTitleRu;
+    }
+
     return (
         <div className={"col-lg-3 col-md-6"}>
             <div className={"blog-card-dif"}>
                 <div className={"image"}>
-                    <img src={BLOG_IMG_URL + blog?.imageNames[0]} alt=""/>
+                    <img src={BLOG_IMG_URL + blog?.imageNames[0]} alt={title} />
                 </div>
-                <div className={"date"} style={{
-                    backgroundColor:(index%3===0)?"#FCDDEC":(index%3===1) ?"#F2F6FF": (index%3===2) ?"#FEFADE":"red",
-                    color:(index%3===0)?"#F178B6":(index%3===1) ?"#3E86F5": (index%3===2) ?"#EFD203":"red"
-
-                }}>{blog?.createDate}</div>
-                <h5>{blog?.title}</h5>
-                <p>{blog?.subTitle}</p>
-                <button onClick={()=>navigate(`/blogs/${blog?.id}`)} className={"button"} style={{textAlign:"end"
-                }}>{t("blogCard.readMore", "Ətraflı oxu")}  <GoArrowRight/></button>
+                <div
+                    className={"date"}
+                    style={{
+                        backgroundColor: "#FCDDEC",
+                        color: "#F178B6",
+                    }}
+                >
+                    {blog?.createDate}
+                </div>
+                <h5>{title}</h5>
+                <p>{subTitle}</p>
+                <button
+                    onClick={() => navigate(`/blogs/${blog?.id}`)}
+                    className={"button"}
+                    style={{ textAlign: "end" }}
+                >
+                    {t("blogCard.readMore", "Ətraflı oxu")} <GoArrowRight />
+                </button>
             </div>
         </div>
     );

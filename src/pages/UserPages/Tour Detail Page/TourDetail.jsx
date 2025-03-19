@@ -22,54 +22,60 @@ import { useGetTourByIdQuery } from "../../../services/adminApi.jsx";
 import { TOUR_IMG_URL } from "../../../constants.js";
 import { useTranslation } from "react-i18next";
 
-// Əgər API-dən gələn şəkil dəyərləri yalnız fayl adıdırsa, aşağıdakı baseUrl-i uyğunlaşdırın.
-const baseUrl = "http://your-server.com/uploads/";
-
 function TourDetail() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const language = i18n.language; // "az", "en", "ru", və s.
     const { tourId } = useParams();
     const { data: getTourById } = useGetTourByIdQuery(tourId);
     const tour = getTourById?.data;
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
+    // Cari dili nəzərə alaraq title və description seçirik:
+    let title = tour?.title;
+    let description = tour?.description;
+    if (tour) {
+        if (language === "en") {
+            if (tour.titleEng) title = tour.titleEng;
+            if (tour.descriptionEng) description = tour.descriptionEng;
+        } else if (language === "ru") {
+            if (tour.titleRu) title = tour.titleRu;
+            if (tour.descriptionRu) description = tour.descriptionRu;
+        }
+    }
+
+    // Tour-a aid digər xüsusiyyətlərin siyahısı:
     const settings = [
         {
             icon: <CiCalendarDate className="icon" />,
             label: tour ? `${tour.startDate} - ${tour.endDate}` : "",
-            col: "col-lg-5"
         },
         {
             icon: <TbBed className="icon" />,
             label: tour?.isOvernighStay
                 ? t("tourDetail.overnightYes", "Hoteldə gecələmə")
                 : t("tourDetail.overnightNo", "Hoteldə gecələmə yoxdur"),
-            col: "col-lg-5"
         },
         {
             icon: <LuTicketPercent className="icon" />,
             label: tour?.isTicket
                 ? t("tourDetail.ticketIncluded", "Aviabilet daxildir")
                 : t("tourDetail.ticketNotIncluded", "Aviabilet daxil deyil"),
-            col: "col-lg-4"
         },
         {
             icon: <TfiHeadphoneAlt className="icon" />,
             label: tour?.isVisa
                 ? t("tourDetail.visaAvailable", "Viza dəstəyi var")
                 : t("tourDetail.visaNotAvailable", "Viza dəstəyi yoxdur"),
-            col: "col-lg-4"
         },
         {
             icon: <PiTruck className="icon" />,
             label: tour?.isInsurance
                 ? t("tourDetail.insuranceIncluded", "Sığorta daxildir")
                 : t("tourDetail.insuranceNotIncluded", "Sığorta daxil deyil"),
-            col: "col-lg-3"
         },
         {
             icon: <VscPerson className="icon" />,
             label: t("tourDetail.guide", "Tur bələdçisi"),
-            col: "col-lg-4"
         }
     ];
 
@@ -79,7 +85,7 @@ function TourDetail() {
                 <div className="head">
                     <p>
                         {t("tourDetail.breadcrumb", "Ana səhifə / Turlar /")}{" "}
-                        <span>{tour?.title}</span>
+                        <span>{title}</span>
                     </p>
                 </div>
                 <div className="row mb-5">
@@ -93,7 +99,6 @@ function TourDetail() {
                             {tour?.tourImageUrls?.map((imgUrl, index) => (
                                 <SwiperSlide key={index}>
                                     <img
-                                        // Əgər imgUrl tam URL deyilsə, baseUrl ilə birləşdirə bilərsiniz:
                                         src={TOUR_IMG_URL + imgUrl}
                                         alt={`tour image ${index}`}
                                     />
@@ -122,17 +127,22 @@ function TourDetail() {
                     </div>
                     <div className="col-lg-7">
                         <div className="content">
-                            <h3>{tour?.title}</h3>
-                            <p>{tour?.description}</p>
+                            <h3>{title}</h3>
+                            <p>{description}</p>
                             <h5>{t("tourDetail.included", "Tura daxildir")}</h5>
-                            <div className="settings row gy-3">
-                                {settings.map((item, index) => (
-                                    <div className={item.col} key={index}>
-                                        <div className="setting">
-                                            {item.icon} {item.label}
+                            <div className="wrapper1">
+                                <div className="settings gy-3">
+                                    {settings.map((item, index) => (
+                                        <div className={item.col} key={index}>
+                                            <div className="setting">
+                                                {item.icon}{" "}
+                                                <span style={{ marginLeft: "8px" }}>
+                                                    {item.label}
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                             <h5>{t("tourDetail.contactHeading", "Əlavə məlumat üçün bizimlə əlaqə")}</h5>
                             <div className="row gy-3">
@@ -166,7 +176,9 @@ function TourDetail() {
                     <div className="col-12">
                         <div className="same-content">
                             <h1>{t("tourDetail.similarTours", "Oxşar Turlar")}</h1>
-                            <button className="all desktop-only">{t("tourDetail.viewAll", "Hamısına bax")}</button>
+                            <button className="all desktop-only">
+                                {t("tourDetail.viewAll", "Hamısına bax")}
+                            </button>
                         </div>
                     </div>
                     {[
@@ -174,10 +186,17 @@ function TourDetail() {
                         { title: "İspanya", image: image1 },
                         { title: "Amsterdam", image: image1 }
                     ].map((item, index) => (
-                        <SameTourCard key={index} title={item.title} image={item.image} index={index} />
+                        <SameTourCard
+                            key={index}
+                            title={item.title}
+                            image={item.image}
+                            index={index}
+                        />
                     ))}
                     <div className="mobile-only">
-                        <button className="all">{t("tourDetail.viewAll", "Hamısına bax")}</button>
+                        <button className="all">
+                            {t("tourDetail.viewAll", "Hamısına bax")}
+                        </button>
                     </div>
                 </div>
             </div>

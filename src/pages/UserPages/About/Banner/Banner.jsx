@@ -1,6 +1,6 @@
 import React from 'react';
 import "./banner.scss";
-import image from "../../../../assets/Rectangle 39858.png";
+import image from "../../../../assets/AboutBannerRed.png";
 import { useTranslation } from 'react-i18next';
 
 function Banner() {

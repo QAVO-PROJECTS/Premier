@@ -1,6 +1,6 @@
 import "./StartPage.scss";
 import {ThreeDots} from "react-loader-spinner";
-import logo from "/src/assets/Logo Esas.png"
+import logo from "/src/assets/LogoEsasRed.png"
 
 const StartPage = () => {
     return (
@@ -11,7 +11,7 @@ const StartPage = () => {
                     visible={true}
                     height="80"
                     width="80"
-                    color="#0D60FE"
+                    color="#D80027"
                     radius="5"
                     ariaLabel="three-dots-loading"
                     wrapperStyle={{}}

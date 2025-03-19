@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import image from "../../../assets/5b9cf82fb66a7a54720e233be60ac45e.jpg";
 import "./index.scss";
+import { useGetAllCustomerViewsQuery } from "../../../services/adminApi.jsx";
+import { CUSTOMER_IMG_URL } from "../../../constants.js";
 
 const testimonials = [
     { name: "Aysel M.", review: "Bu şirkətlə Maldivlərə səyahət etdik...", image },
@@ -77,42 +79,46 @@ const CurvedSlider = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const requestRef = useRef();
     const previousTimeRef = useRef();
+    const { data: getAllCustomerViews } = useGetAllCustomerViewsQuery();
+    const views = getAllCustomerViews?.data;
 
     const DURATION = 2000;
     const FRAME_DURATION = 1000 / 60; // Yaklaşık 16.67ms, 60 fps
-    const speed = .6 / DURATION; // activeIndex her ms için bu oranda artacak
+    const speed = 0.6 / DURATION; // activeIndex her ms için bu oranda artacak
 
     const animate = time => {
         if (previousTimeRef.current !== undefined) {
             // Her frame için sabit FRAME_DURATION kullanarak activeIndex güncellemesi
-            setActiveIndex(prev => (prev + speed * FRAME_DURATION) % testimonials.length);
+            setActiveIndex(prev => (prev + speed * FRAME_DURATION) % views.length);
         }
         previousTimeRef.current = time;
         requestRef.current = requestAnimationFrame(animate);
     };
 
     useEffect(() => {
-        requestRef.current = requestAnimationFrame(animate);
+        if (views && views.length > 0) {
+            requestRef.current = requestAnimationFrame(animate);
+        }
         return () => cancelAnimationFrame(requestRef.current);
-    }, []);
+    }, [views]);
 
     return (
         <div className="slider-container">
-            {testimonials.map((item, index) => {
-                const diff = getCircularDiff(index, activeIndex, testimonials.length);
+            {views && views.map((item, index) => {
+                const diff = getCircularDiff(index, activeIndex, views.length);
                 if (Math.abs(diff) > 2) return null;
                 const style = getSlideStyle(diff);
                 return (
                     <div key={index} className="curved-slide" style={style}>
-                        <div className="testimonial-card" style={{ backgroundColor:(index%2===0)?"#F3F7FF":(index%2===1) ?"#FEFADE":"red"}}>
-                            <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"30px"}}>
-                                <img src={item.image} alt={item.name} className="avatar" />
-                                <h3>{item.name}</h3>
+                        <div className="testimonial-card" style={{ backgroundColor: (index % 2 === 0) ? "#FFEEF0" : "#ffffff", border: "1px solid #EAEAEA" }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "30px" }}>
+                                <img src={CUSTOMER_IMG_URL + item?.profilImage} alt={item.customerName} className="avatar" />
+                                <h3>{item.customerName}</h3>
                             </div>
-                            <p>{item.review}</p>
-                            <div className={"card-foot"}>
+                            <p>{item.reviewText}</p>
+                            <div className="card-foot">
                                 <div className="stars">
-                                    {Array.from({ length: 5 }).map((_, i) => (
+                                    {Array.from({ length: item.rating }).map((_, i) => (
                                         <i key={i} className="fas fa-star" />
                                     ))}
                                 </div>

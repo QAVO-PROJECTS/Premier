@@ -64,7 +64,6 @@ const ReservedTable = () => {
                     <Popconfirm
                         title="Silmək istədiyinizə əminsiniz?"
                         onConfirm={() => {
-                            console.log(record.id);
                             handleDelete(record.id);
                         }}
                         okText="Bəli"

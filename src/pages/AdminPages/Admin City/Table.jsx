@@ -1,24 +1,21 @@
+import { Table, Button, Modal, Form, Input, message, Popconfirm, Select } from "antd";
 import {
-    Table,
-    Button,
-    Modal,
-    Form,
-    Input,
-    message,
-    Popconfirm,
-} from "antd";
-import {
-
-    useGetAllCitiesQuery, usePostCityMutation, usePutCityMutation, useDeleteCityMutation,
+    useGetAllCitiesQuery,
+    usePostCityMutation,
+    usePutCityMutation,
+    useDeleteCityMutation,
+    useGetAllCountriesQuery,
 } from "../../../services/adminApi.jsx";
-import {useState, useEffect} from "react";
-import {FaRegEdit} from "react-icons/fa";
-import {MdDeleteForever} from "react-icons/md";
+import { useState, useEffect } from "react";
+import { FaRegEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 import showToast from "../../../components/ToastMessage.js";
 
 const CitiesTable = () => {
-    const {data: getAllCities, refetch: getAllCitiesRefetch} = useGetAllCitiesQuery();
+    const { data: getAllCities, refetch: getAllCitiesRefetch } = useGetAllCitiesQuery();
     const cities = getAllCities?.data;
+    const { data: getAllCountries, refetch: getAllBlogsRefetch } = useGetAllCountriesQuery();
+    const countries = getAllCountries?.data;
     const [postCity] = usePostCityMutation();
     const [putCity] = usePutCityMutation();
     const [deleteCity] = useDeleteCityMutation();
@@ -41,13 +38,6 @@ const CitiesTable = () => {
         }
     }, [editingProduct, editForm]);
 
-
-
-
-
-
-
-
     const columns = [
         {
             title: "#",
@@ -69,7 +59,7 @@ const CitiesTable = () => {
             title: "Əməliyyatlar",
             key: "actions",
             render: (text, record) => (
-                <div style={{ display: "flex", gap: "8px" ,justifyContent:"center"}}>
+                <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
                     <Button type="primary" onClick={() => showEditModal(record)}>
                         <FaRegEdit />
                     </Button>
@@ -90,7 +80,7 @@ const CitiesTable = () => {
 
     const expandedRowRender = (record) => (
         <div>
-            <p style={{margin: 0}}>{record.description}</p>
+            <p style={{ margin: 0 }}>{record.description}</p>
         </div>
     );
 
@@ -111,36 +101,33 @@ const CitiesTable = () => {
             countryId: values.countryId,
         };
 
-        console.log(payload);
-
         try {
             const response = await postCity(payload).unwrap();
             if (response?.statusCode === 201) {
-                showToast("Əlavə olundu!",'success');
+                showToast("Əlavə olundu!", "success");
                 getAllCitiesRefetch();
             } else {
-                showToast("Xəta baş verdi!","error");
+                showToast("Xəta baş verdi!", "error");
             }
         } catch (error) {
             console.error(error);
-            showToast("Xəta baş verdi!","error");
+            showToast("Xəta baş verdi!", "error");
         }
         handleCancel();
     };
 
     const handleDelete = async (id) => {
-        console.log(id)
         try {
             const response = await deleteCity(id).unwrap();
             if (response?.statusCode === 200) {
-                showToast("Silinmə uğurla tamamlandı!",'success');
+                showToast("Silinmə uğurla tamamlandı!", "success");
                 getAllCitiesRefetch();
             } else {
-                showToast("Silinmə zamanı xəta baş verdi!","error");
+                showToast("Silinmə zamanı xəta baş verdi!", "error");
             }
         } catch (error) {
             console.error(error);
-            showToast("Silinmə zamanı xəta baş verdi!","error");
+            showToast("Silinmə zamanı xəta baş verdi!", "error");
         }
     };
 
@@ -163,29 +150,25 @@ const CitiesTable = () => {
             nameRu: values.nameRu,
             countryId: values.countryId,
         };
-
-        console.log(payload);
-
         try {
             const response = await putCity(payload).unwrap();
             if (response?.statusCode === 200) {
-                showToast("Düzəliş uğurla tamamlandı!","success");
+                showToast("Düzəliş uğurla tamamlandı!", "success");
                 getAllCitiesRefetch();
             } else {
-                showToast("Düzəliş zamanı xəta baş verdi!","error");
+                showToast("Düzəliş zamanı xəta baş verdi!", "error");
             }
         } catch (error) {
             console.error(error);
-            showToast("Düzəliş zamanı xəta baş verdi!","error");
+            showToast("Düzəliş zamanı xəta baş verdi!", "error");
         }
 
         handleEditCancel();
     };
 
-
     return (
         <div>
-            <Button type="primary" onClick={showModal} style={{marginBottom: 16}}>
+            <Button type="primary" onClick={showModal} style={{ marginBottom: 16 }}>
                 +
             </Button>
             <Table
@@ -195,7 +178,7 @@ const CitiesTable = () => {
                     expandedRowRender,
                     rowExpandable: (record) => !!record.description,
                 }}
-                pagination={{pageSize: 5}}
+                pagination={{ pageSize: 5 }}
             />
 
             <Modal
@@ -211,35 +194,41 @@ const CitiesTable = () => {
                             <Form.Item
                                 name="name"
                                 label="Ad"
-                                rules={[{required: true, message: "Ad daxil edin!"}]}
+                                rules={[{ required: true, message: "Ad daxil edin!" }]}
                             >
-                                <Input placeholder="Ad"/>
+                                <Input placeholder="Ad" />
                             </Form.Item>
                             <Form.Item
                                 name="nameEng"
                                 label="Ad (EN)"
-                                rules={[{required: true, message: "Ad (EN) daxil edin!"}]}
+                                rules={[{ required: true, message: "Ad (EN) daxil edin!" }]}
                             >
-                                <Input placeholder="Ad (EN)"/>
+                                <Input placeholder="Ad (EN)" />
                             </Form.Item>
                             <Form.Item
                                 name="nameRu"
                                 label="Ad (RU)"
-                                rules={[{required: true, message: "Ad (RU) daxil edin!"}]}
+                                rules={[{ required: true, message: "Ad (RU) daxil edin!" }]}
                             >
-                                <Input placeholder="Ad (RU)"/>
+                                <Input placeholder="Ad (RU)" />
                             </Form.Item>
                         </div>
                         <div className="col-6">
                             <Form.Item
                                 name="countryId"
-                                label="Ölkə ID"
-                                rules={[{required: true, message: "Ölkə ID daxil edin!"}]}
+                                label="Ölkə"
+                                rules={[{ required: true, message: "Ölkə seçin!" }]}
                             >
-                                <Input placeholder="Ölkə ID"/>
+                                <Select placeholder="Ölkə seçin">
+                                    {countries?.map((country) => (
+                                        <Select.Option key={country.id} value={country.id}>
+                                            {country.name}
+                                        </Select.Option>
+                                    ))}
+                                </Select>
                             </Form.Item>
                             <Form.Item>
-                                <Button type="primary" htmlType="submit" style={{marginRight: 8}}>
+                                <Button type="primary" htmlType="submit" style={{ marginRight: 8 }}>
                                     Əlavə Et
                                 </Button>
                                 <Button onClick={handleCancel}>İmtina Et</Button>
@@ -248,7 +237,6 @@ const CitiesTable = () => {
                     </div>
                 </Form>
             </Modal>
-
 
             <Modal
                 title="Şəhər Redaktə Et"
@@ -263,44 +251,49 @@ const CitiesTable = () => {
                             <Form.Item
                                 name="name"
                                 label="Ad"
-                                rules={[{required: true, message: "Ad daxil edin!"}]}
+                                rules={[{ required: true, message: "Ad daxil edin!" }]}
                             >
-                                <Input placeholder="Ad daxil edin"/>
+                                <Input placeholder="Ad daxil edin" />
                             </Form.Item>
                             <Form.Item
                                 name="nameEng"
                                 label="Ad (EN)"
-                                rules={[{required: true, message: "Ad (EN) daxil edin!"}]}
+                                rules={[{ required: true, message: "Ad (EN) daxil edin!" }]}
                             >
-                                <Input placeholder="Ad (EN) daxil edin"/>
+                                <Input placeholder="Ad (EN) daxil edin" />
                             </Form.Item>
                         </div>
                         <div className="col-6">
                             <Form.Item
                                 name="nameRu"
                                 label="Ad (RU)"
-                                rules={[{required: true, message: "Ad (RU) daxil edin!"}]}
+                                rules={[{ required: true, message: "Ad (RU) daxil edin!" }]}
                             >
-                                <Input placeholder="Ad (RU) daxil edin"/>
+                                <Input placeholder="Ad (RU) daxil edin" />
                             </Form.Item>
                             <Form.Item
                                 name="countryId"
-                                label="Ölkə ID"
-                                rules={[{required: true, message: "Ölkə ID daxil edin!"}]}
+                                label="Ölkə"
+                                rules={[{ required: true, message: "Ölkə seçin!" }]}
                             >
-                                <Input placeholder="Ölkə ID"/>
+                                <Select placeholder="Ölkə seçin">
+                                    {countries?.map((country) => (
+                                        <Select.Option key={country.id} value={country.id}>
+                                            {country.name}
+                                        </Select.Option>
+                                    ))}
+                                </Select>
                             </Form.Item>
                         </div>
                     </div>
                     <Form.Item>
-                        <Button type="primary" htmlType="submit" style={{marginRight: 8}}>
+                        <Button type="primary" htmlType="submit" style={{ marginRight: 8 }}>
                             Redaktə Et
                         </Button>
                         <Button onClick={handleEditCancel}>İmtina Et</Button>
                     </Form.Item>
                 </Form>
             </Modal>
-
         </div>
     );
 };

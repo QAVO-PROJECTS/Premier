@@ -56,7 +56,7 @@
   }
 
   .form {
-    padding: 40px;
+    padding: 50px 40px;
     box-shadow: 2px 2px 4.8px 0px #C5C5C540;
     background-color: white;
 
@@ -80,16 +80,17 @@
         padding: 10px 20px;
         border-radius: 10px;
         margin-bottom: 20px;
-        background-color: rgba(142, 142, 142, 0.1);
-        border: none;
+        border:1px solid rgba(142, 142, 142, 0.32);
         outline: none;
+        &::placeholder{
+          color: rgba(140, 139, 139, 0.51);
+        }
       }
       textarea{
         width: 100%;
         border-radius: 10px;
         margin-bottom: 20px;
-        background-color:  rgba(142, 142, 142, 0.1);
-        border: none;
+        border:1px solid rgba(142, 142, 142, 0.51);
         padding: 10px 20px;
         outline: none;
       }
@@ -98,7 +99,7 @@
         width: 100%;
         padding: 10px 20px;
         border-radius: 18px;
-        background-color: #0D60FE;
+        background-color: #D80027;
         color: white;
         font-weight: 500;
         line-height: 24px;
@@ -116,8 +117,6 @@
           font-size: 16px; // sm
         }
       }
-      // input, textarea ve button gibi elemanların font ayarları
-      // zaten belirlenmişse ek responsive ayar yapılabilir.
     }
   }
 
@@ -149,7 +148,7 @@
         border-radius: 50%;
         background-color: #FFFFFF;
         padding: 8px;
-        color: #0D60FE;
+        color: #000000;
         box-shadow: 2px 2px 4.8px 0px #C5C5C540;
       }
     }
@@ -181,20 +180,20 @@
     }
 
     .blue {
-      background-color: #E1EBFF;
-      color: #0D60FE;
+      background-color: #FFCFD8;
+      color: #D80027;
     }
     .orange {
       background-color: #FFE8E8;
       color: #E6AE43;
     }
     .green {
-      background-color: #F0FFEE;
-      color: #3CCA28;
+      background-color: #E6AE432B;
+      color: #FF8000;
     }
     .purple {
-      background-color: #F3EBFD;
-      color: #BE48EC;
+      background-color: #EC484B17;
+      color: #EC484B;
     }
     .content {
       p {

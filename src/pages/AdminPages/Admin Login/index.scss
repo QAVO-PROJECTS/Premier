@@ -20,7 +20,7 @@
   }
   .login-plane{
     position: absolute;
-    top: 0;
+    top: -10%;
     right: 15px;
   }
   .login-form{
@@ -74,13 +74,13 @@
 
           &:focus {
             outline: none;
-            border-color: #0D60FE;
+            border-color:#D80027;
           }
         }
       }
 
       button {
-        background-color: #0D60FE;
+        background-color: #D80027;
         color: #fff;
         border: none;
         border-radius: 6px;

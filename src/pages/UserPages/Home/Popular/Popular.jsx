@@ -15,11 +15,14 @@ import 'swiper/css/navigation';
 // Import required modules
 import { Navigation } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
+import { useGetAllPopularCountriesQuery } from "../../../../services/adminApi.jsx";
 
 function Popular() {
     const { t } = useTranslation();
     const prevRef = useRef(null);
     const nextRef = useRef(null);
+    const { data: getAllPopularCountries } = useGetAllPopularCountriesQuery();
+    const populars = getAllPopularCountries?.data;
 
     // AOS animasiyalarını ilkinləşdiririk
     useEffect(() => {
@@ -78,15 +81,12 @@ function Popular() {
                         }}
                         className="mySwiper"
                     >
-                        <SwiperSlide><Index /></SwiperSlide>
-                        <SwiperSlide><Index /></SwiperSlide>
-                        <SwiperSlide><Index /></SwiperSlide>
-                        <SwiperSlide><Index /></SwiperSlide>
-                        <SwiperSlide><Index /></SwiperSlide>
-                        <SwiperSlide><Index /></SwiperSlide>
-                        <SwiperSlide><Index /></SwiperSlide>
-                        <SwiperSlide><Index /></SwiperSlide>
-                        <SwiperSlide><Index /></SwiperSlide>
+                        {populars &&
+                            populars.map((item, index) => (
+                                <SwiperSlide key={item.id || index}>
+                                    <Index item={item} />
+                                </SwiperSlide>
+                            ))}
                     </Swiper>
                 </div>
             </div>

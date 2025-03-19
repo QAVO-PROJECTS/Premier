@@ -538,8 +538,8 @@ const TourTable = () => {
 
                     <Form.Item name="tourType" label="Tur Növü">
                         <Select placeholder="Tur növünü seçin">
-                            <Select.Option value="incomming">Incomming</Select.Option>
-                            <Select.Option value="outgoing">Outgoing</Select.Option>
+                            <Select.Option value="incomming">Ölkədaxili</Select.Option>
+                            <Select.Option value="outgoing">Ölkəxarici</Select.Option>
                         </Select>
                     </Form.Item>
 

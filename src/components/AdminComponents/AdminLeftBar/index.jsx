@@ -15,7 +15,7 @@ function AdminLeftBar() {
             <li className={location.pathname === "/admin/blog" ? "selected" : ""}>
                 <TbLogs className="icon" />
                 <NavLink to="/admin/blog">
-                    Bloq
+                    Bloqlar
                 </NavLink>
             </li>
             <li className={location.pathname === "/admin/cities" ? "selected" : ""}>
@@ -46,6 +46,12 @@ function AdminLeftBar() {
                 <TbReservedLine className="icon" />
                 <NavLink to="/admin/reserv">
                     Rezervasiyalar
+                </NavLink>
+            </li>
+            <li className={location.pathname === "/admin/contact" ? "selected" : ""}>
+                <TbReservedLine className="icon" />
+                <NavLink to="/admin/contact">
+                    Əlaqələr
                 </NavLink>
             </li>
         </section>

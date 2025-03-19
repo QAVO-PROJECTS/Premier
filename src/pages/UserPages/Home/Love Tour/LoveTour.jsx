@@ -31,7 +31,6 @@ function LoveTour() {
 
     // Kartın "Rezervasiya et" düyməsinə basılınca çağırılan funksiya
     const handleCardOpen = (tour) => {
-        console.log("Selected tour id:", tour?.id);
         setSelectedTour(tour);
         setOpen(true);
     };

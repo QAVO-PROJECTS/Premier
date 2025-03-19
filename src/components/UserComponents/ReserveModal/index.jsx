@@ -3,6 +3,7 @@ import "./index.scss";
 import { IoCloseOutline } from "react-icons/io5";
 import { usePostReserveMutation } from "../../../services/adminApi.jsx";
 import { useTranslation } from "react-i18next";
+import showToast from "../../ToastMessage.js";
 
 function ReserveModal({ open, setOpen, tour }) {
     if (!open) return null;
@@ -36,11 +37,11 @@ function ReserveModal({ open, setOpen, tour }) {
         };
 
         try {
-            // postReserve çağırılır və backend-ə JSON kimi göndərilir
             await postReserve(dataToSend).unwrap();
+            showToast("Uğurlu rezervasiya!","success")
             setOpen(false);
         } catch (error) {
-            console.error("Rezervasiya göndərilməsində xəta:", error);
+            showToast(error?.data?.error,"error")
         }
     };
 

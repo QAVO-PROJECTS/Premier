@@ -167,11 +167,6 @@ const CustomerViewsTable = () => {
             formData.append(key, values[key]);
         });
 
-        // Debug üçün FormData-nı konsola çıxardırıq
-        for (const a of formData.entries()) {
-            console.log(a);
-        }
-
         try {
             const response = await postCustomerView(formData).unwrap();
             if (response?.statusCode === 201) {
@@ -189,7 +184,6 @@ const CustomerViewsTable = () => {
 
 
     const handleDelete = async (id) => {
-        console.log(id)
         try {
             const response = await deleteCustomerView(id).unwrap();
             if (response?.statusCode === 200) {
@@ -232,10 +226,6 @@ const CustomerViewsTable = () => {
             formData.append(key, values[key]);
         });
         formData.append("id", editingProduct.id);
-
-        for (const a of formData.entries()) {
-            console.log(a);
-        }
 
         try {
             const response = await putCustomerView(formData).unwrap();

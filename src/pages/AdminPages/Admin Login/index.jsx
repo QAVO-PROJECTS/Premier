@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import './index.scss';
-import logo from '../../../assets/Logo Esas.png';
-import banner from '../../../assets/Vector 15.png';
-import plane from '../../../assets/Planevector.png';
+import logo from '../../../assets/LogoEsasRed.png';
+import banner from '../../../assets/LoginBannerRed.png';
+import plane from '../../../assets/BannerPlaneRed.png';
 import { usePostAdminLoginMutation } from '../../../services/adminApi.jsx';
 import {useNavigate} from "react-router-dom";
 import showToast from "../../../components/ToastMessage.js";

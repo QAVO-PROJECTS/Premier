@@ -164,9 +164,6 @@ const BlogsTable = () => {
         Object.keys(values).forEach((key) => {
             formData.append(key, values[key]);
         });
-        for (const a of formData.entries()) {
-            console.log(a);
-        }
         try {
             const response = await postBlog(formData).unwrap();
             if (response?.statusCode === 201) {
@@ -183,7 +180,6 @@ const BlogsTable = () => {
     };
 
     const handleDelete = async (id) => {
-        console.log(id)
         try {
             const response = await deleteBlog(id).unwrap();
             if (response?.statusCode === 200) {
@@ -232,10 +228,6 @@ const BlogsTable = () => {
             formData.append(key, values[key]);
         });
         formData.append("id", editingProduct.id);
-
-        for (const a of formData.entries()) {
-            console.log(a);
-        }
 
         try {
             const response = await putBlog(formData).unwrap();
