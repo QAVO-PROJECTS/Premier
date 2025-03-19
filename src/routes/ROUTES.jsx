@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import {createBrowserRouter} from "react-router-dom";
 import Home from "../pages/UserPages/Home/Home.jsx";
 import Contact from "../pages/UserPages/Contact/Contact.jsx";
 import Blogs from "../pages/UserPages/Blogs/Blogs.jsx";
@@ -19,43 +19,48 @@ import ProtectedRoute from "../ProtectedRoute.jsx";
 import BlogDetail from "../pages/UserPages/BlogDetail/BlogDetail.jsx";
 import AdminReserved from "../pages/AdminPages/Admin Reserved/AdminReserved.jsx";
 import AdminContact from "../pages/AdminPages/Admin Contact/AdminContact.jsx";
+import SearchTours from "../pages/UserPages/SearchTours/SearchTours.jsx";
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <MainPage />,
+        element: <MainPage/>,
         children: [
             {
                 path: "/",
-                element: <Home />
+                element: <Home/>
             },
             {
                 path: "/contact",
-                element: <Contact />
+                element: <Contact/>
             },
             {
                 path: "/blog",
-                element: <Blogs />
+                element: <Blogs/>
             },
             {
                 path: "/about",
-                element: <About />
+                element: <About/>
             },
             {
                 path: "/services",
-                element: <Services />
+                element: <Services/>
             },
             {
                 path: "/tours",
-                element: <Tours />
+                element: <Tours/>
+            },
+            {
+                path: "/search-tours",
+                element: <SearchTours/>
             },
             {
                 path: "/outGoing",
-                element: <Tours />
+                element: <Tours/>
             },
             {
                 path: "/tours/:tourId",
-                element: <TourDetail />
+                element: <TourDetail/>
             },
             {
                 path: "/blogs/:blogId",
@@ -67,47 +72,47 @@ const router = createBrowserRouter([
         path: "/admin",
         element: (
             <ProtectedRoute>
-                <AdminPage />
+                <AdminPage/>
             </ProtectedRoute>
         ),
         children: [
             {
                 path: "/admin/blog",
-                element: <AdminBlog />,
+                element: <AdminBlog/>,
             },
             {
                 path: "/admin/cities",
-                element: <AdminCity />,
+                element: <AdminCity/>,
             },
             {
                 path: "/admin/countries",
-                element: <AdminCountry />,
+                element: <AdminCountry/>,
             },
             {
                 path: "/admin/customersViews",
-                element: <AdminCustomerView />
+                element: <AdminCustomerView/>
             },
             {
                 path: "/admin/tours",
-                element: <AdminTour />
+                element: <AdminTour/>
             },
             {
                 path: "/admin/reserv",
-                element: <AdminReserved />,
+                element: <AdminReserved/>,
             },
             {
                 path: "/admin/contact",
-                element: <AdminContact />,
+                element: <AdminContact/>,
             }
         ]
     },
     {
         path: "/login",
-        element: <AdminLogin />
+        element: <AdminLogin/>
     },
     {
         path: "*",
-        element: <NotFound />
+        element: <NotFound/>
     }
 ]);
 

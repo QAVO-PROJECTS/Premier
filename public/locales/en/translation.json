@@ -35,8 +35,8 @@
   "navbar": {
     "home": "Home",
     "tours": "Tours",
-    "domestic": "Domestic",
-    "international": "International",
+    "domestic": "Incoming",
+    "international": "Outgoing",
     "about": "About",
     "contact": "Contact",
     "blogs": "Blogs",
@@ -237,5 +237,8 @@
     "mainDate": "12.02.2025",
     "mainTitle": "The World's Best Airports – Where Can You Wait Comfortably?",
     "mainContent": "While traveling, waiting at the airport can sometimes be tiring, but some airports provide comfortable and luxurious facilities for passengers."
+  },
+  "searchResult": {
+    "title": "Search results"
   }
 }

@@ -218,14 +218,9 @@ export const adminApi = createApi({
             },
         }),
         getSearchTours: builder.query({
-            query: (searchTerm) => {
-                const params = new URLSearchParams();
-                // searchTerm varsa query param əlavə et
-                if (searchTerm) {
-                    params.append('query', searchTerm);
-                }
+            query: (query) => {
                 return {
-                    url: `/Tour/search?${params.toString()}`,
+                    url: `/Tour/search?query=${query}`,
                     method: 'GET',
                 };
             },

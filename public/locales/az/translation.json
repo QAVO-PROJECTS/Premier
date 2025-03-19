@@ -237,5 +237,8 @@
     "mainDate": "12.02.2025",
     "mainTitle": "Dünyanın ən yaxşı hava limanları – Harada rahat gözləmək olar?",
     "mainContent": "Səyahət edərkən hava limanında vaxt keçirmək bəzən yorucu ola bilər, amma bəzi hava limanları sərnişinlər üçün rahat və lüks şərait yaradır."
+  },
+  "searchResult":{
+    "title":  "Axtarış nəticəsi"
   }
 }

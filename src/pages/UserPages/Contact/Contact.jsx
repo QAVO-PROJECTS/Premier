@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import "./contact.scss";
 import { RiMailOpenFill, RiWhatsappFill } from "react-icons/ri";
 import { PiInstagramLogoFill } from "react-icons/pi";

@@ -1,6 +1,6 @@
 import './index.scss'
-import { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {Outlet} from 'react-router-dom';
 import Navbar from "../../components/UserComponents/Navbar/Navbar.jsx";
 import ScrollToTop from "../../components/ScrollToTop/index.jsx";
 import Footer from "../../components/UserComponents/Footer/index.jsx";
@@ -27,16 +27,25 @@ const MainPage = () => {
 
     return (
         <div id="mainPage">
-            <ScrollToTop />
+            <ScrollToTop/>
             {showStart ? (
-                <div className={`start-page ${fadeOut ? "fade-out" : ""}`}>
-                    <StartPage />
-                </div>
+                <>
+                    <div className={`start-page ${fadeOut ? "fade-out" : ""}`}>
+                        <StartPage/>
+                    </div>
+                    <div style={{
+                        display: "none",
+                    }}>
+                        <Navbar/>
+                        <Outlet/>
+                        <Footer/>
+                    </div>
+                </>
             ) : (
                 <>
-                    <Navbar />
-                    <Outlet />
-                    <Footer />
+                    <Navbar/>
+                    <Outlet/>
+                    <Footer/>
                 </>
             )}
         </div>

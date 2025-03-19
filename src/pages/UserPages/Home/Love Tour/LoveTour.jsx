@@ -87,9 +87,8 @@ function LoveTour() {
                 <div className="text-center more" style={{ marginTop: "70px" }} data-aos="fade-up">
                     <button onClick={() => setOpen(true)}>{t("home.loveTour.button", "Ətraflı bax")}</button>
                 </div>
-                {/* Modal LoveTour bölməsində render olunur və seçilmiş turun məlumatı oraya ötürülür */}
-                {open && <ReserveModal open={open} setOpen={setOpen} tour={selectedTour} />}
             </div>
+                {open && <ReserveModal open={open} setOpen={setOpen} tour={selectedTour} />}
         </div>
     );
 }

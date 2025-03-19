@@ -5,36 +5,26 @@ import { CiSearch } from "react-icons/ci";
 import plane from "../../../../assets/BannerPlaneRed.png";
 import homeBanner from "../../../../assets/homeBannerMobile.png";
 import { useTranslation, Trans } from 'react-i18next';
-import { useGetSearchToursQuery } from "../../../../services/adminApi";
 import { useNavigate } from 'react-router-dom';
 
 function Banner() {
     const { t } = useTranslation();
     const navigate = useNavigate();
 
-    // İstifadəçinin input sahəsində yazdığı mətn
     const [inputValue, setInputValue] = useState("");
-    // Axtarış üçün istifadə olunacaq dəyər
     const [searchTerm, setSearchTerm] = useState("");
 
-    // searchTerm varsa sorğu gedir, yoxdursa skip olunur
-    const { data: searchData, isLoading, error } = useGetSearchToursQuery(searchTerm, {
-        skip: !searchTerm,
-    });
-
-    // "Axtar" düyməsinə kliklədikdə searchTerm yenilənir
     const handleSearch = () => {
         if (inputValue.trim()) {
             setSearchTerm(inputValue.trim());
         }
     };
 
-    // Axtarış nəticəsi gəldikdə /tours səhifəsinə yönləndir və data state vasitəsilə ötür
     useEffect(() => {
-        if (searchData) {
-            navigate('/tours', { state: { searchResults: searchData } });
+        if (searchTerm) {
+            navigate(`/search-tours?searchTerm=${searchTerm}`);
         }
-    }, [searchData, navigate]);
+    }, [searchTerm, navigate]);
 
     return (
         <div className="banner-home">
@@ -60,8 +50,6 @@ function Banner() {
                                 <CiSearch />
                             </button>
                         </div>
-                        {isLoading && <p>{t("common.loading", "Yüklənir...")}</p>}
-                        {error && <p style={{ color: 'red' }}>{t("common.error", "Xəta baş verdi!")}</p>}
                         <img src={plane} alt="" className="plane-image" />
                     </div>
                     <div className="col-6 d-none d-lg-block">

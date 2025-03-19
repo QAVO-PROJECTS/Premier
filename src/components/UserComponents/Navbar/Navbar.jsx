@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import './navbar.scss';
-import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
+import {Link, useNavigate} from "react-router-dom";
+import {useTranslation} from 'react-i18next';
 
 import flagAz from '/src/assets/azerbaijan.png';
 import flagEn from '/src/assets/uk.png';
 import flagRu from '/src/assets/circle.png';
 import image1 from '/src/assets/LogoEsasRed.png';
-import { FaChevronDown } from "react-icons/fa";
+import {FaChevronDown} from "react-icons/fa";
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [langDropdownOpen, setLangDropdownOpen] = useState(false);
     const [toursDropdownOpen, setToursDropdownOpen] = useState(false);
 
-    const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation();
 
-    // Komponent yüklənəndə localStorage-dan dil məlumatını oxuyur və tətbiq edir
     useEffect(() => {
         const storedLang = localStorage.getItem('i18nextLng');
         if (storedLang && storedLang !== i18n.language) {
@@ -38,12 +37,10 @@ function Navbar() {
 
     const handleLanguageChange = (lng) => {
         i18n.changeLanguage(lng);
-        // Seçilən dili localStorage-da saxlayırıq
         localStorage.setItem('i18nextLng', lng);
         setLangDropdownOpen(false);
     };
 
-    // İndiki dili bayrağa uyğun təyin edirik
     let currentFlag = flagAz; // default
     if (i18n.language?.startsWith("en")) {
         currentFlag = flagEn;
@@ -53,12 +50,18 @@ function Navbar() {
         currentFlag = flagAz;
     }
 
+    const navigate = useNavigate()
+
     return (
         <section id="myNavbar">
             <div className="container">
                 <div className="wrapper">
                     <div className="logo">
-                        <img src={image1} alt="Logo" />
+                        <img src={image1} alt="Logo" onClick={() => {
+                            navigate('/')
+                        }} style={{
+                            cursor: 'pointer',
+                        }}/>
                     </div>
                     <nav className={`nav-links ${menuOpen ? 'active' : ''}`}>
                         <Link to="/" className="link">{t("navbar.home")}</Link>
@@ -66,9 +69,9 @@ function Navbar() {
                             <button
                                 className="dropbtn link"
                                 onClick={toggleToursDropdown}
-                                style={{ fontSize: '20px' }}  // Düzəldilmiş inline stil
+                                style={{fontSize: '20px'}}  // Düzəldilmiş inline stil
                             >
-                                {t("navbar.tours")} <FaChevronDown />
+                                {t("navbar.tours")} <FaChevronDown className={"zakirinChevronu"}/>
                             </button>
                             <div className={`dropdown-content ${toursDropdownOpen ? 'show' : ''}`}>
                                 <div>
@@ -97,20 +100,20 @@ function Navbar() {
                     <div className="language">
                         <div className="dropdown" onClick={toggleLangDropdown}>
                             <button className="dropbtn">
-                                <img src={currentFlag} alt="Current Flag" />
-                                <FaChevronDown />
+                                <img src={currentFlag} alt="Current Flag"/>
+                                <FaChevronDown className={"zakirinChevronu"}/>
                             </button>
                             <div className={`dropdown-content ${langDropdownOpen ? 'show' : ''}`}>
                                 <div onClick={() => handleLanguageChange('az')}>
-                                    <img src={flagAz} alt="AZ Flag" />
+                                    <img src={flagAz} alt="AZ Flag"/>
                                     AZ
                                 </div>
                                 <div onClick={() => handleLanguageChange('en')}>
-                                    <img src={flagEn} alt="EN Flag" />
+                                    <img src={flagEn} alt="EN Flag"/>
                                     EN
                                 </div>
                                 <div onClick={() => handleLanguageChange('ru')}>
-                                    <img src={flagRu} alt="RU Flag" />
+                                    <img src={flagRu} alt="RU Flag"/>
                                     RU
                                 </div>
                             </div>
