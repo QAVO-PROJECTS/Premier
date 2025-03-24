@@ -3,7 +3,7 @@ import image from "../../../../assets/BannerEsasRed2.png";
 import "./banner.scss";
 import { CiSearch } from "react-icons/ci";
 import plane from "../../../../assets/BannerPlaneRed.png";
-import homeBanner from "../../../../assets/homeBannerMobile.png";
+import homeBanner from "../../../../assets/HomeMobileBanner.png";
 import { useTranslation, Trans } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
