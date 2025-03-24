@@ -1,36 +1,25 @@
-import React, { useRef, useState, useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import {useRef, useState} from 'react';
 import './loveTour.scss';
 import ReserveCard from "../../../../components/UserComponents/ReserveCard/ReserveCard.jsx";
 import 'swiper/css';
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {FaArrowLeft, FaArrowRight} from "react-icons/fa6";
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
+import {Navigation} from 'swiper/modules';
 import ReserveModal from "../../../../components/UserComponents/ReserveModal/index.jsx";
-import { useGetAllToursQuery } from "../../../../services/adminApi.jsx";
-import { useTranslation } from 'react-i18next';
+import {useGetAllToursQuery} from "../../../../services/adminApi.jsx";
+import {useTranslation} from 'react-i18next';
 import {useNavigate} from "react-router-dom";
 
 function LoveTour() {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const [open, setOpen] = useState(false);
-    const [selectedTour, setSelectedTour] = useState(null); // Seçilmiş turun məlumatı
-    const { data: getAllTours } = useGetAllToursQuery();
+    const [selectedTour, setSelectedTour] = useState(null);
+    const {data: getAllTours} = useGetAllToursQuery();
     const tours = getAllTours?.data;
 
-    // AOS animasiyalarını ilkinləşdiririk
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-    }, []);
-
-    // Kartın "Rezervasiya et" düyməsinə basılınca çağırılan funksiya
     const handleCardOpen = (tour) => {
         setSelectedTour(tour);
         setOpen(true);
@@ -38,30 +27,30 @@ function LoveTour() {
     const navigate = useNavigate();
 
     return (
-        <div className="love-tour" data-aos="fade-up">
-            <div className="container" data-aos="fade-up">
-                <div className="love-title" data-aos="fade-right">
+        <div className="love-tour">
+            <div className="container">
+                <div className="love-title">
                     <h2>{t("home.loveTour.title", "Ən çox seçilən və sevilən turlar")}</h2>
                     <p>
                         {t("home.loveTour.subtitle", "Ən çox tələb olunan turlarımızla siz də unudulmaz xatirələr yaradın. Rahat uçuşlar, lüks otellər və maraqlı marşrutlarla sizə xüsusi təkliflər təqdim edirik.")}
                     </p>
                 </div>
-                <div className="col-12 text-end paginate d-none d-md-block" style={{ marginBottom: "40px" }} data-aos="fade-left">
+                <div className="col-12 text-end paginate d-none d-md-block" style={{marginBottom: "40px"}}>
                     <button ref={prevRef} className="white">
-                        <FaArrowLeft />
+                        <FaArrowLeft/>
                     </button>
                     <button ref={nextRef} className="blue">
-                        <FaArrowRight />
+                        <FaArrowRight/>
                     </button>
                 </div>
-                <div className="row slider-row" data-aos="zoom-in">
+                <div className="row slider-row">
                     <Swiper
                         spaceBetween={30}
                         grabCursor={true}
                         breakpoints={{
-                            0: { slidesPerView: 1 },
-                            768: { slidesPerView: 2 },
-                            1024: { slidesPerView: 3 },
+                            0: {slidesPerView: 1},
+                            768: {slidesPerView: 2},
+                            1024: {slidesPerView: 3},
                         }}
                         navigation={{
                             prevEl: prevRef.current,
@@ -80,16 +69,16 @@ function LoveTour() {
                     >
                         {tours && tours.map((tour) => (
                             <SwiperSlide key={tour.id}>
-                                <ReserveCard tour={tour} onOpen={() => handleCardOpen(tour)} />
+                                <ReserveCard tour={tour} onOpen={() => handleCardOpen(tour)}/>
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
-                <div className="text-center more" style={{ marginTop: "70px" }} data-aos="fade-up">
+                <div className="text-center more" style={{marginTop: "70px"}}>
                     <button onClick={() => navigate("/tours")}>{t("home.loveTour.button", "Ətraflı bax")}</button>
                 </div>
             </div>
-                {open && <ReserveModal open={open} setOpen={setOpen} tour={selectedTour} />}
+            {open && <ReserveModal open={open} setOpen={setOpen} tour={selectedTour}/>}
         </div>
     );
 }

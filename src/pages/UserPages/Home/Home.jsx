@@ -11,13 +11,6 @@ import Review from "./Reviews/Review.jsx";
 
 function Home() {
     useEffect(() => {
-        AOS.init({
-            duration: 1000, // Animasyon süresi (ms)
-            once: false, // False yaparsan her scroll hareketinde tekrar oynar
-            mirror: true, // Scroll yukarı çıkarken de animasyon tekrar etsin
-        });
-
-        // Scroll yapıldıkça AOS'u tekrar tetikle
         window.addEventListener("scroll", () => {
             AOS.refresh();
         });

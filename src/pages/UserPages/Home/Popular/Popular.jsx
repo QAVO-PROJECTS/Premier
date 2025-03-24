@@ -1,18 +1,14 @@
-import React, { useRef, useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useRef } from 'react';
 import Index from "../../../../components/UserComponents/Card/index.jsx";
 import "./popular.scss";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// Import required modules
 import { Navigation } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
 import { useGetAllPopularCountriesQuery } from "../../../../services/adminApi.jsx";
@@ -24,18 +20,11 @@ function Popular() {
     const { data: getAllPopularCountries } = useGetAllPopularCountriesQuery();
     const populars = getAllPopularCountries?.data;
 
-    // AOS animasiyalarını ilkinləşdiririk
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-    }, []);
 
     return (
-        <div className={"popular"} data-aos="fade-up">
-            <div className={"container"} data-aos="fade-up">
-                <div className={"title"} data-aos="fade-right">
+        <div className={"popular"}>
+            <div className={"container"}>
+                <div className={"title"}>
                     <h2>{t("home.popular.title", "Ən Populyar Ölkələr")}</h2>
                     <p>
                         {t(
@@ -44,7 +33,7 @@ function Popular() {
                         )}
                     </p>
                 </div>
-                <div className={"row p-5"} data-aos="fade-left">
+                <div className={"row p-5"}>
                     <div className={"col-12 text-end d-none d-md-block"} style={{ marginBottom: "40px" }}>
                         <button ref={prevRef} className={"white"}>
                             <FaArrowLeft />
@@ -90,7 +79,7 @@ function Popular() {
                     </Swiper>
                 </div>
             </div>
-            <div className={"background"} data-aos="zoom-in"></div>
+            <div className={"background"}></div>
         </div>
     );
 }

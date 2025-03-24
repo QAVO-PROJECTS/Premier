@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import image from "../../../../assets/BannerEsasRed2.png";
 import "./banner.scss";
 import { CiSearch } from "react-icons/ci";

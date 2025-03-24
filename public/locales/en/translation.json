@@ -106,16 +106,31 @@
     "more": {
       "section1": {
         "title": "1. Premier Tour Flight Ticket Sales – Reliable and Fast Service!",
-        "description": "As Premier Tour, we are accredited by the International Air Transport Association (IATA) and work directly with leading global airlines. This enables us to offer our customers flight ticket services at the most competitive prices, safely and reliably.\n✅ Official agency status for ticket booking and sales\n✅ Fast and affordable flight ticket options to any destination\n✅ Collaboration with leading airlines such as Qatar Airways, Turkish Airlines, Emirates, Lufthansa, British Airways, FlyDubai and others\n📍 Order your flight ticket with us for a comfortable and affordable journey! 🌍🎟️"
+
+  "description": "As Premier Tur, we are accredited by the International Air Transport Association (IATA) and collaborate directly with the world's leading airlines. This allows us to offer our customers the most affordable, safe, and reliable flight ticket services.",
+  "description1": "Official agency status for reservation and ticket sales",
+  "description2": "Fast and affordable flight ticket options to anywhere in the world",
+  "description3": "Collaboration with top airlines such as Qatar Airways, Turkish Airlines, Emirates, Lufthansa, British Airways, FlyDubai, and others",
+  "description4": "Book your flight ticket with us for a convenient and budget-friendly travel experience!"
+
       },
       "section2": {
         "title": "2. Premier Tour Visa Support – Reliable and Fast Service!",
-        "description": "We offer comprehensive support for individuals applying for the necessary visa to travel. Our services include:\n<strong>Visa Application Preparation:</strong> We assist in preparing all necessary documents for your visa according to your travel plan, from filling out the visa application form to preparing additional documents such as financial and travel insurance.\n<strong>Visa Type Selection:</strong> We help determine which type of visa you should apply for – tourism, business, study, or other specific visas.\n<strong>Assistance with Visa Approvals:</strong> We track your application status, help obtain visa approvals, and resolve any issues that may arise.\n<strong>Consulate and Embassy Contact:</strong> We assist in contacting the consulate or embassy, scheduling appointments, and providing necessary information for your visa application.\n<strong>Visa Interview Preparation:</strong> If an interview is required, we provide guidance on how to prepare and answer potential questions."
+        "description": "We offer comprehensive support for individuals applying for the necessary visa to travel. Our services include:<br/><strong>Visa Application Preparation:</strong> We assist in preparing all necessary documents for your visa according to your travel plan, from filling out the visa application form to preparing additional documents such as financial and travel insurance.<br/><strong>Visa Type Selection:</strong> We help determine which type of visa you should apply for – tourism, business, study, or other specific visas.<br/><strong>Assistance with Visa Approvals:</strong> We track your application status, help obtain visa approvals, and resolve any issues that may arise.<br/><strong>Consulate and Embassy Contact:</strong> We assist in contacting the consulate or embassy, scheduling appointments, and providing necessary information for your visa application.<br/><strong>Visa Interview Preparation:</strong> If an interview is required, we provide guidance on how to prepare and answer potential questions."
       },
       "section3": {
-        "title": "3. Transfer Services – Comfortable and Safe Journeys!",
-        "description": "As Premier Tour, we provide high-level transfer services with luxurious and comfortable vehicles. Your comfort and safety are our top priority!\n✅ Professional and safe drivers\n✅ Comfortable cars, minibuses, and buses\n✅ Drivers fluent in Turkish, English, and Russian\n✅ VIP meet-and-greet and escort services at airports\n✈️ Global airline services at your disposal!\nPremier Tour provides access to a global network of airlines, offering you comfortable and affordable flights to any destination.\n📍 Trust us every step of your journey! 🌍"
-      }
+
+  "title": "3. Transfer Services – Comfortable and Safe Travels!",
+  "description": "At Premier Tur, we offer high-level transfer services with luxurious and comfortable vehicles. Your comfort and safety are our top priority!",
+  "description1": "Safe and professional drivers",
+  "description2": "Comfortable cars, minibuses, and buses",
+  "description3": "Drivers fluent in Turkish, English, and Russian",
+  "description4": "VIP meet and greet at airports",
+  "description5": "World Airlines at Your Service!",
+  "description6": "Premier Tur provides access to a global airline network, offering you convenient and affordable flights to any destination.",
+  "description7": "Feel secure with us at every moment of your journey!"
+
+}
     }
   },
   "home": {
@@ -243,5 +258,9 @@
   },
   "searchPage": {
     "loading": "Loading..."
+  },
+  "blogDetailCard": {
+    "button": "Read Blog"
   }
+
 }

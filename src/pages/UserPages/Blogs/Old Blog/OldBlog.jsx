@@ -1,13 +1,14 @@
 import React from 'react';
 import "./oldBlog.scss";
 import Index from "../../../../components/UserComponents/HorizontalBlogCard/index.jsx";
-import { useTranslation } from 'react-i18next';
-import { useGetAllBlogsQuery } from "../../../../services/adminApi.jsx";
+import {useTranslation} from 'react-i18next';
+import {useGetAllBlogsQuery} from "../../../../services/adminApi.jsx";
+import {BLOG_IMG_URL} from "../../../../constants.js";
 
 function OldBlog() {
-    const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation();
     const language = i18n.language; // "az", "en", "ru", və s.
-    const { data: getAllBlogs } = useGetAllBlogsQuery();
+    const {data: getAllBlogs} = useGetAllBlogsQuery();
     const blogsData = getAllBlogs?.data;
 
     // Silinməmiş blogları alırıq
@@ -42,7 +43,12 @@ function OldBlog() {
                 <div className={"row"}>
                     {featuredBlog && (
                         <div className={'col-lg-7'}>
-                            <div className={"image"}>
+                            <div className={"image"} style={{
+                                backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%), url("${BLOG_IMG_URL + featuredBlog?.imageNames[0]}")`,
+                                backgroundRepeat: 'no-repeat',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                            }}>
                                 <div className={"text"}>
                                     <div className={"date"}>
                                         {featuredBlog.createDate}
@@ -59,7 +65,7 @@ function OldBlog() {
                         <div className={"blogs"}>
                             <div className={"cards"}>
                                 {blogsData?.map(blog => (
-                                    <Index key={blog.id} blog={blog} />
+                                    <Index key={blog.id} blog={blog}/>
                                 ))}
                             </div>
                         </div>

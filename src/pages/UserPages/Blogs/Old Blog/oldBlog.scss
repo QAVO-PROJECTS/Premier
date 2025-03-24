@@ -39,11 +39,6 @@
   .image {
     height: 540px;
     align-content: end;
-    background: linear-gradient(
-                    180deg, /* Yukarıdan aşağıya doğru */
-                    rgba(0, 0, 0, 0) 0%, /* Üst kısım tamamen şeffaf başlar */
-                    rgba(0, 0, 0, 0.5) 100% /* Alt kısım yarı saydam siyah */
-    ), url("../../../../assets/pexels-pavel-danilyuk-8294664 1.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

@@ -1,6 +1,4 @@
 import { useRef, useState, useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import './tourBlog.scss';
 import { FaArrowLeft, FaArrowRight, FaArrowRightLong } from "react-icons/fa6";
 import Index from "../../../../components/UserComponents/BlogCard/index.jsx";
@@ -13,25 +11,15 @@ import {useNavigate} from "react-router-dom";
 
 function TourBlog() {
     const { t } = useTranslation();
-    const arr = new Array(6).fill(0);
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const [swiperInstance, setSwiperInstance] = useState(null);
     const navigate = useNavigate();
-    // AOS animasiyalarını ilkinləşdiririk
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-    }, []);
 
     useEffect(() => {
         if (swiperInstance && prevRef.current && nextRef.current) {
-            // Yenidən navigation düymələrinin elementlərini təyin edirik
             swiperInstance.params.navigation.prevEl = prevRef.current;
             swiperInstance.params.navigation.nextEl = nextRef.current;
-            // Mövcud navigation instance-ni yenidən initialize edirik
             swiperInstance.navigation.destroy();
             swiperInstance.navigation.init();
             swiperInstance.navigation.update();
@@ -42,9 +30,9 @@ function TourBlog() {
     const blogs = getAllBlogs?.data.slice(0, 8);
 
     return (
-        <div className="tour-blog" data-aos="fade-up">
-            <div className="container" data-aos="fade-up">
-                <div className="head" data-aos="fade-right">
+        <div className="tour-blog">
+            <div className="container">
+                <div className="head">
                     <div className="title">
                         <h2>{t("home.tourBlog.title", "Səyahət Bloqu")}</h2>
                         <p>
@@ -54,12 +42,12 @@ function TourBlog() {
                             )}
                         </p>
                     </div>
-                    <button className={"d-none d-md-block"} data-aos="zoom-in" onClick={()=>navigate("/blog")}>
+                    <button className={"d-none d-md-block"} onClick={()=>navigate("/blog")}>
                         {t("home.tourBlog.button", "Hamısına bax")} <FaArrowRightLong />
                     </button>
                 </div>
 
-                <div className="row slider-row" data-aos="fade-left">
+                <div className="row slider-row">
                     <Swiper
                         onSwiper={setSwiperInstance}
                         breakpoints={{
@@ -85,20 +73,19 @@ function TourBlog() {
                         modules={[Navigation]}
                         className="mySwiper"
                         onBeforeInit={(swiper) => {
-                            // Bu callback sayəsində navigation elementləri ilkin olaraq təyin edilir
                             swiper.params.navigation.prevEl = prevRef.current;
                             swiper.params.navigation.nextEl = nextRef.current;
                         }}
                     >
                         {blogs && blogs.map((blog, index) => (
-                            <SwiperSlide key={index} data-aos="fade-up">
+                            <SwiperSlide key={index}>
                                 <Index index={index} blog={blog} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
 
-                <div className="col-12 text-end paginate" style={{ marginTop: "40px" }} data-aos="fade-up">
+                <div className="col-12 text-end paginate" style={{ marginTop: "40px" }}>
                     <button ref={prevRef} className="white">
                         <FaArrowLeft />
                     </button>

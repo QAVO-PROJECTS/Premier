@@ -5,7 +5,7 @@ import { FaArrowRightLong, FaXTwitter } from "react-icons/fa6";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import BlogDetailCard from "../../../components/UserComponents/BlogDetailCard/BlogDetailCard.jsx";
 import { useNavigate, useParams } from "react-router-dom";
-import { useGetBlogByIdQuery } from "../../../services/adminApi.jsx";
+import {useGetAllBlogsQuery, useGetBlogByIdQuery} from "../../../services/adminApi.jsx";
 import { BLOG_IMG_URL } from "../../../constants.js";
 import { useTranslation } from "react-i18next";
 
@@ -16,7 +16,8 @@ function BlogDetail() {
     const { data: getBlogById } = useGetBlogByIdQuery(blogId);
     const blog = getBlogById?.data;
     const navigate = useNavigate();
-
+    const {data: getAllBlogs} = useGetAllBlogsQuery()
+    const blogs = getAllBlogs?.data.slice(0,2)
     // Cari dili nəzərə alaraq title, subTitle və context sahələrini seçirik
     let title = blog?.title;
     let subTitle = blog?.subTitle;
@@ -91,8 +92,9 @@ function BlogDetail() {
                         )}
                     </p>
                     <div className="row gy-3">
-                        <BlogDetailCard />
-                        <BlogDetailCard />
+                        {blogs && blogs.map((blog, index) => (
+                            <BlogDetailCard key={blog.id} blog={blog} />
+                        ))}
                     </div>
                 </div>
             </div>
