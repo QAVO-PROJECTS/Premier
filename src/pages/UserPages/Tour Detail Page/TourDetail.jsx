@@ -17,9 +17,9 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import SameTourCard from "../../../components/UserComponents/SameTourCard/index.jsx";
 import image1 from "/src/assets/tour.jpg";
-import { useParams } from "react-router-dom";
-import { useGetTourByIdQuery } from "../../../services/adminApi.jsx";
-import { TOUR_IMG_URL } from "../../../constants.js";
+import {useNavigate, useParams} from "react-router-dom";
+import {useGetAllToursQuery, useGetTourByIdQuery} from "../../../services/adminApi.jsx";
+import {TOUR_CARD_IMG_URL, TOUR_IMG_URL} from "../../../constants.js";
 import { useTranslation } from "react-i18next";
 
 function TourDetail() {
@@ -29,7 +29,9 @@ function TourDetail() {
     const { data: getTourById } = useGetTourByIdQuery(tourId);
     const tour = getTourById?.data;
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+    const { data: getAllTours } = useGetAllToursQuery();
+    const tourss = getAllTours?.data?.filter(item => item.id !== tour?.id && item.tourType === tour?.tourType);
+    const tours = tourss?.slice(0,3)
     // Cari dili nəzərə alaraq title və description seçirik:
     let title = tour?.title;
     let description = tour?.description;
@@ -78,6 +80,15 @@ function TourDetail() {
             label: t("tourDetail.guide", "Tur bələdçisi"),
         }
     ];
+    const navigate = useNavigate();
+    const handleNavigate = () => {
+        if (tour?.tourType === "outgoing") {
+            navigate("/outGoing");
+        } else if (tour?.tourType === "incomming") {
+            navigate("/tours");
+            console.log("sss")
+        }
+    };
 
     return (
         <div className="tourDetail">
@@ -176,25 +187,29 @@ function TourDetail() {
                     <div className="col-12">
                         <div className="same-content">
                             <h1>{t("tourDetail.similarTours", "Oxşar Turlar")}</h1>
-                            <button className="all desktop-only">
+                            <button className="all desktop-only" onClick={handleNavigate}>
                                 {t("tourDetail.viewAll", "Hamısına bax")}
                             </button>
                         </div>
                     </div>
-                    {[
-                        { title: "İtaliya", image: image1 },
-                        { title: "İspanya", image: image1 },
-                        { title: "Amsterdam", image: image1 }
-                    ].map((item, index) => (
+                    {tours?.slice(0, 3).map((item, index) => (
                         <SameTourCard
-                            key={index}
-                            title={item.title}
-                            image={item.image}
+                            key={item.id}
+                            title={
+                                language === "en"
+                                    ? item.titleEng || item.title
+                                    : language === "ru"
+                                        ? item.titleRu || item.title
+                                        : item.title
+                            }
+                            image={TOUR_CARD_IMG_URL + item.cardImageUrl}
                             index={index}
+                            id={item.id}
                         />
                     ))}
+
                     <div className="mobile-only">
-                        <button className="all">
+                        <button className="all" onClick={handleNavigate}>
                             {t("tourDetail.viewAll", "Hamısına bax")}
                         </button>
                     </div>

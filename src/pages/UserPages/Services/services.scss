@@ -9,6 +9,7 @@
     border-radius: 12px;
     transition: all 0.3s ease-in-out;
     background-color: white;
+    margin-bottom: 100px;
     .servis-card-icon {
       width: 165px;
       height: 165px;
@@ -124,7 +125,7 @@
       line-height: 35px;
       color: #535862;
       padding: 32px;
-      margin: 0;
+      margin: 0 0 50px;
 
       @media (max-width: 991.98px) {
         font-size: 18px;
