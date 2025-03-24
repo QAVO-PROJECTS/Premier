@@ -1,13 +1,22 @@
 .card{
   border-radius: 25px;
   overflow: hidden;
+  &:hover{
+    .image{
+      img{
+        transform: scale(1.1);
+      }
+    }
+  }
   .image{
     width: 100%;
     position: relative;
+    overflow: hidden;
     img{
       width: 100%;
       height: 300px;
       object-fit: cover;
+      transition: all 0.3s ease-in-out;
     }
     .raiting{
       position: absolute;

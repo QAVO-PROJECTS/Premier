@@ -1,4 +1,4 @@
-#logoScroll {
+#logoScrollHome {
   padding: 25px 0 25px;
   color: white;
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
   overflow-x: hidden;
   box-shadow: 1px 1px 8.1px 0px #D6D6D685;
-
+margin-bottom: 75px;
   .wrapper {
     display: flex;
     align-items: center;
@@ -41,7 +41,7 @@
   }
 
   .left {
-    animation: scrollLeft 10000s linear infinite;
+    animation: scrollLeft 2000s linear infinite;
   }
 }
 

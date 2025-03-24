@@ -2,7 +2,6 @@ import "./aboutUs.scss";
 import image from "../../../../assets/aboutCards.jpg";
 import { GoArrowRight } from "react-icons/go";
 import { useTranslation } from "react-i18next";
-import SameTourCard from "../../../../components/UserComponents/SameTourCard/index.jsx";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";

@@ -41,7 +41,7 @@ function Sponsor() {
     });
 
     return (
-        <section id="logoScroll" data-aos="fade-up">
+        <section id="logoScrollHome" data-aos="fade-up">
             <div className="wrapper left">
                 {brands.map((brand, index) => (
                     <div className="box" key={index}>

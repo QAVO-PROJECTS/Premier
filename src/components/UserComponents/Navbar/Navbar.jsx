@@ -69,7 +69,7 @@ function Navbar() {
                             <button
                                 className="dropbtn link"
                                 onClick={toggleToursDropdown}
-                                style={{fontSize: '20px'}}  // Düzəldilmiş inline stil
+                                style={{fontSize: '16px'}}  // Düzəldilmiş inline stil
                             >
                                 {t("navbar.tours")} <FaChevronDown className={"zakirinChevronu"}/>
                             </button>

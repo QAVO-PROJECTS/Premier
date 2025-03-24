@@ -1,6 +1,6 @@
 .tour-blog{
   padding: 60px 0;
-  margin-bottom: 150px;
+  margin-bottom: 75px;
   .head{
     display: flex;
     justify-content: space-between;
@@ -48,6 +48,12 @@
       border-radius: 27px;
       border: none;
       cursor: pointer;
+      transition:all 0.3s ease-in-out;
+      &:hover{
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+      }
 
       @media (max-width: 991.98px) { // MD ölçü
         font-size: 14px;

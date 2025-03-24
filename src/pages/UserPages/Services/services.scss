@@ -1,5 +1,5 @@
 .services {
-  padding: 0 0 100px;
+  padding: 0 0 70px;
 
   .servis-card {
     text-align: center;
@@ -12,7 +12,8 @@
     .servis-card-icon {
       width: 165px;
       height: 165px;
-      left: 35%;
+      left: 50%;
+      transform: translateX(-50%);
       gap: 10px;
       border-radius: 12px;
       padding: 38px 52px 52px 52px;
@@ -22,9 +23,8 @@
       background-color: white;
       font-size: 55px; // LG ölçü
       color: #D80027;
-
-
     }
+
 
     h5 {
       font-weight: 500;
@@ -101,7 +101,7 @@
       font-size: 30px; // LG
       line-height: 38px;
       margin-bottom: 24px;
-
+      scroll-margin-top: 80px;
       @media (max-width: 991.98px) {
         font-size: 25px;
         line-height: 34px;

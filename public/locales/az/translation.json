@@ -240,5 +240,8 @@
   },
   "searchResult":{
     "title":  "Axtarış nəticəsi"
+  },
+  "searchPage": {
+    "loading": "Yüklənir..."
   }
 }

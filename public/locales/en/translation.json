@@ -240,5 +240,8 @@
   },
   "searchResult": {
     "title": "Search results"
+  },
+  "searchPage": {
+    "loading": "Loading..."
   }
 }

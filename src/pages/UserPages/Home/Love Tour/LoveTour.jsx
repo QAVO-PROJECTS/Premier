@@ -11,6 +11,7 @@ import { Navigation } from 'swiper/modules';
 import ReserveModal from "../../../../components/UserComponents/ReserveModal/index.jsx";
 import { useGetAllToursQuery } from "../../../../services/adminApi.jsx";
 import { useTranslation } from 'react-i18next';
+import {useNavigate} from "react-router-dom";
 
 function LoveTour() {
     const { t } = useTranslation();
@@ -34,11 +35,12 @@ function LoveTour() {
         setSelectedTour(tour);
         setOpen(true);
     };
+    const navigate = useNavigate();
 
     return (
         <div className="love-tour" data-aos="fade-up">
             <div className="container" data-aos="fade-up">
-                <div className="title" data-aos="fade-right">
+                <div className="love-title" data-aos="fade-right">
                     <h2>{t("home.loveTour.title", "Ən çox seçilən və sevilən turlar")}</h2>
                     <p>
                         {t("home.loveTour.subtitle", "Ən çox tələb olunan turlarımızla siz də unudulmaz xatirələr yaradın. Rahat uçuşlar, lüks otellər və maraqlı marşrutlarla sizə xüsusi təkliflər təqdim edirik.")}
@@ -78,14 +80,13 @@ function LoveTour() {
                     >
                         {tours && tours.map((tour) => (
                             <SwiperSlide key={tour.id}>
-                                {/* onOpen prop-u vasitəsilə valideynə məlumat ötürürük */}
                                 <ReserveCard tour={tour} onOpen={() => handleCardOpen(tour)} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
                 <div className="text-center more" style={{ marginTop: "70px" }} data-aos="fade-up">
-                    <button onClick={() => setOpen(true)}>{t("home.loveTour.button", "Ətraflı bax")}</button>
+                    <button onClick={() => navigate("/tours")}>{t("home.loveTour.button", "Ətraflı bax")}</button>
                 </div>
             </div>
                 {open && <ReserveModal open={open} setOpen={setOpen} tour={selectedTour} />}

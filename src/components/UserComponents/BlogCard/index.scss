@@ -31,5 +31,11 @@
     border: 1px solid #D80027;
     color: #D80027;
     font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      background-color: #D80027;
+      color: white;
+
+    }
   }
 }

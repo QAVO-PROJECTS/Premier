@@ -36,7 +36,7 @@ function SearchTours({ state }) {
                         </h2>
                     </div>
                     <div className="row gy-4" style={{ marginBottom: "80px" }}>
-                        {isLoading && <p>Yükleniyor...</p>}
+                        {isLoading && <p>Yüklənir...</p>}
                         {error && <p>Bir hata oluştu.</p>}
                         {result && result.length > 0 ? (
                             result.map((tour) => (

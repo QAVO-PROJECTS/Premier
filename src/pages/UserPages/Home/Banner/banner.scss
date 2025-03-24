@@ -81,6 +81,11 @@
     background-color: white;
     border-radius: 25px;
     z-index: 9;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      box-shadow: 1px 1px 12px 4px rgba(218, 15, 15, 0.26);
+
+    }
     @media (max-width: 991.98px) {
       width: 100%;
     }
@@ -95,6 +100,7 @@
       border: none;
       font-size: 20px; // LG ölçü
       outline: none;
+
 
       @media (max-width: 991.98px) {
         font-size: 18px;
@@ -111,7 +117,10 @@
       color: white;
       font-weight: 900;
       border: none;
-      font-size: 25px; // LG ölçü
+      font-size: 25px;
+      .icon-banner{
+        margin-top: -3px;
+      }
 
       @media (max-width: 991.98px) {
         font-size: 22px;
@@ -124,7 +133,7 @@
 
   .plane-image {
     position: absolute;
-    bottom: -170px;
+    bottom: -250px;
     margin-top:700px;
     @media (max-width: 991.98px) {
       bottom: -125%;

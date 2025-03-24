@@ -1,4 +1,3 @@
-import image from "../../../assets/8ddf844515ec7e41368a02a2aa6e44cd.jpg";
 import "./index.scss";
 import { GoArrowRight } from "react-icons/go";
 import { BLOG_IMG_URL } from "../../../constants.js";

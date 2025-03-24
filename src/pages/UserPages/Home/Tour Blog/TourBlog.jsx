@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './tourBlog.scss';

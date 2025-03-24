@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import image from "../../../../assets/BannerEsasRed.png";
+import image from "../../../../assets/BannerEsasRed2.png";
 import "./banner.scss";
 import { CiSearch } from "react-icons/ci";
 import plane from "../../../../assets/BannerPlaneRed.png";
@@ -47,7 +47,7 @@ function Banner() {
                                 placeholder={t("home.bannerHome.inputPlaceholder", "Hara getmək istəyirsiniz ? Şəhər, ölkə və ya tur adı daxil edin...")}
                             />
                             <button onClick={handleSearch}>
-                                <CiSearch />
+                                <CiSearch className={"icon-banner"}/>
                             </button>
                         </div>
                         <img src={plane} alt="" className="plane-image" />
