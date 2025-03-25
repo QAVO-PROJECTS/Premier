@@ -1,14 +1,28 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import image from "../../../assets/ServicesBannerRed.png";
 import { LuIdCard, LuTicketPercent } from "react-icons/lu";
 import { GoArrowRight } from "react-icons/go";
 import './services.scss';
 import { IoBusSharp } from "react-icons/io5";
 import { useTranslation, Trans } from 'react-i18next';
+import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
+import {useLocation} from "react-router-dom";
 
 function Services() {
     const { t } = useTranslation();
+    const location = useLocation();
 
+    useEffect(() => {
+        if (location.hash) {
+            // Hash değerindeki '#' karakterini kaldırıyoruz
+            const id = location.hash.replace('#', '');
+            const element = document.getElementById(id);
+            if (element) {
+                // Smooth scroll işlemi
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [location]);
     // Description-ları kəsmək üçün
     const card1Desc = t("services.card1.description", "Dünyanın aparıcı aviaşirkətləri ilə birbaşa əməkdaşlıq.").slice(0,50) + '...';
     const card2Desc = t("services.card2.description", "Viza üçün müraciət edən şəxslərə hərtərəfli dəstək təklif edirik.").slice(0,50) + '...';

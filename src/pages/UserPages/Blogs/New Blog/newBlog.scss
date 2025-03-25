@@ -75,7 +75,7 @@
       width: max-content;
       padding: 5.5px 16px;
       background-color: #FCDDEC;
-      color: #F178B6;
+      color: #D80027;
       border-radius: 20px;
       margin-bottom: 10px;
     }
@@ -90,7 +90,7 @@
         line-height: 33px;
       }
       @media (max-width: 767.98px) { // SM ölçü
-        font-size: 18px;
+        font-size: 22px;
         line-height: 30px;
       }
     }
@@ -105,20 +105,20 @@
         line-height: 32px;
       }
       @media (max-width: 767.98px) { // SM ölçü
-        font-size: 13px;
+        font-size: 17px;
         line-height: 28px;
       }
     }
     button{
       background-color: inherit;
       border: none;
-      color: #F178B6;
+      color: #D80027;
       font-size: 16px; // LG ölçü
       align-content: center;
       border-radius: 10px;
       transition: all 0.3s ease-in-out;
       &:hover{
-        background-color: #F178B6;
+        background-color: #D80027;
         color: #fff;
         padding: 5px 10px;
       }
@@ -126,7 +126,7 @@
         font-size: 14px;
       }
       @media (max-width: 767.98px) { // SM ölçü
-        font-size: 12px;
+        font-size: 16px;
       }
 
       .icon{

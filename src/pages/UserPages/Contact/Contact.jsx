@@ -9,6 +9,7 @@ import back from "../../../assets/ContactBannerRed.png";
 import { useTranslation } from 'react-i18next';
 import {usePostContactMutation} from "../../../services/adminApi.jsx";
 import showToast from "../../../components/ToastMessage.js";
+import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
 
 function Contact() {
     const { t } = useTranslation();
@@ -50,6 +51,7 @@ function Contact() {
     };
     return (
         <div className={"contact"}>
+            <ScrollToTop/>
             <div className={"container"}>
                 <div className={"head"}>
                     <p>

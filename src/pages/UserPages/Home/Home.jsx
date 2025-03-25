@@ -8,6 +8,7 @@ import LoveTour from "./Love Tour/LoveTour.jsx";
 import TourBlog from "./Tour Blog/TourBlog.jsx";
 import Sponsor from "./Sponsor/Sponsor.jsx";
 import Review from "./Reviews/Review.jsx";
+import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
 
 function Home() {
     useEffect(() => {
@@ -24,6 +25,7 @@ function Home() {
 
     return (
         <>
+            <ScrollToTop/>
             <div ><Banner/></div>
             <div ><Popular/></div>
             <div><LoveTour/></div>

@@ -27,7 +27,7 @@ const MainPage = () => {
 
     return (
         <div id="mainPage">
-            <ScrollToTop/>
+
             {showStart ? (
                 <>
                     <div className={`start-page ${fadeOut ? "fade-out" : ""}`}>

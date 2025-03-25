@@ -21,7 +21,7 @@ function BlogCardDif({ index, blog }) {
     }
 
     return (
-        <div className={"col-lg-3 col-md-6"}>
+        <div className={"col-lg-3 col-md-6 mb-4 pe-2 ps-2"}>
             <div className={"blog-card-dif"}>
                 <div className={"image"}>
                     <img src={BLOG_IMG_URL + blog?.imageNames[0]} alt={title} />

@@ -38,11 +38,24 @@ const Footer = () => {
                 <div className={"col-lg-4 col-md-6"}>
                   <div className={"footer-service"}>
                     <h3>{t("footer.termsTitle", "Şərtlər və Qaydalar")}</h3>
-                    <li><Link to={'/services'}>{t("footer.bookingPayments", "Rezervasiya və ödənişlər")}</Link></li>
-                    <li><Link to={'/services'}>{t("footer.cancellationsRefunds", "Ləğv etmə və Geri Ödənişlər")}</Link></li>
-                    <li><Link to={'/services'}>{t("footer.travelInsurance", "Səyahət Sığortası")}</Link></li>
+                    <li>
+                      <Link to={'/services#1'}>
+                        {t("footer.bookingPayments", "Rezervasiya və ödənişlər")}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={'/services#2'}>
+                        {t("footer.cancellationsRefunds", "Ləğv etmə və Geri Ödənişlər")}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={'/services#3'}>
+                        {t("footer.travelInsurance", "Səyahət Sığortası")}
+                      </Link>
+                    </li>
                   </div>
                 </div>
+
                 <div className={"col-lg-4 col-md-6"}>
                   <div className={"footer-service"}>
                     <h3>{t("footer.contactInfoTitle", "Əlaqə məlumatları")}</h3>

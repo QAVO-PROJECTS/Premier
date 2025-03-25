@@ -9,6 +9,7 @@ import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import BlogDetailCard from "../../../components/UserComponents/BlogDetailCard/BlogDetailCard.jsx";
 import { useGetAllBlogsQuery, useGetBlogByIdQuery } from "../../../services/adminApi.jsx";
 import { BLOG_IMG_URL } from "../../../constants.js";
+import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
 
 function BlogDetail() {
     const { t, i18n } = useTranslation();
@@ -49,6 +50,7 @@ function BlogDetail() {
 
     return (
         <div id="blog-detail">
+            <ScrollToTop/>
             <div className="container">
                 <div className="head">
                     <p>

@@ -5,6 +5,7 @@ import "./searchTours.scss";
 import { useGetSearchToursQuery } from "../../../services/adminApi.jsx";
 import TourCard from "../../../components/UserComponents/TourCard/index.jsx";
 import NotResult from "../Not Result/index.jsx";
+import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
 
 function SearchTours({ state }) {
     const { t, i18n } = useTranslation();
@@ -21,6 +22,7 @@ function SearchTours({ state }) {
     const result = searchData?.data
     return (
         <div className="searchTours">
+            <ScrollToTop/>
             <div className="container">
                 <div className="head">
                     <p>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CiSearch } from 'react-icons/ci';
@@ -24,6 +24,7 @@ import dayjs from 'dayjs';
 // import 'dayjs/locale/az';
 
 import "./tours.scss";
+import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
 
 function Tours() {
     const { t, i18n } = useTranslation();
@@ -53,7 +54,7 @@ function Tours() {
     const [searchParams, setSearchParams] = useState(null);
 
     // Serverdən gələn axtarış nəticələri; searchParams yoxdursa sorğu atılmır
-    const { data: getFilterTours, error, isLoading } = useGetFilterToursQuery(
+    const { data: getFilterTours} = useGetFilterToursQuery(
         searchParams ?? {},
         { skip: !searchParams }
     );
@@ -191,6 +192,7 @@ function Tours() {
 
     return (
         <div className="tours">
+            <ScrollToTop/>
             <div className="container">
                 <div className="head">
                     <p>
@@ -291,7 +293,7 @@ function Tours() {
 
                     {/* Tarixlər: RangePicker */}
                     <div className="col-lg-5 col-md-6 col-sm-12 m-0">
-                        <div className="servis-content">
+                        <div className="search-bar">
                             <RangePicker
                                 className="custom-range-picker"
                                 format="DD.MM.YYYY"

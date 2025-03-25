@@ -6,6 +6,7 @@ import "./index.scss";
 import { useGetAllToursQuery } from "../../../services/adminApi.jsx";
 import TourCard from "../../../components/UserComponents/TourCard/index.jsx";
 import NotResult from "../Not Result/index.jsx";
+import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
 
 function CountryTours({ state }) {
     const { t } = useTranslation();
@@ -21,6 +22,7 @@ function CountryTours({ state }) {
     console.log(filteredTours);
     return (
         <div className="searchTours">
+            <ScrollToTop/>
             <div className="container">
                 <div className="head">
                     <p>

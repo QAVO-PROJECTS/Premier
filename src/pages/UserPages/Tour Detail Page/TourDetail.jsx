@@ -21,6 +21,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useGetAllToursQuery, useGetTourByIdQuery} from "../../../services/adminApi.jsx";
 import {TOUR_CARD_IMG_URL, TOUR_IMG_URL} from "../../../constants.js";
 import { useTranslation } from "react-i18next";
+import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
 
 function TourDetail() {
     const { t, i18n } = useTranslation();
@@ -95,7 +96,7 @@ function TourDetail() {
 
     return (
         <div className="tourDetail">
-
+            <ScrollToTop/>
             <div className="container">
                 <div className="head">
                     <p>
