@@ -83,7 +83,7 @@ const CurvedSlider = () => {
     const views = getAllCustomerViews?.data;
 
     const DURATION = 2000;
-    const FRAME_DURATION = 1000 / 30; // Yaklaşık 16.67ms, 60 fps
+    const FRAME_DURATION = 1000 / 45; // Yaklaşık 16.67ms, 60 fps
     const speed = 0.6 / DURATION; // activeIndex her ms için bu oranda artacak
 
     const animate = time => {

@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CiSearch } from 'react-icons/ci';
@@ -14,14 +14,9 @@ import {
 import TourCard from "../../../components/UserComponents/TourCard/index.jsx";
 import banner from "/src/assets/ToursBannerRed.png";
 
-// Ant Design RangePicker
+// İki ayrı DatePicker istifadə olunur
 import { DatePicker } from 'antd';
-const { RangePicker } = DatePicker;
-
-// dayjs importu
 import dayjs from 'dayjs';
-// İstəyə görə lokalizasiya da əlavə etmək olar, məsələn:
-// import 'dayjs/locale/az';
 
 import "./tours.scss";
 import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
@@ -46,7 +41,7 @@ function Tours() {
     const [selectedCountries, setSelectedCountries] = useState([]);
     const [selectedCities, setSelectedCities] = useState([]);
 
-    // Tarixlər üçün state-lər
+    // Start və end tarixlər üçün ayrı state-lər
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
 
@@ -54,18 +49,16 @@ function Tours() {
     const [searchParams, setSearchParams] = useState(null);
 
     // Serverdən gələn axtarış nəticələri; searchParams yoxdursa sorğu atılmır
-    const { data: getFilterTours} = useGetFilterToursQuery(
+    const { data: getFilterTours } = useGetFilterToursQuery(
         searchParams ?? {},
         { skip: !searchParams }
     );
-    console.log(searchParams);
 
     // Sort üçün state: default olaraq A-Z sıralama
     const [sortOrder, setSortOrder] = useState('A-Z');
 
     // Axtarış düyməsinə kliklədikdə parametrləri yeniləyirik
     const handleSearch = () => {
-        // startDate və endDate artıq "DD.MM.YYYY" formatındadır
         setSearchParams({
             countryIds: selectedCountries,
             cityIds: selectedCities,
@@ -177,22 +170,18 @@ function Tours() {
         }
     };
 
-    // RangePicker dəyişdikdə, dayjs obyektləri gəlir. Onları "DD.MM.YYYY" formatına çeviririk.
-    const handleDateChange = (dates) => {
-        if (dates && dates.length === 2) {
-            const formattedStart = dayjs(dates[0]).format("DD.MM.YYYY");
-            const formattedEnd = dayjs(dates[1]).format("DD.MM.YYYY");
-            setStartDate(formattedStart);
-            setEndDate(formattedEnd);
-        } else {
-            setStartDate("");
-            setEndDate("");
-        }
+    // İki ayrıca DatePicker üçün onChange funksiyaları
+    const handleStartDateChange = (date) => {
+        setStartDate(date ? dayjs(date).format("DD.MM.YYYY") : "");
+    };
+
+    const handleEndDateChange = (date) => {
+        setEndDate(date ? dayjs(date).format("DD.MM.YYYY") : "");
     };
 
     return (
         <div className="tours">
-            <ScrollToTop/>
+            <ScrollToTop />
             <div className="container">
                 <div className="head">
                     <p>
@@ -200,8 +189,7 @@ function Tours() {
                         <span>
                             {isOutgoing
                                 ? t("tours.pageTitleOutgoing", "Ölkədən xaric turlar")
-                                : t("tours.pageTitle", "Ölkədaxili turlar")
-                            }
+                                : t("tours.pageTitle", "Ölkədaxili turlar")}
                         </span>
                     </p>
                 </div>
@@ -214,9 +202,9 @@ function Tours() {
                             </div>
                             <div className="servis-content">
                                 <h5>{t("tours.countryLabel", "Ölkə")}</h5>
-                                <div className="btn-group ">
+                                <div className="btn-group">
                                     <button
-                                        className="btn dropdown-toggle p-0 "
+                                        className="btn dropdown-toggle p-0"
                                         style={{
                                             color: "grey",
                                             cursor: !isOutgoing ? "not-allowed" : "pointer",
@@ -231,21 +219,20 @@ function Tours() {
                                             ? selectedCountryNames
                                             : t("tours.selectCountry", "Ölkə seç")}
                                     </button>
-
-                                    {/* Menü özü də göstərilməməlidir əgər disabledsə */}
                                     {isOutgoing && (
                                         <ul className="dropdown-menu">
-                                            {countries && countries.map((country) => (
-                                                <li key={country.id}>
-                                                    <button
-                                                        className="dropdown-item"
-                                                        onClick={() => handleCountrySelect(country)}
-                                                    >
-                                                        {getCountryName(country)}{" "}
-                                                        {selectedCountries.includes(country.id) && "✓"}
-                                                    </button>
-                                                </li>
-                                            ))}
+                                            {countries &&
+                                                countries.map((country) => (
+                                                    <li key={country.id}>
+                                                        <button
+                                                            className="dropdown-item"
+                                                            onClick={() => handleCountrySelect(country)}
+                                                        >
+                                                            {getCountryName(country)}{" "}
+                                                            {selectedCountries.includes(country.id) && "✓"}
+                                                        </button>
+                                                    </li>
+                                                ))}
                                         </ul>
                                     )}
                                 </div>
@@ -274,38 +261,58 @@ function Tours() {
                                             : t("tours.selectCity", "Şəhər seç")}
                                     </button>
                                     <ul className="dropdown-menu">
-                                        {cityList && cityList.map((city) => (
-                                            <li key={city.id}>
-                                                <button
-                                                    className="dropdown-item"
-                                                    onClick={() => handleCitySelect(city, city.countryId)}
-                                                >
-                                                    {getCityName(city)}{" "}
-                                                    {selectedCities.includes(city.id) && "✓"}
-                                                </button>
-                                            </li>
-                                        ))}
+                                        {cityList &&
+                                            cityList.map((city) => (
+                                                <li key={city.id}>
+                                                    <button
+                                                        className="dropdown-item"
+                                                        onClick={() => handleCitySelect(city, city.countryId)}
+                                                    >
+                                                        {getCityName(city)}{" "}
+                                                        {selectedCities.includes(city.id) && "✓"}
+                                                    </button>
+                                                </li>
+                                            ))}
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Tarixlər: RangePicker */}
+                    {/* Tarixlər üçün iki ayrıca DatePicker */}
                     <div className="col-lg-5 col-md-6 col-sm-12 m-0">
-                        <div className="search-bar">
-                            <RangePicker
-                                className="custom-range-picker"
-                                format="DD.MM.YYYY"
-                                onChange={handleDateChange}
-                            />
+                        <div className="row">
+                            <div className="col-6">
+                                <div className="search-bar">
+                                    <div className="date-picker-group">
+                                        <DatePicker
+                                            className="custom-date-picker"
+                                            format="DD.MM.YYYY"
+                                            value={startDate ? dayjs(startDate, "DD.MM.YYYY") : null}
+                                            onChange={handleStartDateChange}
+                                            placeholder={t("tours.startDate", "Başlama tarixi")}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-6">
+                                <div className="search-bar">
+                                    <DatePicker
+                                        className="custom-date-picker"
+                                        format="DD.MM.YYYY"
+                                        value={endDate ? dayjs(endDate, "DD.MM.YYYY") : null}
+                                        onChange={handleEndDateChange}
+                                        placeholder={t("tours.endDate", "Bitmə tarixi")}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     {/* Axtar düyməsi */}
                     <div className="col-lg-1 m-0">
                         <button className="searchButton d-none d-md-block" onClick={handleSearch}>
-                            <CiSearch className={'icon'}/>
+                            <CiSearch className={'icon'} />
                         </button>
                         <button className="searchButton d-block d-md-none" onClick={handleSearch}>
                             Axtar
@@ -351,13 +358,11 @@ function Tours() {
                     </div>
 
                     <div className="row gy-4" style={{ marginBottom: "80px" }}>
-                        {/* Əgər axtarış nəticəsi varsa, yalnız o nəticələri göstəririk */}
                         {getFilterTours && getFilterTours.data && getFilterTours.data.length > 0 ? (
                             getFilterTours.data.map((tour, index) => (
                                 <TourCard key={index} tour={tour} />
                             ))
                         ) : (
-                            // Axtarış nəticəsi yoxdursa, local filter olunmuş kartları göstəririk
                             currentTours.map((tour, index) => (
                                 <TourCard key={index} tour={tour} />
                             ))
@@ -392,7 +397,6 @@ function Tours() {
                     </div>
                 </div>
             </div>
-            {/* Əgər location "outgoing"dirsə, Recommed komponentinə type olaraq "incomming", əks halda "outgoing" veririk və tövsiyə olunan data kimi recommendedTours-un ilk 4 elementini ötürürük */}
             <Recommed
                 type={isOutgoing ? "incomming" : "outgoing"}
                 recommendedTours={recommendedTours.slice(0, 4)}

@@ -13,11 +13,11 @@ const MainPage = () => {
     useEffect(() => {
         const timer1 = setTimeout(() => {
             setFadeOut(true);
-        }, 650);
+        }, 900);
 
         const timer2 = setTimeout(() => {
             setShowStart(false);
-        }, 1100);
+        }, 1500);
 
         return () => {
             clearTimeout(timer1);

@@ -1,21 +1,30 @@
 .start-page-container {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  background: linear-gradient(
-                  135deg,
-                  rgba(255, 0, 0, 0.1) 0%,
-                  rgba(255, 0, 0, 0) 50%,
-                  rgba(255, 0, 0, 0.1) 100%
-  );
-  background-size: 100% 100%;
-
-  img {
-    width: 250px;
-  }
+  height: 100vh;
+  background: #fff; // Arxa plan rəngi, istədiyiniz kimi dəyişdirə bilərsiniz
 }
+
+.start-page-container h1 {
+  overflow: hidden; /* Yazının qırpılmasını təmin edir */
+  //border-right: 0.15em solid #D80027; /* İmleç effekti üçün */
+  white-space: nowrap;
+  margin: 0 auto;
+  color: #D80027;
+  font-size: 60px;
+  letter-spacing: 0.15em;
+  //animation: typing .5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+///* Yazının yazılma animasiyası */
+//@keyframes typing {
+//  from { width: 0 }
+//  to { width: 100% }
+//}
+//
+///* İmlecin yanıb-sönmə effekti */
+//@keyframes blink-caret {
+//  from, to { border-color: transparent }
+//  50% { border-color: #D80027; }
+//}
