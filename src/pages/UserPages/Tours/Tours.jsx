@@ -284,7 +284,7 @@ function Tours() {
                         <div className="row">
                             <div className="col-6">
                                 <div className="search-bar">
-                                    <div className="date-picker-group">
+
                                         <DatePicker
                                             className="custom-date-picker"
                                             format="DD.MM.YYYY"
@@ -292,7 +292,7 @@ function Tours() {
                                             onChange={handleStartDateChange}
                                             placeholder={t("tours.startDate", "Başlama tarixi")}
                                         />
-                                    </div>
+
                                 </div>
                             </div>
                             <div className="col-6">
@@ -332,7 +332,7 @@ function Tours() {
                             <button
                                 className="btn dropdown-toggle"
                                 style={{
-                                    padding: "20px 50px",
+                                    padding: "15px 40px",
                                     boxShadow: "1px 1px 16px 0px #5A5A5A1C",
                                     borderRadius: "12px",
                                 }}
