@@ -45,8 +45,8 @@ function Contact() {
                 note: "",
             });
         } catch (error) {
-            showToast("Rezervasiya göndərilməsində xəta:", "error");
-        }
+            showToast("Əlaqədə xəta:", "error");
+
     };
     return (
         <div className={"contact"}>
