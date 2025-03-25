@@ -197,9 +197,7 @@ function Tours() {
                     {/* Ölkə Dropdown */}
                     <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-0">
                         <div className="search-bar">
-                            <div className="searchIcon">
-                                <img src={cityIcon} alt="city" />
-                            </div>
+
                             <div className="servis-content">
                                 <h5>{t("tours.countryLabel", "Ölkə")}</h5>
                                 <div className="btn-group">
@@ -237,15 +235,16 @@ function Tours() {
                                     )}
                                 </div>
                             </div>
+                            <div className="searchIcon">
+                                <img src={cityIcon} alt="city" />
+                            </div>
                         </div>
                     </div>
 
                     {/* Şəhər Dropdown */}
                     <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-0">
                         <div className="search-bar">
-                            <div className="searchIcon">
-                                <img src={cityIcon} alt="city" />
-                            </div>
+
                             <div className="servis-content">
                                 <h5>{t("tours.cityLabel", "Şəhər")}</h5>
                                 <div className="btn-group">
@@ -275,6 +274,9 @@ function Tours() {
                                             ))}
                                     </ul>
                                 </div>
+                            </div>
+                            <div className="searchIcon">
+                                <img src={cityIcon} alt="city" />
                             </div>
                         </div>
                     </div>

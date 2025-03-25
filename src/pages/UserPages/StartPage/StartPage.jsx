@@ -4,23 +4,31 @@ import "./StartPage.scss";
 class TextScramble {
     constructor(el) {
         this.el = el;
-        this.chars = 'yxnladrq';
+        // Burada "chars" sadəcə random simvollar üçün istifadə olunacaq.
+        // Final mətnimiz "yaxınlaşdırırıq..." olduğu üçün, burada onu yazmağa ehtiyac yoxdur.
+        this.chars = "yaxınlaşdırırıq";
         this.update = this.update.bind(this);
     }
 
     setText(newText) {
-        const oldText = this.el.innerText;
-        const length = Math.max(oldText.length, newText.length);
+        this.newText = newText; // Final mətnimizi saxlayırıq
         const promise = new Promise((resolve) => (this.resolve = resolve));
         this.queue = [];
 
-        for (let i = 0; i < length; i++) {
-            const from = oldText[i] || "";
-            const to = newText[i] || "";
-            const start = Math.floor(Math.random() * 40);
-            const end = start + Math.floor(Math.random() * 40);
+        const delay = 5;      // Hərflər arası gecikmə (frame cinsindən)
+        const duration = 15;  // Hər bir hərfin animasiya müddəti (frame cinsindən)
+
+        // Hərflərin sırası üzrə vaxtlarını təyin edirik.
+        for (let i = 0; i < newText.length-1; i++) {
+            const to = newText[i];
+            const from = this.randomChar(); // ilkin olaraq random simvol
+            const start = 0; // Bütün hərflər eyni anda animasiyaya başlayır
+            const end = i * delay + duration; // Hərflər ardıcıl tamamlanır
             this.queue.push({ from, to, start, end, char: "" });
         }
+
+        // Final vaxtını yadda saxlayırıq
+        this.finalEnd = this.queue[this.queue.length - 1].end;
 
         cancelAnimationFrame(this.frameRequest);
         this.frame = 0;
@@ -29,21 +37,26 @@ class TextScramble {
     }
 
     update() {
+        // Əgər animasiya artıq final vaxtını keçibsə, final mətn tam olaraq göstərilsin.
+        if (this.frame >= this.finalEnd) {
+            this.el.innerHTML = this.newText;
+            this.resolve();
+            return;
+        }
+
         let output = "";
         let complete = 0;
         for (let i = 0, n = this.queue.length; i < n; i++) {
-            let { from, to, start, end, char } = this.queue[i];
+            let { to, start, end, char } = this.queue[i];
             if (this.frame >= end) {
                 complete++;
                 output += to;
-            } else if (this.frame >= start) {
+            } else {
                 if (!char || Math.random() < 0.28) {
                     char = this.randomChar();
                     this.queue[i].char = char;
                 }
                 output += `<span class="dud">${char}</span>`;
-            } else {
-                output += from;
             }
         }
         this.el.innerHTML = output;
@@ -65,13 +78,16 @@ const StartPage = () => {
 
     useEffect(() => {
         const fx = new TextScramble(elRef.current);
-        fx.setText("yaxınlaşdırırıq...");
+        fx.setText("yaxınlaşdırırıq");
     }, []);
 
     return (
         <div className="start-page-container">
-            <h1 style={{marginRight:"10px"}}> Dünyanı sizin üçün  </h1>
-            <h1 ref={elRef} ></h1>
+            <h1 className="static-text">Dünyanı sizin üçün</h1>
+            <div className="animated-text-container">
+                <h1 ref={elRef} className="animated-text"></h1>
+                <h1 className="placeholder-text">yaxınlaşdırırıq...</h1>
+            </div>
         </div>
     );
 };
