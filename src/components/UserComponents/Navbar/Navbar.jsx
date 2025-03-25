@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import flagAz from '/src/assets/azerbaijan.png';
 import flagEn from '/src/assets/uk.png';
 import flagRu from '/src/assets/circle.png';
-import image1 from '/src/assets/LogoEsasRed.png';
+import image1 from '/src/assets/PremierTourLogoRed.png';
 import { FaChevronDown } from "react-icons/fa";
 
 function Navbar() {

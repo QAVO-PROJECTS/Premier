@@ -264,6 +264,14 @@
   },
   "countryTours": {
     "title": "Tours of the country"
-  }
+  },
+
+  "notResult": {
+    "title": "Hmm… nothing here!",
+    "description": "Try searching for something else or explore other sections.",
+    "alt": "Not Result"
+
+}
+
 
 }

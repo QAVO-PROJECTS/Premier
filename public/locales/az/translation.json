@@ -260,5 +260,13 @@
   },
   "countryTours": {
     "title": "Ölkənin Turları"
+  },
+
+  "notResult": {
+    "title": "Hmm… burda heç nə yoxdur!",
+    "description": "Başqa bir şey axtarın və ya digər bölmələri kəşf edin.",
+    "alt": "Nəticə yoxdur"
   }
+
+
 }

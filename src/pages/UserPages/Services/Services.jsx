@@ -1,12 +1,18 @@
+import React from 'react';
 import image from "../../../assets/ServicesBannerRed.png";
-import {LuIdCard, LuTicketPercent} from "react-icons/lu";
-import {GoArrowRight} from "react-icons/go";
+import { LuIdCard, LuTicketPercent } from "react-icons/lu";
+import { GoArrowRight } from "react-icons/go";
 import './services.scss';
-import {IoBusSharp} from "react-icons/io5";
-import {useTranslation, Trans} from 'react-i18next';
+import { IoBusSharp } from "react-icons/io5";
+import { useTranslation, Trans } from 'react-i18next';
 
 function Services() {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
+
+    // Description-ları kəsmək üçün
+    const card1Desc = t("services.card1.description", "Dünyanın aparıcı aviaşirkətləri ilə birbaşa əməkdaşlıq.").slice(0,50) + '...';
+    const card2Desc = t("services.card2.description", "Viza üçün müraciət edən şəxslərə hərtərəfli dəstək təklif edirik.").slice(0,50) + '...';
+    const card3Desc = t("services.card3.description", "Lüks və komfortlu nəqliyyat vasitələri ilə yüksək səviyyəli transfer.").slice(0,50) + '...';
 
     return (
         <div className={"services"}>
@@ -27,15 +33,19 @@ function Services() {
             </div>
             <div className={"container"}>
                 <div className={"services-card"}>
-                    <div className={"row "} style={{marginBottom: "90px", rowGap: "200px"}}>
+                    <div className={"row"} style={{ marginBottom: "90px", rowGap: "200px" }}>
                         <div className={"col-lg-4"}>
                             <div className={"servis-card"}>
                                 <div className={"servis-card-icon"}>
                                     <LuTicketPercent/>
                                 </div>
                                 <h5>{t("services.card1.title", "Aviabilet satışı")}</h5>
-                                <p>{t("services.card1.description", "Dünyanın aparıcı aviaşirkətləri ilə birbaşa əməkdaşlıq.")}</p>
-                                <button><a href="#1"><GoArrowRight className={"icon"}/></a></button>
+                                <p>{card1Desc}</p>
+                                <button>
+                                    <a href="#1">
+                                        <GoArrowRight className={"icon"}/>
+                                    </a>
+                                </button>
                             </div>
                         </div>
                         <div className={"col-lg-4"}>
@@ -44,8 +54,12 @@ function Services() {
                                     <LuIdCard/>
                                 </div>
                                 <h5>{t("services.card2.title", "Viza dəstəyi")}</h5>
-                                <p>{t("services.card2.description", "Viza üçün müraciət edən şəxslərə hərtərəfli dəstək təklif edirik.")}</p>
-                                <button><a href="#2"><GoArrowRight className={"icon"}/></a></button>
+                                <p>{card2Desc}</p>
+                                <button>
+                                    <a href="#2">
+                                        <GoArrowRight className={"icon"}/>
+                                    </a>
+                                </button>
                             </div>
                         </div>
                         <div className={"col-lg-4"}>
@@ -54,8 +68,12 @@ function Services() {
                                     <IoBusSharp/>
                                 </div>
                                 <h5>{t("services.card3.title", "Transfer xidmətləri")}</h5>
-                                <p>{t("services.card3.description", "Lüks və komfortlu nəqliyyat vasitələri ilə yüksək səviyyəli transfer.")}</p>
-                                <button><a href="#3"><GoArrowRight className={"icon"}/></a></button>
+                                <p>{card3Desc}</p>
+                                <button>
+                                    <a href="#3">
+                                        <GoArrowRight className={"icon"}/>
+                                    </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -109,9 +127,10 @@ function Services() {
                             </Trans>
                         </p>
                     </div>
-                    <div className={"service-more"}><h3 id={'3'}>
-                        {t("services.more.section3.title", "3. Transfer Xidmətləri – Rahat və Təhlükəsiz Səfərlər!")}
-                    </h3>
+                    <div className={"service-more"}>
+                        <h3 id={'3'}>
+                            {t("services.more.section3.title", "3. Transfer Xidmətləri – Rahat və Təhlükəsiz Səfərlər!")}
+                        </h3>
                         <p>
                             <div>
                                 {t("services.more.section3.description")}
@@ -137,10 +156,8 @@ function Services() {
                             <div>
                                 📍 {t("services.more.section3.description7")} 🌍🎟️
                             </div>
-                        </p></div>
-
-
-
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

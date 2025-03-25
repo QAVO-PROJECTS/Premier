@@ -45,7 +45,7 @@ function Contact() {
                 note: "",
             });
         } catch (error) {
-            console.error("Rezervasiya göndərilməsində xəta:", error);
+            showToast("Rezervasiya göndərilməsində xəta:", "error");
         }
     };
     return (
