@@ -17,6 +17,15 @@
   //animation: typing .5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
+// Mobil görünüş üçün tənzimləmələr
+@media (max-width: 767.98px) {
+  .start-page-container h1 {
+    font-size: 16px;       // Yazı ölçüsünü kiçildir
+    white-space: normal;   // Yazının wrap olması üçün
+    word-wrap: break-word; // Sözlər ekran ölçüsünə sığmırsa, yeni sətirə keçsin
+  }
+}
+
 ///* Yazının yazılma animasiyası */
 //@keyframes typing {
 //  from { width: 0 }
