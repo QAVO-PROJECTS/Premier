@@ -8,6 +8,7 @@ import { MdLocationOn, MdWatchLater } from "react-icons/md";
 import back from "../../../assets/ContactBannerRed.png";
 import { useTranslation } from 'react-i18next';
 import {usePostContactMutation} from "../../../services/adminApi.jsx";
+import showToast from "../../../components/ToastMessage.js";
 
 function Contact() {
     const { t } = useTranslation();
@@ -35,6 +36,14 @@ function Contact() {
 
         try {
             await postContact(dataToSend).unwrap();
+            showToast("Əlaqə uğurlu oldu!", "success");
+            setFormData({
+                name: "",
+                surname: "",
+                email: "",
+                phoneNumber: "",
+                note: "",
+            });
         } catch (error) {
             console.error("Rezervasiya göndərilməsində xəta:", error);
         }

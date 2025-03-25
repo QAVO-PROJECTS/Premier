@@ -2,12 +2,19 @@ import React from 'react';
 import "./recommed.scss";
 import Index from "../../../../components/UserComponents/TourCard/index.jsx";
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 function Recommed({ type, recommendedTours = [] }) {
     const { t } = useTranslation();
+    const navigate = useNavigate();
 
-    // type-ə əsaslanaraq başlığı təyin edirik
-
+    const handleViewAll = () => {
+        if (type === "incomming") {
+            navigate("/tours");
+        } else if (type === "outgoing") {
+            navigate("/outGoing");
+        }
+    };
 
     return (
         <div className="recommed">
@@ -15,7 +22,7 @@ function Recommed({ type, recommendedTours = [] }) {
                 <div className="recommed-head">
                     <h2>{t("recommed.title", "Tövsiyə olunanlar")}</h2>
                     {/* Bu düymə yalnız md və yuxarı ekranlarda görünəcək */}
-                    <button className="d-none d-md-block all">
+                    <button className="d-none d-md-block all" onClick={handleViewAll}>
                         {t("recommed.button", "Hamısına bax")}
                     </button>
                 </div>
@@ -30,7 +37,7 @@ function Recommed({ type, recommendedTours = [] }) {
                 </div>
                 {/* Bu düymə isə yalnız sm və daha aşağı ekranlarda görünəcək */}
                 <div className="d-block d-md-none text-center mt-5">
-                    <button className="all">
+                    <button className="all" onClick={handleViewAll}>
                         {t("recommed.button", "Hamısına bax")}
                     </button>
                 </div>

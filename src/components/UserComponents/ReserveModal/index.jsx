@@ -8,7 +8,7 @@ import showToast from "../../ToastMessage.js";
 function ReserveModal({ open, setOpen, tour }) {
     if (!open) return null;
     const tourId = tour?.id;
-
+    console.log(tourId);
     const [formData, setFormData] = useState({
         name: "",
         surname: "",

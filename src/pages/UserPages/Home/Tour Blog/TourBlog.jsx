@@ -7,13 +7,14 @@ import { Navigation } from "swiper/modules";
 import 'swiper/css/navigation';
 import { useGetAllBlogsQuery } from "../../../../services/adminApi.jsx";
 import { useTranslation } from 'react-i18next';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function TourBlog() {
     const { t } = useTranslation();
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const [swiperInstance, setSwiperInstance] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -42,7 +43,7 @@ function TourBlog() {
                             )}
                         </p>
                     </div>
-                    <button className={"d-none d-md-block"} onClick={()=>navigate("/blog")}>
+                    <button className={"d-none d-md-block"} onClick={() => navigate("/blog")}>
                         {t("home.tourBlog.button", "Hamısına bax")} <FaArrowRightLong />
                     </button>
                 </div>
@@ -51,18 +52,10 @@ function TourBlog() {
                     <Swiper
                         onSwiper={setSwiperInstance}
                         breakpoints={{
-                            0: {
-                                slidesPerView: 1,
-                            },
-                            768: {
-                                slidesPerView: 2,
-                            },
-                            1024: {
-                                slidesPerView: 3,
-                            },
-                            1440: {
-                                slidesPerView: 4,
-                            },
+                            0: { slidesPerView: 1 },
+                            768: { slidesPerView: 2 },
+                            1024: { slidesPerView: 3 },
+                            1440: { slidesPerView: 4 },
                         }}
                         spaceBetween={30}
                         grabCursor={true}
@@ -76,6 +69,7 @@ function TourBlog() {
                             swiper.params.navigation.prevEl = prevRef.current;
                             swiper.params.navigation.nextEl = nextRef.current;
                         }}
+                        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                     >
                         {blogs && blogs.map((blog, index) => (
                             <SwiperSlide key={index}>
@@ -83,6 +77,18 @@ function TourBlog() {
                             </SwiperSlide>
                         ))}
                     </Swiper>
+                    {/* Custom Pagination Bullets */}
+                    {blogs && blogs.length > 0 && (
+                        <div className="custom-pagination">
+                            {blogs.map((_, index) => (
+                                <span
+                                    key={index}
+                                    className={`custom-bullet ${activeIndex === index ? "active" : ""}`}
+                                    onClick={() => swiperInstance && swiperInstance.slideTo(index)}
+                                ></span>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 <div className="col-12 text-end paginate" style={{ marginTop: "40px" }}>

@@ -2,6 +2,7 @@ import "./aboutUs.scss";
 import image from "../../../../assets/aboutCards.jpg";
 import { GoArrowRight } from "react-icons/go";
 import { useTranslation } from "react-i18next";
+import {FaInstagram} from "react-icons/fa6";
 
 function AboutUs() {
     const { t } = useTranslation();
@@ -21,7 +22,7 @@ function AboutUs() {
                             <h4>{t("aboutUs.section1.title")}</h4>
                             <p>{t("aboutUs.section1.description")}</p>
                             <button>
-                                {t("aboutUs.section1.buttonText")} <GoArrowRight className="icon" />
+                                <FaInstagram className={"icon"}/>   {t("aboutUs.section1.buttonText")} <GoArrowRight className="icon" />
                             </button>
                         </div>
                     </div>
@@ -35,7 +36,7 @@ function AboutUs() {
                             <h4>{t("aboutUs.section2.title")}</h4>
                             <p>{t("aboutUs.section2.description")}</p>
                             <button>
-                                {t("aboutUs.section2.buttonText")} <GoArrowRight className="icon" />
+                                <FaInstagram className={"icon"}/>  {t("aboutUs.section2.buttonText")} <GoArrowRight className="icon" />
                             </button>
                         </div>
                     </div>
@@ -59,7 +60,7 @@ function AboutUs() {
                             <h4>{t("aboutUs.section3.title")}</h4>
                             <p>{t("aboutUs.section3.description")}</p>
                             <button>
-                                {t("aboutUs.section3.buttonText")} <GoArrowRight className="icon" />
+                                <FaInstagram className={"icon"}/>  {t("aboutUs.section3.buttonText")} <GoArrowRight className="icon" />
                             </button>
                         </div>
                     </div>
@@ -73,7 +74,7 @@ function AboutUs() {
                             <h4>{t("aboutUs.section4.title")}</h4>
                             <p>{t("aboutUs.section4.description")}</p>
                             <button>
-                                {t("aboutUs.section4.buttonText")} <GoArrowRight className="icon" />
+                                <FaInstagram className={"icon"}/> {t("aboutUs.section4.buttonText")} <GoArrowRight className="icon" />
                             </button>
                         </div>
                     </div>
@@ -84,10 +85,6 @@ function AboutUs() {
                     </div>
                 </div>
 
-                {/* More Button */}
-                <div className="button">
-                    <button>{t("aboutUs.moreButton")}</button>
-                </div>
             </div>
         </div>
     );

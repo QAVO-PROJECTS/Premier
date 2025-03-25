@@ -4,25 +4,25 @@
       "number": "01",
       "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
       "description": "Turkey is one of the world's most famous destinations for summer tourism. With its beach and sun holidays as well as regions rich in historical and cultural heritage, everyone can find a place that suits their taste.",
-      "buttonText": "View Details"
+      "buttonText": "Switch"
     },
     "section2": {
       "number": "02",
       "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
       "description": "Turkey is one of the world's most famous destinations for summer tourism. With its beach and sun holidays as well as regions rich in historical and cultural heritage, everyone can find a place that suits their taste.",
-      "buttonText": "View Details"
+      "buttonText": "Switch"
     },
     "section3": {
       "number": "03",
       "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
       "description": "Turkey is one of the world's most famous destinations for summer tourism. With its beach and sun holidays as well as regions rich in historical and cultural heritage, everyone can find a place that suits their taste.",
-      "buttonText": "View Details"
+      "buttonText": "Switch"
     },
     "section4": {
       "number": "04",
       "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
       "description": "Turkey is one of the world's most famous destinations for summer tourism. With its beach and sun holidays as well as regions rich in historical and cultural heritage, everyone can find a place that suits their taste.",
-      "buttonText": "View Details"
+      "buttonText": "Switch"
     },
     "moreButton": "More",
     "banner": {
@@ -49,10 +49,10 @@
     "tours": "Foreign tours",
     "domesticTours": "Domestic Tours",
     "contact": "Contact",
-    "termsTitle": "Terms & Conditions",
-    "bookingPayments": "Booking & Payments",
-    "cancellationsRefunds": "Cancellations & Refunds",
-    "travelInsurance": "Travel Insurance",
+    "termsTitle": "Services",
+    "bookingPayments": "Flight Ticket Sales",
+    "cancellationsRefunds": "Visa Support",
+    "travelInsurance": "Transfer Services",
     "customerLiability": "Customer Liability",
     "contactInfoTitle": "Contact Information",
     "phone": "+994 70 654 34 98",
@@ -71,7 +71,7 @@
     "lastNameLabel": "Last Name",
     "lastNamePlaceholder": "Last Name",
     "emailLabel": "Email",
-    "emailPlaceholder": "premiertour@gmail.com",
+    "emailPlaceholder": "example@gmail.com",
     "phoneLabel": "Phone Number",
     "phonePlaceholder": "+994 99 999 99 99",
     "messageLabel": "Message",
@@ -261,6 +261,9 @@
   },
   "blogDetailCard": {
     "button": "Read Blog"
+  },
+  "countryTours": {
+    "title": "Tours of the country"
   }
 
 }

@@ -14,6 +14,15 @@ import {
 import TourCard from "../../../components/UserComponents/TourCard/index.jsx";
 import banner from "/src/assets/ToursBannerRed.png";
 
+// Ant Design RangePicker
+import { DatePicker } from 'antd';
+const { RangePicker } = DatePicker;
+
+// dayjs importu
+import dayjs from 'dayjs';
+// İstəyə görə lokalizasiya da əlavə etmək olar, məsələn:
+// import 'dayjs/locale/az';
+
 import "./tours.scss";
 
 function Tours() {
@@ -48,43 +57,20 @@ function Tours() {
         searchParams ?? {},
         { skip: !searchParams }
     );
-    console.log(searchParams)
+    console.log(searchParams);
+
     // Sort üçün state: default olaraq A-Z sıralama
     const [sortOrder, setSortOrder] = useState('A-Z');
 
     // Axtarış düyməsinə kliklədikdə parametrləri yeniləyirik
     const handleSearch = () => {
+        // startDate və endDate artıq "DD.MM.YYYY" formatındadır
         setSearchParams({
             countryIds: selectedCountries,
             cityIds: selectedCities,
             startDate,
             endDate,
         });
-    };
-
-    // Ölkə seçimi funksiyası
-    const handleCountrySelect = (country) => {
-        if (selectedCountries.includes(country.id)) {
-            setSelectedCountries(selectedCountries.filter(id => id !== country.id));
-            setSelectedCities(selectedCities.filter(cityId => {
-                const countryObj = countries.find(c => c.id === country.id);
-                return countryObj?.cities.every(city => city.id !== cityId);
-            }));
-        } else {
-            setSelectedCountries([...selectedCountries, country.id]);
-        }
-    };
-
-    // Şəhər seçimi funksiyası
-    const handleCitySelect = (city, countryId) => {
-        if (selectedCities.includes(city.id)) {
-            setSelectedCities(selectedCities.filter(id => id !== city.id));
-        } else {
-            setSelectedCities([...selectedCities, city.id]);
-            if (!selectedCountries.includes(countryId)) {
-                setSelectedCountries([...selectedCountries, countryId]);
-            }
-        }
     };
 
     // Lokalizasiya funksiyaları
@@ -120,7 +106,7 @@ function Tours() {
         .map(city => getCityName(city))
         .join(", ");
 
-    // Local olaraq filtr edilmiş turlar (cari səhifə növünə görə)
+    // Lokal olaraq filtr edilmiş turlar (cari səhifə növünə görə)
     const filteredTours = tours?.filter(tour => {
         if (isOutgoing) {
             return tour.tourType === "outgoing";
@@ -152,6 +138,57 @@ function Tours() {
         isOutgoing ? tour.tourType === "incomming" : tour.tourType === "outgoing"
     ) || [];
 
+    // Əgər route "/tours" (yəni isOutgoing false) isə avtomatik Azərbaycan seçilsin
+    useEffect(() => {
+        if (!isOutgoing && countries) {
+            const azerbaijan = countries.find(c => getCountryName(c).toLowerCase().includes("az"));
+            if (azerbaijan && !selectedCountries.includes(azerbaijan.id)) {
+                setSelectedCountries([azerbaijan.id]);
+            }
+        }
+    }, [countries, isOutgoing, selectedCountries, getCountryName]);
+
+    // Ölkə seçimi funksiyası (Azərbaycan seçimi disabled olacaq)
+    const handleCountrySelect = (country) => {
+        if (!isOutgoing && getCountryName(country).toLowerCase().includes("az")) {
+            return;
+        }
+        if (selectedCountries.includes(country.id)) {
+            setSelectedCountries(selectedCountries.filter(id => id !== country.id));
+            setSelectedCities(selectedCities.filter(cityId => {
+                const countryObj = countries.find(c => c.id === country.id);
+                return countryObj?.cities.every(city => city.id !== cityId);
+            }));
+        } else {
+            setSelectedCountries([...selectedCountries, country.id]);
+        }
+    };
+
+    // Şəhər seçimi funksiyası
+    const handleCitySelect = (city, countryId) => {
+        if (selectedCities.includes(city.id)) {
+            setSelectedCities(selectedCities.filter(id => id !== city.id));
+        } else {
+            setSelectedCities([...selectedCities, city.id]);
+            if (!selectedCountries.includes(countryId)) {
+                setSelectedCountries([...selectedCountries, countryId]);
+            }
+        }
+    };
+
+    // RangePicker dəyişdikdə, dayjs obyektləri gəlir. Onları "DD.MM.YYYY" formatına çeviririk.
+    const handleDateChange = (dates) => {
+        if (dates && dates.length === 2) {
+            const formattedStart = dayjs(dates[0]).format("DD.MM.YYYY");
+            const formattedEnd = dayjs(dates[1]).format("DD.MM.YYYY");
+            setStartDate(formattedStart);
+            setEndDate(formattedEnd);
+        } else {
+            setStartDate("");
+            setEndDate("");
+        }
+    };
+
     return (
         <div className="tours">
             <div className="container">
@@ -168,45 +205,54 @@ function Tours() {
                 </div>
                 <div className="search row gy-3">
                     {/* Ölkə Dropdown */}
-                    <div className="col-lg-3 col-md-6 col-sm-6 m-0">
+                    <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-0">
                         <div className="search-bar">
                             <div className="searchIcon">
                                 <img src={cityIcon} alt="city" />
                             </div>
                             <div className="servis-content">
                                 <h5>{t("tours.countryLabel", "Ölkə")}</h5>
-                                <div className="btn-group">
+                                <div className="btn-group ">
                                     <button
-                                        className="btn dropdown-toggle p-0"
-                                        style={{ color: "grey" }}
+                                        className="btn dropdown-toggle p-0 "
+                                        style={{
+                                            color: "grey",
+                                            cursor: !isOutgoing ? "not-allowed" : "pointer",
+                                            opacity: !isOutgoing ? 0.6 : 1,
+                                        }}
                                         type="button"
-                                        data-bs-toggle="dropdown"
+                                        data-bs-toggle={isOutgoing ? "dropdown" : ""}
                                         aria-expanded="false"
+                                        disabled={!isOutgoing}
                                     >
                                         {selectedCountries.length > 0
                                             ? selectedCountryNames
                                             : t("tours.selectCountry", "Ölkə seç")}
                                     </button>
-                                    <ul className="dropdown-menu">
-                                        {countries && countries.map((country) => (
-                                            <li key={country.id}>
-                                                <button
-                                                    className="dropdown-item"
-                                                    onClick={() => handleCountrySelect(country)}
-                                                >
-                                                    {getCountryName(country)}{" "}
-                                                    {selectedCountries.includes(country.id) && "✓"}
-                                                </button>
-                                            </li>
-                                        ))}
-                                    </ul>
+
+                                    {/* Menü özü də göstərilməməlidir əgər disabledsə */}
+                                    {isOutgoing && (
+                                        <ul className="dropdown-menu">
+                                            {countries && countries.map((country) => (
+                                                <li key={country.id}>
+                                                    <button
+                                                        className="dropdown-item"
+                                                        onClick={() => handleCountrySelect(country)}
+                                                    >
+                                                        {getCountryName(country)}{" "}
+                                                        {selectedCountries.includes(country.id) && "✓"}
+                                                    </button>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Şəhər Dropdown */}
-                    <div className="col-lg-2 col-md-6 col-sm-6 m-0">
+                    <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-0">
                         <div className="search-bar">
                             <div className="searchIcon">
                                 <img src={cityIcon} alt="city" />
@@ -243,36 +289,21 @@ function Tours() {
                         </div>
                     </div>
 
-                    {/* Tarixlər */}
-                    <div className="col-lg-3 col-md-6 col-sm-6 m-0">
-                        <div className="search-bar">
-                            <div className="servis-content">
-                                <input
-                                    type="date"
-                                    value={startDate}
-                                    onChange={(e) => setStartDate(e.target.value)}
-                                    placeholder={t("tours.startDatePlaceholder", "Başlanğıc")}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6 col-sm-6 m-0">
-                        <div className="search-bar">
-                            <div className="servis-content">
-                                <input
-                                    type="date"
-                                    value={endDate}
-                                    onChange={(e) => setEndDate(e.target.value)}
-                                    placeholder={t("tours.endDatePlaceholder", "Son")}
-                                />
-                            </div>
+                    {/* Tarixlər: RangePicker */}
+                    <div className="col-lg-5 col-md-6 col-sm-12 m-0">
+                        <div className="servis-content">
+                            <RangePicker
+                                className="custom-range-picker"
+                                format="DD.MM.YYYY"
+                                onChange={handleDateChange}
+                            />
                         </div>
                     </div>
 
                     {/* Axtar düyməsi */}
                     <div className="col-lg-1 m-0">
                         <button className="searchButton d-none d-md-block" onClick={handleSearch}>
-                            <CiSearch />
+                            <CiSearch className={'icon'}/>
                         </button>
                         <button className="searchButton d-block d-md-none" onClick={handleSearch}>
                             Axtar

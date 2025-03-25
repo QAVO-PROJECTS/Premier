@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./index.scss";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
@@ -19,8 +19,21 @@ function TourCard({ tour }) {
         title = tour?.titleRu;
     }
 
+    // Responsive ölçünü izləmək üçün state
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            // SM breakpoint adətən 576px olur
+            setIsSmallScreen(window.innerWidth < 576);
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
-        <div className={"col-md-3 col-sm-6 col-xs-12"}>
+        <div className={`col-md-3 col-sm-6 col-xs-12 ${isSmallScreen ? "ps-5 pe-5" : ""}`}>
             <div className={"card123"}>
                 <div className={"image"}>
                     <img src={TOUR_CARD_IMG_URL + tour?.cardImageUrl} alt={title} />

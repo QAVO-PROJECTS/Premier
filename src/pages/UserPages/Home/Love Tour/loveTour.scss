@@ -4,6 +4,43 @@
   .swiper {
     width: 100%;
     height: 100%;
+    position: relative;
+  }
+  .swiper-pagination{
+    position: absolute;
+    bottom: -3px;
+  }
+  .custom-pagination {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .custom-bullet {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 3px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .custom-bullet.active {
+    background: #000000;
+  }
+
+  .swiper-pagination-bullet {
+    background: #ccc;
+    width: 12px;
+    height: 12px;
+    opacity: 1;
+  }
+  .swiper-pagination-bullet-active {
+    background: #000000;
+  }
+  /* Əlavə olaraq, yuxarıdakı my-custom-bullet sinifinə də stil verə bilərsiniz */
+  .my-custom-bullet {
+    border: 2px solid #fff;
+    border-radius: 50%;
   }
 
   .slider-row{

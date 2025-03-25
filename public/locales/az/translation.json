@@ -4,25 +4,25 @@
       "number": "01",
       "title": "Türkiyədə Yay Tətili üçün Ən Yaxşı 5 Bölgə – Antalya, Bodrum, yoxsa Kapadokya?",
       "description": "Türkiyə yay turizmi baxımından dünyanın ən məşhur istiqamətlərindən biridir. Həm dəniz-günəş istirahəti, həm də tarixi və mədəni sərvətlərlə zəngin bölgələri ilə hər kəsin zövqünə uyğun bir yer tapmaq mümkündür.",
-      "buttonText": "Ətraflı bax"
+      "buttonText": "Keçid et"
     },
     "section2": {
       "number": "02",
       "title": "Türkiyədə Yay Tətili üçün Ən Yaxşı 5 Bölgə – Antalya, Bodrum, yoxsa Kapadokya?",
       "description": "Türkiyə yay turizmi baxımından dünyanın ən məşhur istiqamətlərindən biridir. Həm dəniz-günəş istirahəti, həm də tarixi və mədəni sərvətlərlə zəngin bölgələri ilə hər kəsin zövqünə uyğun bir yer tapmaq mümkündür.",
-      "buttonText": "Ətraflı bax"
+      "buttonText": "Keçid et"
     },
     "section3": {
       "number": "03",
       "title": "Türkiyədə Yay Tətili üçün Ən Yaxşı 5 Bölgə – Antalya, Bodrum, yoxsa Kapadokya?",
       "description": "Türkiyə yay turizmi baxımından dünyanın ən məşhur istiqamətlərindən biridir. Həm dəniz-günəş istirahəti, həm də tarixi və mədəni sərvətlərlə zəngin bölgələri ilə hər kəsin zövqünə uyğun bir yer tapmaq mümkündür.",
-      "buttonText": "Ətraflı bax"
+      "buttonText": "Keçid et"
     },
     "section4": {
       "number": "04",
       "title": "Türkiyədə Yay Tətili üçün Ən Yaxşı 5 Bölgə – Antalya, Bodrum, yoxsa Kapadokya?",
       "description": "Türkiyə yay turizmi baxımından dünyanın ən məşhur istiqamətlərindən biridir. Həm dəniz-günəş istirahəti, həm də tarixi və mədəni sərvətlərlə zəngin bölgələri ilə hər kəsin zövqünə uyğun bir yer tapmaq mümkündür.",
-      "buttonText": "Ətraflı bax"
+      "buttonText": "Keçid et"
     },
     "moreButton": "Daha çox",
     "banner": {
@@ -49,10 +49,10 @@
     "tours": "Ölkəxarici turlar",
     "domesticTours": "Ölkədaxili turlar",
     "contact": "Əlaqə",
-    "termsTitle": "Şərtlər və Qaydalar",
-    "bookingPayments": "Rezervasiya və ödənişlər",
-    "cancellationsRefunds": "Ləğv etmə və Geri Ödənişlər",
-    "travelInsurance": "Səyahət Sığortası",
+    "termsTitle": "Xidmətlərimiz",
+    "bookingPayments": "Aviabilet Satışı",
+    "cancellationsRefunds": "Viza dəstəyi",
+    "travelInsurance": "Transfer xidmətləri",
     "customerLiability": "Müştəri Məsuliyyəti",
     "contactInfoTitle": "Əlaqə məlumatları",
     "phone": "+994 70 654 34 98",
@@ -71,7 +71,7 @@
     "lastNameLabel": "Soyadınız",
     "lastNamePlaceholder": "Soyad",
     "emailLabel": "Email",
-    "emailPlaceholder": "premiertour@gmail.com",
+    "emailPlaceholder": "example@gmail.com",
     "phoneLabel": "Telefon Nömrəsi",
     "phonePlaceholder": "+994 99 999 99 99",
     "messageLabel": "Qeyd",
@@ -257,5 +257,8 @@
   },
   "blogDetailCard": {
     "button": "Blogu oxu"
+  },
+  "countryTours": {
+    "title": "Ölkənin Turları"
   }
 }

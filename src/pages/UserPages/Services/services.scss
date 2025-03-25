@@ -17,13 +17,15 @@
       transform: translateX(-50%);
       gap: 10px;
       border-radius: 12px;
-      padding: 38px 52px 52px 52px;
       box-shadow: 1px 1px 22.9px 9px #97979729;
       position: absolute;
       top: -35%;
       background-color: white;
-      font-size: 55px; // LG ölçü
+      font-size: 47px; // LG ölçü
       color: #D80027;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
 
@@ -89,19 +91,20 @@
   }
 
   .services-more {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-radius: 20px;
-    overflow: hidden;
     @media (max-width: 991.98px) {
       padding: 0;
     }
     @media (max-width: 767.98px) {
       padding: 0;
     }
-
+      .service-more{
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
     h3 {
-      background-color: blue;
-      background-color: rgba(255, 255, 255, 0.95);
+
       text-align: center;
       font-size: 25px;
       padding: 16px 0;

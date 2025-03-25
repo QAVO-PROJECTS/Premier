@@ -1,13 +1,14 @@
 import React from 'react';
+import { useLocation, useParams, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import banner from "/src/assets/ToursBannerRed.png";
 import "./blogDetail.scss";
 import { FiCopy } from "react-icons/fi";
 import { FaArrowRightLong, FaXTwitter } from "react-icons/fa6";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import BlogDetailCard from "../../../components/UserComponents/BlogDetailCard/BlogDetailCard.jsx";
-import { useNavigate, useParams } from "react-router-dom";
-import {useGetAllBlogsQuery, useGetBlogByIdQuery} from "../../../services/adminApi.jsx";
+import { useGetAllBlogsQuery, useGetBlogByIdQuery } from "../../../services/adminApi.jsx";
 import { BLOG_IMG_URL } from "../../../constants.js";
-import { useTranslation } from "react-i18next";
 
 function BlogDetail() {
     const { t, i18n } = useTranslation();
@@ -16,8 +17,9 @@ function BlogDetail() {
     const { data: getBlogById } = useGetBlogByIdQuery(blogId);
     const blog = getBlogById?.data;
     const navigate = useNavigate();
-    const {data: getAllBlogs} = useGetAllBlogsQuery()
-    const blogs = getAllBlogs?.data.slice(0,2)
+    const { data: getAllBlogs } = useGetAllBlogsQuery();
+    const blogs = getAllBlogs?.data.slice(0, 2);
+
     // Cari dili nəzərə alaraq title, subTitle və context sahələrini seçirik
     let title = blog?.title;
     let subTitle = blog?.subTitle;
@@ -33,6 +35,17 @@ function BlogDetail() {
             if (blog.contextRu) context = blog.contextRu;
         }
     }
+
+    // Copy link handler
+    const handleCopyLink = () => {
+        navigator.clipboard.writeText(window.location.href)
+            .then(() => {
+                alert(t("blogDetail.copySuccess", "Link kopyalandı!"));
+            })
+            .catch((err) => {
+                console.error("Copy failed", err);
+            });
+    };
 
     return (
         <div id="blog-detail">
@@ -52,9 +65,7 @@ function BlogDetail() {
                 <div className="blog-detail-content">
                     <div className="detail-content">
                         <h4>{subTitle}</h4>
-                        <p>
-                            {context}
-                        </p>
+                        <p>{context}</p>
                         <img src={BLOG_IMG_URL + blog?.imageNames[1]} alt={subTitle} />
                     </div>
                     <div className="title">
@@ -63,7 +74,7 @@ function BlogDetail() {
                             <p>{t("blogDetail.authorLabel", "Müəllif")}</p>
                         </div>
                         <div className="social">
-                            <div className="detail-icon">
+                            <div className="detail-icon" onClick={handleCopyLink} style={{cursor: "pointer"}}>
                                 <FiCopy /> {t("blogDetail.copyLink", "Copy link")}
                             </div>
                             <div className="detail-icon">

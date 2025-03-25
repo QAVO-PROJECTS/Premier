@@ -1,6 +1,23 @@
 .tour-blog{
   padding: 60px 0;
   margin-bottom: 75px;
+  .custom-pagination {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .custom-bullet {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 3px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .custom-bullet.active {
+    background: #000000;
+  }
   .head{
     display: flex;
     justify-content: space-between;

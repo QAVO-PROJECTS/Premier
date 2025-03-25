@@ -9,7 +9,7 @@ import { VscPerson } from "react-icons/vsc";
 import { FaPhone } from "react-icons/fa";
 import { RiMailOpenFill } from "react-icons/ri";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import ReserveModal from "../../../components/UserComponents/ReserveModal/index.jsx";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -44,6 +44,9 @@ function TourDetail() {
             if (tour.descriptionRu) description = tour.descriptionRu;
         }
     }
+    const [open, setOpen] = useState(false);
+    const [selectedTourId, setSelectedTourId] = useState(null);
+    console.log(open)
 
     // Tour-a aid digər xüsusiyyətlərin siyahısı:
     const settings = [
@@ -92,6 +95,7 @@ function TourDetail() {
 
     return (
         <div className="tourDetail">
+
             <div className="container">
                 <div className="head">
                     <p>
@@ -179,6 +183,17 @@ function TourDetail() {
                                         </div>
                                     </div>
                                 </div>
+                                <div className={"col-12"}>
+                                    <button
+                                        className={"reserveBtn"}
+                                        onClick={() => {
+                                            setSelectedTourId(tour?.id);
+                                            setOpen(true);
+                                        }}
+                                    >
+                                        {t("reserveCard.reserve")}
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -215,6 +230,14 @@ function TourDetail() {
                     </div>
                 </div>
             </div>
+            {open && (
+                <ReserveModal
+                    tour={tour}
+                    onClose={() => setOpen(false)}
+                    setOpen={setOpen}
+                    open={open}
+                />
+            )}
         </div>
     );
 }

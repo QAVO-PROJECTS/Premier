@@ -20,6 +20,7 @@ import BlogDetail from "../pages/UserPages/BlogDetail/BlogDetail.jsx";
 import AdminReserved from "../pages/AdminPages/Admin Reserved/AdminReserved.jsx";
 import AdminContact from "../pages/AdminPages/Admin Contact/AdminContact.jsx";
 import SearchTours from "../pages/UserPages/SearchTours/SearchTours.jsx";
+import CountryTours from "../pages/UserPages/CountryTours/index.jsx";
 
 const router = createBrowserRouter([
     {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
             {
                 path: "/blogs/:blogId",
                 element: <BlogDetail/>
+            },
+            {
+                path: "/countryTours/:countryId",
+                element: <CountryTours/>
             }
         ]
     },

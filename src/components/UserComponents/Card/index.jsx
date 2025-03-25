@@ -4,6 +4,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { COUNTRY_IMG_URL } from "../../../constants.js";
 import { useTranslation } from "react-i18next";
+import {useNavigate} from "react-router-dom";
 
 function Card({ item }) {
     const { i18n } = useTranslation();
@@ -16,7 +17,7 @@ function Card({ item }) {
     } else if (language === "ru" && item.nameRu) {
         name = item.nameRu;
     }
-
+const navigate = useNavigate();
     return (
         <div className={"col-md-4 col-sm-6 col-xs-12 w-100"}>
             <div className={"card"}>
@@ -30,9 +31,11 @@ function Card({ item }) {
                     <div className={"text"}>
                         <h3>{name}</h3>
                     </div>
-                    <button>
-                        <FaArrowRightLong className={'mb-1'} />
-                    </button>
+                    <div>
+                        <button onClick={()=>navigate(`/countryTours/${item?.id}`)}>
+                            <FaArrowRightLong className={'mb-1'} />
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

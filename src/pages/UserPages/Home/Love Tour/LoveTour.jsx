@@ -1,29 +1,34 @@
-import {useRef, useState} from 'react';
+import { useRef, useState } from 'react';
 import './loveTour.scss';
 import ReserveCard from "../../../../components/UserComponents/ReserveCard/ReserveCard.jsx";
 import 'swiper/css';
-import {Swiper, SwiperSlide} from "swiper/react";
-import {FaArrowLeft, FaArrowRight} from "react-icons/fa6";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import 'swiper/css/navigation';
-import {Navigation} from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import ReserveModal from "../../../../components/UserComponents/ReserveModal/index.jsx";
-import {useGetAllToursQuery} from "../../../../services/adminApi.jsx";
-import {useTranslation} from 'react-i18next';
-import {useNavigate} from "react-router-dom";
+import { useGetAllToursQuery } from "../../../../services/adminApi.jsx";
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from "react-router-dom";
 
 function LoveTour() {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const [open, setOpen] = useState(false);
     const [selectedTour, setSelectedTour] = useState(null);
-    const {data: getAllTours} = useGetAllToursQuery();
-    const tours = getAllTours?.data;
+    const { data: getAllTours } = useGetAllToursQuery();
+    const tours = getAllTours?.data || [];
+
+    // Swiper instance və aktiv slide üçün state-lər
+    const [swiperInstance, setSwiperInstance] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     const handleCardOpen = (tour) => {
         setSelectedTour(tour);
         setOpen(true);
     };
+
     const navigate = useNavigate();
 
     return (
@@ -35,12 +40,12 @@ function LoveTour() {
                         {t("home.loveTour.subtitle", "Ən çox tələb olunan turlarımızla siz də unudulmaz xatirələr yaradın. Rahat uçuşlar, lüks otellər və maraqlı marşrutlarla sizə xüsusi təkliflər təqdim edirik.")}
                     </p>
                 </div>
-                <div className="col-12 text-end paginate d-none d-md-block" style={{marginBottom: "40px"}}>
+                <div className="col-12 text-end paginate d-none d-md-block" style={{ marginBottom: "40px" }}>
                     <button ref={prevRef} className="white">
-                        <FaArrowLeft/>
+                        <FaArrowLeft />
                     </button>
                     <button ref={nextRef} className="blue">
-                        <FaArrowRight/>
+                        <FaArrowRight />
                     </button>
                 </div>
                 <div className="row slider-row">
@@ -48,9 +53,9 @@ function LoveTour() {
                         spaceBetween={30}
                         grabCursor={true}
                         breakpoints={{
-                            0: {slidesPerView: 1},
-                            768: {slidesPerView: 2},
-                            1024: {slidesPerView: 3},
+                            0: { slidesPerView: 1 },
+                            768: { slidesPerView: 2 },
+                            1024: { slidesPerView: 3 },
                         }}
                         navigation={{
                             prevEl: prevRef.current,
@@ -58,7 +63,8 @@ function LoveTour() {
                         }}
                         modules={[Navigation]}
                         className="mySwiper"
-                        onBeforeInit={(swiper) => {
+                        onSwiper={(swiper) => {
+                            setSwiperInstance(swiper);
                             if (prevRef.current && nextRef.current) {
                                 swiper.params.navigation.prevEl = prevRef.current;
                                 swiper.params.navigation.nextEl = nextRef.current;
@@ -66,19 +72,32 @@ function LoveTour() {
                                 swiper.navigation.update();
                             }
                         }}
+                        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                     >
-                        {tours && tours.map((tour) => (
+                        {tours.map((tour) => (
                             <SwiperSlide key={tour.id}>
-                                <ReserveCard tour={tour} onOpen={() => handleCardOpen(tour)}/>
+                                <ReserveCard tour={tour} onOpen={() => handleCardOpen(tour)} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
-                <div className="text-center more" style={{marginTop: "70px"}}>
+                {/* Custom Pagination */}
+                {tours.length > 0 && (
+                    <div className="custom-pagination">
+                        {tours.map((_, index) => (
+                            <span
+                                key={index}
+                                className={`custom-bullet ${activeIndex === index ? "active" : ""}`}
+                                onClick={() => swiperInstance && swiperInstance.slideTo(index)}
+                            ></span>
+                        ))}
+                    </div>
+                )}
+                <div className="text-center more" style={{ marginTop: "70px" }}>
                     <button onClick={() => navigate("/tours")}>{t("home.loveTour.button", "Ətraflı bax")}</button>
                 </div>
             </div>
-            {open && <ReserveModal open={open} setOpen={setOpen} tour={selectedTour}/>}
+            {open && <ReserveModal open={open} setOpen={setOpen} tour={selectedTour} />}
         </div>
     );
 }

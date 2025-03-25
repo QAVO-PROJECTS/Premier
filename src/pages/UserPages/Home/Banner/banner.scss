@@ -22,14 +22,18 @@
     width: 90%;
     font-size: 48px; // LG ölçü
     line-height: 72px; // LG ölçü
-
+    margin-top: 150px;
     @media (max-width: 991.98px) { // MD ölçü
       font-size: 40px;
       line-height: 60px;
+      margin-top: 50px;
+
     }
     @media (max-width: 767.98px) { // SM ölçü
       font-size: 34px;
       line-height: 52px;
+      margin-top: 50px;
+
     }
 
     span {
@@ -100,7 +104,9 @@
       border: none;
       font-size: 20px; // LG ölçü
       outline: none;
-
+      &::placeholder{
+        color: #d3cfcf;
+      }
 
       @media (max-width: 991.98px) {
         font-size: 18px;
@@ -133,8 +139,12 @@
 
   .plane-image {
     position: absolute;
-    bottom: -250px;
+    bottom: -200px;
     margin-top:700px;
+    transition: all .3s ease-in-out;
+    &:hover{
+      transform: rotate(10deg);
+    }
     @media (max-width: 991.98px) {
       bottom: -125%;
       width: 100%;

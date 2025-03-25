@@ -11,11 +11,13 @@
     font-size: 14px ;
     color: #838383;
   }
-
+  .dropbtn{
+    font-size: 14px ;
+  }
   .wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     .logo img {
       width: 120px;
@@ -47,12 +49,17 @@
         .dropbtn {
           background: none;
           border: none;
-          font-size: 18px;
+          font-size: 16px;
           color: #5F5F5F;
           font-weight: 500;
           display: flex;
           align-items: center;
-
+          @media (max-width: 991.98px) { // MD ölçü
+            font-size: 23px;
+          }
+          @media (max-width: 767.98px) { // SM ölçü
+            font-size: 23px;
+          }
           svg {
             margin-left: 5px;
           }

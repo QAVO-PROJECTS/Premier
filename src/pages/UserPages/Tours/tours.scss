@@ -1,9 +1,10 @@
-.tours{
+.tours {
   padding: 120px 0 50px;
   position: relative;
-  .head{
+
+  .head {
     margin-bottom: 60px;
-    p{
+    p {
       font-weight: 400;
       font-size: 18px; // LG ölçü
       line-height: 21.48px;
@@ -18,12 +19,13 @@
         line-height: 16.7px;
       }
 
-      span{
+      span {
         color: #2F2F2F;
       }
     }
   }
-  .banner-image-tour{
+
+  .banner-image-tour {
     position: absolute;
     top: -150px;
     left: 0;
@@ -36,28 +38,138 @@
       height: 500px;
     }
   }
-  .search{
+
+  .search {
     padding: 24px 42px;
     background: #fff;
     box-shadow: 1px 1px 16px 0px #5A5A5A1C;
     border-radius: 30px;
-    margin: 0 auto ;
+    margin: 0 auto;
     row-gap: 16px;
+    @media (max-width: 991.98px) { // MD ölçü
+      padding: 0;
+    }
+    @media (max-width: 767.98px) { // SM ölçü
+      padding: 15px;
+    }
+    .dropdown-menu {
 
-    .search-bar{
+    }
+    /* 1) Dropdown düyməsi disabled-dirsə, outline, border və box-shadow-u silək */
+    .btn-group > .dropdown-toggle[disabled],
+    .btn-group > .dropdown-toggle.disabled,
+    .dropdown-toggle[disabled],
+    .dropdown-toggle.disabled {
+      outline: none !important;
+      box-shadow: none !important;
+      border: none !important;
+      background: #f3f3f3 !important; /* istəyə uyğun dəyişdirin */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    /* 2) Fokus vəziyyətində outline və box-shadow-u silək */
+    .btn-group > .dropdown-toggle:focus,
+    .btn-group > .dropdown-toggle:active,
+    .dropdown-toggle:focus,
+    .dropdown-toggle:active {
+      outline: none !important;
+      box-shadow: none !important;
+      border: none !important;
+      background: #f3f3f3 !important; /* istəyə uyğun dəyişdirin */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    /* 3) Əlavə olaraq, .dropdown-menu içindəki buttonların fokus effektlərini silək */
+    .dropdown-menu button:focus,
+    .dropdown-menu button:active {
+      outline: none !important;
+      box-shadow: none !important;
+      border: none !important;
+      background: #f3f3f3 !important; /* istəyə uyğun dəyişdirin */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    .search-bar {
       display: flex;
       width: 100%;
       gap: 6px;
       padding: 14px;
       background-color: #F3F3F3CF;
       border-radius: 15px;
-      .searchIcon{
+      // Default (LG ölçü)
+      @media (max-width: 991.98px) { // MD ölçü
+        h5{
+          font-size: 18px !important;
+        }
+      }
+      @media (max-width: 767.98px) { // SM ölçü
+        h5{
+          font-size: 18px !important;
+        }
+      }
+      .btn-group{
+        @media (max-width: 991.98px) { // MD ölçü
+
+            font-size: 18px !important;
+
+        }
+        @media (max-width: 767.98px) { // SM ölçü
+
+            font-size: 18px !important;
+
+        }
+      }
+      .searchIcon {
         color: #D80027;
       }
 
-      .servis-content{
-        width: max-content ;
-        input{
+      // RangePicker üçün override
+      .ant-picker-outlined {
+        width: 100% !important;
+      }
+
+      .custom-range-picker {
+        background: inherit;
+        border: none;
+        box-shadow: none;
+        height: 60px; // Digər inputlarla eyni ölçü
+        padding: 0;
+
+        // İçindəki input sahələri
+        .ant-picker-input > input {
+          background: inherit;
+          border: none;
+          box-shadow: none;
+          height: 60px;
+          margin-left: 8px; // istəyə uyğun dəyişdirin
+        }
+
+        // Fokus halı (outline və border-i silirik)
+        &:focus,
+        &:active,
+        &:hover,
+        &.ant-picker-focused {
+          outline: none;
+          box-shadow: none;
+          border: none;
+        }
+
+        // RangePicker-dəki tire (separator)
+        .ant-picker-separator {
+          padding: 0 4px;
+          color: #aaa;
+        }
+      }
+
+      .servis-content {
+        width: max-content;
+        input {
           width: 90%;
           height: 60px;
           background: inherit;
@@ -65,30 +177,41 @@
         }
       }
     }
-    .searchButton{
+
+    .searchButton {
       background: #D80027;
       width: 100%;
       height: 100%;
       color: #fff;
       border: none;
-      font-size: 25px;
+      font-size: 45px;
+      font-weight: 800;
       border-radius: 15px;
+      @media (max-width: 991.98px) { // MD ölçü
+        font-size: 30px;
+      }
+      @media (max-width: 767.98px) { // SM ölçü
+        font-size: 30px;
+      }
+      .icon {
+        margin-top: -5px;
+      }
     }
   }
-  .tour-cards{
+
+  .tour-cards {
     margin-top: 110px;
-    .card-head{
+    .card-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 110px;
-      h2{
+      h2 {
         font-weight: 600;
         font-size: 36px; // LG ölçü
         line-height: 54px;
         text-align: center;
         text-transform: capitalize;
-
         @media (max-width: 991.98px) { // MD ölçü
           font-size: 30px;
           line-height: 45px;
@@ -100,4 +223,11 @@
       }
     }
   }
+
+  .btn-group {
+    outline: none;
+  }
+
+  // Responsive font ölçüləri üçün dropdown-menu
+
 }

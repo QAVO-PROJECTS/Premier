@@ -30,7 +30,7 @@ function Banner() {
         <div className="banner-home">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-6 align-content-center left">
+                    <div className="col-lg-6  left">
                         <h1>
                             <Trans i18nKey="home.bannerHome.title">
                                 Dünyanı <span>Premier Tour</span> ilə Kəşf Et

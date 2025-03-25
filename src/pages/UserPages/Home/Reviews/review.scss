@@ -1,7 +1,9 @@
 .review {
   padding: 100px 0 90px;
     overflow-x: hidden;
+
   .reviewImg{
+    width:50%;
     @media (max-width: 991.98px) {
       width: 100%;
     }

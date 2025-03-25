@@ -61,79 +61,86 @@ function Services() {
                     </div>
                 </div>
                 <div className={"services-more"}>
-                    <h3 id={"1"}>
-                        {t("services.more.section1.title", "1. Premier Tur Aviabilet Satışı – Etibarlı və Sürətli Xidmət!")}
-                    </h3>
-                    <p>
-                        <div>
-                            {t("services.more.section1.description")}
-                        </div>
-                        <div>
-                            ✅ {t("services.more.section1.description1")}
-                        </div>
-                        <div>
-                            ✅ {t("services.more.section1.description2")}
-                        </div>
-                        <div>
-                            ✅ {t("services.more.section1.description3")}
-                        </div>
-                        <div>
-                            📍 {t("services.more.section1.description4")} 🌍🎟️
-                        </div>
-                    </p>
-                    <h3 id={"2"}>
-                        {t("services.more.section2.title", "2. Premier Tur Aviabilet Satışı – Etibarlı və Sürətli Xidmət!")}
-                    </h3>
-                    <p>
-                        <Trans i18nKey="services.more.section2.description">
-                            Səyahət etmək üçün lazım olan viza üçün müraciət edən şəxslərə hərtərəfli dəstək təklif
-                            edirik. Xidmətlərimiz aşağıdakılardan ibarətdir:
-                            <br/><strong>Viza Müraciətinin Hazırlanması:</strong> Səyahət planınıza uyğun olaraq viza
-                            üçün bütün sənədləri hazırlamağa kömək edirik. Bu, viza müraciət formasının doldurulmasından
-                            tutmuş, lazımi əlavə sənədlərin, məsələn, maliyyə və səyahət sığortası sənədlərinin
-                            hazırlanmasına qədər hər şeyi əhatə edir.
-                            <br/><strong>Viza Tipinin Seçilməsi:</strong> Hansı viza növü ilə müraciət etməli olduğunuzu
-                            müəyyənləşdirməyə kömək edirik – turizm, iş, təhsil və ya digər xüsusi vizalar.
-                            <br/><strong>Viza İcazələri ilə Əlaqədar Dəstək:</strong> Müraciətinizin vəziyyətini
-                            izləmək, viza icazələrinizin alınması və hər hansı bir problem yaranarsa, onu həll etmək
-                            üçün sizə dəstək veririk.
-                            <br/><strong>Konsulluq və Səfirliklə Əlaqə:</strong> Konsulluq və ya səfirliklə əlaqə
-                            qurmağa kömək edirik, randevu alırıq və viza müraciətiniz üçün lazım olan məlumatları təmin
-                            edirik.
-                            <br/><strong>Viza Müsahibəsi Hazırlığı:</strong> Əgər viza üçün müsahibə tələb olunursa,
-                            müsahibəyə necə hazırlıq görməyiniz və qarşılaşacağınız suallara necə cavab verməyiniz
-                            barədə sizi məlumatlandırırıq.
-                        </Trans>
-                    </p>
-                    <h3 id={'3'}>
+                    <div className={"service-more"}>
+                        <h3 id={"1"}>
+                            {t("services.more.section1.title", "1. Premier Tur Aviabilet Satışı – Etibarlı və Sürətli Xidmət!")}
+                        </h3>
+                        <p>
+                            <div>
+                                {t("services.more.section1.description")}
+                            </div>
+                            <div>
+                                ✅ {t("services.more.section1.description1")}
+                            </div>
+                            <div>
+                                ✅ {t("services.more.section1.description2")}
+                            </div>
+                            <div>
+                                ✅ {t("services.more.section1.description3")}
+                            </div>
+                            <div>
+                                📍 {t("services.more.section1.description4")} 🌍🎟️
+                            </div>
+                        </p>
+                    </div>
+                    <div className={"service-more"}>
+                        <h3 id={"2"}>
+                            {t("services.more.section2.title", "2. Premier Tur Aviabilet Satışı – Etibarlı və Sürətli Xidmət!")}
+                        </h3>
+                        <p>
+                            <Trans i18nKey="services.more.section2.description">
+                                Səyahət etmək üçün lazım olan viza üçün müraciət edən şəxslərə hərtərəfli dəstək təklif
+                                edirik. Xidmətlərimiz aşağıdakılardan ibarətdir:
+                                <br/><strong>Viza Müraciətinin Hazırlanması:</strong> Səyahət planınıza uyğun olaraq viza
+                                üçün bütün sənədləri hazırlamağa kömək edirik. Bu, viza müraciət formasının doldurulmasından
+                                tutmuş, lazımi əlavə sənədlərin, məsələn, maliyyə və səyahət sığortası sənədlərinin
+                                hazırlanmasına qədər hər şeyi əhatə edir.
+                                <br/><strong>Viza Tipinin Seçilməsi:</strong> Hansı viza növü ilə müraciət etməli olduğunuzu
+                                müəyyənləşdirməyə kömək edirik – turizm, iş, təhsil və ya digər xüsusi vizalar.
+                                <br/><strong>Viza İcazələri ilə Əlaqədar Dəstək:</strong> Müraciətinizin vəziyyətini
+                                izləmək, viza icazələrinizin alınması və hər hansı bir problem yaranarsa, onu həll etmək
+                                üçün sizə dəstək veririk.
+                                <br/><strong>Konsulluq və Səfirliklə Əlaqə:</strong> Konsulluq və ya səfirliklə əlaqə
+                                qurmağa kömək edirik, randevu alırıq və viza müraciətiniz üçün lazım olan məlumatları təmin
+                                edirik.
+                                <br/><strong>Viza Müsahibəsi Hazırlığı:</strong> Əgər viza üçün müsahibə tələb olunursa,
+                                müsahibəyə necə hazırlıq görməyiniz və qarşılaşacağınız suallara necə cavab verməyiniz
+                                barədə sizi məlumatlandırırıq.
+                            </Trans>
+                        </p>
+                    </div>
+                    <div className={"service-more"}><h3 id={'3'}>
                         {t("services.more.section3.title", "3. Transfer Xidmətləri – Rahat və Təhlükəsiz Səfərlər!")}
                     </h3>
-                    <p>
-                        <div>
-                            {t("services.more.section3.description")}
-                        </div>
-                        <div>
-                            ✅ {t("services.more.section3.description1")}
-                        </div>
-                        <div>
-                            ✅ {t("services.more.section3.description2")}
-                        </div>
-                        <div>
-                            ✅ {t("services.more.section3.description3")}
-                        </div>
-                        <div>
-                            ✅ {t("services.more.section3.description4")}
-                        </div>
-                        <div>
-                            ✈️ {t("services.more.section3.description5")}
-                        </div>
-                        <div>
-                            {t("services.more.section3.description6")}
-                        </div>
-                        <div>
-                            📍 {t("services.more.section3.description7")} 🌍🎟️
-                        </div>
-                    </p>
+                        <p>
+                            <div>
+                                {t("services.more.section3.description")}
+                            </div>
+                            <div>
+                                ✅ {t("services.more.section3.description1")}
+                            </div>
+                            <div>
+                                ✅ {t("services.more.section3.description2")}
+                            </div>
+                            <div>
+                                ✅ {t("services.more.section3.description3")}
+                            </div>
+                            <div>
+                                ✅ {t("services.more.section3.description4")}
+                            </div>
+                            <div>
+                                ✈️ {t("services.more.section3.description5")}
+                            </div>
+                            <div>
+                                {t("services.more.section3.description6")}
+                            </div>
+                            <div>
+                                📍 {t("services.more.section3.description7")} 🌍🎟️
+                            </div>
+                        </p></div>
+
+
+
                 </div>
             </div>
         </div>

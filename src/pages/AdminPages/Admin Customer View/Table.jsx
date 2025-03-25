@@ -279,9 +279,10 @@ const CustomerViewsTable = () => {
                             <Form.Item
                                 name="reviewText"
                                 label="Review"
-                                rules={[{ required: true, message: "Review daxil edin!" }]}
+                                rules={[{ required: true, message: "Review daxil edin!" },
+                                    { max: 170, message: "Review maksimum 170 simvol ola bilər!" }]}
                             >
-                                <Input placeholder="Review daxil edin" />
+                                <Input placeholder="Review daxil edin" maxLength={170} showCount/>
                             </Form.Item>
                             <Form.Item
                                 name="rating"

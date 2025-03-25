@@ -4,6 +4,7 @@ import banner from "/src/assets/ToursBannerRed.png";
 import "./searchTours.scss";
 import { useGetSearchToursQuery } from "../../../services/adminApi.jsx";
 import TourCard from "../../../components/UserComponents/TourCard/index.jsx";
+import NotResult from "../Not Result/index.jsx";
 
 function SearchTours({ state }) {
     const { t, i18n } = useTranslation();
@@ -36,14 +37,14 @@ function SearchTours({ state }) {
                         </h2>
                     </div>
                     <div className="row gy-4" style={{ marginBottom: "80px" }}>
-                        {isLoading && <p>Yüklənir...</p>}
+                        {isLoading && <p>{t("searchPage.loading")}</p>}
                         {error && <p>Bir hata oluştu.</p>}
                         {result && result.length > 0 ? (
                             result.map((tour) => (
                                 <TourCard tour={tour} />
                             ))
                         ) : (
-                            !isLoading && <p>Sonuç bulunamadı.</p>
+                            !isLoading && <NotResult/>
                         )}
                     </div>
                 </div>
