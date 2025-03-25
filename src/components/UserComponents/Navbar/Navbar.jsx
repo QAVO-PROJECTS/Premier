@@ -14,6 +14,9 @@ function Navbar() {
     const [langDropdownOpen, setLangDropdownOpen] = useState(false);
     const [toursDropdownOpen, setToursDropdownOpen] = useState(false);
 
+    const [langTimeoutId, setLangTimeoutId] = useState(null);
+    const [toursTimeoutId, setToursTimeoutId] = useState(null);
+
     const {t, i18n} = useTranslation();
 
     useEffect(() => {
@@ -50,26 +53,64 @@ function Navbar() {
         currentFlag = flagAz;
     }
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    // Language dropdown timeout handlers
+    const handleLangMouseEnter = () => {
+        if (langTimeoutId) {
+            clearTimeout(langTimeoutId);
+            setLangTimeoutId(null);
+        }
+    };
+
+    const handleLangMouseLeave = () => {
+        const timeout = setTimeout(() => {
+            setLangDropdownOpen(false);
+        }, 1000);
+        setLangTimeoutId(timeout);
+    };
+
+    // Tours dropdown timeout handlers
+    const handleToursMouseEnter = () => {
+        if (toursTimeoutId) {
+            clearTimeout(toursTimeoutId);
+            setToursTimeoutId(null);
+        }
+    };
+
+    const handleToursMouseLeave = () => {
+        const timeout = setTimeout(() => {
+            setToursDropdownOpen(false);
+        }, 1000);
+        setToursTimeoutId(timeout);
+    };
 
     return (
         <section id="myNavbar">
             <div className="container">
                 <div className="wrapper">
                     <div className="logo">
-                        <img src={image1} alt="Logo" onClick={() => {
-                            navigate('/')
-                        }} style={{
-                            cursor: 'pointer',
-                        }}/>
+                        <img
+                            src={image1}
+                            alt="Logo"
+                            onClick={() => {
+                                navigate('/')
+                            }}
+                            style={{cursor: 'pointer'}}
+                        />
                     </div>
                     <nav className={`nav-links ${menuOpen ? 'active' : ''}`}>
                         <Link to="/" className="link">{t("navbar.home")}</Link>
-                        <div className="dropdown tours-dropdown">
+
+                        <div
+                            className="dropdown tours-dropdown"
+                            onMouseEnter={handleToursMouseEnter}
+                            onMouseLeave={handleToursMouseLeave}
+                        >
                             <button
                                 className="dropbtn link"
                                 onClick={toggleToursDropdown}
-                                style={{fontSize: '16px'}}  // Düzəldilmiş inline stil
+                                style={{fontSize: '16px'}}
                             >
                                 {t("navbar.tours")} <FaChevronDown className={"zakirinChevronu"}/>
                             </button>
@@ -92,33 +133,38 @@ function Navbar() {
                                 </div>
                             </div>
                         </div>
+
                         <Link to="/about" className="link">{t("navbar.about")}</Link>
                         <Link to="/contact" className="link">{t("navbar.contact")}</Link>
                         <Link to="/blog" className="link">{t("navbar.blogs")}</Link>
                         <Link to="/services" className="link">{t("navbar.services")}</Link>
                     </nav>
+
                     <div className="language">
-                        <div className="dropdown" onClick={toggleLangDropdown}>
+                        <div
+                            className="dropdown"
+                            onClick={toggleLangDropdown}
+                            onMouseEnter={handleLangMouseEnter}
+                            onMouseLeave={handleLangMouseLeave}
+                        >
                             <button className="dropbtn">
                                 <img src={currentFlag} alt="Current Flag"/>
                                 <FaChevronDown className={"zakirinChevronu"}/>
                             </button>
                             <div className={`dropdown-content ${langDropdownOpen ? 'show' : ''}`}>
                                 <div onClick={() => handleLanguageChange('az')}>
-                                    <img src={flagAz} alt="AZ Flag"/>
-                                    AZ
+                                    <img src={flagAz} alt="AZ Flag"/> AZ
                                 </div>
                                 <div onClick={() => handleLanguageChange('en')}>
-                                    <img src={flagEn} alt="EN Flag"/>
-                                    EN
+                                    <img src={flagEn} alt="EN Flag"/> EN
                                 </div>
                                 <div onClick={() => handleLanguageChange('ru')}>
-                                    <img src={flagRu} alt="RU Flag"/>
-                                    RU
+                                    <img src={flagRu} alt="RU Flag"/> RU
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div className="burger" onClick={toggleMenu}>
                         <div className="line1"></div>
                         <div className="line2"></div>

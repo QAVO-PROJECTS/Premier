@@ -30,7 +30,7 @@ const Footer = () => {
                   <div className={"footer-service"}>
                     <h3>{t("footer.linksTitle", "Keçidlər")}</h3>
                     <li><Link to={"/"}>{t("footer.home", "Ana səhifə")}</Link></li>
-                    <li><Link to={"/"}>{t("footer.tours", "Ölkəxarici turlar")}</Link></li>
+                    <li><Link to={"/outGoing"}>{t("footer.tours", "Ölkəxarici turlar")}</Link></li>
                     <li><Link to={"/tours"}>{t("footer.domesticTours", "Ölkədaxili turlar")}</Link></li>
                     <li><Link to={"/contact"}>{t("footer.contact", "Əlaqə")}</Link></li>
                   </div>
