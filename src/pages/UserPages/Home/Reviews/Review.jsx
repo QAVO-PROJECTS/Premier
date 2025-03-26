@@ -1,9 +1,7 @@
-import React from 'react';
 import "./review.scss";
 import plane from "/src/assets/plane.png";
 import Index from "../../../../components/UserComponents/CurvedSlider/index.jsx";
 import { useTranslation } from 'react-i18next';
-import {useGetAllCustomerViewsQuery} from "../../../../services/adminApi.jsx";
 
 function Review() {
     const { t } = useTranslation();

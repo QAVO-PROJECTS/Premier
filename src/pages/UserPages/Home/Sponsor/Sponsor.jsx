@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import "./sponsor.scss";
 
 import sponsor1 from "../../../../assets/sponsor Image/Air_Arabia-Logo.wine 1.png";
@@ -19,9 +19,6 @@ import sponsor15 from "../../../../assets/sponsor Image/Turkish_Airlines_logo_20
 import sponsor17 from "../../../../assets/sponsor Image/Vueling-Logo.wine 1.png";
 import sponsor18 from "../../../../assets/sponsor Image/Wizz_Air-Logowine 1.png";
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
 const sponsorImages = [
     sponsor1, sponsor2, sponsor3, sponsor4, sponsor5, sponsor6,
     sponsor7, sponsor8, sponsor9, sponsor10, sponsor11, sponsor12,
@@ -29,9 +26,7 @@ const sponsorImages = [
 ];
 
 function Sponsor() {
-    useEffect(() => {
-        AOS.init({ duration: 1000 });
-    }, []);
+
 
     const [brands] = useState(() => {
         const repeatedBrands = [];
@@ -42,10 +37,10 @@ function Sponsor() {
     });
 
     return (
-        <section id="logoScroll" data-aos="fade-up">
-            <div className="wrapper left" data-aos="zoom-in">
+        <section id="logoScroll">
+            <div className="wrapper left">
                 {brands.map((brand, index) => (
-                    <div className="box" key={index} data-aos="flip-up">
+                    <div className="box" key={index}>
                         <img src={brand} alt="Logo" />
                     </div>
                 ))}

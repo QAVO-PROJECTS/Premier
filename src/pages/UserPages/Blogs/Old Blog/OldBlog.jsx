@@ -67,7 +67,7 @@ function OldBlog() {
                             </div>
                         </div>
                     )}
-                    <div className="col-lg-5 d-none d-lg-block" data-aos="fade-left">
+                    <div className="col-lg-5 d-none d-lg-block" data-aos="fade-right">
                         <div className="blogs">
                             <div className="cards">
                                 {blogsData?.map(blog => (

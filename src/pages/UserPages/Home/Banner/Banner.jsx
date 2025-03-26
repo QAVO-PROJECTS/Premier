@@ -76,7 +76,7 @@ function Banner() {
                     </div>
 
                     {/* Şəkil sütunu: mobilde birinci, desktopda ikinci */}
-                    <div className="col-12 col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+                    <div className="col-12 col-lg-6 order-1 order-lg-2" data-aos="fade-right">
                         {/* Desktop üçün görünəcək şəkil */}
                         <div className="image d-none d-md-block">
                             <img src={image} alt="desktop banner" />

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import "./sponsor.scss";
 
 import sponsor1 from "../../../../assets/sponsor Image/Air_Arabia-Logo.wine 1.png";
 import sponsor2 from "../../../../assets/sponsor Image/Air_Astana-Logo.wine 1.png";
 import sponsor3 from "../../../../assets/sponsor Image/Air_France-Logo.wine 1.png";
 import sponsor4 from "../../../../assets/sponsor Image/AJet_logo.svg 1.png";
-import sponsor5 from "../../../../assets/sponsor Image/Austrian_Airlines'_logo_(2018) 1.png";
+import sponsor5 from "../../../../assets/sponsor Image/Austrian_Airlines'_logo_(2018) 1.png"
 import sponsor6 from "../../../../assets/sponsor Image/Azerbaijan_Airlines-Logo.wine 1.png";
 import sponsor7 from "../../../../assets/sponsor Image/British_Airways-Logo.wine 1.png";
 import sponsor8 from "../../../../assets/sponsor Image/czech-airlines-thumb 1.png";
@@ -19,9 +19,6 @@ import sponsor15 from "../../../../assets/sponsor Image/Turkish_Airlines_logo_20
 import sponsor17 from "../../../../assets/sponsor Image/Vueling-Logo.wine 1.png";
 import sponsor18 from "../../../../assets/sponsor Image/Wizz_Air-Logowine 1.png";
 
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 // Tekrar edilmesini istediğiniz temel sponsor dizisi
 const sponsorImages = [
     sponsor1, sponsor2, sponsor3, sponsor4, sponsor5, sponsor6,
@@ -29,10 +26,11 @@ const sponsorImages = [
     sponsor13, sponsor14, sponsor15, sponsor17, sponsor18,
 ];
 
+
+// sponsorImages dizisini belirlediğiniz sayıda tekrarlayın
+
 function Sponsor() {
-    useEffect(() => {
-        AOS.init({ duration: 1000 });
-    }, []);
+
 
     const [brands] = useState(() => {
         const repeatedBrands = [];
@@ -43,10 +41,10 @@ function Sponsor() {
     });
 
     return (
-        <section id="logoScroll" data-aos="fade-up">
-            <div className="wrapper left" data-aos="zoom-in">
+        <section id="logoScroll" >
+            <div className="wrapper left">
                 {brands.map((brand, index) => (
-                    <div className="box" key={index} data-aos="flip-up">
+                    <div className="box" key={index}>
                         <img src={brand} alt="Logo" />
                     </div>
                 ))}

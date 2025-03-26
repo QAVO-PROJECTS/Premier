@@ -49,7 +49,7 @@ function TourBlog() {
                             )}
                         </p>
                     </div>
-                    <button className={"d-none d-md-block"} onClick={() => navigate("/blog")} data-aos="fade-left">
+                    <button className={"d-none d-md-block"} onClick={() => navigate("/blog")} data-aos="fade-up">
                         {t("home.tourBlog.button", "Hamısına bax")} <FaArrowRightLong />
                     </button>
                 </div>

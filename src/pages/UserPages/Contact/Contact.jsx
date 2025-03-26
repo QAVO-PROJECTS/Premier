@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import "./contact.scss";
-import { RiMailOpenFill, RiWhatsappFill } from "react-icons/ri";
-import { PiInstagramLogoFill } from "react-icons/pi";
-import { AiFillTikTok } from "react-icons/ai";
-import { FaFacebook, FaPhone } from "react-icons/fa";
-import { MdLocationOn, MdWatchLater } from "react-icons/md";
+import {RiMailOpenFill, RiWhatsappFill} from "react-icons/ri";
+import {PiInstagramLogoFill} from "react-icons/pi";
+import {AiFillTikTok} from "react-icons/ai";
+import {FaFacebook, FaPhone} from "react-icons/fa";
+import {MdLocationOn, MdWatchLater} from "react-icons/md";
 import back from "../../../assets/ContactBannerRed.png";
-import { useTranslation } from 'react-i18next';
-import { usePostContactMutation } from "../../../services/adminApi.jsx";
+import {useTranslation} from 'react-i18next';
+import {usePostContactMutation} from "../../../services/adminApi.jsx";
 import showToast from "../../../components/ToastMessage.js";
 import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
-import { RiseLoader } from "react-spinners";
+import {RiseLoader} from "react-spinners";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 function Contact() {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const [postContact] = usePostContactMutation();
     const [loading, setLoading] = useState(false);
 
@@ -28,7 +28,7 @@ function Contact() {
     });
 
     useEffect(() => {
-        AOS.init({ duration: 1000 });
+        AOS.init({duration: 1000});
     }, []);
 
     const handleChange = (e) => {
@@ -41,11 +41,10 @@ function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const dataToSend = { ...formData };
+        const dataToSend = {...formData};
 
         setLoading(true);
 
-        // 1.5 saniyə sonra form məlumatlarını göndəririk
         setTimeout(() => {
             postContact(dataToSend)
                 .unwrap()
@@ -64,23 +63,22 @@ function Contact() {
                 });
         }, 1500);
 
-        // 1.5 saniyə sonra loading vəziyyətini bitiririk
         setTimeout(() => {
             setLoading(false);
         }, 1500);
     };
 
     return (
-        <div className="contact" data-aos="fade-up">
-            <ScrollToTop />
-            <div className="container" data-aos="fade-in">
-                <div className="head" data-aos="fade-right">
+        <div className="contact">
+            <ScrollToTop/>
+            <div className="container">
+                <div className="head">
                     <p>
                         {t("contact.breadcrumb", "Ana səhifə /")}{" "}
                         <span>{t("contact.pageTitle", "Əlaqə")}</span>
                     </p>
                 </div>
-                <div className="title" data-aos="zoom-in">
+                <div className="title">
                     <h2>{t("contact.title", "Bizimlə Əlaqə")}</h2>
                     <p>
                         {t(
@@ -89,8 +87,8 @@ function Contact() {
                         )}
                     </p>
                 </div>
-                <div className="row gx-5 gy-5">
-                    <div className="col-lg-6 col-md-6" data-aos="fade-right">
+                <div className="row gy-5">
+                    <div className="col-lg-6 col-md-6" data-aos="fade-up">
                         <div className="form">
                             <h2>{t("contact.formTitle", "Formanı dolduraraq bizimlə əlaqə saxlayın")}</h2>
                             <form onSubmit={handleSubmit}>
@@ -150,7 +148,7 @@ function Contact() {
                                         ></textarea>
                                     </div>
                                 </div>
-                                <button type="submit" disabled={loading} data-aos="flip-up">
+                                <button type="submit" disabled={loading}>
                                     {loading ? (
                                         <RiseLoader
                                             color="#fff"
@@ -162,22 +160,22 @@ function Contact() {
                             </form>
                         </div>
                     </div>
-                    <div className="col-lg-6 col-md-6" data-aos="fade-left">
+                    <div className="col-lg-6 col-md-6" data-aos="fade-up">
                         <div className="contact-part">
                             <div className="header" data-aos="zoom-in">
                                 <h5>{t("contact.socialTitle", "Sosyal Medya:")}</h5>
                                 <div className="social">
-                                    <RiWhatsappFill className="icon" />
-                                    <PiInstagramLogoFill className="icon" />
-                                    <AiFillTikTok className="icon" />
-                                    <FaFacebook className="icon" />
+                                    <RiWhatsappFill className="icon"/>
+                                    <PiInstagramLogoFill className="icon"/>
+                                    <AiFillTikTok className="icon"/>
+                                    <FaFacebook className="icon"/>
                                 </div>
                             </div>
                             <div className="row gy-4">
                                 <div className="col-lg-6" data-aos="fade-up">
                                     <div className="contact-card">
                                         <div className="icon blue">
-                                            <MdLocationOn />
+                                            <MdLocationOn/>
                                         </div>
                                         <div className="content">
                                             <p>{t("contact.addressLabel", "Ünvan")}</p>
@@ -188,7 +186,7 @@ function Contact() {
                                 <div className="col-lg-6" data-aos="fade-up">
                                     <div className="contact-card">
                                         <div className="icon orange">
-                                            <FaPhone />
+                                            <FaPhone/>
                                         </div>
                                         <div className="content">
                                             <p>{t("contact.phoneCardLabel", "Telefon nömrəsi")}</p>
@@ -199,7 +197,7 @@ function Contact() {
                                 <div className="col-lg-6" data-aos="fade-up">
                                     <div className="contact-card">
                                         <div className="icon green">
-                                            <RiMailOpenFill />
+                                            <RiMailOpenFill/>
                                         </div>
                                         <div className="content">
                                             <p>{t("contact.emailCardLabel", "E-mail")}</p>
@@ -210,7 +208,7 @@ function Contact() {
                                 <div className="col-lg-6" data-aos="fade-up">
                                     <div className="contact-card">
                                         <div className="icon purple">
-                                            <MdWatchLater />
+                                            <MdWatchLater/>
                                         </div>
                                         <div className="content">
                                             <p>{t("contact.hoursLabel", "İş saatı")}</p>
@@ -219,12 +217,12 @@ function Contact() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="map" data-aos="zoom-in">
+                            <div className="map" data-aos="fade-up">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.1223320125227!2d49.870123675826804!3d40.40614067144131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d4dbe0d1d61%3A0xc059fa4b6641d0cd!2sPremier%20Tour!5e0!3m2!1saz!2saz!4v1741175929226!5m2!1saz!2saz"
                                     width="100%"
                                     height="445"
-                                    style={{ border: 0 }}
+                                    style={{border: 0}}
                                     allowFullScreen=""
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
@@ -234,7 +232,7 @@ function Contact() {
                     </div>
                 </div>
             </div>
-            <img src={back} alt="" className="back" data-aos="fade-up" />
+            <img src={back} alt="" className="back"/>
         </div>
     );
 }
