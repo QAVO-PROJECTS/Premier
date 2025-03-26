@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import "./contact.scss";
 import { RiMailOpenFill, RiWhatsappFill } from "react-icons/ri";
 import { PiInstagramLogoFill } from "react-icons/pi";
@@ -7,13 +7,15 @@ import { FaFacebook, FaPhone } from "react-icons/fa";
 import { MdLocationOn, MdWatchLater } from "react-icons/md";
 import back from "../../../assets/ContactBannerRed.png";
 import { useTranslation } from 'react-i18next';
-import {usePostContactMutation} from "../../../services/adminApi.jsx";
+import { usePostContactMutation } from "../../../services/adminApi.jsx";
 import showToast from "../../../components/ToastMessage.js";
 import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
+import {RiseLoader} from "react-spinners";
 
 function Contact() {
     const { t } = useTranslation();
-    const [postContact] = usePostContactMutation()
+    const [postContact] = usePostContactMutation();
+    const [loading, setLoading] = useState(false);
 
     const [formData, setFormData] = useState({
         name: "",
@@ -22,33 +24,48 @@ function Contact() {
         phoneNumber: "",
         note: "",
     });
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
     };
-    const handleSubmit = async (e) => {
+
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         const dataToSend = {
             ...formData,
         };
 
-        try {
-            await postContact(dataToSend).unwrap();
-            showToast("Əlaqə uğurlu oldu!", "success");
-            setFormData({
-                name: "",
-                surname: "",
-                email: "",
-                phoneNumber: "",
-                note: "",
-            });
-        } catch (error) {
-            showToast("Əlaqədə xəta:", error);
-        }
+        setLoading(true);
+
+        // 1.5 saniyə sonra form məlumatlarını göndəririk
+        setTimeout(() => {
+            postContact(dataToSend)
+                .unwrap()
+                .then(() => {
+                    showToast("Əlaqə uğurlu oldu!", "success");
+                    setFormData({
+                        name: "",
+                        surname: "",
+                        email: "",
+                        phoneNumber: "",
+                        note: "",
+                    });
+                })
+                .catch((error) => {
+                    showToast("Əlaqədə xəta:", error);
+                });
+        }, 1500);
+
+        // 1 saniyə sonra loading vəziyyətini bitiririk
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500);
     };
+
     return (
         <div className={"contact"}>
             <ScrollToTop/>
@@ -120,10 +137,24 @@ function Contact() {
                                     </div>
                                     <div className={"col-12"}>
                                         <label>{t("contact.messageLabel", "Qeyd")}</label>
-                                        <textarea rows="5" required value={formData.note} name="note" onChange={handleChange}></textarea>
+                                        <textarea
+                                            rows="5"
+                                            required
+                                            value={formData.note}
+                                            name="note"
+                                            onChange={handleChange}
+                                        ></textarea>
                                     </div>
                                 </div>
-                                <button type="submit">{t("contact.submitButton", "Göndər")}</button>
+                                <button type="submit" disabled={loading}>
+                                    {loading ? (
+                                        <RiseLoader
+                                            color="#fff"
+                                            size={15}
+                                            speedMultiplier={1}
+                                        />
+                                    ) : t("contact.submitButton", "Göndər")}
+                                </button>
                             </form>
                         </div>
                     </div>

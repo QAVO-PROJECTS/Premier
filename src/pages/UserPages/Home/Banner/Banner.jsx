@@ -6,6 +6,8 @@ import plane from "../../../../assets/BannerPlaneRed.png";
 import homeBanner from "../../../../assets/HomeMobileBanner.png";
 import { useTranslation, Trans } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import {ThreeDots} from "react-loader-spinner";
+import {CircleLoader} from "react-spinners";
 
 function Banner() {
     const { t } = useTranslation();
@@ -13,10 +15,19 @@ function Banner() {
 
     const [inputValue, setInputValue] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleSearch = () => {
         if (inputValue.trim()) {
-            setSearchTerm(inputValue.trim());
+            setLoading(true);
+
+            // 1.5 saniye sonra searchTerm'i güncelle, böylece useEffect tetiklenir.
+            setTimeout(() => {
+                setSearchTerm(inputValue.trim());
+            }, 1500);
+
+            // 1 saniye sonra loading durumunu kapat.
+
         }
     };
 
@@ -30,7 +41,7 @@ function Banner() {
         <div className="banner-home">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-6  left">
+                    <div className="col-lg-6 left">
                         <h1>
                             <Trans i18nKey="home.bannerHome.title">
                                 Dünyanı <span>Premier Tour</span> ilə Kəşf Et
@@ -46,8 +57,14 @@ function Banner() {
                                 onChange={(e) => setInputValue(e.target.value)}
                                 placeholder={t("home.bannerHome.inputPlaceholder", "Hara getmək istəyirsiniz ? Şəhər, ölkə və ya tur adı daxil edin...")}
                             />
-                            <button onClick={handleSearch}>
-                                <CiSearch className={"icon-banner"}/>
+                            <button onClick={handleSearch} disabled={loading}>
+                                {loading ? (
+                                    <CircleLoader
+                                        color="#ffffff"
+                                        loading
+                                        size={25}
+                                    />
+                                ) : <CiSearch className="icon-banner" />}
                             </button>
                         </div>
                         <img src={plane} alt="" className="plane-image" />

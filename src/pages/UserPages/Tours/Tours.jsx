@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CiSearch } from 'react-icons/ci';
-import countryIcon from "/src/assets/famicons_earth.png"
+import countryIcon from "/src/assets/famicons_earth.png";
 import cityIcon from "../../../assets/CityRed.png";
 import Pagination from "../../../components/UserComponents/Pagination/Pagination.jsx";
 import Recommed from "./Recommed/Recommed.jsx";
@@ -21,6 +21,7 @@ import dayjs from 'dayjs';
 import "./tours.scss";
 import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
 import NotResult from "../Not Result/index.jsx";
+import {BeatLoader, CircleLoader} from "react-spinners";
 
 function Tours() {
     const { t, i18n } = useTranslation();
@@ -58,14 +59,25 @@ function Tours() {
     // Sort üçün state: default olaraq A-Z sıralama
     const [sortOrder, setSortOrder] = useState('A-Z');
 
-    // Axtarış düyməsinə kliklədikdə parametrləri yeniləyirik
+    // Loading state: axtar düyməsinə kliklədikdə istifadə olunacaq
+    const [loading, setLoading] = useState(false);
+
+    // Axtar düyməsinə kliklədikdə parametrləri yeniləyirik
     const handleSearch = () => {
-        setSearchParams({
-            countryIds: selectedCountries,
-            cityIds: selectedCities,
-            startDate,
-            endDate,
-        });
+        setLoading(true);
+        // 1.5 saniyə sonra axtarış parametrlərini yeniləyirik
+        setTimeout(() => {
+            setSearchParams({
+                countryIds: selectedCountries,
+                cityIds: selectedCities,
+                startDate,
+                endDate,
+            });
+        }, 1500);
+        // 1 saniyə sonra loading-i bitiririk
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500);
     };
 
     // Lokalizasiya funksiyaları
@@ -198,7 +210,6 @@ function Tours() {
                     {/* Ölkə Dropdown */}
                     <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-0">
                         <div className="search-bar">
-
                             <div className="servis-content">
                                 <h5>{t("tours.countryLabel", "Ölkə")}</h5>
                                 <div className="btn-group">
@@ -245,7 +256,6 @@ function Tours() {
                     {/* Şəhər Dropdown */}
                     <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-0">
                         <div className="search-bar">
-
                             <div className="servis-content">
                                 <h5>{t("tours.cityLabel", "Şəhər")}</h5>
                                 <div className="btn-group">
@@ -287,15 +297,13 @@ function Tours() {
                         <div className="row">
                             <div className="col-6">
                                 <div className="search-bar">
-
-                                        <DatePicker
-                                            className="custom-date-picker"
-                                            format="DD.MM.YYYY"
-                                            value={startDate ? dayjs(startDate, "DD.MM.YYYY") : null}
-                                            onChange={handleStartDateChange}
-                                            placeholder={t("tours.startDate", "Başlama tarixi")}
-                                        />
-
+                                    <DatePicker
+                                        className="custom-date-picker"
+                                        format="DD.MM.YYYY"
+                                        value={startDate ? dayjs(startDate, "DD.MM.YYYY") : null}
+                                        onChange={handleStartDateChange}
+                                        placeholder={t("tours.startDate", "Başlama tarixi")}
+                                    />
                                 </div>
                             </div>
                             <div className="col-6">
@@ -314,11 +322,25 @@ function Tours() {
 
                     {/* Axtar düyməsi */}
                     <div className="col-lg-1 m-0">
-                        <button className="searchButton d-none d-md-block" onClick={handleSearch}>
-                            <CiSearch className={'icon'} />
+                        <button
+                            className="searchButton d-none d-md-block"
+                            onClick={handleSearch}
+                            disabled={loading}
+                        >
+                            {loading ? (
+                                <CircleLoader
+                                    color="#ffffff"
+                                    loading
+                                    size={50}
+                                 className={"icon"}/>
+                            ): <CiSearch className={'icon'} />}
                         </button>
-                        <button className="searchButton d-block d-md-none" onClick={handleSearch}>
-                            Axtar
+                        <button
+                            className="searchButton d-block d-md-none"
+                            onClick={handleSearch}
+                            disabled={loading}
+                        >
+                            {loading ?(<BeatLoader color="#fff" size={20} style={{marginTop:"5px"}} />): t("tours.search", "Axtar")}
                         </button>
                     </div>
                 </div>

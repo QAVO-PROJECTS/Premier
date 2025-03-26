@@ -4,11 +4,13 @@ import { IoCloseOutline } from "react-icons/io5";
 import { usePostReserveMutation } from "../../../services/adminApi.jsx";
 import { useTranslation } from "react-i18next";
 import showToast from "../../ToastMessage.js";
+import {RiseLoader} from "react-spinners";
 
 function ReserveModal({ open, setOpen, tour }) {
     if (!open) return null;
     const tourId = tour?.id;
     console.log(tourId);
+
     const [formData, setFormData] = useState({
         name: "",
         surname: "",
@@ -17,6 +19,7 @@ function ReserveModal({ open, setOpen, tour }) {
         note: "",
     });
 
+    const [loading, setLoading] = useState(false);
     const [postReserve] = usePostReserveMutation();
     const { t } = useTranslation();
 
@@ -30,19 +33,28 @@ function ReserveModal({ open, setOpen, tour }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Göndəriləcək JSON obyekt
         const dataToSend = {
             ...formData,
             tourId,
         };
 
-        try {
-            await postReserve(dataToSend).unwrap();
-            showToast("Uğurlu rezervasiya!","success")
-            setOpen(false);
-        } catch (error) {
-            showToast(error?.data?.error,"error")
-        }
+        setLoading(true);
+
+        // API çağırmasını 1.5 saniyə gecikdiririk
+        setTimeout(async () => {
+            try {
+                await postReserve(dataToSend).unwrap();
+                showToast("Uğurlu rezervasiya!", "success");
+                setOpen(false);
+            } catch (error) {
+                showToast(error?.data?.error, "error");
+            }
+        }, 1500);
+
+        // 1 saniyə sonra loading-i bitiririk
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500);
     };
 
     return (
@@ -107,8 +119,14 @@ function ReserveModal({ open, setOpen, tour }) {
                                 ></textarea>
                             </div>
                         </div>
-                        <button type="submit">
-                            {t("reserveModal.submitButton", "Rezervasiya et")}
+                        <button type="submit" disabled={loading}>
+                            {loading ? (
+                                <RiseLoader
+                                    color="#fff"
+                                    size={15}
+                                    speedMultiplier={1}
+                                />
+                            ): t("reserveModal.submitButton", "Rezervasiya et")}
                         </button>
                         <IoCloseOutline onClick={() => setOpen(false)} className="close-modal" />
                     </form>
