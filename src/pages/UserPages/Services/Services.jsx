@@ -24,9 +24,9 @@ function Services() {
         }
     }, [location]);
     // Description-ları kəsmək üçün
-    const card1Desc = t("services.card1.description", "Dünyanın aparıcı aviaşirkətləri ilə birbaşa əməkdaşlıq.").slice(0,50) + '...';
-    const card2Desc = t("services.card2.description", "Viza üçün müraciət edən şəxslərə hərtərəfli dəstək təklif edirik.").slice(0,50) + '...';
-    const card3Desc = t("services.card3.description", "Lüks və komfortlu nəqliyyat vasitələri ilə yüksək səviyyəli transfer.").slice(0,50) + '...';
+    const card1Desc = t("services.card1.description", "Dünyanın aparıcı aviaşirkətləri ilə birbaşa əməkdaşlıq.").slice(0,45) + '...';
+    const card2Desc = t("services.card2.description", "Viza üçün müraciət edən şəxslərə hərtərəfli dəstək təklif edirik.").slice(0,45) + '...';
+    const card3Desc = t("services.card3.description", "Lüks və komfortlu nəqliyyat vasitələri ilə yüksək səviyyəli transfer.").slice(0,45) + '...';
 
     return (
         <div className={"services"}>
