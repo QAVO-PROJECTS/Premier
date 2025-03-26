@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./cards.scss";
 import Index from "../../../../components/UserComponents/BlogCardDif/index.jsx";
 import Pagination from "../../../../components/UserComponents/Pagination/Pagination.jsx";
 import { useGetAllBlogsQuery } from "../../../../services/adminApi.jsx";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Cards() {
     const { data: getAllBlogs } = useGetAllBlogsQuery();
@@ -25,25 +27,29 @@ function Cards() {
     const visibleBlogs = blogs.slice(0, visiblePosts);
     const { t } = useTranslation();
 
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
+
     return (
-        <div style={{ paddingBottom: "120px" }}>
-            <div className={"container"}>
-                <div className={"row gy-5"} style={{ marginBottom: "60px" }}>
+        <div style={{ paddingBottom: "120px" }} data-aos="fade-up">
+            <div className="container" data-aos="fade-in">
+                <div className="row gy-5" style={{ marginBottom: "60px" }} data-aos="zoom-in">
                     {/* MD və daha böyük ekranlarda pagination ilə */}
                     <div className="d-none d-md-flex">
                         {currentPosts.map((blog, index) => (
-                            <Index key={blog?.id} index={index} blog={blog} />
+                            <Index key={blog?.id} index={index} blog={blog} data-aos="flip-up" />
                         ))}
                     </div>
                     {/* SM və daha aşağı ekranlarda "load more" funksiyası */}
                     <div className="d-block d-md-none">
                         {visibleBlogs.map((blog, index) => (
-                            <Index key={blog?.id} index={index} blog={blog} />
+                            <Index key={blog?.id} index={index} blog={blog} data-aos="flip-up" />
                         ))}
                     </div>
                 </div>
                 {/* MD və daha böyük ekranlarda Pagination */}
-                <div className="d-none d-md-block">
+                <div className="d-none d-md-block" data-aos="fade-up">
                     <Pagination
                         currentPage={currentPage}
                         totalPosts={blogs.length}
@@ -52,7 +58,7 @@ function Cards() {
                     />
                 </div>
                 {/* SM və daha aşağı ekranlarda "Ətraflı bax" düyməsi - həmişə görünəcək */}
-                <div className="d-block d-md-none text-center">
+                <div className="d-block d-md-none text-center" data-aos="zoom-in">
                     <button
                         className="btn"
                         style={{

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './loveTour.scss';
 import ReserveCard from "../../../../components/UserComponents/ReserveCard/ReserveCard.jsx";
 import 'swiper/css';
@@ -10,6 +10,8 @@ import ReserveModal from "../../../../components/UserComponents/ReserveModal/ind
 import { useGetAllToursQuery } from "../../../../services/adminApi.jsx";
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function LoveTour() {
     const { t } = useTranslation();
@@ -24,23 +26,27 @@ function LoveTour() {
     const [swiperInstance, setSwiperInstance] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
 
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
+
     const handleCardOpen = (tour) => {
         setSelectedTour(tour);
         setOpen(true);
     };
 
-    const navigate = useNavigate();
-
     return (
-        <div className="love-tour">
-            <div className="container">
-                <div className="love-title">
+        <div className="love-tour" data-aos="fade-up">
+            <div className="container" data-aos="fade-in">
+                <div className="love-title" data-aos="fade-right">
                     <h2>{t("home.loveTour.title", "Ən çox seçilən və sevilən turlar")}</h2>
                     <p>
                         {t("home.loveTour.subtitle", "Ən çox tələb olunan turlarımızla siz də unudulmaz xatirələr yaradın. Rahat uçuşlar, lüks otellər və maraqlı marşrutlarla sizə xüsusi təkliflər təqdim edirik.")}
                     </p>
                 </div>
-                <div className="col-12 text-end paginate d-none d-md-block" style={{ marginBottom: "40px" }}>
+                <div className="col-12 text-end paginate d-none d-md-block" style={{ marginBottom: "40px" }} data-aos="fade-left">
                     <button ref={prevRef} className="white">
                         <FaArrowLeft />
                     </button>
@@ -48,7 +54,7 @@ function LoveTour() {
                         <FaArrowRight />
                     </button>
                 </div>
-                <div className="row slider-row">
+                <div className="row slider-row" data-aos="zoom-in">
                     <Swiper
                         spaceBetween={30}
                         grabCursor={true}
@@ -83,7 +89,7 @@ function LoveTour() {
                 </div>
                 {/* Custom Pagination */}
                 {tours.length > 0 && (
-                    <div className="custom-pagination">
+                    <div className="custom-pagination" data-aos="fade-up">
                         {tours.map((_, index) => (
                             <span
                                 key={index}
@@ -93,7 +99,7 @@ function LoveTour() {
                         ))}
                     </div>
                 )}
-                <div className="text-center more" style={{ marginTop: "70px" }}>
+                <div className="text-center more" style={{ marginTop: "70px" }} data-aos="fade-up">
                     <button onClick={() => navigate("/tours")}>{t("home.loveTour.button", "Ətraflı bax")}</button>
                 </div>
             </div>

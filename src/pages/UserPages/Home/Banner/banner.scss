@@ -89,12 +89,12 @@
   .choosen {
     position: absolute;
     left: 0;
-    width: 65%;
+    width: 100%;
     box-shadow: 1px 1px 16px 0px #5A5A5A1C;
     padding: 14px;
     background-color: white;
     border-radius: 25px;
-    z-index: 9;
+    z-index: 10;
     transition: all 0.3s ease-in-out;
     &:hover{
       box-shadow: 1px 1px 12px 4px rgba(218, 15, 15, 0.26);
@@ -156,11 +156,11 @@
       transform: rotate(10deg);
     }
     @media (max-width: 991.98px) {
-      bottom: -60%;
+      bottom: -150%;
       width: 100%;
     }
     @media (max-width: 767.98px) {
-      bottom: -60%;
+      bottom: -150%;
       width: 90%;
     }
   }

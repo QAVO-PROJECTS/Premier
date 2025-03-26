@@ -8,6 +8,8 @@ import 'swiper/css/navigation';
 import { useGetAllBlogsQuery } from "../../../../services/adminApi.jsx";
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function TourBlog() {
     const { t } = useTranslation();
@@ -16,6 +18,10 @@ function TourBlog() {
     const [swiperInstance, setSwiperInstance] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
 
     useEffect(() => {
         if (swiperInstance && prevRef.current && nextRef.current) {
@@ -31,9 +37,9 @@ function TourBlog() {
     const blogs = getAllBlogs?.data.slice(0, 8);
 
     return (
-        <div className="tour-blog">
-            <div className="container">
-                <div className="head">
+        <div className="tour-blog" data-aos="fade-up">
+            <div className="container" data-aos="fade-in">
+                <div className="head" data-aos="fade-right">
                     <div className="title">
                         <h2>{t("home.tourBlog.title", "Səyahət Bloqu")}</h2>
                         <p>
@@ -43,12 +49,12 @@ function TourBlog() {
                             )}
                         </p>
                     </div>
-                    <button className={"d-none d-md-block"} onClick={() => navigate("/blog")}>
+                    <button className={"d-none d-md-block"} onClick={() => navigate("/blog")} data-aos="fade-left">
                         {t("home.tourBlog.button", "Hamısına bax")} <FaArrowRightLong />
                     </button>
                 </div>
 
-                <div className="row slider-row">
+                <div className="row slider-row" data-aos="zoom-in">
                     <Swiper
                         onSwiper={setSwiperInstance}
                         breakpoints={{
@@ -79,7 +85,7 @@ function TourBlog() {
                     </Swiper>
                     {/* Custom Pagination Bullets */}
                     {blogs && blogs.length > 0 && (
-                        <div className="custom-pagination">
+                        <div className="custom-pagination" data-aos="fade-up">
                             {blogs.map((_, index) => (
                                 <span
                                     key={index}
@@ -91,7 +97,7 @@ function TourBlog() {
                     )}
                 </div>
 
-                <div className="col-12 text-end paginate" style={{ marginTop: "40px" }}>
+                <div className="col-12 text-end paginate" style={{ marginTop: "40px" }} data-aos="fade-up">
                     <button ref={prevRef} className="white">
                         <FaArrowLeft />
                     </button>

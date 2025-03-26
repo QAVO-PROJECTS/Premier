@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./tourDetail.scss";
 import { CiCalendarDate } from "react-icons/ci";
 import { TbBed } from "react-icons/tb";
@@ -17,11 +17,13 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import SameTourCard from "../../../components/UserComponents/SameTourCard/index.jsx";
 import image1 from "/src/assets/tour.jpg";
-import {useNavigate, useParams} from "react-router-dom";
-import {useGetAllToursQuery, useGetTourByIdQuery} from "../../../services/adminApi.jsx";
-import {TOUR_CARD_IMG_URL, TOUR_IMG_URL} from "../../../constants.js";
+import { useNavigate, useParams } from "react-router-dom";
+import { useGetAllToursQuery, useGetTourByIdQuery } from "../../../services/adminApi.jsx";
+import { TOUR_CARD_IMG_URL, TOUR_IMG_URL } from "../../../constants.js";
 import { useTranslation } from "react-i18next";
 import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function TourDetail() {
     const { t, i18n } = useTranslation();
@@ -32,7 +34,7 @@ function TourDetail() {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const { data: getAllTours } = useGetAllToursQuery();
     const tourss = getAllTours?.data?.filter(item => item.id !== tour?.id && item.tourType === tour?.tourType);
-    const tours = tourss?.slice(0,3)
+    const tours = tourss?.slice(0, 3);
     // Cari dili nəzərə alaraq title və description seçirik:
     let title = tour?.title;
     let description = tour?.description;
@@ -47,7 +49,6 @@ function TourDetail() {
     }
     const [open, setOpen] = useState(false);
     const [selectedTourId, setSelectedTourId] = useState(null);
-    console.log(open)
 
     // Tour-a aid digər xüsusiyyətlərin siyahısı:
     const settings = [
@@ -90,22 +91,25 @@ function TourDetail() {
             navigate("/outGoing");
         } else if (tour?.tourType === "incomming") {
             navigate("/tours");
-            console.log("sss")
         }
     };
 
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
+
     return (
-        <div className="tourDetail">
-            <ScrollToTop/>
-            <div className="container">
-                <div className="head">
+        <div className="tourDetail" data-aos="fade-up">
+            <ScrollToTop />
+            <div className="container" data-aos="fade-in">
+                <div className="head" data-aos="fade-right">
                     <p>
                         {t("tourDetail.breadcrumb", "Ana səhifə / Turlar /")}{" "}
                         <span>{title}</span>
                     </p>
                 </div>
-                <div className="row mb-5">
-                    <div className="col-lg-5">
+                <div className="row mb-5" data-aos="zoom-in">
+                    <div className="col-lg-5" data-aos="flip-left">
                         <Swiper
                             spaceBetween={10}
                             thumbs={{ swiper: thumbsSwiper }}
@@ -141,27 +145,25 @@ function TourDetail() {
                             ))}
                         </Swiper>
                     </div>
-                    <div className="col-lg-7">
-                        <div className="content">
+                    <div className="col-lg-7" data-aos="flip-right">
+                        <div className="content" data-aos="fade-up">
                             <h3>{title}</h3>
                             <p>{description}</p>
                             <h5>{t("tourDetail.included", "Tura daxildir")}</h5>
                             <div className="wrapper1">
                                 <div className="settings gy-3">
                                     {settings.map((item, index) => (
-                                        <div className={item.col} key={index}>
-                                            <div className="setting">
-                                                {item.icon}{" "}
-                                                <span style={{ marginLeft: "8px" }}>
-                                                    {item.label}
-                                                </span>
-                                            </div>
+                                        <div className="setting" key={index} data-aos="fade-up">
+                                            {item.icon}{" "}
+                                            <span style={{ marginLeft: "8px" }}>
+                                                {item.label}
+                                            </span>
                                         </div>
                                     ))}
                                 </div>
                             </div>
-                            <h5>{t("tourDetail.contactHeading", "Əlavə məlumat üçün bizimlə əlaqə")}</h5>
-                            <div className="row gy-3">
+                            <h5 data-aos="fade-up">{t("tourDetail.contactHeading", "Əlavə məlumat üçün bizimlə əlaqə")}</h5>
+                            <div className="row gy-3" data-aos="fade-up">
                                 <div className="col-lg-6">
                                     <div className="contact-card">
                                         <div className="icon green">
@@ -184,9 +186,9 @@ function TourDetail() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={"col-12"}>
+                                <div className="col-12" data-aos="zoom-in">
                                     <button
-                                        className={"reserveBtn"}
+                                        className="reserveBtn"
                                         onClick={() => {
                                             setSelectedTourId(tour?.id);
                                             setOpen(true);
@@ -199,8 +201,8 @@ function TourDetail() {
                         </div>
                     </div>
                 </div>
-                <div className="row" style={{ rowGap: "50px" }}>
-                    <div className="col-12">
+                <div className="row" style={{ rowGap: "50px" }} data-aos="fade-up">
+                    <div className="col-12" data-aos="fade-right">
                         <div className="same-content">
                             <h1>{t("tourDetail.similarTours", "Oxşar Turlar")}</h1>
                             <button className="all desktop-only" onClick={handleNavigate}>
@@ -221,10 +223,11 @@ function TourDetail() {
                             image={TOUR_CARD_IMG_URL + item.cardImageUrl}
                             index={index}
                             id={item.id}
+                            data-aos="flip-up"
                         />
                     ))}
 
-                    <div className="mobile-only">
+                    <div className="mobile-only" data-aos="zoom-in">
                         <button className="all" onClick={handleNavigate}>
                             {t("tourDetail.viewAll", "Hamısına bax")}
                         </button>

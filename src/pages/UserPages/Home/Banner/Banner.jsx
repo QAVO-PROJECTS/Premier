@@ -6,8 +6,10 @@ import plane from "../../../../assets/BannerPlaneRed.png";
 import homeBanner from "../../../../assets/HomeMobileBanner.png";
 import { useTranslation, Trans } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import image2 from '/src/assets/MobileBannerRed.png'
+import image2 from '/src/assets/MobileBannerRed.png';
 import { CircleLoader } from "react-spinners";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Banner() {
     const { t } = useTranslation();
@@ -28,17 +30,21 @@ function Banner() {
     };
 
     useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
+
+    useEffect(() => {
         if (searchTerm) {
             navigate(`/search-tours?searchTerm=${searchTerm}`);
         }
     }, [searchTerm, navigate]);
 
     return (
-        <div className="banner-home">
+        <div className="banner-home" data-aos="fade-in">
             <div className="container">
                 <div className="row">
                     {/* Text sütunu: mobilde ikinci, desktopda birinci */}
-                    <div className="col-12 col-lg-6 order-2 order-lg-1 left">
+                    <div className="col-12 col-lg-6 order-2 order-lg-1 left" data-aos="fade-right">
                         <h1>
                             <Trans i18nKey="home.bannerHome.title">
                                 Dünyanı <span>Premier Tour</span> ilə Kəşf Et
@@ -70,7 +76,7 @@ function Banner() {
                     </div>
 
                     {/* Şəkil sütunu: mobilde birinci, desktopda ikinci */}
-                    <div className="col-12 col-lg-6 order-1 order-lg-2">
+                    <div className="col-12 col-lg-6 order-1 order-lg-2" data-aos="fade-left">
                         {/* Desktop üçün görünəcək şəkil */}
                         <div className="image d-none d-md-block">
                             <img src={image} alt="desktop banner" />
@@ -83,7 +89,7 @@ function Banner() {
                 </div>
             </div>
 
-            <img src={homeBanner} alt="" className="home-banner d-block d-md-none" />
+            <img src={homeBanner} alt="" className="home-banner d-block d-md-none" data-aos="zoom-in" />
         </div>
     );
 }

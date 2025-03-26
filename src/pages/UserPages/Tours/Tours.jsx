@@ -22,6 +22,8 @@ import "./tours.scss";
 import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
 import NotResult from "../Not Result/index.jsx";
 import { BeatLoader, CircleLoader } from "react-spinners";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Tours() {
     const { t, i18n } = useTranslation();
@@ -183,11 +185,15 @@ function Tours() {
         setEndDate(date ? dayjs(date).format("DD.MM.YYYY") : "");
     };
 
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
+
     return (
-        <div className="tours">
+        <div className="tours" data-aos="fade-up">
             <ScrollToTop />
-            <div className="container">
-                <div className="head">
+            <div className="container" data-aos="fade-in">
+                <div className="head" data-aos="fade-right">
                     <p>
                         {t("tours.breadcrumb", "Ana səhifə / Turlar /")}{" "}
                         <span>
@@ -197,7 +203,7 @@ function Tours() {
                         </span>
                     </p>
                 </div>
-                <div className="search row gy-3">
+                <div className="search row gy-3" data-aos="zoom-in">
                     {/* Ölkə Dropdown */}
                     <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-0">
                         <div className="search-bar">
@@ -216,7 +222,6 @@ function Tours() {
                                         aria-expanded="false"
                                         disabled={!isOutgoing}
                                     >
-                                        {/* Hər zaman placeholder göstəririk */}
                                         {t("tours.selectCountry", "Ölkə seç")}
                                     </button>
                                     {isOutgoing && (
@@ -256,7 +261,6 @@ function Tours() {
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
-                                        {/* Hər zaman placeholder göstəririk */}
                                         {t("tours.selectCity", "Şəhər seç")}
                                     </button>
                                     <ul className="dropdown-menu">
@@ -315,6 +319,7 @@ function Tours() {
                             className="searchButton d-none d-md-block"
                             onClick={handleSearch}
                             disabled={loading}
+                            data-aos="flip-up"
                         >
                             {loading ? (
                                 <CircleLoader
@@ -331,6 +336,7 @@ function Tours() {
                             className="searchButton d-block d-md-none"
                             onClick={handleSearch}
                             disabled={loading}
+                            data-aos="flip-up"
                         >
                             {loading ? (
                                 <BeatLoader
@@ -346,8 +352,8 @@ function Tours() {
                 </div>
 
                 {/* Kartların göstərilməsi */}
-                <div className="tour-cards">
-                    <div className="card-head">
+                <div className="tour-cards" data-aos="fade-up">
+                    <div className="card-head" data-aos="fade-right">
                         <h2>
                             {isOutgoing
                                 ? t("tours.pageTitleOutgoing", "Ölkədən xaric turlar")
@@ -364,6 +370,7 @@ function Tours() {
                                 type="button"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
+                                data-aos="zoom-in"
                             >
                                 {t("tours.sort", "Sırala")}
                             </button>
@@ -382,7 +389,7 @@ function Tours() {
                         </div>
                     </div>
 
-                    <div className="row gy-4" style={{ marginBottom: "80px" }}>
+                    <div className="row gy-4" style={{ marginBottom: "80px" }} data-aos="fade-up">
                         {searchParams ? (
                             getFilterTours && getFilterTours.data && getFilterTours.data.length > 0 ? (
                                 getFilterTours.data.map((tour, index) => (
@@ -398,7 +405,7 @@ function Tours() {
                         )}
                     </div>
 
-                    <div className="d-none d-md-block">
+                    <div className="d-none d-md-block" data-aos="fade-up">
                         <Pagination
                             currentPage={currentPage}
                             totalPosts={filteredTours.length}
@@ -406,7 +413,7 @@ function Tours() {
                             onPageChange={(page) => setCurrentPage(page)}
                         />
                     </div>
-                    <div className="d-block d-md-none text-center">
+                    <div className="d-block d-md-none text-center" data-aos="fade-up">
                         <button
                             className="btn"
                             style={{
@@ -429,8 +436,9 @@ function Tours() {
             <Recommed
                 type={isOutgoing ? "incomming" : "outgoing"}
                 recommendedTours={recommendedTours.slice(0, 4)}
+                data-aos="fade-up"
             />
-            <img src={banner} alt="tours" className="banner-image-tour" />
+            <img src={banner} alt="tours" className="banner-image-tour" data-aos="zoom-in" />
         </div>
     );
 }
