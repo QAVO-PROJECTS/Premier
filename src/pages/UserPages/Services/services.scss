@@ -10,6 +10,7 @@
     transition: all 0.3s ease-in-out;
     background-color: white;
     margin-bottom: 100px;
+
     .servis-card-icon {
       width: 165px;
       height: 165px;
@@ -33,7 +34,7 @@
       font-weight: 500;
       font-size: 30px; // LG
       line-height: 100%;
-      margin-bottom: 16px;
+      margin: 32px 0;
 
       @media (max-width: 991.98px) {
         font-size: 25px;
@@ -97,12 +98,21 @@
     @media (max-width: 767.98px) {
       padding: 0;
     }
-      .service-more{
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        border-radius: 20px;
-        overflow: hidden;
-        margin-bottom: 20px;
-      }
+
+    .service-more {
+      margin-bottom: 20px;
+    }
+
+    .zadsdasd {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .iki {
+      margin-top: -80px;
+    }
+
     h3 {
 
       text-align: center;
@@ -111,7 +121,6 @@
       font-weight: 500;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
       line-height: 38px;
-      scroll-margin-top: 80px;
       margin: 0;
       @media (max-width: 991.98px) {
         font-size: 25px;

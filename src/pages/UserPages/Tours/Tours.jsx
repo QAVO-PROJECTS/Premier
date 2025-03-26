@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CiSearch } from 'react-icons/ci';
-
+import countryIcon from "/src/assets/famicons_earth.png"
 import cityIcon from "../../../assets/CityRed.png";
 import Pagination from "../../../components/UserComponents/Pagination/Pagination.jsx";
 import Recommed from "./Recommed/Recommed.jsx";
@@ -20,6 +20,7 @@ import dayjs from 'dayjs';
 
 import "./tours.scss";
 import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
+import NotResult from "../Not Result/index.jsx";
 
 function Tours() {
     const { t, i18n } = useTranslation();
@@ -236,7 +237,7 @@ function Tours() {
                                 </div>
                             </div>
                             <div className="searchIcon">
-                                <img src={cityIcon} alt="city" />
+                                <img src={countryIcon} alt="city" />
                             </div>
                         </div>
                     </div>
@@ -360,10 +361,14 @@ function Tours() {
                     </div>
 
                     <div className="row gy-4" style={{ marginBottom: "80px" }}>
-                        {getFilterTours && getFilterTours.data && getFilterTours.data.length > 0 ? (
-                            getFilterTours.data.map((tour, index) => (
-                                <TourCard key={index} tour={tour} />
-                            ))
+                        {searchParams ? (
+                            getFilterTours && getFilterTours.data && getFilterTours.data.length > 0 ? (
+                                getFilterTours.data.map((tour, index) => (
+                                    <TourCard key={index} tour={tour} />
+                                ))
+                            ) : (
+                                <NotResult />
+                            )
                         ) : (
                             currentTours.map((tour, index) => (
                                 <TourCard key={index} tour={tour} />

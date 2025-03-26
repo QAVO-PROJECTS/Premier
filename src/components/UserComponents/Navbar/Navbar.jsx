@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './navbar.scss';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom"; // useLocation eklendi
 import { useTranslation } from 'react-i18next';
 
 import flagAz from '/src/assets/azerbaijan.png';
@@ -18,6 +18,8 @@ function Navbar() {
     const [toursTimeoutId, setToursTimeoutId] = useState(null);
 
     const { t, i18n } = useTranslation();
+    const navigate = useNavigate();
+    const location = useLocation(); // mevcut konumu alıyoruz
 
     useEffect(() => {
         const storedLang = localStorage.getItem('i18nextLng');
@@ -52,8 +54,6 @@ function Navbar() {
     } else if (i18n.language?.startsWith("az")) {
         currentFlag = flagAz;
     }
-
-    const navigate = useNavigate();
 
     // Language dropdown timeout handlers
     const handleLangMouseEnter = () => {
@@ -101,7 +101,11 @@ function Navbar() {
                         />
                     </div>
                     <nav className={`nav-links ${menuOpen ? 'active' : ''}`}>
-                        <Link to="/" className="link" onClick={() => setMenuOpen(false)}>
+                        <Link
+                            to="/"
+                            className={`link ${location.pathname === '/' ? 'active' : ''}`}
+                            onClick={() => setMenuOpen(false)}
+                        >
                             {t("navbar.home")}
                         </Link>
 
@@ -111,11 +115,10 @@ function Navbar() {
                             onMouseLeave={handleToursMouseLeave}
                         >
                             <button
-                                className="dropbtn link"
+                                className={`dropbtn link ${(location.pathname === '/tours' || location.pathname === '/outGoing') ? 'active' : ''}`}
                                 onClick={toggleToursDropdown}
-
                             >
-                                {t("navbar.tours")} <FaChevronDown className={"zakirinChevronu"} />
+                                {t("navbar.tours")} <FaChevronDown className={`zakirinChevronu ${(location.pathname === '/tours' || location.pathname === '/outGoing') ? 'active' : ''}`} />
                             </button>
                             <div className={`dropdown-content ${toursDropdownOpen ? 'show' : ''}`}>
                                 <div>
@@ -125,6 +128,7 @@ function Navbar() {
                                             setToursDropdownOpen(false);
                                             setMenuOpen(false);
                                         }}
+                                        className={`link ${location.pathname === '/tours' ? 'active' : ''}`}
                                     >
                                         {t("navbar.domestic")}
                                     </Link>
@@ -136,6 +140,7 @@ function Navbar() {
                                             setToursDropdownOpen(false);
                                             setMenuOpen(false);
                                         }}
+                                        className={`link ${location.pathname === '/outGoing' ? 'active' : ''}`}
                                     >
                                         {t("navbar.international")}
                                     </Link>
@@ -143,16 +148,32 @@ function Navbar() {
                             </div>
                         </div>
 
-                        <Link to="/about" className="link" onClick={() => setMenuOpen(false)}>
+                        <Link
+                            to="/about"
+                            className={`link ${location.pathname === '/about' ? 'active' : ''}`}
+                            onClick={() => setMenuOpen(false)}
+                        >
                             {t("navbar.about")}
                         </Link>
-                        <Link to="/contact" className="link" onClick={() => setMenuOpen(false)}>
+                        <Link
+                            to="/contact"
+                            className={`link ${location.pathname === '/contact' ? 'active' : ''}`}
+                            onClick={() => setMenuOpen(false)}
+                        >
                             {t("navbar.contact")}
                         </Link>
-                        <Link to="/blog" className="link" onClick={() => setMenuOpen(false)}>
+                        <Link
+                            to="/blog"
+                            className={`link ${location.pathname === '/blog' ? 'active' : ''}`}
+                            onClick={() => setMenuOpen(false)}
+                        >
                             {t("navbar.blogs")}
                         </Link>
-                        <Link to="/services" className="link" onClick={() => setMenuOpen(false)}>
+                        <Link
+                            to="/services"
+                            className={`link ${location.pathname === '/services' ? 'active' : ''}`}
+                            onClick={() => setMenuOpen(false)}
+                        >
                             {t("navbar.services")}
                         </Link>
                     </nav>

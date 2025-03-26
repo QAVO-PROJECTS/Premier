@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import main from '../../../assets/npResult.png';
 import "./index.scss";
+import {Link} from "react-router-dom";
 
 function NotResult() {
     const { t } = useTranslation();
@@ -13,6 +14,7 @@ function NotResult() {
                 </div>
                 <h2>{t("notResult.title")}</h2>
                 <p>{t("notResult.description")}</p>
+                <button ><Link to={"/"} style={{color:"white"}}>Go back</Link></button>
             </div>
         </div>
     );
