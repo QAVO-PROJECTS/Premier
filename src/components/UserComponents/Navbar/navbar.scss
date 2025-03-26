@@ -208,10 +208,10 @@
         }
       }
       .language {
-        margin-right: -80px; // Sağ tarafta az bir boşluk
+        margin-right: -30px; // Sağ tarafta az bir boşluk
       }
       .burger {
-        margin-left: -50px; // Sol tarafta az bir boşluk
+        margin-left: -40px; // Sol tarafta az bir boşluk
       }
       .nav-links {
         position: absolute;
@@ -223,7 +223,7 @@
         background-color: white;
         overflow: hidden;
         max-height: 0;
-        margin: 20px 0;
+        margin: -5px 0;
 
         .link,
         .dropdown {
@@ -239,7 +239,7 @@
       }
 
       .nav-links.active {
-        min-height: 100vh;
+        min-height: calc(100vh - 80px);
       }
 
       .burger {
@@ -292,5 +292,50 @@
     }
   }
 }
+@media screen and (max-width: 970px) {
+  .tours-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .dropdown-content {
+      // Masaüstündeki "absolute" ayarları iptal edelim:
+      position: static !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      top: auto !important;
+      left: auto !important;
+
+      // Açılır-kapanır animasyon için:
+      max-height: 0;                // Başlangıçta kapalı
+      opacity: 0;                   // Görünmez
+      overflow: hidden;             // Taşan içeriği gizle
+      transform: translateY(-10px); // Biraz yukarıda başlasın
+      transition:
+              max-height 0.4s ease,
+              opacity 0.4s ease,
+              transform 0.4s ease;
+
+      div {
+        padding: 5px 0;
+        border-bottom: none !important;
+       a{
+         font-size: 25px !important;
+       }
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+
+    // "show" sınıfı gelince açılma animasyonu
+    .dropdown-content.show {
+      max-height: 300px;    // İçeriğinize göre yeterli bir değer verin
+      opacity: 1;           // Görünür olsun
+      transform: translateY(0); // Yukarıdan sıfıra inerek yumuşak geçiş
+    }
+  }
+}
+
 
 
