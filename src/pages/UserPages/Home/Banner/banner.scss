@@ -3,10 +3,10 @@
   position: relative;
   overflow: hidden;
   @media (max-width: 991.98px) {
-    height: 700px;
+    height: 1000px;
   }
   @media (max-width: 767.98px) {
-    height: 700px;
+    height: 1200px;
   }
   .container {
     position: relative;
@@ -69,6 +69,16 @@
     position: relative;
     width: 148%;
     z-index: -1;
+
+    img {
+      width: 100%;
+      z-index: -1;
+    }
+  }
+  .image2 {
+    position: relative;
+    width: 100%;
+    z-index: 1;
 
     img {
       width: 100%;
@@ -146,11 +156,11 @@
       transform: rotate(10deg);
     }
     @media (max-width: 991.98px) {
-      bottom: -125%;
+      bottom: -60%;
       width: 100%;
     }
     @media (max-width: 767.98px) {
-      bottom: -135%;
+      bottom: -60%;
       width: 90%;
     }
   }

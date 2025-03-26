@@ -21,7 +21,7 @@ import dayjs from 'dayjs';
 import "./tours.scss";
 import ScrollToTop from "../../../components/ScrollToTop/index.jsx";
 import NotResult from "../Not Result/index.jsx";
-import {BeatLoader, CircleLoader} from "react-spinners";
+import { BeatLoader, CircleLoader } from "react-spinners";
 
 function Tours() {
     const { t, i18n } = useTranslation();
@@ -74,7 +74,7 @@ function Tours() {
                 endDate,
             });
         }, 1500);
-        // 1 saniyə sonra loading-i bitiririk
+        // 1.5 saniyə sonra loading-i bitiririk
         setTimeout(() => {
             setLoading(false);
         }, 1500);
@@ -93,25 +93,16 @@ function Tours() {
         return city.name;
     };
 
-    const selectedCountryNames = countries
-        ? countries
-            .filter(c => selectedCountries.includes(c.id))
-            .map(c => getCountryName(c))
-            .join(", ")
-        : "";
+    // ———————————— Seçilmiş dəyərləri düymədə göstərməyəcəyik ————————————
 
     let cityList = [];
-    if (selectedCountries.length > 0) {
+    if (selectedCountries.length > 0 && countries) {
         cityList = countries.flatMap(c =>
             selectedCountries.includes(c.id) ? (c.cities || []) : []
         );
     } else if (countries) {
         cityList = countries.flatMap(c => c.cities || []);
     }
-    const selectedCityNames = cityList
-        .filter(city => selectedCities.includes(city.id))
-        .map(city => getCityName(city))
-        .join(", ");
 
     // Lokal olaraq filtr edilmiş turlar (cari səhifə növünə görə)
     const filteredTours = tours?.filter(tour => {
@@ -225,9 +216,8 @@ function Tours() {
                                         aria-expanded="false"
                                         disabled={!isOutgoing}
                                     >
-                                        {selectedCountries.length > 0
-                                            ? selectedCountryNames
-                                            : t("tours.selectCountry", "Ölkə seç")}
+                                        {/* Hər zaman placeholder göstəririk */}
+                                        {t("tours.selectCountry", "Ölkə seç")}
                                     </button>
                                     {isOutgoing && (
                                         <ul className="dropdown-menu">
@@ -266,9 +256,8 @@ function Tours() {
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
-                                        {selectedCities.length > 0
-                                            ? selectedCityNames
-                                            : t("tours.selectCity", "Şəhər seç")}
+                                        {/* Hər zaman placeholder göstəririk */}
+                                        {t("tours.selectCity", "Şəhər seç")}
                                     </button>
                                     <ul className="dropdown-menu">
                                         {cityList &&
@@ -332,15 +321,26 @@ function Tours() {
                                     color="#ffffff"
                                     loading
                                     size={50}
-                                 className={"icon"}/>
-                            ): <CiSearch className={'icon'} />}
+                                    className={"icon"}
+                                />
+                            ) : (
+                                <CiSearch className={'icon'} />
+                            )}
                         </button>
                         <button
                             className="searchButton d-block d-md-none"
                             onClick={handleSearch}
                             disabled={loading}
                         >
-                            {loading ?(<BeatLoader color="#fff" size={20} style={{marginTop:"5px"}} />): t("tours.search", "Axtar")}
+                            {loading ? (
+                                <BeatLoader
+                                    color="#fff"
+                                    size={15}
+                                    style={{ marginTop: "5px" }}
+                                />
+                            ) : (
+                                t("tours.search", "Axtar")
+                            )}
                         </button>
                     </div>
                 </div>

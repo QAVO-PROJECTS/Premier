@@ -14,7 +14,7 @@ function NotResult() {
                 </div>
                 <h2>{t("notResult.title")}</h2>
                 <p>{t("notResult.description")}</p>
-                <button ><Link to={"/"} style={{color:"white"}}>Go back</Link></button>
+                <button ><Link to={"/"} style={{color:"white"}}>{t("notResult.goBack")}</Link></button>
             </div>
         </div>
     );

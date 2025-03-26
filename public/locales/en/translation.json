@@ -269,7 +269,9 @@
   "notResult": {
     "title": "Hmm… nothing here!",
     "description": "Try searching for something else or explore other sections.",
-    "alt": "Not Result"
+    "alt": "Not Result",
+
+    "goBack": "Go Back"
 
 }
 

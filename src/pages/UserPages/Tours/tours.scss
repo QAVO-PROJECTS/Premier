@@ -232,4 +232,18 @@
   .btn-group {
     outline: none;
   }
+  /* Dropdown-toggle üçün sətir bükülməsini dayandırır və mərkəzdə hizalayır */
+  .btn.dropdown-toggle {
+    white-space: nowrap !important;    /* Mətni bükməsin */
+    display: inline-flex !important;   /* Ox və mətni yan-yana göstər */
+    align-items: center !important;    /* Şaquli mərkəzləşdirmək üçün */
+  }
+
+  /* Oxun (caret) text-dən sonra eyni sətirdə görünməsini təmin edir */
+  .btn.dropdown-toggle::after {
+    margin-left: 0.5rem !important;  /* Mətndən sonra boşluq ver */
+    vertical-align: middle !important;
+    /* Mövcud stili oxun mərkəzdə görünməsinə kömək edəcək şəkildə yenilə */
+  }
+
 }
