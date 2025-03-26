@@ -97,7 +97,7 @@ function TourBlog() {
                     )}
                 </div>
 
-                <div className="col-12 text-end paginate" style={{ marginTop: "40px" }} data-aos="fade-up">
+                <div className="col-12 text-end paginate d-none d-lg-block" style={{ marginTop: "40px" }} data-aos="fade-up">
                     <button ref={prevRef} className="white">
                         <FaArrowLeft />
                     </button>

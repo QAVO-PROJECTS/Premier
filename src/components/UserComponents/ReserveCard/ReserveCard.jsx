@@ -22,7 +22,7 @@ function ReserveCard({ tour, onOpen }) {
     }
 
     return (
-        <div className="col-4 w-100">
+        <div className="col-4 w-100 pe-3 ps-3">
             <div className="reserveCard">
                 <div className="image" onClick={() => navigate(`/tours/${tour?.id}`)}>
                     <img src={TOUR_CARD_IMG_URL + tour?.cardImageUrl} alt={title} />
