@@ -14,10 +14,10 @@
       color: #d80027;
     }
     @media (max-width: 991.98px) { // MD ölçü
-      font-size:25px;
+      font-size:18px;
     }
     @media (max-width: 767.98px) { // SM ölçü
-      font-size: 25px;
+      font-size: 18px;
     }
   }
   .dropbtn{
@@ -76,10 +76,10 @@
             color: #d80027;
           }
           @media (max-width: 991.98px) { // MD ölçü
-            font-size: 35px;
+            font-size: 30px;
           }
           @media (max-width: 767.98px) { // SM ölçü
-            font-size: 35px;
+            font-size: 30px;
           }
           svg {
             margin-left: 5px;
@@ -229,7 +229,7 @@
         .dropdown {
           margin-top: 5px;
           margin-bottom: 5px;
-          font-size: 35px;
+          font-size: 30px;
           font-weight: 500;
           color: #5F5F5F;
           &.active {
