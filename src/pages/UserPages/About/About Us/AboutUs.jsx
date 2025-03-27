@@ -1,6 +1,9 @@
 import "./aboutUs.scss";
 import image from "../../../../assets/aboutCards.jpg";
 import premier from "/src/assets/PremierHotel.jpg"
+import qala from "/src/assets/406437754.jpg"
+import agali from "/src/assets/8Bh6q2KCJ6Pv6K2m8oq6NnkUnI1hSo6r.jpg"
+import oldGates from "/src/assets/46944556.jpg"
 import { GoArrowRight } from "react-icons/go";
 import { useTranslation } from "react-i18next";
 import {FaInstagram} from "react-icons/fa6";
@@ -54,7 +57,7 @@ function AboutUs() {
                     </div>
                     <div className="col-lg-6" data-aos={"fade-up"}>
                         <div className="image">
-                            <img src={image} alt={t("aboutUs.section2.title")} />
+                            <img src={qala} alt={t("aboutUs.section2.title")} />
                         </div>
                     </div>
                 </div>
@@ -63,16 +66,16 @@ function AboutUs() {
                 <div className="row">
                     <div className="col-lg-6" data-aos={"fade-right"}>
                         <div className="image">
-                            <img src={image} alt={t("aboutUs.section3.title")} />
+                            <img src={agali} alt={t("aboutUs.section3.title")} />
                         </div>
                     </div>
                     <div className="col-lg-6" data-aos={"fade-up"}>
                         <div className="content right">
                             <h1>{t("aboutUs.section3.number")}</h1>
-                            <h4>{t("aboutUs.section3.title")}</h4>
+                            <h4>Agalı Hotel Zangilan</h4>
                             <p>{t("aboutUs.section3.description")}</p>
                             <button>
-                                <FaInstagram className={"icon"}/>  {t("aboutUs.section3.buttonText")} <GoArrowRight className="icon" />
+                                <a href={'https://www.instagram.com/agali.hotel.zengilan?igsh=eWZtMncxa3QwYTBh'}><FaInstagram className={"icon"}/>  {t("aboutUs.section3.buttonText")} <GoArrowRight className="icon" /></a>
                             </button>
                         </div>
                     </div>
@@ -83,16 +86,16 @@ function AboutUs() {
                     <div className="col-lg-6" data-aos={"fade-right"}>
                         <div className="content left">
                             <h1>{t("aboutUs.section4.number")}</h1>
-                            <h4>{t("aboutUs.section4.title")}</h4>
+                            <h4>Premier Old Gates Hotel</h4>
                             <p>{t("aboutUs.section4.description")}</p>
                             <button>
-                                <FaInstagram className={"icon"}/> {t("aboutUs.section4.buttonText")} <GoArrowRight className="icon" />
+                                <a href={"https://www.instagram.com/premieroldgates/"}><FaInstagram className={"icon"}/> {t("aboutUs.section4.buttonText")} <GoArrowRight className="icon" /></a>
                             </button>
                         </div>
                     </div>
                     <div className="col-lg-6" data-aos={"fade-up"}>
                         <div className="image">
-                            <img src={image} alt={t("aboutUs.section4.title")} />
+                            <img src={oldGates} alt={t("aboutUs.section4.title")} />
                         </div>
                     </div>
                 </div>

@@ -54,7 +54,7 @@ function ReserveModal({ open, setOpen, tour }) {
         // 1 saniyə sonra loading-i bitiririk
         setTimeout(() => {
             setLoading(false);
-        }, 1500);
+        }, 2000);
     };
 
     return (
