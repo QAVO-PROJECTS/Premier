@@ -26,9 +26,33 @@ function Popular() {
     const [swiperInstance, setSwiperInstance] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
 
+    // Ekran ölçüsünü izləmək üçün state
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
+
+    // Ekran ölçüsündəki dəyişiklikləri izləmək
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    // Pagination üçün bullet sayını hesablamaq
+    const isDesktop = windowWidth >= 1024;
+    const bulletCount = isDesktop
+        ? Math.ceil(populars.length / 3)
+        : populars.length;
+
+    // Aktiv bullet-un hesablanması
+    const activeBullet = isDesktop
+        ? Math.floor(activeIndex / 3)
+        : activeIndex;
 
     return (
         <div className="popular" data-aos="fade-up">
@@ -73,7 +97,8 @@ function Popular() {
                                 swiper.navigation.update();
                             }
                         }}
-                        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+                        // Keçid tamamlandıqda aktiv indeksi yeniləyirik
+                        onSlideChangeTransitionEnd={(swiper) => setActiveIndex(swiper.realIndex)}
                     >
                         {populars.map((item, index) => (
                             <SwiperSlide key={item.id || index}>
@@ -84,11 +109,16 @@ function Popular() {
                     {/* Custom Pagination */}
                     {populars.length > 0 && (
                         <div className="custom-pagination" data-aos="fade-up">
-                            {populars.map((_, index) => (
+                            {[...Array(bulletCount)].map((_, index) => (
                                 <span
                                     key={index}
-                                    className={`custom-bullet ${activeIndex === index ? "active" : ""}`}
-                                    onClick={() => swiperInstance && swiperInstance.slideTo(index)}
+                                    className={`custom-bullet ${activeBullet === index ? "active" : ""}`}
+                                    onClick={() => {
+                                        if (swiperInstance) {
+                                            // Desktopda hər bullet 3 kartı, mobilda isə tək kartı göstərir
+                                            swiperInstance.slideTo(isDesktop ? index * 3 : index);
+                                        }
+                                    }}
                                 ></span>
                             ))}
                         </div>

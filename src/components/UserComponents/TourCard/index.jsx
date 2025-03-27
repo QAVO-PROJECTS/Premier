@@ -41,16 +41,16 @@ function TourCard({ tour }) {
                     <div className="raiting">
                         <p>5.0 </p> <FaStar />
                     </div>
+                    {isSmallScreen && (
+                        <div className="mobile-button" style={{  textAlign: 'center' }}>
+                            <button style={{}} onClick={() => navigate(`/tours/${tour?.id}`)}>
+                                <IoIosArrowRoundForward className='' style={{
+                                    fontSize: '30px',
+                                }}/>
+                            </button>
+                        </div>
+                    )}
                 </div>
-                {isSmallScreen && (
-                    <div className="mobile-button" style={{  textAlign: 'center' }}>
-                        <button style={{}} onClick={() => navigate(`/tours/${tour?.id}`)}>
-                            <IoIosArrowRoundForward className='' style={{
-                                fontSize: '30px',
-                            }}/>
-                        </button>
-                    </div>
-                )}
                 <div className="card-content">
                     <div className="text">
                         <h3>{title}</h3>

@@ -33,7 +33,7 @@ function AboutUs() {
                             <h4>{t("aboutUs.section1.title")}</h4>
                             <p>{t("aboutUs.section1.description")}</p>
                             <button>
-                                <FaInstagram className={"icon"}/>   {t("aboutUs.section1.buttonText")} <GoArrowRight className="icon" />
+                                <a href={"https://www.instagram.com/premiertour.az?igsh=MTdqa3RhdHNocDZrMw=="}><FaInstagram className={"icon"}/>   {t("aboutUs.section1.buttonText")} <GoArrowRight className="icon" /></a>
                             </button>
                         </div>
                     </div>

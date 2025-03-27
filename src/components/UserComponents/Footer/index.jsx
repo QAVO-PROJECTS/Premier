@@ -18,9 +18,8 @@ const Footer = () => {
                 <img src={logo} alt="" style={{ width: "150px", height: "65px" }} />
                 <p>{t("footer.tagline", "Dünyanı kəşf etmək, yeni təcrübələr yaşamaq və yaddaqalan anlar yaratmaq üçün mükəmməl səyahət seçimidir.")}</p>
                 <div className={"social-media"}>
-                  <FaFacebookF className={"icon"} />
-                  <FaInstagram className={"icon"} />
-                  <FaXTwitter className={"icon"} />
+                  <a><FaFacebookF className={"icon"} /></a>
+                 <a href={"https://www.instagram.com/premiertour.az/"}> <FaInstagram className={"icon"} /></a>
                 </div>
               </div>
             </div>
@@ -59,8 +58,8 @@ const Footer = () => {
                 <div className={"col-lg-4 col-md-6"}>
                   <div className={"footer-service"}>
                     <h3>{t("footer.contactInfoTitle", "Əlaqə məlumatları")}</h3>
-                    <li>{t("footer.phone", "+994 70 654 34 98")}</li>
-                    <li>{t("footer.email", "Premiertour@gmail.com")}</li>
+                    <li><a href={"tel:+994508961299"}>+994 50 896 12 99</a></li>
+                    <li><a href={"mailto:premiertour.az@gmail.com"}>premiertour.az@gmail.com</a></li>
                   </div>
                 </div>
               </div>

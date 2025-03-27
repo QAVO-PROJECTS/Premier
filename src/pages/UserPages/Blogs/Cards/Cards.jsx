@@ -36,13 +36,13 @@ function Cards() {
             <div className="container" data-aos="fade-in">
                 <div className="row gy-5" style={{ marginBottom: "60px" }} data-aos="zoom-in">
                     {/* MD və daha böyük ekranlarda pagination ilə */}
-                    <div className="d-none d-md-flex">
+                    <div className="d-none d-md-flex row">
                         {currentPosts.map((blog, index) => (
                             <Index key={blog?.id} index={index} blog={blog} data-aos="flip-up" />
                         ))}
                     </div>
                     {/* SM və daha aşağı ekranlarda "load more" funksiyası */}
-                    <div className="d-block d-md-none">
+                    <div className="d-block d-md-none row">
                         {visibleBlogs.map((blog, index) => (
                             <Index key={blog?.id} index={index} blog={blog} data-aos="flip-up" />
                         ))}

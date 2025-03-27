@@ -9,6 +9,8 @@ import {
     Popconfirm,
     Select,
     Radio,
+    Row,
+    Col,
 } from "antd";
 import {
     CheckCircleOutlined, CloseCircleOutlined,
@@ -129,7 +131,7 @@ const TourTable = () => {
             console.error(error);
             message.error("Xəta baş verdi!");
         }
-        handleCancel();
+        handleCancel(); // Modal post zamanı bütün datanı təmizləyir
     };
 
     const handleCancel = () => {
@@ -194,7 +196,6 @@ const TourTable = () => {
         setIsEditModalVisible(true);
     };
 
-
     const handleDelete = async (id) => {
         try {
             const response = await deleteTour(id).unwrap();
@@ -209,21 +210,12 @@ const TourTable = () => {
             message.error("Silinmə zamanı xəta baş verdi!");
         }
     };
+
     const handleEditTour = async (values) => {
         const formData = new FormData();
 
         formData.append("id", tourId);
-        // if (cardFileList.length > 0) {
-        //     formData.append("cardImage", cardFileList[0].originFileObj || null);
-        // }
-        //
-        // if (tourFileList.length > 0) {
-        //     tourFileList.forEach((file) => {
-        //         formData.append("tourImages", file.originFileObj || null);
-        //     });
-        // }
 
-        // Append other form values
         Object.keys(values).forEach((key) => {
             if (key !== "countryIds" && key !== "cityIds") {
                 formData.append(key, values[key]);
@@ -231,9 +223,6 @@ const TourTable = () => {
         });
 
         values.countryIds.forEach((id) => formData.append("countryIds", id));
-        // values.cityIds.forEach((id) => formData.append("cityIds", id));
-
-        // formData.append("cityIds", "b20deb54-28d8-4b15-fd7f-08dd6222a099")
 
         try {
             const response = await putTour(formData).unwrap();
@@ -275,7 +264,7 @@ const TourTable = () => {
                     <img
                         src={TOUR_CARD_IMG_URL + cardImageUrl}
                         alt="Şəkil"
-                        style={{width: 50, height: 50,borderRadius: '5px', objectFit: "cover"}}
+                        style={{width: 50, height: 50, borderRadius: '5px', objectFit: "cover"}}
                     />
                 );
             },
@@ -410,169 +399,173 @@ const TourTable = () => {
                 width={1000}
             >
                 <Form form={form} layout="vertical" onFinish={handleAddTours}>
-                    <Form.Item
-                        name="title"
-                        label="Tur Adı (AZ)"
-                        rules={[{required: true, message: "Tur adını daxil edin!"}]}>
-                        <Input placeholder="Tur adını daxil edin"/>
-                    </Form.Item>
+                    <Row gutter={16}>
+                        {/* Sol Sütun */}
+                        <Col span={12}>
+                            <Form.Item
+                                name="title"
+                                label="Tur Adı (AZ)"
+                                rules={[{required: true, message: "Tur adını daxil edin!"}]}>
+                                <Input placeholder="Tur adını daxil edin"/>
+                            </Form.Item>
 
-                    <Form.Item
-                        name="titleEng"
-                        label="Tur Adı (EN)"
-                        rules={[{required: true, message: "Tur adını daxil edin!"}]}>
-                        <Input placeholder="Tur adını daxil edin (Eng)"/>
-                    </Form.Item>
+                            <Form.Item
+                                name="titleEng"
+                                label="Tur Adı (EN)"
+                                rules={[{required: true, message: "Tur adını daxil edin!"}]}>
+                                <Input placeholder="Tur adını daxil edin (Eng)"/>
+                            </Form.Item>
 
-                    <Form.Item
-                        name="titleRu"
-                        label="Tur Adı (RU)"
-                        rules={[{required: true, message: "Tur adını daxil edin!"}]}>
-                        <Input placeholder="Tur adını daxil edin (Ru)"/>
-                    </Form.Item>
+                            <Form.Item
+                                name="titleRu"
+                                label="Tur Adı (RU)"
+                                rules={[{required: true, message: "Tur adını daxil edin!"}]}>
+                                <Input placeholder="Tur adını daxil edin (Ru)"/>
+                            </Form.Item>
 
-                    <Form.Item
-                        name="description"
-                        label="Açıqlama (AZ)"
-                        rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
-                        <Input.TextArea placeholder="Açıqlama daxil edin"/>
-                    </Form.Item>
+                            <Form.Item
+                                name="description"
+                                label="Açıqlama (AZ)"
+                                rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
+                                <Input.TextArea placeholder="Açıqlama daxil edin"/>
+                            </Form.Item>
 
-                    <Form.Item
-                        name="descriptionEng"
-                        label="Açıqlama (EN)"
-                        rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
-                        <Input.TextArea placeholder="Açıqlama daxil edin (Eng)"/>
-                    </Form.Item>
+                            <Form.Item
+                                name="descriptionEng"
+                                label="Açıqlama (EN)"
+                                rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
+                                <Input.TextArea placeholder="Açıqlama daxil edin (Eng)"/>
+                            </Form.Item>
 
-                    <Form.Item
-                        name="descriptionRu"
-                        label="Açıqlama (RU)"
-                        rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
-                        <Input.TextArea placeholder="Açıqlama daxil edin (Ru)"/>
-                    </Form.Item>
+                            <Form.Item
+                                name="descriptionRu"
+                                label="Açıqlama (RU)"
+                                rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
+                                <Input.TextArea placeholder="Açıqlama daxil edin (Ru)"/>
+                            </Form.Item>
 
-                    {/* Card Image */}
-                    <Form.Item label="Index Şəkil">
-                        <Upload
-                            name="cardImage"
-                            listType="picture-card"
-                            fileList={cardFileList}
-                            beforeUpload={() => false}
-                            onChange={({fileList: newFileList}) => setCardFileList(newFileList)}
-                            onRemove={(file) => setCardFileList(cardFileList.filter((f) => f.uid !== file.uid))}
-                        >
-                            {cardFileList.length < 1 && (
-                                <div>
-                                    <PlusOutlined/>
-                                    <div style={{marginTop: 8}}>Şəkil əlavə et</div>
-                                </div>
-                            )}
-                        </Upload>
-                    </Form.Item>
+                            <Form.Item label="Index Şəkil">
+                                <Upload
+                                    name="cardImage"
+                                    listType="picture-card"
+                                    fileList={cardFileList}
+                                    beforeUpload={() => false}
+                                    onChange={({fileList: newFileList}) => setCardFileList(newFileList)}
+                                    onRemove={(file) => setCardFileList(cardFileList.filter((f) => f.uid !== file.uid))}
+                                >
+                                    {cardFileList.length < 1 && (
+                                        <div>
+                                            <PlusOutlined/>
+                                            <div style={{marginTop: 8}}>Şəkil əlavə et</div>
+                                        </div>
+                                    )}
+                                </Upload>
+                            </Form.Item>
 
-                    {/* Tour Images */}
-                    <Form.Item label="Tur Şəkilləri">
-                        <Upload {...uploadProps}>
-                            {tourFileList.length < 5 && (
-                                <div>
-                                    <PlusOutlined/>
-                                    <div style={{marginTop: 8}}>Şəkil əlavə et</div>
-                                </div>
-                            )}
-                        </Upload>
-                    </Form.Item>
+                            <Form.Item label="Tur Şəkilləri">
+                                <Upload {...uploadProps}>
+                                    {tourFileList.length < 5 && (
+                                        <div>
+                                            <PlusOutlined/>
+                                            <div style={{marginTop: 8}}>Şəkil əlavə et</div>
+                                        </div>
+                                    )}
+                                </Upload>
+                            </Form.Item>
+                        </Col>
 
-                    <Form.Item
-                        name="startDate"
-                        label="Başlama Tarixi"
-                        rules={[{required: true, message: "Başlama tarixini daxil edin!"}]}>
-                        <Input placeholder="Başlama tarixi seçin"/>
-                    </Form.Item>
+                        {/* Sağ Sütun */}
+                        <Col span={12}>
+                            <Form.Item
+                                name="startDate"
+                                label="Başlama Tarixi"
+                                rules={[{required: true, message: "Başlama tarixini daxil edin!"}]}>
+                                <Input placeholder="Başlama tarixi seçin"/>
+                            </Form.Item>
 
-                    <Form.Item
-                        name="endDate"
-                        label="Bitmə Tarixi"
-                        rules={[{required: true, message: "Bitmə tarixini daxil edin!"}]}>
-                        <Input placeholder="Bitmə tarixi seçin"/>
-                    </Form.Item>
+                            <Form.Item
+                                name="endDate"
+                                label="Bitmə Tarixi"
+                                rules={[{required: true, message: "Bitmə tarixini daxil edin!"}]}>
+                                <Input placeholder="Bitmə tarixi seçin"/>
+                            </Form.Item>
 
-                    <Form.Item name="isOvernighStay" label="Gecələmə">
-                        <Radio.Group>
-                            <Radio value={true}>Var</Radio>
-                            <Radio value={false}>Yox</Radio>
-                        </Radio.Group>
-                    </Form.Item>
+                            <Form.Item name="isOvernighStay" label="Gecələmə">
+                                <Radio.Group>
+                                    <Radio value={true}>Var</Radio>
+                                    <Radio value={false}>Yox</Radio>
+                                </Radio.Group>
+                            </Form.Item>
 
-                    <Form.Item name="isTicket" label="Bilet">
-                        <Radio.Group>
-                            <Radio value={true}>Var</Radio>
-                            <Radio value={false}>Yox</Radio>
-                        </Radio.Group>
-                    </Form.Item>
+                            <Form.Item name="isTicket" label="Bilet">
+                                <Radio.Group>
+                                    <Radio value={true}>Var</Radio>
+                                    <Radio value={false}>Yox</Radio>
+                                </Radio.Group>
+                            </Form.Item>
 
-                    <Form.Item name="isInsurance" label="Sığorta">
-                        <Radio.Group>
-                            <Radio value={true}>Var</Radio>
-                            <Radio value={false}>Yox</Radio>
-                        </Radio.Group>
-                    </Form.Item>
+                            <Form.Item name="isInsurance" label="Sığorta">
+                                <Radio.Group>
+                                    <Radio value={true}>Var</Radio>
+                                    <Radio value={false}>Yox</Radio>
+                                </Radio.Group>
+                            </Form.Item>
 
-                    <Form.Item name="isVisa" label="Viza">
-                        <Radio.Group>
-                            <Radio value={true}>Var</Radio>
-                            <Radio value={false}>Yox</Radio>
-                        </Radio.Group>
-                    </Form.Item>
-
-                    <Form.Item name="exchangeRate" label="Valyuta">
-                        <Input placeholder="Məsələn, dollar"/>
-                    </Form.Item>
-
-                    <Form.Item name="isPopular" label="Populyarlıq">
-                        <Radio.Group>
-                            <Radio value={true}>Var</Radio>
-                            <Radio value={false}>Yox</Radio>
-                        </Radio.Group>
-                    </Form.Item>
-
-                    <Form.Item name="tourType" label="Tur Növü">
-                        <Select placeholder="Tur növünü seçin">
-                            <Select.Option value="incomming">Ölkədaxili</Select.Option>
-                            <Select.Option value="outgoing">Ölkəxarici</Select.Option>
-                        </Select>
-                    </Form.Item>
-
-                    <Form.Item name="countryIds" label="Ölkələr">
-                        <Select
-                            mode="multiple"
-                            placeholder="Ölkə seçin"
-                            onChange={handleCountryChange} // When countries are selected
-                        >
-                            {countries && countries.map((country) => (
-                                <Select.Option key={country.id} value={country.id}>
-                                    {country.name}
-                                </Select.Option>
-                            ))}
-                        </Select>
-                    </Form.Item>
-
-                    <Form.Item name="cityIds" label="Şəhərlər">
-                        <Select
-                            mode="multiple"
-                            placeholder="Şəhər seçin"
-                            disabled={selectedCountry?.length === 0}
-                        >
-                            {getCityOptionsForSelectedCountries()?.map((city) => (
-                                <Select.Option key={city.id} value={city.id}>
-                                    {city.name}
-                                </Select.Option>
-                            ))}
-                        </Select>
-                    </Form.Item>
+                            <Form.Item name="isVisa" label="Viza">
+                                <Radio.Group>
+                                    <Radio value={true}>Var</Radio>
+                                    <Radio value={false}>Yox</Radio>
+                                </Radio.Group>
+                            </Form.Item>
 
 
-                    <Form.Item>
+
+                            <Form.Item name="isPopular" label="Populyarlıq">
+                                <Radio.Group>
+                                    <Radio value={true}>Var</Radio>
+                                    <Radio value={false}>Yox</Radio>
+                                </Radio.Group>
+                            </Form.Item>
+
+
+
+                            <Form.Item name="countryIds" label="Ölkələr">
+                                <Select
+                                    mode="multiple"
+                                    placeholder="Ölkə seçin"
+                                    onChange={handleCountryChange}
+                                >
+                                    {countries && countries.map((country) => (
+                                        <Select.Option key={country.id} value={country.id}>
+                                            {country.name}
+                                        </Select.Option>
+                                    ))}
+                                </Select>
+                            </Form.Item>
+
+                            <Form.Item name="cityIds" label="Şəhərlər">
+                                <Select
+                                    mode="multiple"
+                                    placeholder="Şəhər seçin"
+                                    disabled={selectedCountry?.length === 0}
+                                    dropdownStyle={{ maxHeight: 150, overflow: 'auto' }}
+                                >
+                                    {getCityOptionsForSelectedCountries()?.map((city) => (
+                                        <Select.Option key={city.id} value={city.id}>
+                                            {city.name}
+                                        </Select.Option>
+                                    ))}
+                                </Select>
+                            </Form.Item>
+                            <Form.Item name="tourType" label="Tur Növü">
+                                <Select placeholder="Tur növünü seçin">
+                                    <Select.Option value="incomming">Ölkədaxili</Select.Option>
+                                    <Select.Option value="outgoing">Ölkəxarici</Select.Option>
+                                </Select>
+                            </Form.Item>
+                        </Col>
+                    </Row>
+                    <Form.Item style={{textAlign: "right"}}>
                         <Button type="primary" htmlType="submit" style={{marginRight: 8}}>
                             Əlavə Et
                         </Button>
@@ -590,139 +583,164 @@ const TourTable = () => {
                 width={1000}
             >
                 <Form form={editForm} layout="vertical" onFinish={handleEditTour}>
-                    <Form.Item name="title" label="Tur Adı (AZ)"
-                               rules={[{required: true, message: "Tur adını daxil edin!"}]}>
-                        <Input placeholder="Tur adını daxil edin"/>
-                    </Form.Item>
-                    <Form.Item name="titleEng" label="Tur Adı (EN)"
-                               rules={[{required: true, message: "Tur adını daxil edin!"}]}>
-                        <Input placeholder="Tur adını daxil edin (Eng)"/>
-                    </Form.Item>
-                    <Form.Item name="titleRu" label="Tur Adı (RU)"
-                               rules={[{required: true, message: "Tur adını daxil edin!"}]}>
-                        <Input placeholder="Tur adını daxil edin (Ru)"/>
-                    </Form.Item>
-                    <Form.Item name="description" label="Açıqlama (AZ)"
-                               rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
-                        <Input.TextArea placeholder="Açıqlama daxil edin"/>
-                    </Form.Item>
-                    <Form.Item name="descriptionEng" label="Açıqlama (EN)"
-                               rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
-                        <Input.TextArea placeholder="Açıqlama daxil edin (Eng)"/>
-                    </Form.Item>
-                    <Form.Item name="descriptionRu" label="Açıqlama (RU)"
-                               rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
-                        <Input.TextArea placeholder="Açıqlama daxil edin (Ru)"/>
-                    </Form.Item>
-                    <Form.Item label="Index Şəkil">
-                        <Upload
-                            name="cardImage"
-                            listType="picture-card"
-                            fileList={cardFileList}
-                            beforeUpload={() => false}
-                            onChange={({fileList: newFileList}) => setCardFileList(newFileList)}
-                            onRemove={(file) => setCardFileList(cardFileList.filter((f) => f.uid !== file.uid))}
-                        >
-                            {cardFileList.length < 1 && (
-                                <div>
-                                    <PlusOutlined/>
-                                    <div style={{marginTop: 8}}>Şəkil əlavə et</div>
-                                </div>
-                            )}
-                        </Upload>
-                    </Form.Item>
-                    <Form.Item label="Tur Şəkilləri">
-                        <Upload
-                            name="tourImages"
-                            listType="picture-card"
-                            multiple
-                            fileList={tourFileList}
-                            beforeUpload={() => false}
-                            onChange={({fileList: newFileList}) => setTourFileList(newFileList)}
-                            onRemove={(file) => setTourFileList(tourFileList.filter((f) => f.uid !== file.uid))}
-                        >
-                            {tourFileList.length < 5 && (
-                                <div>
-                                    <PlusOutlined/>
-                                    <div style={{marginTop: 8}}>Şəkil əlavə et</div>
-                                </div>
-                            )}
-                        </Upload>
-                    </Form.Item>
-                    <Form.Item name="startDate" label="Başlama Tarixi"
-                               rules={[{required: true, message: "Başlama tarixini daxil edin!"}]}>
-                        <Input placeholder="Başlama tarixi seçin"/>
-                    </Form.Item>
-                    <Form.Item name="endDate" label="Bitmə Tarixi"
-                               rules={[{required: true, message: "Bitmə tarixini daxil edin!"}]}>
-                        <Input placeholder="Bitmə tarixi seçin"/>
-                    </Form.Item>
-                    <Form.Item name="isOvernighStay" label="Gecələmə">
-                        <Radio.Group>
-                            <Radio value={true}>Var</Radio>
-                            <Radio value={false}>Yox</Radio>
-                        </Radio.Group>
-                    </Form.Item>
-                    <Form.Item name="isTicket" label="Bilet">
-                        <Radio.Group>
-                            <Radio value={true}>Var</Radio>
-                            <Radio value={false}>Yox</Radio>
-                        </Radio.Group>
-                    </Form.Item>
-                    <Form.Item name="isInsurance" label="Sığorta">
-                        <Radio.Group>
-                            <Radio value={true}>Var</Radio>
-                            <Radio value={false}>Yox</Radio>
-                        </Radio.Group>
-                    </Form.Item>
-                    <Form.Item name="isVisa" label="Viza">
-                        <Radio.Group>
-                            <Radio value={true}>Var</Radio>
-                            <Radio value={false}>Yox</Radio>
-                        </Radio.Group>
-                    </Form.Item>
-                    <Form.Item name="exchangeRate" label="Valyuta">
-                        <Input placeholder="Məsələn, dollar"/>
-                    </Form.Item>
-                    <Form.Item name="isPopular" label="Populyarlıq">
-                        <Radio.Group>
-                            <Radio value={true}>Var</Radio>
-                            <Radio value={false}>Yox</Radio>
-                        </Radio.Group>
-                    </Form.Item>
-                    <Form.Item name="tourType" label="Tur Növü">
-                        <Select placeholder="Tur növünü seçin">
-                            <Select.Option value="incomming">Incomming</Select.Option>
-                            <Select.Option value="outgoing">Outgoing</Select.Option>
-                        </Select>
-                    </Form.Item>
-                    <Form.Item name="countryIds" label="Ölkələr">
-                        <Select
-                            mode="multiple"
-                            placeholder="Ölkə seçin"
-                            onChange={handleCountryChange}
-                        >
-                            {countries && countries.map((country) => (
-                                <Select.Option key={country.id} value={country.id}>
-                                    {country.name}
-                                </Select.Option>
-                            ))}
-                        </Select>
-                    </Form.Item>
-                    <Form.Item name="cityIds" label="Şəhərlər">
-                        <Select
-                            mode="multiple"
-                            placeholder="Şəhər seçin"
-                            disabled={selectedCountry?.length === 0}
-                        >
-                            {getCityOptionsForSelectedCountries().map((city) => (
-                                <Select.Option key={city.id} value={city.id}>
-                                    {city.name}
-                                </Select.Option>
-                            ))}
-                        </Select>
-                    </Form.Item>
-                    <Form.Item>
+                    <Row gutter={16}>
+                        {/* Sol Sütun */}
+                        <Col span={12}>
+                            <Form.Item
+                                name="title"
+                                label="Tur Adı (AZ)"
+                                rules={[{required: true, message: "Tur adını daxil edin!"}]}>
+                                <Input placeholder="Tur adını daxil edin"/>
+                            </Form.Item>
+                            <Form.Item
+                                name="titleEng"
+                                label="Tur Adı (EN)"
+                                rules={[{required: true, message: "Tur adını daxil edin!"}]}>
+                                <Input placeholder="Tur adını daxil edin (Eng)"/>
+                            </Form.Item>
+                            <Form.Item
+                                name="titleRu"
+                                label="Tur Adı (RU)"
+                                rules={[{required: true, message: "Tur adını daxil edin!"}]}>
+                                <Input placeholder="Tur adını daxil edin (Ru)"/>
+                            </Form.Item>
+                            <Form.Item
+                                name="description"
+                                label="Açıqlama (AZ)"
+                                rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
+                                <Input.TextArea placeholder="Açıqlama daxil edin"/>
+                            </Form.Item>
+                            <Form.Item
+                                name="descriptionEng"
+                                label="Açıqlama (EN)"
+                                rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
+                                <Input.TextArea placeholder="Açıqlama daxil edin (Eng)"/>
+                            </Form.Item>
+                            <Form.Item
+                                name="descriptionRu"
+                                label="Açıqlama (RU)"
+                                rules={[{required: true, message: "Açıqlama daxil edin!"}]}>
+                                <Input.TextArea placeholder="Açıqlama daxil edin (Ru)"/>
+                            </Form.Item>
+                            <Form.Item label="Index Şəkil">
+                                <Upload
+                                    name="cardImage"
+                                    listType="picture-card"
+                                    fileList={cardFileList}
+                                    beforeUpload={() => false}
+                                    onChange={({fileList: newFileList}) => setCardFileList(newFileList)}
+                                    onRemove={(file) => setCardFileList(cardFileList.filter((f) => f.uid !== file.uid))}
+                                >
+                                    {cardFileList.length < 1 && (
+                                        <div>
+                                            <PlusOutlined/>
+                                            <div style={{marginTop: 8}}>Şəkil əlavə et</div>
+                                        </div>
+                                    )}
+                                </Upload>
+                            </Form.Item>
+                        </Col>
+
+                        {/* Sağ Sütun */}
+                        <Col span={12}>
+                            <Form.Item label="Tur Şəkilləri">
+                                <Upload
+                                    name="tourImages"
+                                    listType="picture-card"
+                                    multiple
+                                    fileList={tourFileList}
+                                    beforeUpload={() => false}
+                                    onChange={({fileList: newFileList}) => setTourFileList(newFileList)}
+                                    onRemove={(file) => setTourFileList(tourFileList.filter((f) => f.uid !== file.uid))}
+                                >
+                                    {tourFileList.length < 5 && (
+                                        <div>
+                                            <PlusOutlined/>
+                                            <div style={{marginTop: 8}}>Şəkil əlavə et</div>
+                                        </div>
+                                    )}
+                                </Upload>
+                            </Form.Item>
+                            <Form.Item
+                                name="startDate"
+                                label="Başlama Tarixi"
+                                rules={[{required: true, message: "Başlama tarixini daxil edin!"}]}>
+                                <Input placeholder="Başlama tarixi seçin"/>
+                            </Form.Item>
+                            <Form.Item
+                                name="endDate"
+                                label="Bitmə Tarixi"
+                                rules={[{required: true, message: "Bitmə tarixini daxil edin!"}]}>
+                                <Input placeholder="Bitmə tarixi seçin"/>
+                            </Form.Item>
+                            <Form.Item name="isOvernighStay" label="Gecələmə">
+                                <Radio.Group>
+                                    <Radio value={true}>Var</Radio>
+                                    <Radio value={false}>Yox</Radio>
+                                </Radio.Group>
+                            </Form.Item>
+                            <Form.Item name="isTicket" label="Bilet">
+                                <Radio.Group>
+                                    <Radio value={true}>Var</Radio>
+                                    <Radio value={false}>Yox</Radio>
+                                </Radio.Group>
+                            </Form.Item>
+                            <Form.Item name="isInsurance" label="Sığorta">
+                                <Radio.Group>
+                                    <Radio value={true}>Var</Radio>
+                                    <Radio value={false}>Yox</Radio>
+                                </Radio.Group>
+                            </Form.Item>
+                            <Form.Item name="isVisa" label="Viza">
+                                <Radio.Group>
+                                    <Radio value={true}>Var</Radio>
+                                    <Radio value={false}>Yox</Radio>
+                                </Radio.Group>
+                            </Form.Item>
+                            <Form.Item name="exchangeRate" label="Valyuta">
+                                <Input placeholder="Məsələn, dollar"/>
+                            </Form.Item>
+                            <Form.Item name="isPopular" label="Populyarlıq">
+                                <Radio.Group>
+                                    <Radio value={true}>Var</Radio>
+                                    <Radio value={false}>Yox</Radio>
+                                </Radio.Group>
+                            </Form.Item>
+                            <Form.Item name="tourType" label="Tur Növü">
+                                <Select placeholder="Tur növünü seçin">
+                                    <Select.Option value="incomming">Incomming</Select.Option>
+                                    <Select.Option value="outgoing">Outgoing</Select.Option>
+                                </Select>
+                            </Form.Item>
+                            <Form.Item name="countryIds" label="Ölkələr">
+                                <Select
+                                    mode="multiple"
+                                    placeholder="Ölkə seçin"
+                                    onChange={handleCountryChange}
+                                >
+                                    {countries && countries.map((country) => (
+                                        <Select.Option key={country.id} value={country.id}>
+                                            {country.name}
+                                        </Select.Option>
+                                    ))}
+                                </Select>
+                            </Form.Item>
+                            <Form.Item name="cityIds" label="Şəhərlər">
+                                <Select
+                                    mode="multiple"
+                                    placeholder="Şəhər seçin"
+                                    disabled={selectedCountry?.length === 0}
+                                >
+                                    {getCityOptionsForSelectedCountries().map((city) => (
+                                        <Select.Option key={city.id} value={city.id}>
+                                            {city.name}
+                                        </Select.Option>
+                                    ))}
+                                </Select>
+                            </Form.Item>
+                        </Col>
+                    </Row>
+                    <Form.Item style={{textAlign: "right"}}>
                         <Button type="primary" htmlType="submit" style={{marginRight: 8}}>
                             Düzəliş Et
                         </Button>

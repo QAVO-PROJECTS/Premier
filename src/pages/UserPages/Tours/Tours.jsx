@@ -225,7 +225,7 @@ function Tours() {
                                         {t("tours.selectCountry", "Ölkə seç")}
                                     </button>
                                     {isOutgoing && (
-                                        <ul className="dropdown-menu">
+                                        <ul className="dropdown-menu" style={{ maxHeight: '150px', overflowY: 'auto' }}>
                                             {countries &&
                                                 countries.map((country) => (
                                                     <li key={country.id}>
@@ -263,7 +263,7 @@ function Tours() {
                                     >
                                         {t("tours.selectCity", "Şəhər seç")}
                                     </button>
-                                    <ul className="dropdown-menu">
+                                    <ul className="dropdown-menu" style={{ maxHeight: '150px', overflowY: 'auto' }}>
                                         {cityList &&
                                             cityList.map((city) => (
                                                 <li key={city.id}>
@@ -271,8 +271,7 @@ function Tours() {
                                                         className="dropdown-item"
                                                         onClick={() => handleCitySelect(city, city.countryId)}
                                                     >
-                                                        {getCityName(city)}{" "}
-                                                        {selectedCities.includes(city.id) && "✓"}
+                                                        {getCityName(city)} {selectedCities.includes(city.id) && "✓"}
                                                     </button>
                                                 </li>
                                             ))}
