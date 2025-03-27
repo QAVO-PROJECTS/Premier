@@ -1,8 +1,9 @@
 .card123{
-  border-radius: 20px;
-  border: 1px solid #dfdfdf;
+  border-radius: 15px;
+  border: 1px solid #d6d6d6;
   overflow: hidden;
   position: relative;
+
   &:hover{
     .image{
       img{
@@ -16,7 +17,7 @@
     overflow: hidden;
     img{
       width: 100%;
-      aspect-ratio: 1/1.2;
+      aspect-ratio: 1/1;
       object-fit: cover;
       transition: all 0.3s ease-in-out;
     }
@@ -52,7 +53,7 @@
       h3{
         font-size: 24px;
         font-weight: 500;
-        margin-bottom: 10px;
+        margin: 0;
       }
       p{
         font-size: 20px;
@@ -81,7 +82,7 @@
   }
   .mobile-button{
     position: absolute;
-    bottom: 61px;
+    bottom: 55px;
     left: 50%;
     transform: translateX(-50%);
     button{
@@ -91,7 +92,7 @@
       background-color: white;
       border: none;
       color: black;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       font-size: 20px;
       transform: rotate(0);
       transition: all 0.3s ease;

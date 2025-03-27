@@ -389,7 +389,7 @@ function Tours() {
                         </div>
                     </div>
 
-                    <div className="row gy-2" style={{ marginBottom: "80px" }} data-aos="fade-up">
+                    <div className="row gy-2" style={{ marginBottom: "80px",padding:"0 8px" }} data-aos="fade-up">
                         {searchParams ? (
                             getFilterTours && getFilterTours.data && getFilterTours.data.length > 0 ? (
                                 getFilterTours.data.map((tour, index) => (

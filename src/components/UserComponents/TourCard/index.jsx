@@ -5,6 +5,7 @@ import { FaStar } from "react-icons/fa";
 import { TOUR_CARD_IMG_URL } from "../../../constants.js";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import {IoIosArrowRoundForward} from "react-icons/io";
 
 function TourCard({ tour }) {
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ function TourCard({ tour }) {
     }, []);
 
     return (
-        <div className={`col-md-3 col-sm-6 mb-4 col-xs-12 col-6 `}>
+        <div className={`col-md-3 col-sm-6 mb-4 col-xs-12 col-6 `} style={{padding:"0 8px"}}>
             <div className="card123">
                 <div className="image">
                     <img src={TOUR_CARD_IMG_URL + tour?.cardImageUrl} alt={title} />
@@ -44,7 +45,9 @@ function TourCard({ tour }) {
                 {isSmallScreen && (
                     <div className="mobile-button" style={{  textAlign: 'center' }}>
                         <button style={{}} onClick={() => navigate(`/tours/${tour?.id}`)}>
-                            <FaArrowRightLong className='mb-1' />
+                            <IoIosArrowRoundForward className='' style={{
+                                fontSize: '30px',
+                            }}/>
                         </button>
                     </div>
                 )}
