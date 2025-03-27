@@ -1,5 +1,6 @@
 import "./aboutUs.scss";
 import image from "../../../../assets/aboutCards.jpg";
+import premier from "/src/assets/PremierHotel.jpg"
 import { GoArrowRight } from "react-icons/go";
 import { useTranslation } from "react-i18next";
 import {FaInstagram} from "react-icons/fa6";
@@ -24,13 +25,13 @@ function AboutUs() {
                 <div className="row">
                     <div className="col-lg-6" data-aos={"fade-right"}>
                         <div className="image">
-                            <img src={image} alt={t("aboutUs.section1.title")} />
+                            <img src={premier} alt={t("aboutUs.section1.title")} />
                         </div>
                     </div>
                     <div className="col-lg-6" data-aos={"fade-up"}>
                         <div className="content right">
                             <h1>{t("aboutUs.section1.number")}</h1>
-                            <h4>{t("aboutUs.section1.title")}</h4>
+                            <h4>Premier Hotel</h4>
                             <p>{t("aboutUs.section1.description")}</p>
                             <button>
                                 <a href={"https://www.instagram.com/premiertour.az?igsh=MTdqa3RhdHNocDZrMw=="}><FaInstagram className={"icon"}/>   {t("aboutUs.section1.buttonText")} <GoArrowRight className="icon" /></a>
@@ -44,10 +45,10 @@ function AboutUs() {
                     <div className="col-lg-6" data-aos={"fade-right"}>
                         <div className="content left">
                             <h1>{t("aboutUs.section2.number")}</h1>
-                            <h4>{t("aboutUs.section2.title")}</h4>
+                            <h4>Qala Hotel</h4>
                             <p>{t("aboutUs.section2.description")}</p>
                             <button>
-                                <FaInstagram className={"icon"}/>  {t("aboutUs.section2.buttonText")} <GoArrowRight className="icon" />
+                                <a href={"https://www.instagram.com/qalahotels.az?igsh=dzRjcnFtanFnYWNw "}><FaInstagram className={"icon"}/>  {t("aboutUs.section2.buttonText")} <GoArrowRight className="icon" /></a>
                             </button>
                         </div>
                     </div>
