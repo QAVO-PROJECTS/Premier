@@ -33,24 +33,36 @@ function TourCard({ tour }) {
     }, []);
 
     return (
-        <div className={`col-md-3 col-sm-6 mb-4 col-xs-6 ${isSmallScreen ? "ps-5 pe-5" : ""}`}>
-            <div className={"card123"}>
-                <div className={"image"}>
+        <div className={`col-md-3 col-sm-6 mb-4 col-xs-12 col-6 `}>
+            <div className="card123">
+                <div className="image">
                     <img src={TOUR_CARD_IMG_URL + tour?.cardImageUrl} alt={title} />
-                    <div className={"raiting"}>
+                    <div className="raiting">
                         <p>5.0 </p> <FaStar />
                     </div>
                 </div>
-                <div className={"card-content"}>
-                    <div className={"text"}>
-                        <h3>{title}</h3>
-                    </div>
-                    <div>
-                        <button onClick={() => navigate(`/tours/${tour?.id}`)}>
-                            <FaArrowRightLong className={'mb-1'} />
+                {isSmallScreen && (
+                    <div className="mobile-button" style={{  textAlign: 'center' }}>
+                        <button style={{}} onClick={() => navigate(`/tours/${tour?.id}`)}>
+                            <FaArrowRightLong className='mb-1' />
                         </button>
                     </div>
+                )}
+                <div className="card-content">
+                    <div className="text">
+                        <h3>{title}</h3>
+                    </div>
+                    {/* Desktop üçün düymə */}
+                    {!isSmallScreen && (
+                        <div>
+                            <button onClick={() => navigate(`/tours/${tour?.id}`)}>
+                                <FaArrowRightLong className='mb-1' />
+                            </button>
+                        </div>
+                    )}
                 </div>
+                {/* Mobil üçün düyməni ayrıca yerə yerləşdiririk */}
+
             </div>
         </div>
     );
