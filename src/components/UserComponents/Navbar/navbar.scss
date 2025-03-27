@@ -26,7 +26,7 @@
   .wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
     .logo img {
       width: 120px;
@@ -207,12 +207,6 @@
           width: 150px;
         }
       }
-      .language {
-        margin-right: -70px; // Sağ tarafta az bir boşluk
-      }
-      .burger {
-        margin-left: -40px; // Sol tarafta az bir boşluk
-      }
       .nav-links {
         position: absolute;
         top: 70px;
@@ -293,6 +287,10 @@
   }
 }
 @media screen and (max-width: 970px) {
+  .language {
+    margin-right: -80px;
+  }
+
   .tours-dropdown {
     display: flex;
     flex-direction: column;

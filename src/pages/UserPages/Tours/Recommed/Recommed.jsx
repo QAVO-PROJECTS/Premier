@@ -42,7 +42,7 @@ function Recommed({ type, recommendedTours = [] }) {
                     )}
                 </div>
                 {/* Bu düymə isə yalnız sm və daha aşağı ekranlarda görünəcək */}
-                <div className="d-block d-md-none text-center mt-5" data-aos="zoom-in">
+                <div className="d-block d-md-none text-center mt-2" data-aos="zoom-in">
                     <button className="all" onClick={handleViewAll}>
                         {t("recommed.button", "Hamısına bax")}
                     </button>

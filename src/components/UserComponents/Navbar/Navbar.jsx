@@ -156,13 +156,6 @@ function Navbar() {
                             {t("navbar.about")}
                         </Link>
                         <Link
-                            to="/contact"
-                            className={`link ${location.pathname === '/contact' ? 'active' : ''}`}
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            {t("navbar.contact")}
-                        </Link>
-                        <Link
                             to="/blog"
                             className={`link ${location.pathname === '/blog' ? 'active' : ''}`}
                             onClick={() => setMenuOpen(false)}
@@ -175,6 +168,13 @@ function Navbar() {
                             onClick={() => setMenuOpen(false)}
                         >
                             {t("navbar.services")}
+                        </Link>
+                        <Link
+                            to="/contact"
+                            className={`link ${location.pathname === '/contact' ? 'active' : ''}`}
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            {t("navbar.contact")}
                         </Link>
                     </nav>
 

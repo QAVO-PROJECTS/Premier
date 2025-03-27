@@ -412,24 +412,6 @@ function Tours() {
                             onPageChange={(page) => setCurrentPage(page)}
                         />
                     </div>
-                    <div className="d-block d-md-none text-center" data-aos="fade-up">
-                        <button
-                            className="btn"
-                            style={{
-                                height: "63px",
-                                gap: "8px",
-                                padding: "18px 47.5px",
-                                borderRadius: "52px",
-                                border: "1px solid #000000",
-                                background: "inherit",
-                                fontWeight: "500",
-                                fontSize: "18px",
-                                lineHeight: "100%",
-                            }}
-                        >
-                            {t("tours.viewMore", "Ətraflı bax")}
-                        </button>
-                    </div>
                 </div>
             </div>
             <Recommed
