@@ -65,8 +65,11 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className={"col-12"}>
+            <div className={"col-lg-6"}>
               <h6>{t("footer.copyright", "© Copyright")} <span>Premier Tour</span> 2025. {t("footer.rightsReserved", "Bütün hüquqlar qorunur.")}</h6>
+            </div>
+            <div className={"col-lg-6"}>
+              <h6 className={"created"}>Created by <a href={"https://www.qavo.codes/"}>Qavo Codes</a></h6>
             </div>
           </div>
         </div>
