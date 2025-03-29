@@ -68,7 +68,7 @@ function NewBlog() {
                                 </div>
                                 <h3 data-aos="fade-up">{title}</h3>
                                 <p data-aos="fade-up">
-                                    {context}
+                                    {context.slice(0,300)} ...
                                 </p>
                                 <div style={{ textAlign: "end" }} data-aos="zoom-in">
                                     <button onClick={() => navigate(`/blogs/${latestBlog.id}`)}>

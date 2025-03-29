@@ -16,7 +16,6 @@ const App = () => {
         <div>
             <ToastContainer/>
             <RouterProvider router={router}/>
-            <SwiperComponent/>
         </div>
     )
 }

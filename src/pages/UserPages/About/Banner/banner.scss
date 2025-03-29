@@ -3,10 +3,10 @@
   margin: 0 0 70px;
   position: relative;
   @media (max-width: 1200px) {
-    margin-bottom: 75px;
+    margin-bottom: 50px;
   }
   @media (max-width: 768px) {
-    margin-bottom: 75px;
+    margin-bottom: 50px;
   }
   .head {
     margin-bottom: 80px;
@@ -60,7 +60,7 @@
     top: -220px;
     z-index: -1;
     @media (max-width: 1200px) {
-
+      height: 700px;
     }
     @media (max-width: 768px) {
       height: 700px;
