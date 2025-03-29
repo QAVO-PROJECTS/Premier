@@ -61,8 +61,8 @@ const TourTable = () => {
     }, [countries]);
 
     // Handle country change and filter cities
-    const handleCountryChange = (countryId) => {
-        setSelectedCountry(countryId);
+    const handleCountryChange = (countryIds) => {
+        setSelectedCountry(countryIds);
     };
 
     // Get cities for the selected countries
@@ -144,7 +144,11 @@ const TourTable = () => {
     const [tourId, setTourId] = useState("");
 
     const showEditModal = (record) => {
-        setTourId(record?.id)
+        setTourId(record?.id);
+        // Set selectedCountry state from record countries for proper city filtering in edit modal
+        const countryIds = record?.countries?.length ? record.countries.map(country => country.id) : [];
+        setSelectedCountry(countryIds);
+
         editForm.setFieldsValue({
             id: record.id,
             title: record.title,
@@ -162,11 +166,11 @@ const TourTable = () => {
             isVisa: record.isVisa,
             isPopular: record.isPopular,
             tourType: record.tourType,
-            countryIds: record?.countries?.length ? record.countries.map(country => country.id) : [],
+            countryIds: countryIds,
             cityIds: record?.cities?.length ? record.cities.map(city => city.id) : [],
         });
 
-        // Card resmini state'e yüklüyoruz
+        // Card resmini state'e yüklə
         if (record.cardImageUrl) {
             setCardFileList([{
                 uid: '-1',
@@ -178,7 +182,7 @@ const TourTable = () => {
             setCardFileList([]);
         }
 
-        // Tour resimlerini state'e yüklüyoruz
+        // Tour resimlərini state'e yüklə
         if (record.tourImageUrls && record.tourImageUrls.length > 0) {
             setTourFileList(
                 record.tourImageUrls.map((url, index) => ({
@@ -200,7 +204,7 @@ const TourTable = () => {
         try {
             const response = await deleteTour(id).unwrap();
             if (response?.statusCode === 200) {
-                showToast("Silinmə uğurla tamamlandı!","success");
+                showToast("Silinmə uğurla tamamlandı!", "success");
                 getAllToursRefetch();
             } else {
                 message.error("Silinmə zamanı xəta baş verdi!");
@@ -213,38 +217,58 @@ const TourTable = () => {
 
     const handleEditTour = async (values) => {
         const formData = new FormData();
-
         formData.append("id", tourId);
 
+        // Əvvəlcə digər sahələri əlavə edirik (countryIds və cityIds istisna olmaqla)
         Object.keys(values).forEach((key) => {
             if (key !== "countryIds" && key !== "cityIds") {
                 formData.append(key, values[key]);
             }
         });
 
-        values.countryIds.forEach((id) => formData.append("countryIds", id));
+        // Orijinal və yeni ölkə & şəhər ID-lərini müqayisə edirik
+        const originalCountryIds = editingProduct?.countries?.map(country => country.id) || [];
+        const originalCityIds = editingProduct?.cities?.map(city => city.id) || [];
+        const newCountryIds = values.countryIds || [];
+        const newCityIds = values.cityIds || [];
+
+        // Yalnız yeni əlavə olunan ölkə ID-lərini göndəririk
+        const addCountryIds = newCountryIds.filter(id => !originalCountryIds.includes(id));
+        addCountryIds.forEach(id => formData.append("countryIds", id));
+
+        // Əgər silinmiş ölkə varsa, deleteCountryIds array-ına əlavə edirik
+        const deleteCountryIds = originalCountryIds.filter(id => !newCountryIds.includes(id));
+        deleteCountryIds.forEach(id => formData.append("deleteCountryIds", id));
+
+        // Yalnız yeni əlavə olunan şəhər ID-lərini göndəririk
+        const addCityIds = newCityIds.filter(id => !originalCityIds.includes(id));
+        addCityIds.forEach(id => formData.append("cityIds", id));
+
+        // Silinmiş şəhər ID-lərini deleteCityIds array-ına əlavə edirik
+        const deleteCityIds = originalCityIds.filter(id => !newCityIds.includes(id));
+        deleteCityIds.forEach(id => formData.append("deleteCityIds", id));
 
         try {
             const response = await putTour(formData).unwrap();
             if (response?.statusCode === 200) {
-                showToast("Düzəliş uğurla tamamlandı!",'success');
-                getAllToursRefetch(); // Refresh the list of tours
+                showToast("Düzəliş uğurla tamamlandı!", 'success');
+                getAllToursRefetch(); // Turlar siyahısını yenilə
             } else {
-                showToast("Düzəliş zamanı xəta baş verdi!","error");
+                showToast("Düzəliş zamanı xəta baş verdi!", "error");
             }
         } catch (error) {
             console.error(error);
             message.error("Düzəliş zamanı xəta baş verdi!");
         }
 
-        handleEditCancel(); // Close the modal after saving
+        handleEditCancel(); // Yaddaşı təmizlə və modalı bağla
     };
 
     const handleEditCancel = () => {
         setIsEditModalVisible(false);
         editForm.resetFields();
-        setCardFileList([]); // Reset card image file list
-        setTourFileList([]); // Reset tour image file list
+        setCardFileList([]); // Card şəkil siyahısını sıfırla
+        setTourFileList([]); // Tour şəkil siyahısını sıfırla
     };
 
     const columns = [
@@ -294,11 +318,19 @@ const TourTable = () => {
             title: "Şəhər",
             dataIndex: "cityNames",
             key: "cityNames",
+            render: (cityNames) =>
+                Array.isArray(cityNames)
+                    ? cityNames.join(" , ")
+                    : cityNames,
         },
         {
             title: "Ölkə",
             dataIndex: "countryNames",
             key: "countryNames",
+            render: (countryNames) =>
+                Array.isArray(countryNames)
+                    ? countryNames.join(" , ")
+                    : countryNames,
         },
         {
             title: "Geceleme",
@@ -518,16 +550,12 @@ const TourTable = () => {
                                 </Radio.Group>
                             </Form.Item>
 
-
-
                             <Form.Item name="isPopular" label="Populyarlıq">
                                 <Radio.Group>
                                     <Radio value={true}>Var</Radio>
                                     <Radio value={false}>Yox</Radio>
                                 </Radio.Group>
                             </Form.Item>
-
-
 
                             <Form.Item name="countryIds" label="Ölkələr">
                                 <Select
@@ -547,7 +575,7 @@ const TourTable = () => {
                                 <Select
                                     mode="multiple"
                                     placeholder="Şəhər seçin"
-                                    disabled={selectedCountry?.length === 0}
+                                    disabled={!selectedCountry || selectedCountry.length === 0}
                                     dropdownStyle={{ maxHeight: 150, overflow: 'auto' }}
                                 >
                                     {getCityOptionsForSelectedCountries()?.map((city) => (
@@ -697,9 +725,6 @@ const TourTable = () => {
                                     <Radio value={false}>Yox</Radio>
                                 </Radio.Group>
                             </Form.Item>
-                            <Form.Item name="exchangeRate" label="Valyuta">
-                                <Input placeholder="Məsələn, dollar"/>
-                            </Form.Item>
                             <Form.Item name="isPopular" label="Populyarlıq">
                                 <Radio.Group>
                                     <Radio value={true}>Var</Radio>
@@ -729,9 +754,9 @@ const TourTable = () => {
                                 <Select
                                     mode="multiple"
                                     placeholder="Şəhər seçin"
-                                    disabled={selectedCountry?.length === 0}
+                                    disabled={!selectedCountry || selectedCountry.length === 0}
                                 >
-                                    {getCityOptionsForSelectedCountries().map((city) => (
+                                    {getCityOptionsForSelectedCountries()?.map((city) => (
                                         <Select.Option key={city.id} value={city.id}>
                                             {city.name}
                                         </Select.Option>
