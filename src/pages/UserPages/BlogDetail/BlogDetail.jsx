@@ -84,10 +84,10 @@ function BlogDetail() {
                                 <FiCopy /> {t("blogDetail.copyLink", "Copy link")}
                             </div>
                             <div className="detail-icon">
-                                <FaFacebook />
+                               <a href={"https://www.facebook.com/TurAzerbaijan/"} target="_blank"> <FaFacebook /></a>
                             </div>
                             <div className="detail-icon">
-                                <FaLinkedin />
+                                <a href={""} target="_blank"><FaLinkedin /></a>
                             </div>
                         </div>
                     </div>

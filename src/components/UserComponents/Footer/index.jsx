@@ -18,8 +18,8 @@ const Footer = () => {
                 <img src={logo} alt="" style={{ width: "150px", height: "65px" }} />
                 <p>{t("footer.tagline", "Dünyanı kəşf etmək, yeni təcrübələr yaşamaq və yaddaqalan anlar yaratmaq üçün mükəmməl səyahət seçimidir.")}</p>
                 <div className={"social-media"}>
-                  <a><FaFacebookF className={"icon"} /></a>
-                 <a href={"https://www.instagram.com/premiertour.az/"}> <FaInstagram className={"icon"} /></a>
+                  <a href={"https://www.facebook.com/TurAzerbaijan/"} target="_blank"><FaFacebookF className={"icon"} /></a>
+                 <a href={"https://www.instagram.com/premiertour.az/"} target="_blank"> <FaInstagram className={"icon"} /></a>
                 </div>
               </div>
             </div>
@@ -58,8 +58,8 @@ const Footer = () => {
                 <div className={"col-lg-4 col-md-6"}>
                   <div className={"footer-service"}>
                     <h3>{t("footer.contactInfoTitle", "Əlaqə məlumatları")}</h3>
-                    <li><a href={"tel:+994508961299"}>+994 50 896 12 99</a></li>
-                    <li><a href={"mailto:premiertour.az@gmail.com"}>premiertour.az@gmail.com</a></li>
+                    <li><a href={"tel:+994508961299"} target="_blank">+994 50 896 12 99</a></li>
+                    <li><a href={"mailto:premiertour.az@gmail.com"} target="_blank">premiertour.az@gmail.com</a></li>
                   </div>
                 </div>
               </div>
