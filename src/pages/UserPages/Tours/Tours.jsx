@@ -128,7 +128,14 @@ function Tours() {
 
     // Pagination (yalnız lokal data üçün; əgər axtarış nəticəsi varsa, pagination olmaya bilər)
     const [currentPage, setCurrentPage] = useState(1);
-    const postsPerPage = 6;
+    const [postsPerPage, setPostsPerPage] = useState(window.innerWidth < 768 ? 4 : 8);
+    useEffect(() => {
+        const handleResize = () => {
+            setPostsPerPage(window.innerWidth < 768 ? 4 : 8);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
     const indexOfLastTour = currentPage * postsPerPage;
     const indexOfFirstTour = indexOfLastTour - postsPerPage;
     const currentTours = sortedTours.slice(indexOfFirstTour, indexOfLastTour);
@@ -406,7 +413,7 @@ function Tours() {
                         )}
                     </div>
 
-                    <div className="d-none d-md-block" data-aos="fade-up">
+                    <div  data-aos="fade-up">
                         <Pagination
                             currentPage={currentPage}
                             totalPosts={filteredTours.length}

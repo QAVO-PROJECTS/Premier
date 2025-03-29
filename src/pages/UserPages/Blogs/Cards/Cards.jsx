@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import "./cards.scss";
 import Index from "../../../../components/UserComponents/BlogCardDif/index.jsx";
 import Pagination from "../../../../components/UserComponents/Pagination/Pagination.jsx";
@@ -13,7 +13,14 @@ function Cards() {
 
     // Pagination üçün state və hesablamalar (MD və yuxarı ekranlar üçün)
     const [currentPage, setCurrentPage] = useState(1);
-    const postsPerPage = 4; // Hər səhifədə göstəriləcək blog sayı
+    const [postsPerPage, setPostsPerPage] = useState(window.innerWidth < 768 ? 4 : 8);
+    useEffect(() => {
+        const handleResize = () => {
+            setPostsPerPage(window.innerWidth < 768 ? 4 : 8);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     // SM ekranlarda "load more" üçün state
     const [visiblePosts, setVisiblePosts] = useState(postsPerPage);
