@@ -23,16 +23,22 @@
     .card-content{
       width: 100%;
       padding: 30px;
+      @media (max-width: 1200px) { // MD ölçü
+        padding: 15px;
+      }
+      @media (max-width: 767.98px) { // SM ölçü
+        padding: 15px;
+      }
       .text{
         h3{
           font-size: 27px;
           font-weight: 500;
           margin-bottom: 15px;
-          @media (max-width: 991.98px) { // MD ölçü
-            font-size:28px;
+          @media (max-width: 1200px) { // MD ölçü
+            font-size:24px;
           }
           @media (max-width: 767.98px) { // SM ölçü
-            font-size: 28px;
+            font-size: 24px;
           }
         }
         p{
@@ -56,10 +62,22 @@
           margin-bottom: 20px;
           font-weight: 400;
           font-size: 18px;
+          @media (max-width: 1200px) { // MD ölçü
+            font-size:15px;
+          }
+          @media (max-width: 767.98px) { // SM ölçü
+            font-size: 15px;
+          }
           .icon{
             font-size: 24px;
             color: #D80027;
             margin-right: 10px;
+            @media (max-width: 1200px) { // MD ölçü
+              font-size:20px;
+            }
+            @media (max-width: 767.98px) { // SM ölçü
+              font-size: 20px;
+            }
           }
         }
       }

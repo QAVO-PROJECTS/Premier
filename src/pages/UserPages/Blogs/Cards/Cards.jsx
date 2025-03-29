@@ -13,7 +13,7 @@ function Cards() {
 
     // Pagination üçün state və hesablamalar (MD və yuxarı ekranlar üçün)
     const [currentPage, setCurrentPage] = useState(1);
-    const postsPerPage = 8; // Hər səhifədə göstəriləcək blog sayı
+    const postsPerPage = 4; // Hər səhifədə göstəriləcək blog sayı
 
     // SM ekranlarda "load more" üçün state
     const [visiblePosts, setVisiblePosts] = useState(postsPerPage);
@@ -34,15 +34,15 @@ function Cards() {
     return (
         <div style={{ paddingBottom: "120px" }} data-aos="fade-up">
             <div className="container" data-aos="fade-in">
-                <div className="row gy-5" style={{ marginBottom: "60px" }} data-aos="zoom-in">
+                <div className="row gy-5" style={{ margin: "60px auto" }} data-aos="zoom-in">
                     {/* MD və daha böyük ekranlarda pagination ilə */}
-                    <div className="d-none d-md-flex row">
+                    <div className="d-none d-md-flex row" style={{margin:"0 auto"}}>
                         {currentPosts.map((blog, index) => (
                             <Index key={blog?.id} index={index} blog={blog} data-aos="flip-up" />
                         ))}
                     </div>
                     {/* SM və daha aşağı ekranlarda "load more" funksiyası */}
-                    <div className="d-block d-md-none row">
+                    <div className="d-block d-md-none row" style={{margin:"0 auto"}}>
                         {visibleBlogs.map((blog, index) => (
                             <Index key={blog?.id} index={index} blog={blog} data-aos="flip-up" />
                         ))}

@@ -25,7 +25,7 @@ function AboutUs() {
     return (
         <div className="aboutUs">
             <div className="container">
-                <div className="row">
+                <div className="row box">
                     <div className="col-lg-6" data-aos={"fade-right"}>
                         <div className="image">
                             <img src={agali} alt={t("aboutUs.section1.title")} />
@@ -45,7 +45,7 @@ function AboutUs() {
                 </div>
 
                 {/* Section 2 */}
-                <div className="row box">
+                <div className="row ">
                     <div className="col-lg-6" data-aos={"fade-right"}>
                         <div className="content left">
                             <h1>{t("aboutUs.section2.number")}</h1>
@@ -64,7 +64,7 @@ function AboutUs() {
                 </div>
 
                 {/* Section 3 */}
-                <div className="row">
+                <div className="row box">
                     <div className="col-lg-6" data-aos={"fade-right"}>
                         <div className="image">
                             <img src={xankendi} alt={t("aboutUs.section3.title")} />
@@ -82,7 +82,7 @@ function AboutUs() {
                     </div>
                 </div>
 
-                <div className="row box">
+                <div className="row ">
                     <div className="col-lg-6" data-aos={"fade-right"}>
                         <div className="content left">
                             <h1>{t("aboutUs.section4.number")}</h1>

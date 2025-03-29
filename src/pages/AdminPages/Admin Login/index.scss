@@ -1,9 +1,15 @@
 .login-panel{
   position: relative;
   .login-logo{
-    height: 120px;
+    height: 110px;
     margin-left: 70px;
     padding-top: 20px;
+    @media (max-width: 1200px) { // MD ölçü
+      height: 100px;
+    }
+    @media (max-width: 767.98px) { // SM ölçü
+      height: 100px;
+    }
     img{
       aspect-ratio: 2/1;
       height: 100%;
@@ -22,15 +28,21 @@
     position: absolute;
     top: -10%;
     right: 15px;
+    width: 40%;
   }
   .login-form{
-    margin-left: 350px;
-    margin-top: 240px;
+    margin: 240px 0 0 350px;
     background-color: #fff;
     padding: 2rem 2.5rem;
     border-radius: 8px;
     width: 500px;
     max-width: 90%;
+    @media (max-width: 1200px) { // MD ölçü
+      margin: 240px 0 0 100px;
+    }
+    @media (max-width: 767.98px) { // SM ölçü
+      margin: 240px 0 0 100px;
+    }
     .title {
       text-align: center;
       margin-bottom: 2rem;

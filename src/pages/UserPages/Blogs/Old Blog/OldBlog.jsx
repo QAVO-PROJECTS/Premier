@@ -6,6 +6,7 @@ import { useGetAllBlogsQuery } from "../../../../services/adminApi.jsx";
 import { BLOG_IMG_URL } from "../../../../constants.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import {useNavigate} from "react-router-dom";
 
 function OldBlog() {
     const { t, i18n } = useTranslation();
@@ -38,7 +39,7 @@ function OldBlog() {
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
-
+    const navigate = useNavigate();
     return (
         <div className="oldBlog" data-aos="fade-up">
             <div className="container" data-aos="fade-in">
@@ -58,11 +59,11 @@ function OldBlog() {
                                     backgroundPosition: 'center',
                                 }}
                                 data-aos="fade-up"
-                            >
+                            onClick={()=>navigate(`/blogs/${featuredBlog.id}`)}>
                                 <div className="text" data-aos="fade-right">
                                     <div className="date">{featuredBlog.createDate}</div>
                                     <h2>{featuredTitle}</h2>
-                                    <p>{featuredContext}</p>
+                                    <p>{featuredContext.slice(0,200)}...</p>
                                 </div>
                             </div>
                         </div>
