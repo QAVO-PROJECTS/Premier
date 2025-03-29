@@ -105,27 +105,33 @@
     },
     "more": {
       "section1": {
-        "title": "1. Premier Tur Aviabilet Satışı – Etibarlı və Sürətli Xidmət!",
-        "description": "Premier Tur olaraq, Beynəlxalq Hava Nəqliyyatı Assosiasiyasının (IATA) akkreditasiyasına sahibik və dünyanın aparıcı aviaşirkətləri ilə birbaşa əməkdaşlıq edirik. Bu, müştərilərimizə ən sərfəli qiymətlərlə, təhlükəsiz və etibarlı aviabilet xidmətləri təqdim etməyimizə imkan yaradır.️",
-        "description1": "Rezervasiya və bilet satışı üçün rəsmi agentlik statusu",
-        "description2": "Dünyanın istənilən nöqtəsinə operativ və sərfəli aviabilet seçimləri",
-        "description3": "Qatar Airways, Türk Hava Yolları, Emirates, Lufthansa, British Airways, FlyDubai və digər aparıcı aviaşirkətlərlə əməkdaşlıq",
-        "description4": "Rahat və sərfəli səyahət üçün aviabiletinizi bizimlə sifariş edin!"
+        "title": "1. Dünyaya Açılan Qapınız – Etibarlı və Rəsmi Aviabilet Xidmətləri",
+        "description": "Səyahət planlarınızda rahatlıq, etibarlılıq və peşəkarlıq axtarırsınızsa, doğru ünvandasınız. Şirkətimiz Beynəlxalq Hava Nəqliyyatı Assosiasiyasının (IATA) akkreditasiyasına sahibdir və dünyanın aparıcı aviaşirkətləri ilə birbaşa əməkdaşlıq edir. Qatar Airways, Vueling, FlyDubai, Türk Hava Yolları, Lufthansa, British Airways, CSA Czech Airlines, Air Astana, Austrian, AZAL, Emirates, Aeroflot, Air France, Indigo, AirArabia, Ajet, Utair, Pegasus, Wizzair və digər nüfuzlu hava yolları ilə uzunmüddətli tərəfdaşlığımız sayəsində, rezervasiya və bilet satışı üçün rəsmi agentlik statusuna malik olmağımız sizin üçün bir sıra üstünlüklər yaradır:",
+        "description1": "<strong>Geniş Uçuş Şəbəkəsi:</strong> Dünyanın istənilən nöqtəsinə uçuşlar təklif edir və səyahət marşrutlarınızı daha çevik şəkildə planlaşdırmağınıza imkan yaradırıq.",
+        "description2": "<strong>Sərfəli Qiymətlər və Xüsusi Təkliflər:</strong> Birbaşa əməkdaşlıq sayəsində həm fərdi səyahətçilərə, həm də korporativ müştərilərə xüsusi endirimlər və paketlər təklif edirik.  \n",
+        "description3": "<strong>Etibarlı Rezervasiya Sistemləri:</strong> Müasir texnoloji həllərdən istifadə edərək, biletinizi sürətli və təhlükəsiz şəkildə rezervasiya edirik. ",
+        "description4": "<strong>Səyahət Dəstəyi və Məşvərət:</strong> Sizin üçün ən uyğun uçuş vaxtını, tranzit şərtlərini və digər vacib detalları nəzərdən keçirir, səyahətinizin hər mərhələsində yardımçı oluruq.  ",
+        "description5": "Beynəlxalq standartlara cavab verən xidmətimiz sayəsində, istər işgüzar, istər turizm, istərsə də təhsil məqsədi ilə səyahət edəsiniz, uçuş biletinizi ən qısa zamanda, minimal prosedurla əldə etməyiniz təmin edilir.\n"
       },
       "section2": {
-        "title": "2. Premier Tur Aviabilet Satışı – Etibarlı və Sürətli Xidmət!",
-        "description": "Səyahət etmək üçün lazım olan viza üçün müraciət edən şəxslərə hərtərəfli dəstək təklif edirik. Xidmətlərimiz aşağıdakılardan ibarətdir:<br/><strong>Viza Müraciətinin Hazırlanması:</strong> Səyahət planınıza uyğun olaraq viza üçün bütün sənədləri hazırlamağa kömək edirik. Bu, viza müraciət formasının doldurulmasından tutmuş, lazımi əlavə sənədlərin, məsələn, maliyyə və səyahət sığortası sənədlərinin hazırlanmasına qədər hər şeyi əhatə edir.<br/><strong>Viza Tipinin Seçilməsi:</strong> Hansı viza növü ilə müraciət etməli olduğunuzu müəyyənləşdirməyə kömək edirik – turizm, iş, təhsil və ya digər xüsusi vizalar.<br/><strong>Viza İcazələri ilə Əlaqədar Dəstək:</strong> Müraciətinizin vəziyyətini izləmək, viza icazələrinizin alınması və hər hansı bir problem yaranarsa, onu həll etmək üçün sizə dəstək veririk.<br/><strong>Konsulluq və Səfirliklə Əlaqə:</strong> Konsulluq və ya səfirliklə əlaqə qurmağa kömək edirik, randevu alırıq və viza müraciətiniz üçün lazım olan məlumatları təmin edirik.<br/><strong>Viza Müsahibəsi Hazırlığı:</strong> Əgər viza üçün müsahibə tələb olunursa, müsahibəyə necə hazırlıq görməyiniz və qarşılaşacağınız suallara necə cavab verməyiniz barədə sizi məlumatlandırırıq."
+        "title": "2. Dünyanı Kəşf Edin – Viza İşlərinizdə Tam Dəstək",
+        "description": "Səyahət planlarınızı reallaşdırmaq üçün mütləq addımlardan biri olan viza məsələsi bəzən mürəkkəb və vaxt aparan prosesə çevrilə bilər. Şirkətimiz, səyahətə çıxmaq üçün lazımi viza sənədlərini hazırlayaraq, müraciətdən təsdiqədək bütün mərhələdə sizə hərtərəfli dəstək göstərir. Bu dəstək çərçivəsində təklif etdiyimiz xidmətlər:",
+        "description1": "<strong>1. Viza Müraciətinin Hazırlanması:</strong>   Səyahət planınıza və tələblərinizə uyğun olaraq viza üçün bütün zəruri sənədləri sizin üçün hazırlayırıq. Müraciət formasının doldurulması, maliyyə və səyahət sığortası sənədlərinin təmin edilməsi kimi bütün detallara xüsusi diqqət yetiririk.\n",
+        "description2": "<strong>2. Viza Tipinin Seçilməsi:</strong>     Turizm, işgüzar, təhsil və ya digər xüsusi kateqoriyalar üzrə hansı viza növünün sizin üçün daha əlverişli olduğunu müəyyən etməyə kömək edirik. Bununla, əlavə vaxt və xərc itkisinin qarşısını alırsınız.\n",
+        "description3": "<strong>3. Viza İcazələri ilə Əlaqədar Dəstək:</strong>   Müraciətinizin gedişatını izləyir, viza icazələrinizin alınması üçün prosesi sürətləndirmək və hər hansı yaranan problemi dərhal həll etmək məqsədilə konsulluq və səfirliklə mütəmadi əlaqədə oluruq.\n",
+        "description4": "<strong>4. Konsulluq və Səfirliklə Əlaqə:</strong>     Sizə uyğun vaxtda randevu alınmasından tutmuş, müraciət üçün tələb olunan əlavə sənədlərin toplanmasına qədər bütün mərhələlərdə yanınızdayıq.\n\n",
+        "description5": "<strong>5. Viza Müsahibəsi Hazırlığı:</strong>    Əgər viza müsahibəsi tələb olunursa, mümkün suallar və cavab taktikasını izah edir, özünüzü rahat və inamlı hiss etməyiniz üçün lazım olan məsləhətləri veririk.",
+        "description6": "Bu xidmətlər, viza müraciəti prosesində qarşılaşa biləcəyiniz hər cür çətinliyi aradan qaldırmağa və bu prosesi ən qısa zamanda, maksimum rahatlıqla başa vurmağınıza kömək edir. Nəticədə, əsas məqsədiniz olan səyahətinizi daha stressiz və təhlükəsiz şəkildə planlaşdıra bilirsiniz.\n"
       },
       "section3": {
-        "title": "3. Transfer Xidmətləri – Rahat və Təhlükəsiz Səfərlər!",
-        "description": "Premier Tur olaraq, lüks və komfortlu nəqliyyat vasitələri ilə yüksək səviyyəli transfer xidməti təqdim edirik. Sizin rahatlığınız və təhlükəsizliyiniz bizim üçün prioritetdir!",
-        "description1": "Təhlükəsiz və peşəkar sürücülər",
-        "description2": "Komfortlu avtomobillər, mikroavtobuslar və avtobuslar",
-        "description3": "Türk, ingilis və rus dillərində danışan sürücülər",
-        "description4": "Hava limanlarında VIP qarşılama və müşayiət",
-        "description5": "Dünya Aviaşirkətləri Xidmətinizdədir!",
-        "description6": "Premier Tur qlobal hava yolları şəbəkəsinə çıxış təmin edərək, sizə dünyanın istənilən nöqtəsinə rahat və sərfəli uçuş imkanı yaradır.",
-        "description7": "Səyahətinizin hər anında bizimlə güvəndə olun!"
+        "title": "3. Transfer Xidmətləri – Rahatlığınız və Təhlükəsizliyiniz Bizim Prioritetimizdir\n",
+        "description": "Səyahətinizin ən vacib hissələrindən biri olan nəqliyyat məsələsini peşəkarların öhdəsinə buraxın. Premier Tour, lüks və komfortlu nəqliyyat vasitələri ilə yüksək səviyyəli transfer xidmətləri təqdim edərək, sizə unikal səyahət təcrübəsi qazandırır:\n",
+        "description1": "<strong>Təhlükəsiz və Peşəkar Sürücülər:</strong> Uzun illərin təcrübəsinə malik, xüsusi təlim görmüş sürücülər sizə həm şəhərdaxili, həm də regionlararası gedişlərdə təhlükəsiz və rahat səyahət təmin edəcəklər.",
+        "description2": "<strong>Komfortlu Avtomobillər, Mikroavtobuslar və Avtobuslar:</strong> Donanmadakı bütün nəqliyyat vasitələri texniki cəhətdən müasir və komfort standartlarına cavab verir. Fərdi, ailəvi və ya qrup səyahətlərinizdə ehtiyaclarınıza uyğun nəqliyyat seçimi təklif edirik.  ",
+        "description3": "<strong>Dildən Asılı Olmayan Ünsiyyət:</strong> Sürücülərimiz türk, ingilis və rus dillərində sərbəst ünsiyyət qura bilir. Bu, həm xarici qonaqlar, həm də beynəlxalq şirkət nümayəndələri üçün böyük üstünlükdür.  \n",
+        "description4": "<strong>Hava Limanlarında VIP Qarşılama və Müşayiət:</strong> Səyahətinizin ilk addımından sonunadək özünüzü xüsusi hiss etməyiniz üçün hava limanında qarşılama, baqaj köməyi və müşayiət xidmətləri təşkil edirik.  ",
+        "description5": "<strong>Dünya Aviaşirkətləri Xidmətinizdədir:</strong> Premier Tour-un qlobal hava yolları şəbəkəsinə çıxışı sayəsində, dünyanın ən ucqar nöqtəsinə belə, sərfəli və rahat uçuş imkanlarınız mövcuddur.  ",
+        "description6": "Transfer xidməti yalnız məkan dəyişdirmək deyil, eyni zamanda səfərinizin keyfiyyətini və rahatlığını təmin edən əsas amillərdən biridir. Premier Tour, məhz bu amili nəzərə alaraq, sizə stressiz və komfortlu transfer təcrübəsi yaşatmağa zəmanət verir.\n"
       }
     }
   },

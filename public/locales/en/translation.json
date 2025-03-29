@@ -105,32 +105,34 @@
     },
     "more": {
       "section1": {
-        "title": "1. Premier Tour Flight Ticket Sales – Reliable and Fast Service!",
-
-  "description": "As Premier Tur, we are accredited by the International Air Transport Association (IATA) and collaborate directly with the world's leading airlines. This allows us to offer our customers the most affordable, safe, and reliable flight ticket services.",
-  "description1": "Official agency status for reservation and ticket sales",
-  "description2": "Fast and affordable flight ticket options to anywhere in the world",
-  "description3": "Collaboration with top airlines such as Qatar Airways, Turkish Airlines, Emirates, Lufthansa, British Airways, FlyDubai, and others",
-  "description4": "Book your flight ticket with us for a convenient and budget-friendly travel experience!"
-
+        "title": "1. Your Gateway to the World – Reliable and Official Flight Ticket Services",
+        "description": "If you are seeking comfort, reliability, and professionalism in your travel plans, you are at the right place. Our company holds accreditation from the International Air Transport Association (IATA) and cooperates directly with leading airlines worldwide. Thanks to our long-term partnerships with reputable airlines such as Qatar Airways, Vueling, FlyDubai, Turkish Airlines, Lufthansa, British Airways, CSA Czech Airlines, Air Astana, Austrian, AZAL, Emirates, Aeroflot, Air France, Indigo, AirArabia, Ajet, Utair, Pegasus, Wizzair and others, we hold official agency status for booking and ticket sales, which offers you a range of advantages:",
+        "description1": "<strong>Extensive Flight Network:</strong> We offer flights to any destination in the world, enabling you to plan your travel routes with greater flexibility.",
+        "description2": "<strong>Competitive Prices and Special Offers:</strong> Through direct cooperation, we offer exclusive discounts and packages for both individual travelers and corporate clients.",
+        "description3": "<strong>Reliable Booking Systems:</strong> Utilizing modern technological solutions, we book your ticket quickly and securely.",
+        "description4": "<strong>Travel Support and Consultation:</strong> We consider the most suitable flight times, transit conditions, and other important details to assist you at every stage of your journey.",
+        "description5": "Thanks to our service that meets international standards, whether you travel for business, tourism, or education, you are ensured to obtain your flight ticket in the shortest time with minimal procedures."
       },
       "section2": {
-        "title": "2. Premier Tour Visa Support – Reliable and Fast Service!",
-        "description": "We offer comprehensive support for individuals applying for the necessary visa to travel. Our services include:<br/><strong>Visa Application Preparation:</strong> We assist in preparing all necessary documents for your visa according to your travel plan, from filling out the visa application form to preparing additional documents such as financial and travel insurance.<br/><strong>Visa Type Selection:</strong> We help determine which type of visa you should apply for – tourism, business, study, or other specific visas.<br/><strong>Assistance with Visa Approvals:</strong> We track your application status, help obtain visa approvals, and resolve any issues that may arise.<br/><strong>Consulate and Embassy Contact:</strong> We assist in contacting the consulate or embassy, scheduling appointments, and providing necessary information for your visa application.<br/><strong>Visa Interview Preparation:</strong> If an interview is required, we provide guidance on how to prepare and answer potential questions."
+        "title": "2. Explore the World – Complete Support for Your Visa Matters",
+        "description": "Visa application, one of the essential steps to realize your travel plans, can sometimes become a complex and time-consuming process. Our company prepares the necessary visa documents for your journey and provides comprehensive support at every stage from application to approval. Within this support, we offer the following services:",
+        "description1": "<strong>1. Preparation of the Visa Application:</strong> We prepare all the necessary documents for your visa in accordance with your travel plans and requirements. We pay close attention to every detail, such as filling out the application form and providing financial and travel insurance documents.",
+        "description2": "<strong>2. Selection of the Visa Type:</strong> We help determine which visa type—tourism, business, education, or other specific category—is most advantageous for you, thereby avoiding extra time and cost.",
+        "description3": "<strong>3. Support Related to Visa Permits:</strong> We monitor the progress of your application, accelerate the process of obtaining your visa permits, and maintain regular contact with consulates and embassies to promptly resolve any issues.",
+        "description4": "<strong>4. Contact with Consulates and Embassies:</strong> We are by your side at every step—from obtaining an appointment at a suitable time to gathering the additional documents required for the application.",
+        "description5": "<strong>5. Preparation for the Visa Interview:</strong> If a visa interview is required, we explain potential questions and answer tactics, and provide you with the necessary advice to help you feel confident and at ease.",
+        "description6": "These services help eliminate any difficulties you might encounter during the visa application process and enable you to complete the process in the shortest time with maximum ease. As a result, you can plan your travel in a less stressful and more secure manner."
       },
       "section3": {
-
-  "title": "3. Transfer Services – Comfortable and Safe Travels!",
-  "description": "At Premier Tur, we offer high-level transfer services with luxurious and comfortable vehicles. Your comfort and safety are our top priority!",
-  "description1": "Safe and professional drivers",
-  "description2": "Comfortable cars, minibuses, and buses",
-  "description3": "Drivers fluent in Turkish, English, and Russian",
-  "description4": "VIP meet and greet at airports",
-  "description5": "World Airlines at Your Service!",
-  "description6": "Premier Tur provides access to a global airline network, offering you convenient and affordable flights to any destination.",
-  "description7": "Feel secure with us at every moment of your journey!"
-
-}
+        "title": "3. Transfer Services – Your Comfort and Safety Are Our Priority",
+        "description": "Leave the transportation, one of the most important aspects of your journey, to the professionals. Premier Tour provides high-level transfer services with luxurious and comfortable vehicles, offering you a unique travel experience:",
+        "description1": "<strong>Safe and Professional Drivers:</strong> Our drivers, who have years of experience and specialized training, will ensure safe and comfortable travel for you both within the city and across regions.",
+        "description2": "<strong>Comfortable Cars, Minivans, and Buses:</strong> All vehicles in our fleet meet modern technical standards and comfort criteria. We offer transportation options tailored to your needs, whether for individual, family, or group travel.",
+        "description3": "<strong>Multilingual Communication:</strong> Our drivers can communicate fluently in Turkish, English, and Russian, which is a significant advantage for both international guests and corporate representatives.",
+        "description4": "<strong>VIP Reception and Escort at Airports:</strong> We arrange airport reception, baggage assistance, and escort services to ensure you feel special from the moment you arrive until the end of your journey.",
+        "description5": "<strong>Global Airline Services at Your Disposal:</strong> Thanks to Premier Tour's access to a global network of airlines, even the most remote destinations offer you affordable and comfortable flight options.",
+        "description6": "Transfer service is not only about changing locations, but it is also one of the key factors in ensuring the quality and comfort of your journey. Premier Tour guarantees a stress-free and comfortable transfer experience by prioritizing this aspect."
+      }
     }
   },
   "home": {

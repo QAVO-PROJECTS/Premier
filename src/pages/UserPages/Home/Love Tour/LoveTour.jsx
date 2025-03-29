@@ -38,7 +38,7 @@ function LoveTour() {
     };
 
     return (
-        <div className="love-tour" data-aos="fade-up">
+        <div className="love-tour" >
             <div className="container" data-aos="fade-in">
                 <div className="love-title" data-aos="fade-right">
                     <h2>{t("home.loveTour.title", "Ən çox seçilən və sevilən turlar")}</h2>

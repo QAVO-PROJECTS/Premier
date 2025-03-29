@@ -99,7 +99,7 @@ function TourDetail() {
     }, []);
 
     return (
-        <div className="tourDetail" data-aos="fade-up">
+        <div className="tourDetail" >
             <ScrollToTop />
             <div className="container" data-aos="fade-in">
                 <div className="head" data-aos="fade-right">
@@ -108,7 +108,7 @@ function TourDetail() {
                         <span>{title}</span>
                     </p>
                 </div>
-                <div className="row mb-5" data-aos="zoom-in">
+                <div className="row " style={{marginBottom:"100px"}} data-aos="zoom-in">
                     <div className="col-lg-5" data-aos="flip-left">
                         <Swiper
                             spaceBetween={10}
