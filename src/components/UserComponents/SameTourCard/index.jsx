@@ -16,7 +16,7 @@ function SameTourCard({title,image,index,id}) {
                 <img src={image2} alt={"Image"} className={"posBotLeft"}/>
                 <img src={index%2===0 ? image3 : image4} alt={"Image"} className={index%2===1? "posTop" : "posTopRight"}/>
                 <div className={"arrow"} style={{display:index%2===1 ? "none" : ""}} onClick={() => navigate(`/tours/${id}`)}><IoArrowBack/></div>
-                <div className={"name"} onClick={() => navigate(`/tours/${id}`)} style={{cursor:"pointer"}}>{title}</div>
+                <div className={"name"} onClick={() => navigate(`/tours/${id}`)} style={{cursor:"pointer"}}><p>{title}</p></div>
             </section>
         </div>
     );
