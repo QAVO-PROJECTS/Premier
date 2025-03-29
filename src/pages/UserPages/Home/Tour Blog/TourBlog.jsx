@@ -39,7 +39,7 @@ function TourBlog() {
     return (
         <div className="tour-blog" data-aos="fade-up">
             <div className="container" data-aos="fade-in">
-                <div className="head" data-aos="fade-right">
+                <div className="head" data-aos="fade-right" style={{marginBottom:"25px"}}>
                     <div className="title">
                         <h2>{t("home.tourBlog.title", "Səyahət Bloqu")}</h2>
                         <p>

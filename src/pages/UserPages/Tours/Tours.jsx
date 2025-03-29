@@ -205,7 +205,7 @@ function Tours() {
                 </div>
                 <div className="search row gy-3" data-aos="zoom-in">
                     {/* Ölkə Dropdown */}
-                    <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-0">
+                    <div className="col-lg-3 col-md-6 col-sm-6  m-0">
                         <div className="search-bar">
                             <div className="servis-content">
                                 <h5>{t("tours.countryLabel", "Ölkə")}</h5>
@@ -249,7 +249,7 @@ function Tours() {
                     </div>
 
                     {/* Şəhər Dropdown */}
-                    <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-0">
+                    <div className="col-lg-3 col-md-6 col-sm-6  m-0">
                         <div className="search-bar">
                             <div className="servis-content">
                                 <h5>{t("tours.cityLabel", "Şəhər")}</h5>
@@ -290,6 +290,7 @@ function Tours() {
                             <div className="col-6">
                                 <div className="search-bar">
                                     <DatePicker
+                                        inputReadOnly
                                         className="custom-date-picker"
                                         format="DD.MM.YYYY"
                                         value={startDate ? dayjs(startDate, "DD.MM.YYYY") : null}
@@ -301,6 +302,7 @@ function Tours() {
                             <div className="col-6">
                                 <div className="search-bar">
                                     <DatePicker
+                                        inputReadOnly
                                         className="custom-date-picker"
                                         format="DD.MM.YYYY"
                                         value={endDate ? dayjs(endDate, "DD.MM.YYYY") : null}
