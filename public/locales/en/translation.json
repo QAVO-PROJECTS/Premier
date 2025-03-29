@@ -2,27 +2,38 @@
   "aboutUs": {
     "section1": {
       "number": "01",
-      "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
-      "description": "Located 3.5 km from Baku Railway Station and 3.9 km from Heydar Aliyev Center, the 4-star Premier Hotel offers a restaurant, terrace, and sauna services. The property features a 24-hour reception desk, airport transfer, room service, and free WiFi throughout. The air-conditioned rooms are equipped with a private bathroom, shower, work desk, electric kettle, refrigerator, minibar, safe, flat-screen TV, and a balcony. Rooms also feature free toiletries and a CD player.",
-      "buttonText": "Switch"
+      "title": "Premier Old Gates Hotel",
+      "description": "The 4-star Premier Hotel, located 3.5 km from Baku Railway Station and 3.9 km from the Heydar Aliyev Cultural Center, offers hotel accommodation, a restaurant, terrace, and sauna services. The property features a 24-hour reception, airport transfer, room service, and free WiFi throughout. The air-conditioned rooms are equipped with a private bathroom, shower, work desk, electric kettle, refrigerator, minibar, safe, flat-screen TV, and balcony. Rooms also include complimentary toiletries and a CD player.",
+      "buttonText": "Go to",
+      "location": "Address:"
     },
     "section2": {
       "number": "02",
-      "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
-      "description": "Located in Baku, just a few steps away from the Shirvanshahs’ Palace, Qala Hotel offers a sea view. Nearby popular attractions include Flame Towers, Mountain Park, and the Azerbaijan Carpet Museum. The property features a 24-hour reception desk, airport transfer, room service, and free WiFi. All rooms at Qala Hotel come with a wardrobe. The rooms are equipped with air conditioning, a safe, and a flat-screen TV, with some rooms offering a balcony. Additionally, refrigerators are available in the rooms. Guests at Qala Hotel can enjoy a buffet breakfast. Famous nearby landmarks include Maiden Tower, Freedom Square, and Fountain Square. Heydar Aliyev International Airport is 25 km from the hotel. Couples particularly like this property; they rated it 9.6 for a two-person trip.",
-      "buttonText": "Switch"
+      "title": "Qala Hotel Sheki",
+      "description": "Located in the city of Sheki, Qala Hotel Sheki offers accommodation for its guests. This 4-star hotel-type facility features rooms with garden views, and guests can access both the garden and the restaurant. The property provides a 24-hour reception, airport transfer, room service, and free WiFi throughout.\nAll guest rooms at Qala Hotel Sheki are equipped with coffee-making facilities. In all rooms of Ruma Qala Hotel, which offers a communal bathroom with a bidet and complimentary toiletries, air conditioning and a flat-screen TV are provided. Some rooms also have a terrace. Additionally, every room comes with bed linen and towels.",
+      "buttonText": "Go to",
+      "location": "Address:"
     },
     "section3": {
       "number": "03",
-      "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
-      "description": "Located in Zangilan, our hotel offers comprehensive services for a modern and comfortable stay. With 24/7 reception and transfer services, along with the support of our friendly staff, we provide guests with an unforgettable experience. Our restaurant, garden cafe, and Tea Museum are complemented by features such as connecting rooms, a mini-bar, and an entertainment center for children. While WiFi internet, laundry, and ironing services cater to your daily needs, you can relax with spa, gym, massage services, Turkish bath, and sauna. Additionally, we offer room service, parking, conference rooms, and organize sightseeing tours to meet every taste and requirement.",
-      "buttonText": "Switch"
+      "title": "Agaly Hotel Zangilan",
+      "description": "Our hotel in Zəngilan offers comprehensive services for a modern and comfortable stay. With a 24/7 reception and transfer service, and the support of our friendly staff, we deliver an unforgettable experience to our guests. In addition to our restaurant, garden cafe, and Tea Museum, we provide facilities such as connecting rooms, a minibar, and an entertainment center for children. While your daily needs are met with WiFi, laundry, and ironing services, you can also relax with our spa, gym, massage service, Turkish bath, and sauna. Moreover, we cater to every taste and requirement with room service, parking, a conference room, and organized sightseeing tours.",
+      "buttonText": "Go to",
+      "location": "Address:"
     },
     "section4": {
       "number": "04",
-      "title": "Top 5 Regions in Turkey for Summer Vacation – Antalya, Bodrum, or Cappadocia?",
-      "description": "Located just a 3-minute walk from Icherisheher Metro Station in Baku, Premier Old Gates Hotel offers a terrace, a 24-hour reception desk, and free WiFi services. The Maiden Tower is located 300 meters from the property. The rooms are equipped with air conditioning, a minibar, an electric kettle, and satellite TV. The bathrooms are equipped with a hairdryer. Guests can enjoy meals at the hotel's restaurant. Upon request, room service, packed lunches, and breakfast in the room are offered. Premier Old Gates Hotel is 3 km from Baku Railway Station and 27 km from Heydar Aliyev International Airport. Airport transfer service is available. Couples particularly like this property – they rated it 9.1 for a two-person trip.",
-      "buttonText": "Switch"
+      "title": "Premier Old Gates Hotel",
+      "description": "Premier Old Gates Hotel, located just a 3-minute walk from the Baku Icherisheher metro station, offers a terrace, 24-hour reception, and free WiFi service. The Maiden Tower is situated 300 meters away from the property. The rooms feature air conditioning, a minibar, an electric kettle, and satellite TV. Bathrooms are equipped with a hair dryer. Guests can enjoy meals at the hotel's restaurant. Services such as room service, packed lunch, and in-room breakfast are available upon request. Premier Old Gates Hotel is located 3 km from Baku Railway Station and 27 km from Heydar Aliyev International Airport, with airport transfer provided. Couples especially favor this property – it has received a rating of 9.1 for two-person travel.",
+      "buttonText": "Go to",
+      "location": "Address:"
+    },
+    "section5": {
+      "number": "05",
+      "title": "Natavan Restaurant",
+      "description": "Natavan Restaurant is located in the heart of Baku, at Qəsr 1 döngə, 50 Icherisheher. The restaurant offers delicious dishes of traditional Azerbaijani cuisine; its menu includes national specialties such as pilaf, dolma, and various kebab types.\nOne of the main features of the restaurant is its panoramic view of the city and the sea. Customers can enjoy this magnificent view while sitting on the open veranda. According to user reviews, Natavan Restaurant is distinguished by its high-quality service and hospitable staff.\nThe restaurant's operating hours are from breakfast until 11:00 PM.",
+      "buttonText": "Go to",
+      "location": "Address:"
     },
     "moreButton": "More",
     "banner": {

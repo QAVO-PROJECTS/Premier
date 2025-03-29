@@ -84,9 +84,6 @@ function BlogDetail() {
                                 <FiCopy /> {t("blogDetail.copyLink", "Copy link")}
                             </div>
                             <div className="detail-icon">
-                                <FaXTwitter />
-                            </div>
-                            <div className="detail-icon">
                                 <FaFacebook />
                             </div>
                             <div className="detail-icon">

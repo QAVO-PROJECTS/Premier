@@ -128,6 +128,12 @@
           align-items: center;
           justify-content: center;
           color: #A4A7AE;
+          transition:all 0.3s;
+          cursor: pointer;
+          &:hover{
+            border-color: black;
+            color: #000000;
+          }
         }
       }
     }

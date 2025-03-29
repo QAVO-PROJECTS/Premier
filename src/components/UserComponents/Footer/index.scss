@@ -23,6 +23,12 @@
       padding: 4px;
       color: white;
       margin: 0 20px 0 0 ;
+      transition: all 0.3s;
+      cursor: pointer;
+      &:hover{
+        transform: scale(1.1);
+        color: #d80027;
+      }
     }
   }
   .footer-service{
@@ -39,6 +45,8 @@
         color: #D80027;
       }
       a{
+        cursor: pointer;
+
         transition: all 0.3s ease-in-out;
         &:hover{
           color: #D80027;
@@ -70,6 +78,7 @@
     a{
       color: #D80027;
       font-weight: 700;
+      cursor: pointer;
     }
   }
 
