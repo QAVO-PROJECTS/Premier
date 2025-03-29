@@ -2,13 +2,13 @@
   "aboutUs": {
     "section1": {
       "number": "01",
-      "title": "Premier Old Gates Hotel",
-      "description": "Bakı Dəmiryol Vağzalından 3,5 km, Heydər Əliyev adına Mədəniyyət Mərkəzindən isə 3,9 km məsafədə olan 4 ulduzlu Premier Hotel obyekti, restoran, teras və sauna xidmətləri təklif edir. Obyektdə 24 saat fəaliyyət göstərən qəbul şöbəsi, hava limanına transfer, otaq xidməti və bütün ərazidə pulsuz WiFi təqdim edilir. Kondisionerli otaqlar xüsusi vanna otağı, duş, iş masası, elektrik çaydanı, soyuducu, minibar, seyf, düz ekranlı televizor və balkonla təchiz olunub. Otaqlarda həmçinin pulsuz gigiyena vasitələri və CD pleyer mövcuddur.",
+      "title": "Ağalı Otel Zəngilan",
+      "description": "Zəngilanda yerləşən otelimiz, müasir və rahat qalma təcrübəsi üçün hərtərəfli xidmətlər təqdim edir. 24/7 resepsion və transfer xidməti ilə, səmimi işçi heyətimizin dəstəyi altında, qonaqlarımıza unudulmaz bir təcrübə yaşadırıq. Restoranımız, bağça kafe və Çay muzeyi ilə yanaşı, konnekt otaqlar, mini-bar və uşaqlar üçün əyləncə mərkəzi kimi imkanlar da mövcuddur. WiFi internet, camaşırxana və ütü xidmətləri ilə gündəlik ehtiyaclarınızı qarşılarkən, spa, idman zalı, masaj xidməti, Türk hamamı və sauna sayəsində dincəlmək imkanı əldə edirsiniz. Bundan əlavə, otaqlara xidmət, avtomobil dayanacağı, konfrans zalı və gəzinti turlarının təşkili ilə hər zövqə və tələblərə cavab veririk.",
       "buttonText": "Keçid et",
       "location": "Ünvan:"
     },
-    "section2": {
-      "number": "02",
+    "section5": {
+      "number": "05",
       "title": "Qala Hotel Şəki",
       "description": "Şəki şəhərində yerləşən Qala Hotel Şəki obyekti qonaqlara yerləşmə imkanı təqdim edir. 4 ulduzlu bu otel tipli təsisin hər bir otağı bağ mənzərəsinə malikdir və qonaqlar bağçaya, həmçinin restorana giriş imkanından faydalana bilərlər. Təsis 24 saat fəaliyyət göstərən qəbul şöbəsi, hava limanı transferi, otaq xidməti və obyekt daxilində pulsuz WiFi xidməti təqdim edir.\nQala Hotel Şəki -nin bütün qonaq otaqları qəhvə dəmləyən avadanlıq ilə təchiz olunmuşdur. Bide və pulsuz gigiyena vasitələri ilə təchiz olunmuş ümumi vanna otağı imkanı təqdim edən Ruma Qala Hotel-in bütün otaqlarında kondisioner və düz ekranlı televizor vardır. Bəzi otaqlarda isə teras mövcuddur. Həmçinin hər otaqda yataq dəsti və dəsmal təqdim olunur.",
       "buttonText": "Keçid et",
@@ -16,20 +16,20 @@
     },
     "section3": {
       "number": "03",
-      "title": "Ağalı Otel Zəngilan",
-      "description": "Zəngilanda yerləşən otelimiz, müasir və rahat qalma təcrübəsi üçün hərtərəfli xidmətlər təqdim edir. 24/7 resepsion və transfer xidməti ilə, səmimi işçi heyətimizin dəstəyi altında, qonaqlarımıza unudulmaz bir təcrübə yaşadırıq. Restoranımız, bağça kafe və Çay muzeyi ilə yanaşı, konnekt otaqlar, mini-bar və uşaqlar üçün əyləncə mərkəzi kimi imkanlar da mövcuddur. WiFi internet, camaşırxana və ütü xidmətləri ilə gündəlik ehtiyaclarınızı qarşılarkən, spa, idman zalı, masaj xidməti, Türk hamamı və sauna sayəsində dincəlmək imkanı əldə edirsiniz. Bundan əlavə, otaqlara xidmət, avtomobil dayanacağı, konfrans zalı və gəzinti turlarının təşkili ilə hər zövqə və tələblərə cavab veririk.",
+      "title": "Qala Otel Xankəndi",
+      "description": "Qala Otel Xankəndinin mərkəzində yerləşərək, həm istirahət, həm də işgüzar səfərlər üçün ideal məkandır. Müasir dizaynı və zərif interyeri ilə seçilən otel, yüksək qonaqpərvərlik səviyyəsi ilə yadda qalır. Otelin üst mərtəbələrindən şəhər panoraması və dağ mənzərələri göz oxşayır, açıq hava terrasından isə ulduzlu səma seyr etmək mümkündür. Geniş və işıqlı otaqlarda kondisioner, TV, mini-bar və pulsuz Wi-Fi ilə tam rahatlıq təmin olunub. Şəhərə açılan balkonlu otaqlar da mövcuddur. Oteldə qonaqlar üçün spa və sauna xidmətləri təqdim olunur. Toy, nişan və korporativ tədbirlər üçün geniş açıq və qapalı zallar fəaliyyət göstərir. Ailəli qonaqlar üçün uşaq oyun sahəsi mövcuddur. Avtomobil sahibləri üçün xüsusi dayanacaq da təmin edilib. Həmçinin, şəhər və ətraf ərazilərə peşəkar bələdçi ilə maraqlı turlar təşkil olunur.",
       "buttonText": "Keçid et",
       "location": "Ünvan:"
     },
     "section4": {
       "number": "04",
-      "title": "Premier Old Gates Hotel",
+      "title": "Old Gates Hotel",
       "description": "Bakıda İçərişəhər metro stansiyasından cəmi 3 dəqiqəlik piyada məsafədə yerləşən Premier Old Gates Hotel teras, 24 saat fəaliyyət göstərən qəbul şöbəsi və pulsuz WiFi xidməti təklif edir. Qız Qalası obyektdən 300 metr məsafədə yerləşir. Otaqlarda kondisioner, minibar, elektrik çaydanı və peyk televiziyası mövcuddur. Vanna otaqları saç qurutma cihazı ilə təchiz edilmişdir. Qonaqlar otelin restoranında yeməklərin dadını çıxara bilərlər. Tələb əsasında otaq xidməti, paketli nahar və otaqda səhər yeməyi kimi xidmətlər təqdim olunur. Premier Old Gates Hotel Bakı Dəmiryol Vağzalına 3 km, Heydər Əliyev Beynəlxalq Aeroportuna isə 27 km məsafədə yerləşir. Aeroport transfer xidməti təşkil edilir. Cütlüklər xüsusilə buranı bəyənirlər – iki nəfərlik səyahət üçün bu təsisə 9,1 bal veriblər.",
       "buttonText": "Keçid et",
       "location": "Ünvan:"
     },
-    "section5": {
-      "number": "05",
+    "section2": {
+      "number": "02",
       "title": "Natavan Restoran",
       "description": "Natavan Restoranı Bakının mərkəzində, İçərişəhərdə, Qəsr 1 döngə, 50 ünvanında yerləşir. Restoran ənənəvi Azərbaycan mətbəxinin ləziz təamlarını təqdim edir; menyusunda plov, dolma və müxtəlif kabab növləri kimi milli yeməklər mövcuddur. \u200B\nRestoranın əsas xüsusiyyətlərindən biri də şəhərə və dənizə açılan panoramik mənzərəsidir. Müştərilər açıq verandada oturaraq bu gözəl mənzərədən zövq ala bilərlər. İstifadəçilərin rəylərinə əsasən, Natavan Restoranı yüksək keyfiyyətli xidmət və qonaqpərvər personalı ilə seçilir. \u200B\nRestoranın iş saatları səhər yeməyindən başlayaraq gecə saat 11:00-a qədərdir",
       "buttonText": "Keçid et",
