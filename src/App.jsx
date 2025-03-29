@@ -3,6 +3,7 @@ import './App.css'
 import Cookies from "js-cookie";
 import router from './routes/ROUTES'
 import {ToastContainer} from "react-toastify";
+import SwiperComponent from "./components/UserComponents/SimpleSlider/index.jsx";
 
 const App = () => {
     const token = Cookies.get("premierTourToken");
@@ -15,7 +16,7 @@ const App = () => {
         <div>
             <ToastContainer/>
             <RouterProvider router={router}/>
-            {/*<StartPage/>*/}
+            <SwiperComponent/>
         </div>
     )
 }

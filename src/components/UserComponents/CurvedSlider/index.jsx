@@ -1,22 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
-import image from "../../../assets/5b9cf82fb66a7a54720e233be60ac45e.jpg";
+import  { useState, useEffect, useRef } from "react";
 import "./index.scss";
 import { useGetAllCustomerViewsQuery } from "../../../services/adminApi.jsx";
 import { CUSTOMER_IMG_URL } from "../../../constants.js";
 
-const testimonials = [
-    { name: "Aysel M.", review: "Bu şirkətlə Maldivlərə səyahət etdik...", image },
-    { name: "Ramin S.", review: "İlk dəfə Avropaya səyahət etdim...", image },
-    { name: "Nigar T.", review: "Paris və Amsterdam tur paketini seçdik...", image },
-    { name: "Elvin N.", review: "Türkiyəyə səyahət üçün bron etdik...", image },
-    { name: "Elvin N.", review: "Türkiyəyə səyahət üçün bron etdik...", image },
-    { name: "Elvin N.", review: "Türkiyəyə səyahət üçün bron etdik...", image },
-    { name: "Elvin N.", review: "Türkiyəyə səyahət üçün bron etdik...", image },
-    { name: "Elvin N.", review: "Türkiyəyə səyahət üçün bron etdik...", image },
-    { name: "Elvin N.", review: "Türkiyəyə səyahət üçün bron etdik...", image },
-    { name: "Elvin N.", review: "Türkiyəyə səyahət üçün bron etdik...", image },
-    { name: "Elvin N.", review: "Türkiyəyə səyahət üçün bron etdik...", image },
-];
+
 
 // Tanımlı ana pozisyonlar (key positions)
 // Kenara giden slide'lar için opacity 0 ayarlanmış
@@ -111,7 +98,7 @@ const CurvedSlider = () => {
                 return (
                     <div key={index} className="curved-slide" style={style}>
                         <div className="testimonial-card" style={{ backgroundColor: (index % 2 === 0) ? "#FFEEF0" : "#ffffff", border: "1px solid #EAEAEA" }}>
-                            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "30px" }}>
+                            <div className={"card-head"} style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "30px" }}>
                                 <img src={CUSTOMER_IMG_URL + item?.profilImage} alt={item.customerName} className="avatar" />
                                 <h3>{item.customerName}</h3>
                             </div>

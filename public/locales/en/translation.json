@@ -229,7 +229,10 @@
     "endDatePlaceholder": "End",
     "tourTitle": "Domestic Tours",
     "sort": "Sort",
-    "viewMore": "View More"
+    "viewMore": "View More",
+    "search": "Search",
+    "startDate": "Start date",
+    "endDate": "Deadline"
   },
   "recommed": {
     "title": "Recommended",

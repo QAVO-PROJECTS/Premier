@@ -229,7 +229,10 @@
     "endDatePlaceholder": "Son",
     "tourTitle": "Ölkədaxili turlar",
     "sort": "Sırala",
-    "viewMore": "Ətraflı bax"
+    "viewMore": "Ətraflı bax",
+    "search": "Axtar",
+    "startDate": "Başlama tarixi",
+    "endDate": "Son tarix"
   },
   "recommed": {
     "title": "Tövsiyə olunanlar",

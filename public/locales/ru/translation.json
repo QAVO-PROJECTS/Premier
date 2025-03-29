@@ -229,7 +229,10 @@
     "endDatePlaceholder": "Конец",
     "tourTitle": "Внутренние туры",
     "sort": "Сортировать",
-    "viewMore": "Посмотреть подробнее"
+    "viewMore": "Посмотреть подробнее",
+    "search": "Поиск",
+    "startDate": "Дата начала",
+    "endDate": "Крайний срок"
   },
   "recommed": {
     "title": "Рекомендуемые",
