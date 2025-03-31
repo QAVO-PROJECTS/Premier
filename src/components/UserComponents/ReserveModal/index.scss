@@ -19,8 +19,7 @@
   top: 40px;
   width: 600px;
   margin: 0 auto;
-  z-index: 100; // Overlay-dən aşağıda qalır, amma digər komponentlərdən yuxarıda
-  // Əvvəlki .reserveModal stilinizin qalan hissəsi burda qalır...
+  z-index: 100;
   .form {
     padding: 40px;
     box-shadow: 2px 2px 4.8px 0px #C5C5C540;
@@ -34,12 +33,16 @@
       margin-bottom: 40px;
 
       @media (max-width: 991.98px) { // MD ölçü
-        font-size: 32px;
+        font-size: 24px;
         line-height: 48px;
+        width: 100%;
+        margin-bottom: 20px;
       }
       @media (max-width: 767.98px) { // SM ölçü
-        font-size: 28px;
+        font-size: 24px;
         line-height: 42px;
+        width: 100%;
+        margin-bottom: 20px;
       }
     }
 
@@ -51,6 +54,12 @@
         margin-bottom: 20px;
         border: 1px solid rgba(142, 142, 142, 0.1);
         outline: none;
+        @media (max-width: 991.98px) { // MD ölçü
+          margin-bottom: 10px;
+        }
+        @media (max-width: 767.98px) { // SM ölçü
+          margin-bottom: 10px;
+        }
       }
 
       textarea {
@@ -60,6 +69,12 @@
         border: 1px solid rgba(142, 142, 142, 0.1);
         padding: 10px 20px;
         outline: none;
+        @media (max-width: 991.98px) { // MD ölçü
+          margin-bottom: 10px;
+        }
+        @media (max-width: 767.98px) { // SM ölçü
+          margin-bottom: 10px;
+        }
       }
 
       label {
@@ -104,10 +119,10 @@
     font-size: 30px; // LG ölçü
 
     @media (max-width: 991.98px) { // MD ölçü
-      font-size: 26px;
+      font-size: 30px;
     }
     @media (max-width: 767.98px) { // SM ölçü
-      font-size: 22px;
+      font-size: 30px;
     }
   }
 }
