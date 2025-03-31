@@ -322,7 +322,7 @@ function Tours() {
                     </div>
 
                     {/* Axtar düyməsi */}
-                    <div className="col-lg-1 m-0">
+                    <div className="col-lg-1 m-0 p-1">
                         <button
                             className="searchButton d-none d-md-block"
                             onClick={handleSearch}
