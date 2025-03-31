@@ -165,10 +165,10 @@ function Contact() {
                             <div className="header" data-aos="zoom-in">
                                 <h5>{t("contact.socialTitle", "Sosyal Medya:")}</h5>
                                 <div className="social">
-                                    <RiWhatsappFill className="icon"/>
-                                    <PiInstagramLogoFill className="icon"/>
-                                    <AiFillTikTok className="icon"/>
-                                    <FaFacebook className="icon"/>
+                                    <a href="https://wa.me/994508961299" target="_blank"><RiWhatsappFill className="icon"/></a>
+                                    <a href={"https://www.instagram.com/premiertour.az/"} target="_blank"> <PiInstagramLogoFill className={"icon"} /></a>
+                                    <a href={"https://www.facebook.com/TurAzerbaijan/"} target="_blank"> <FaFacebook  className={"icon"}/></a>
+
                                 </div>
                             </div>
                             <div className="row gy-4">

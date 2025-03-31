@@ -57,6 +57,7 @@ function OldBlog() {
                                     backgroundRepeat: 'no-repeat',
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
+
                                 }}
                                 data-aos="fade-up"
                             onClick={()=>navigate(`/blogs/${featuredBlog.id}`)}>
