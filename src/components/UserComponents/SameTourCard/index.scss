@@ -13,7 +13,6 @@
     aspect-ratio: 1 / 1.17;
     object-fit: cover;
     border-radius: 50px;
-
   }
 
   .posBotLeft {
@@ -22,14 +21,16 @@
     z-index: 1;
     filter: brightness(0) invert(1);
     bottom: -1px;
+    width: 240px;
   }
 
   .posTopRight {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -1px;
     z-index: 1;
     filter: brightness(0) invert(1);
+    width: 120px;
   }
 
   .posTop {
@@ -48,8 +49,8 @@
 
   .arrow {
     position: absolute;
-    top: -12px;
-    right: 22px;
+    top: -15px;
+    right: 15px;
     z-index: 2;
     border: 1px solid black;
     width: 75px;
@@ -69,8 +70,8 @@
 
   .name {
     position: absolute;
-    bottom: -10px;
-    left: 0;
+    bottom: 0;
+    left: 5px;
     z-index: 2;
     border: 1px solid black;
     max-width: 190px;
