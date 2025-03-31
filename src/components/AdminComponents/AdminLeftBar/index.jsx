@@ -1,5 +1,5 @@
 import './index.scss'
-import logo from "../../../assets/Logo Esas.png"
+import logo from "../../../assets/LogoEsasRed.png"
 import { NavLink, useLocation } from "react-router-dom";
 import {TbLogs, TbReservedLine} from "react-icons/tb";
 import { FaRegCommentDots } from "react-icons/fa";
