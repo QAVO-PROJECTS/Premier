@@ -13,7 +13,6 @@ import AdminCountry from "../pages/AdminPages/Admin Country/AdminCountry.jsx";
 import AdminCustomerView from "../pages/AdminPages/Admin Customer View/AdminCustomerView.jsx";
 import AdminTour from "../pages/AdminPages/Admin Tour/AdminTour.jsx";
 import MainPage from "../pages/MainPage/index.jsx";
-import AdminPage from "../components/AdminComponents/AdminPage/index.jsx";
 import AdminLogin from "../pages/AdminPages/Admin Login/index.jsx";
 import ProtectedRoute from "../ProtectedRoute.jsx";
 import BlogDetail from "../pages/UserPages/BlogDetail/BlogDetail.jsx";
@@ -21,6 +20,7 @@ import AdminReserved from "../pages/AdminPages/Admin Reserved/AdminReserved.jsx"
 import AdminContact from "../pages/AdminPages/Admin Contact/AdminContact.jsx";
 import SearchTours from "../pages/UserPages/SearchTours/SearchTours.jsx";
 import CountryTours from "../pages/UserPages/CountryTours/index.jsx";
+import AdminPage from "../components/AdminComponents/AdminPage/index.jsx";
 
 const router = createBrowserRouter([
     {

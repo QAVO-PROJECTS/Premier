@@ -1,0 +1,11 @@
+.homePage{
+  position: relative;
+  .popularHome{
+    position: relative;
+    background-color: white;
+    border-radius: 55px 55px 0 0;
+    overflow: hidden;
+   top: -50px;
+    z-index: 8;
+  }
+}

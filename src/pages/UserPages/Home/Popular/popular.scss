@@ -1,16 +1,53 @@
 .popular {
   padding: 80px 0 100px;
   position: relative;
-  @media (max-width: 991.98px) { // MD ölçü
-    padding:80px 0 50px ;
+  border-radius: 50% 50% 0 0;
+
+  @media (max-width: 991.98px) {
+    padding: 80px 0 50px;
   }
-  @media (max-width: 767.98px) { // SM ölçü
-    padding:80px 0 50px ;
+  @media (max-width: 767.98px) {
+    padding: 80px 0 50px;
   }
+
+  .row {
+    @media (max-width: 768px) {
+      padding: 16px;
+    }
+    overflow: hidden;
+  }
+
+  // —— New: Vertical Titles Scroller ——
+  .titles-container {
+    position: relative;
+    height: 50px;       // height of one title-item
+    overflow: hidden;
+    margin: 20px auto 0;
+    width: 100%;
+    max-width: 300px;   // adjust to your card width
+  }
+
+  .titles-wrapper {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s ease;
+  }
+
+  .title-item {
+    height: 50px;       // match container height
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+  }
+  // ————————————————————————————————
+
   .custom-pagination {
     text-align: center;
     margin-top: 20px;
   }
+
   .custom-bullet {
     display: inline-block;
     width: 12px;
@@ -21,60 +58,9 @@
     cursor: pointer;
     transition: background 0.3s;
   }
+
   .custom-bullet.active {
     background: #000000;
-  }
-  .title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @media (max-width: 991.98px) {
-      flex-direction: column;
-      align-items: start;
-      gap: 10px;
-    }
-    @media (max-width: 767.98px) {
-      flex-direction: column;
-      align-items: start;
-      gap: 10px;
-    }
-
-    p {
-      width: 44%;
-      font-weight: 400;
-      font-size: 16px; // LG ölçü
-      line-height: 30px;
-      padding-left: 38px;
-
-      @media (max-width: 991.98px) {
-        width: 100%;
-        padding: 0;
-        font-size: 14px; // MD ölçü
-        line-height: 26px;
-      }
-      @media (max-width: 767.98px) {
-        width: 100%;
-        padding: 0;
-        font-size: 14px; // SM ölçü
-        line-height: 28px;
-      }
-    }
-
-    h2 {
-      font-weight: 700;
-      font-size: 36px; // LG ölçü
-      line-height: 42.96px;
-
-      @media (max-width: 991.98px) {
-        font-size: 32px; // MD ölçü
-        line-height: 38px;
-      }
-      @media (max-width: 767.98px) {
-        font-size: 28px; // SM ölçü
-        line-height: 34px;
-      }
-    }
   }
 
   .background {
@@ -114,8 +100,9 @@
     color: white;
   }
 
-  swiper {
+  .mySwiper {
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
 }

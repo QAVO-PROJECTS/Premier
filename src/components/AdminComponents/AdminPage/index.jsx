@@ -1,9 +1,8 @@
-import { useNavigate, Outlet } from 'react-router-dom';
-import Cookies from 'js-cookie';
+import {Outlet, useNavigate} from "react-router-dom";
+import Cookies from "js-cookie";
 import AdminLeftBar from "../AdminLeftBar/index.jsx";
+import {RiLogoutBoxLine} from "react-icons/ri";
 import profile from "../../../assets/image-pBWKwnIj.webp";
-import { RiLogoutBoxLine } from "react-icons/ri";
-import './index.scss';
 
 function AdminPage() {
     const navigate = useNavigate();
@@ -15,15 +14,15 @@ function AdminPage() {
 
     return (
         <section id="adminPage">
-            <AdminLeftBar />
+            <AdminLeftBar/>
             <div className="adminRightBar">
                 <div className="adminTopBar">
-                    <button onClick={handleLogout}><RiLogoutBoxLine /></button>
+                    <button onClick={handleLogout}><RiLogoutBoxLine/></button>
                     <p>Admin</p>
-                    <img src={profile} alt="profile" />
+                    <img src={profile} alt="profile"/>
                 </div>
                 <div className="rightBottomBar">
-                    <Outlet />
+                    <Outlet/>
                 </div>
             </div>
         </section>

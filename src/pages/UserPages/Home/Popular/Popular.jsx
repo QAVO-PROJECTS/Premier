@@ -1,14 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
 import Index from "../../../../components/UserComponents/Card/index.jsx";
 import "./popular.scss";
-import { FaArrowLeft } from "react-icons/fa6";
-import { FaArrowRight } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
 import { Navigation } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
 import { useGetAllPopularCountriesQuery } from "../../../../services/adminApi.jsx";
@@ -16,116 +12,150 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 function Popular() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const language = i18n.language;
+
     const prevRef = useRef(null);
     const nextRef = useRef(null);
+    const popularRef = useRef(null);
+
     const { data: getAllPopularCountries } = useGetAllPopularCountriesQuery();
     const populars = getAllPopularCountries?.data || [];
+    const modifiedPopulars = [null, ...populars, null];
 
-    // Swiper instance və aktiv slayd indeksi üçün state-lər
     const [swiperInstance, setSwiperInstance] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
-
-    // Ekran ölçüsünü izləmək üçün state
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+    // Initialize AOS
     useEffect(() => {
         AOS.init({ duration: 1000 });
     }, []);
 
-    // Ekran ölçüsündəki dəyişiklikləri izləmək
+    // Handle window resize for breakpoints
     useEffect(() => {
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
-
+        const handleResize = () => setWindowWidth(window.innerWidth);
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Pagination üçün bullet sayını hesablamaq
+    // Enable horizontal scroll on wheel when hovering the .popular area
+    useEffect(() => {
+        const popularElement = popularRef.current;
+        if (!popularElement || !swiperInstance) return;
+
+        const handleWheel = (event) => {
+            event.preventDefault();
+            const delta = event.deltaY;
+            if (delta > 0) swiperInstance.slideNext();
+            else if (delta < 0) swiperInstance.slidePrev();
+        };
+
+        const enableHorizontalScroll = () => {
+            popularElement.addEventListener('wheel', handleWheel, { passive: false });
+        };
+        const disableHorizontalScroll = () => {
+            popularElement.removeEventListener('wheel', handleWheel);
+        };
+
+        popularElement.addEventListener('mouseenter', enableHorizontalScroll);
+        popularElement.addEventListener('mouseleave', disableHorizontalScroll);
+
+        return () => {
+            popularElement.removeEventListener('mouseenter', enableHorizontalScroll);
+            popularElement.removeEventListener('mouseleave', disableHorizontalScroll);
+            popularElement.removeEventListener('wheel', handleWheel);
+        };
+    }, [swiperInstance]);
+
+    // Determine slides-per-view breakpoints
     const isDesktop = windowWidth >= 1024;
-    const bulletCount = isDesktop
-        ? Math.ceil(populars.length / 3)
-        : populars.length;
+    const isTablet = windowWidth >= 768 && windowWidth < 1024;
 
-    // Aktiv bullet-un hesablanması
-    const activeBullet = isDesktop
-        ? Math.floor(activeIndex / 3)
-        : activeIndex;
-
+    // Render
     return (
-        <div className="popular" data-aos="fade-up">
-            <div className="container" data-aos="fade-up">
-                <div className="title" data-aos="fade-right">
-                    <h2>{t("home.popular.title", "Ən Populyar Ölkələr")}</h2>
-                    <p>
-                        {t(
-                            "home.popular.subtitle",
-                            "Səyahətsevərlərin ən çox bəyəndiyi istiqamətlər! Populyar şəhərlər, rahat turlar və unikal təcrübələr sizi gözləyir."
-                        )}
-                    </p>
-                </div>
-                <div className="row p-5" data-aos="fade-in">
-                    <div className="col-12 text-end d-none d-md-block" style={{ marginBottom: "40px" }}>
-                        <button ref={prevRef} className="white">
-                            <FaArrowLeft />
-                        </button>
-                        <button ref={nextRef} className="blue">
-                            <FaArrowRight />
-                        </button>
-                    </div>
-                    <Swiper
-                        spaceBetween={30}
-                        breakpoints={{
-                            0: { slidesPerView: 1 },
-                            768: { slidesPerView: 2 },
-                            1024: { slidesPerView: 3 },
-                        }}
-                        navigation={{
-                            prevEl: prevRef.current,
-                            nextEl: nextRef.current,
-                        }}
-                        modules={[Navigation]}
-                        className="mySwiper"
-                        onSwiper={(swiper) => {
-                            setSwiperInstance(swiper);
-                            if (prevRef.current && nextRef.current) {
-                                swiper.params.navigation.prevEl = prevRef.current;
-                                swiper.params.navigation.nextEl = nextRef.current;
-                                swiper.navigation.init();
-                                swiper.navigation.update();
-                            }
-                        }}
-                        // Keçid tamamlandıqda aktiv indeksi yeniləyirik
-                        onSlideChangeTransitionEnd={(swiper) => setActiveIndex(swiper.realIndex)}
-                    >
-                        {populars.map((item, index) => (
-                            <SwiperSlide key={item.id || index}>
-                                <Index item={item} />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                    {/* Custom Pagination */}
-                    {populars.length > 0 && (
-                        <div className="custom-pagination" data-aos="fade-up">
-                            {[...Array(bulletCount)].map((_, index) => (
-                                <span
-                                    key={index}
-                                    className={`custom-bullet ${activeBullet === index ? "active" : ""}`}
-                                    onClick={() => {
-                                        if (swiperInstance) {
-                                            // Desktopda hər bullet 3 kartı, mobilda isə tək kartı göstərir
-                                            swiperInstance.slideTo(isDesktop ? index * 3 : index);
-                                        }
-                                    }}
-                                ></span>
-                            ))}
+        <div className="popular" data-aos="fade-up" ref={popularRef}>
+            <div className="row py-5" data-aos="fade-in">
+                <Swiper
+                    spaceBetween={30}
+                    breakpoints={{
+                        0: { slidesPerView: 1 },
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 },
+                    }}
+                    navigation={{
+                        prevEl: prevRef.current,
+                        nextEl: nextRef.current,
+                    }}
+                    modules={[Navigation]}
+                    className="mySwiper"
+                    onSwiper={(swiper) => {
+                        setSwiperInstance(swiper);
+                        if (prevRef.current && nextRef.current) {
+                            swiper.params.navigation.prevEl = prevRef.current;
+                            swiper.params.navigation.nextEl = nextRef.current;
+                            swiper.navigation.init();
+                            swiper.navigation.update();
+                        }
+                    }}
+                    onSlideChange={(swiper) =>
+                        setActiveIndex(swiper.realIndex)
+                    }
+                >
+                    {modifiedPopulars.map((item, index) => (
+                        <SwiperSlide key={item?.id || index}>
+                            {item ? (
+                                <Index
+                                    item={item}
+                                    nextItem={modifiedPopulars[index + 1] || null}
+                                    isActive={
+                                        index ===
+                                        (isDesktop || isTablet ? activeIndex + 1 : activeIndex)
+                                    }
+                                />
+                            ) : (
+                                <div className="empty-slide"></div>
+                            )}
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                {/* Vertical Titles Scroller */}
+                {populars.length > 0 && (
+                    <div className="titles-container" data-aos="fade-up">
+                        <div
+                            className="titles-wrapper"
+                            style={{ transform: `translateY(-${activeIndex * 50}px)` }}
+                        >
+                            {populars.map((item) => {
+                                let name = item.name;
+                                if (language === "en" && item.nameEng) name = item.nameEng;
+                                if (language === "ru" && item.nameRu) name = item.nameRu;
+                                return (
+                                    <div key={item.id} className="title-item">
+                                        {name}
+                                    </div>
+                                );
+                            })}
                         </div>
-                    )}
-                </div>
+                    </div>
+                )}
+
+                {/* Custom Pagination Bullets */}
+                {populars.length > 0 && (
+                    <div className="custom-pagination" data-aos="fade-up">
+                        {Array.from({ length: populars.length }).map((_, idx) => (
+                            <span
+                                key={idx}
+                                className={`custom-bullet ${
+                                    activeIndex === idx ? "active" : ""
+                                }`}
+                                onClick={() => swiperInstance?.slideTo(idx + 1)}
+                            ></span>
+                        ))}
+                    </div>
+                )}
             </div>
-            <div className="background" data-aos="zoom-in"></div>
         </div>
     );
 }

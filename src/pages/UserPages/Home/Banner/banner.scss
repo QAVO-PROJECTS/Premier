@@ -1,60 +1,57 @@
 .banner-home {
-  padding: 100px 0;
+  padding: 120px 0;
   position: relative;
   overflow: hidden;
-  @media (max-width: 991.98px) {
-    height: 1000px;
-  }
-  @media (max-width: 767.98px) {
-    height: 1200px;
-  }
+  background-image: url('/src/assets/Change_Animation (0-00-08-08).jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  height: 100vh;
+
   .container {
     position: relative;
+    z-index: 2; // Ensure container content is above the background
   }
-  .home-banner{
-    position: absolute;
-    top: -10%;
-    width: 100%;
-    z-index: -1;
+
+  .left {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.5s, opacity 0.5s ease-in-out;
+
+    &.visible {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
   }
+
   h1 {
-    font-weight: 700;
-    width: 90%;
-    font-size: 48px; // LG ölçü
-    line-height: 72px; // LG ölçü
-    margin-top: 150px;
-    @media (max-width: 991.98px) { // MD ölçü
+    font-weight: 500;
+    font-size: 80px;
+    line-height: 120px;
+    text-align: right;
+    color: #ffffff;
+    @media (max-width: 991.98px) {
       font-size: 40px;
       line-height: 60px;
       margin-top: 50px;
-
     }
-    @media (max-width: 767.98px) { // SM ölçü
+    @media (max-width: 767.98px) {
       font-size: 34px;
       line-height: 52px;
       margin-top: 50px;
-
-    }
-
-    span {
-      font-size: 48px; // LG ölçü
-
-      @media (max-width: 991.98px) {
-        font-size: 40px;
-      }
-      @media (max-width: 767.98px) {
-        font-size: 34px;
-      }
     }
   }
 
   p {
     font-weight: 400;
-    font-size: 20px; // LG ölçü
-    line-height: 32px; // LG ölçü
-    color: #7C7C7C;
+    font-size: 20px;
+    line-height: 32px;
+    color: #d4d4d4;
     margin-bottom: 44px;
-
+    margin-left: auto;
+    width: 80%;
     @media (max-width: 991.98px) {
       font-size: 18px;
       line-height: 28px;
@@ -65,40 +62,17 @@
     }
   }
 
-  .image {
-    position: relative;
-    width: 148%;
-    z-index: -1;
-
-    img {
-      width: 100%;
-      z-index: -1;
-    }
-  }
-  .image2 {
-    position: relative;
-    width: 100%;
-    z-index: 1;
-
-    img {
-      width: 100%;
-      z-index: -1;
-    }
-  }
-
   .choosen {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    box-shadow: 1px 1px 16px 0px #5A5A5A1C;
-    padding: 14px;
+    width: 70%;
+    box-shadow: 1px 1px 16px 0px #5a5a5a1c;
+    margin-left: auto;
+    padding: 4px 14px;
     background-color: white;
     border-radius: 25px;
     z-index: 10;
     transition: all 0.3s ease-in-out;
-    &:hover{
+    &:hover {
       box-shadow: 1px 1px 12px 4px rgba(218, 15, 15, 0.26);
-
     }
     @media (max-width: 991.98px) {
       width: 100%;
@@ -112,9 +86,9 @@
       padding: 10px 16px;
       border-radius: 10px;
       border: none;
-      font-size: 20px; // LG ölçü
+      font-size: 20px;
       outline: none;
-      &::placeholder{
+      &::placeholder {
         color: #d3cfcf;
       }
 
@@ -127,14 +101,14 @@
     }
 
     button {
-      padding: 10px 20px;
-      background-color: #D80027;
+      padding: 6px 12px;
+      background-color: #d80027;
       border-radius: 15px;
       color: white;
       font-weight: 900;
       border: none;
       font-size: 25px;
-      .icon-banner{
+      .icon-banner {
         margin-top: -3px;
       }
 
@@ -144,24 +118,6 @@
       @media (max-width: 767.98px) {
         font-size: 20px;
       }
-    }
-  }
-
-  .plane-image {
-    position: absolute;
-    bottom: -200px;
-    margin-top:700px;
-    transition: all .3s ease-in-out;
-    &:hover{
-      transform: rotate(10deg);
-    }
-    @media (max-width: 991.98px) {
-      bottom: -150%;
-      width: 100%;
-    }
-    @media (max-width: 767.98px) {
-      bottom: -150%;
-      width: 90%;
     }
   }
 }

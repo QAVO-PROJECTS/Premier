@@ -1,54 +1,20 @@
 .start-page-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  height: 100vh;
-  background: #fff; // Arxa plan rəngi
+  width: 100%;
+  height: calc(100vh + 1px);
+  position: relative;
 
-  .static-text {
-    color: rgba(216, 0, 39, 0.54);
-    font-size: 40px;
-    letter-spacing: 0.15em;
-    overflow: hidden; /* Yazının qırpılmasını təmin edir */
-    white-space: nowrap;
-    margin: 0;
+  .video-wrapper {
+    width: 100%;
+    height: calc(100vh + 1px);
   }
 
-  .animated-text-container {
-    position: relative;
-    // Placeholder konteyner ölçüsünü təyin edir
-    .placeholder-text {
-      visibility: hidden;
-      pointer-events: none;
-      font-size: 40px;
-      letter-spacing: 0.15em;
-      white-space: nowrap;
-      margin: 0;
-    }
-    .animated-text {
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-size: 40px;
-      letter-spacing: 0.15em;
-      white-space: nowrap;
-      color: rgba(216, 0, 39, 0.54);
-      margin: 0;
-    }
-  }
-}
+  .home-banner-video {
+    width: 100%;
+    height: calc(100vh + 1px);
+    object-fit: cover;
 
-// Mobil görünüş üçün tənzimləmələr
-@media (max-width: 767.98px) {
-  .start-page-container {
-    flex-direction: column;
-    .static-text,
-    .animated-text-container .placeholder-text,
-    .animated-text-container .animated-text {
-      font-size: 16px;
-      white-space: normal;
-      word-wrap: break-word;
+    &.hidden {
+      display: none;
     }
   }
 }

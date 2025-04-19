@@ -1,51 +1,41 @@
-import './index.scss'
-import {useState, useEffect} from 'react';
-import {Outlet} from 'react-router-dom';
-import Navbar from "../../components/UserComponents/Navbar/Navbar.jsx";
-import ScrollToTop from "../../components/ScrollToTop/index.jsx";
-import Footer from "../../components/UserComponents/Footer/index.jsx";
-import StartPage from "../UserPages/StartPage/StartPage.jsx";
+import './index.scss';
+import { useState, useEffect } from 'react'; // Import useEffect
+import { Outlet } from 'react-router-dom';
+import Navbar from '../../components/UserComponents/Navbar/Navbar.jsx';
+import Footer from '../../components/UserComponents/Footer/index.jsx';
+import StartPage from '../UserPages/StartPage/StartPage.jsx';
 
 const MainPage = () => {
     const [showStart, setShowStart] = useState(true);
-    const [fadeOut, setFadeOut] = useState(false);
 
+    // Use useEffect to handle the timeout
     useEffect(() => {
-        const timer1 = setTimeout(() => {
-            setFadeOut(true);
-        }, 800);
+        const timer = setTimeout(() => {
+            setShowStart(false); // Hide StartPage after 8 seconds
+        }, 8500); // 8000ms = 8 seconds
 
-        const timer2 = setTimeout(() => {
-            setShowStart(false);
-        }, 1800);
-
-        return () => {
-            clearTimeout(timer1);
-            clearTimeout(timer2);
-        };
-    }, []);
+        // Cleanup the timer when the component unmounts
+        return () => clearTimeout(timer);
+    }, []); // Empty dependency array to run only once on mount
 
     return (
         <div id="mainPage">
-
             {showStart ? (
                 <>
-                    <div className={`start-page ${fadeOut ? "fade-out" : ""}`}>
-                        <StartPage/>
+                    <div className="start-page">
+                        <StartPage />
                     </div>
-                    <div style={{
-                        display: "none",
-                    }}>
-                        <Navbar/>
-                        <Outlet/>
-                        <Footer/>
+                    <div style={{ display: 'none' }}>
+                        <Navbar />
+                        <Outlet />
+                        <Footer />
                     </div>
                 </>
             ) : (
                 <>
-                    <Navbar/>
-                    <Outlet/>
-                    <Footer/>
+                    <Navbar />
+                    <Outlet />
+                    <Footer />
                 </>
             )}
         </div>
