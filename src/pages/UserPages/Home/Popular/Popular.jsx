@@ -26,6 +26,7 @@ function Popular() {
     const [swiperInstance, setSwiperInstance] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [lastWheelTime, setLastWheelTime] = useState(0);
 
     // Initialize AOS
     useEffect(() => {
@@ -39,34 +40,35 @@ function Popular() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Enable horizontal scroll on wheel when hovering the .popular area
+    // Enable throttled horizontal scroll on wheel
     useEffect(() => {
         const popularElement = popularRef.current;
         if (!popularElement || !swiperInstance) return;
 
         const handleWheel = (event) => {
             event.preventDefault();
+            const currentTime = Date.now();
+            const timeDiff = currentTime - lastWheelTime;
+
+            // Throttle: Only allow a slide change every 300ms
+            if (timeDiff < 1000) return;
+
             const delta = event.deltaY;
-            if (delta > 0) swiperInstance.slideNext();
-            else if (delta < 0) swiperInstance.slidePrev();
+            if (delta > 0) {
+                swiperInstance.slideNext();
+            } else if (delta < 0) {
+                swiperInstance.slidePrev();
+            }
+
+            setLastWheelTime(currentTime);
         };
 
-        const enableHorizontalScroll = () => {
-            popularElement.addEventListener('wheel', handleWheel, { passive: false });
-        };
-        const disableHorizontalScroll = () => {
-            popularElement.removeEventListener('wheel', handleWheel);
-        };
-
-        popularElement.addEventListener('mouseenter', enableHorizontalScroll);
-        popularElement.addEventListener('mouseleave', disableHorizontalScroll);
+        popularElement.addEventListener('wheel', handleWheel, { passive: false });
 
         return () => {
-            popularElement.removeEventListener('mouseenter', enableHorizontalScroll);
-            popularElement.removeEventListener('mouseleave', disableHorizontalScroll);
             popularElement.removeEventListener('wheel', handleWheel);
         };
-    }, [swiperInstance]);
+    }, [swiperInstance, lastWheelTime]);
 
     // Determine slides-per-view breakpoints
     const isDesktop = windowWidth >= 1024;
@@ -78,6 +80,7 @@ function Popular() {
             <div className="row py-5" data-aos="fade-in">
                 <Swiper
                     spaceBetween={30}
+                    speed={600} // Slow down slide transition
                     breakpoints={{
                         0: { slidesPerView: 1 },
                         768: { slidesPerView: 2 },
@@ -125,7 +128,7 @@ function Popular() {
                     <div className="titles-container" data-aos="fade-up">
                         <div
                             className="titles-wrapper"
-                            style={{ transform: `translateY(-${activeIndex * 50}px)` }}
+                            style={{ transform: `translateY(-${activeIndex * 200}px)` }}
                         >
                             {populars.map((item) => {
                                 let name = item.name;
@@ -133,7 +136,7 @@ function Popular() {
                                 if (language === "ru" && item.nameRu) name = item.nameRu;
                                 return (
                                     <div key={item.id} className="title-item">
-                                        {name}
+                                        {name.toLocaleUpperCase()}
                                     </div>
                                 );
                             })}

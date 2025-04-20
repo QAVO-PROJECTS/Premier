@@ -1,7 +1,7 @@
 .popular {
   padding: 80px 0 100px;
   position: relative;
-  border-radius: 50% 50% 0 0;
+  background: #1c1c1c;
 
   @media (max-width: 991.98px) {
     padding: 80px 0 50px;
@@ -20,11 +20,11 @@
   // —— New: Vertical Titles Scroller ——
   .titles-container {
     position: relative;
-    height: 50px;       // height of one title-item
+    height: 200px;       // Unchanged
     overflow: hidden;
-    margin: 20px auto 0;
+    margin: -100px auto 0;
     width: 100%;
-    max-width: 300px;   // adjust to your card width
+    z-index: 1;
   }
 
   .titles-wrapper {
@@ -34,12 +34,12 @@
   }
 
   .title-item {
-    height: 50px;       // match container height
-    line-height: 50px;
+    height: 200px;       // Unchanged
+    line-height: 200px;  // Unchanged
     text-align: center;
-    font-size: 18px;
+    font-size: 80px;    // Updated to 60px
     font-weight: 600;
-    color: #333;
+    color: #ffffff;
   }
   // ————————————————————————————————
 
@@ -65,8 +65,8 @@
 
   .background {
     position: absolute;
-    background-color: #FFF8F8;
-    height: 60%;
+    background-color: #f60000;
+    height: 100%;
     border-radius: 200px 0 0 200px;
     top: 0;
     left: 0;
