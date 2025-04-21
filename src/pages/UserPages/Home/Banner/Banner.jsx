@@ -45,7 +45,7 @@ function Banner() {
     return (
         <div className="banner-home">
             <div className="container">
-                <div className="row justify-content-end">
+                <div className="row py-5 justify-content-end align-items-center">
                     <div
                         className={`col-12 col-lg-9 order-2 order-lg-1 left text-end ${
                             showContent ? 'visible' : ''

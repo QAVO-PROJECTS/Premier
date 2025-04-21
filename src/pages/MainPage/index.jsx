@@ -12,7 +12,7 @@ const MainPage = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowStart(false); // Hide StartPage after 8 seconds
-        }, 8500); // 8000ms = 8 seconds
+        }, 100); // 8000ms = 8 seconds
 
         // Cleanup the timer when the component unmounts
         return () => clearTimeout(timer);

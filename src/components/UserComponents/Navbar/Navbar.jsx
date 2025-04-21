@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import './navbar.scss';
-import { Link, useNavigate, useLocation } from "react-router-dom"; // useLocation eklendi
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import AOS from 'aos'; // Import AOS
+import 'aos/dist/aos.css'; // Import AOS styles
 
 import flagAz from '/src/assets/azerbaijan.png';
 import flagEn from '/src/assets/uk.png';
@@ -19,9 +21,16 @@ function Navbar() {
 
     const { t, i18n } = useTranslation();
     const navigate = useNavigate();
-    const location = useLocation(); // mevcut konumu alıyoruz
+    const location = useLocation();
 
     useEffect(() => {
+        // Initialize AOS
+        AOS.init({
+            duration: 100, // Animation duration (0.5s)
+            easing: 'ease-out', // Smooth easing
+            once: true, // Animate only once
+        });
+
         const storedLang = localStorage.getItem('i18nextLng');
         if (storedLang && storedLang !== i18n.language) {
             i18n.changeLanguage(storedLang);
@@ -86,7 +95,12 @@ function Navbar() {
     };
 
     return (
-        <section id="myNavbar">
+        <section
+            id="myNavbar"
+            data-aos="slide-down" // AOS slide-down animation
+            data-aos-delay="100" // Slight delay for smooth transition
+            data-aos-anchor-placement="top-center" // Trigger when top enters viewport
+        >
             <div className="container">
                 <div className="wrapper">
                     <div className="logo">

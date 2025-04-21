@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
 import { useGetAllPopularCountriesQuery } from "../../../../services/adminApi.jsx";
 import AOS from 'aos';
@@ -21,7 +21,7 @@ function Popular() {
 
     const { data: getAllPopularCountries } = useGetAllPopularCountriesQuery();
     const populars = getAllPopularCountries?.data || [];
-    const modifiedPopulars = [null, ...populars, null];
+    const modifiedPopulars = populars;
 
     const [swiperInstance, setSwiperInstance] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
@@ -50,7 +50,6 @@ function Popular() {
             const currentTime = Date.now();
             const timeDiff = currentTime - lastWheelTime;
 
-            // Throttle: Only allow a slide change every 300ms
             if (timeDiff < 1000) return;
 
             const delta = event.deltaY;
@@ -76,11 +75,12 @@ function Popular() {
 
     // Render
     return (
-        <div className="popular" data-aos="fade-up" ref={popularRef}>
-            <div className="row py-5" data-aos="fade-in">
+        <div className="popular" data-aos="fade-up">
+            <div className="row" data-aos="fade-in" ref={popularRef}>
                 <Swiper
                     spaceBetween={30}
-                    speed={600} // Slow down slide transition
+                    speed={600}
+                    loop={true}
                     breakpoints={{
                         0: { slidesPerView: 1 },
                         768: { slidesPerView: 2 },
@@ -90,7 +90,13 @@ function Popular() {
                         prevEl: prevRef.current,
                         nextEl: nextRef.current,
                     }}
-                    modules={[Navigation]}
+                    pagination={{
+                        clickable: true,
+                        el: '.custom-pagination',
+                        bulletClass: 'custom-bullet',
+                        bulletActiveClass: 'active',
+                    }}
+                    modules={[Navigation, Pagination]}
                     className="mySwiper"
                     onSwiper={(swiper) => {
                         setSwiperInstance(swiper);
@@ -101,24 +107,15 @@ function Popular() {
                             swiper.navigation.update();
                         }
                     }}
-                    onSlideChange={(swiper) =>
-                        setActiveIndex(swiper.realIndex)
-                    }
+                    onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                 >
                     {modifiedPopulars.map((item, index) => (
-                        <SwiperSlide key={item?.id || index}>
-                            {item ? (
-                                <Index
-                                    item={item}
-                                    nextItem={modifiedPopulars[index + 1] || null}
-                                    isActive={
-                                        index ===
-                                        (isDesktop || isTablet ? activeIndex + 1 : activeIndex)
-                                    }
-                                />
-                            ) : (
-                                <div className="empty-slide"></div>
-                            )}
+                        <SwiperSlide key={item.id}>
+                            <Index
+                                item={item}
+                                nextItem={modifiedPopulars[(index + 1) % modifiedPopulars.length] || null}
+                                isActive={index === activeIndex}
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -128,37 +125,38 @@ function Popular() {
                     <div className="titles-container" data-aos="fade-up">
                         <div
                             className="titles-wrapper"
-                            style={{ transform: `translateY(-${activeIndex * 200}px)` }}
+                            style={{
+                                transform: `translateY(-${((activeIndex + 1) % populars.length) * 200}px)`, // Start from index 1
+                                transition: 'transform 0.6s ease', // Swiper speed ile uyumlu
+                            }}
                         >
-                            {populars.map((item) => {
+                            {populars.map((item, index) => {
                                 let name = item.name;
                                 if (language === "en" && item.nameEng) name = item.nameEng;
                                 if (language === "ru" && item.nameRu) name = item.nameRu;
                                 return (
                                     <div key={item.id} className="title-item">
-                                        {name.toLocaleUpperCase()}
+                                        <h2>{name.toLocaleUpperCase()}</h2>
                                     </div>
                                 );
                             })}
                         </div>
                     </div>
                 )}
-
-                {/* Custom Pagination Bullets */}
-                {populars.length > 0 && (
-                    <div className="custom-pagination" data-aos="fade-up">
-                        {Array.from({ length: populars.length }).map((_, idx) => (
-                            <span
-                                key={idx}
-                                className={`custom-bullet ${
-                                    activeIndex === idx ? "active" : ""
-                                }`}
-                                onClick={() => swiperInstance?.slideTo(idx + 1)}
-                            ></span>
-                        ))}
-                    </div>
-                )}
             </div>
+            {populars.length > 0 && (
+                <div className="custom-pagination" data-aos="fade-up">
+                    {Array.from({ length: populars.length }).map((_, idx) => (
+                        <span
+                            key={idx}
+                            className={`custom-bullet ${
+                                activeIndex === idx ? "active" : ""
+                            }`}
+                            onClick={() => swiperInstance?.slideTo(idx + 1)}
+                        ></span>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
