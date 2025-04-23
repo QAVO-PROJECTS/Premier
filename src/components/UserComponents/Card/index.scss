@@ -3,6 +3,10 @@
   overflow: hidden;
   background-color: white;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: 95%;
+    margin: 0 auto;
+  }
   &:hover {
     .image {
       img {
@@ -23,6 +27,7 @@
       transition: all 0.3s ease-in-out;
       border-top-left-radius: 25px;
       border-top-right-radius: 25px;
+
     }
 
     .carousel-dots {

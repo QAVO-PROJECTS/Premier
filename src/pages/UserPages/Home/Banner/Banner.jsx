@@ -47,7 +47,7 @@ function Banner() {
             <div className="container">
                 <div className="row py-5 justify-content-end align-items-center">
                     <div
-                        className={`col-12 col-lg-9 order-2 order-lg-1 left text-end ${
+                        className={`col-12 col-lg-9 order-2 order-lg-1 left  ${
                             showContent ? 'visible' : ''
                         }`}
                     >

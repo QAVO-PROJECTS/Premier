@@ -23,7 +23,11 @@
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s linear 0.5s, opacity 0.5s ease-in-out;
-
+  text-align: end;
+    @media screen and (max-width: 768px) {
+      text-align: start;
+      margin-top: 50px;
+    }
     &.visible {
       visibility: visible;
       opacity: 1;
@@ -37,14 +41,17 @@
     line-height: 120px;
     text-align: right;
     color: #ffffff;
+    margin-bottom: 16px;
     @media (max-width: 991.98px) {
       font-size: 40px;
       line-height: 60px;
+      text-align: start;
       //margin-top: 50px;
     }
     @media (max-width: 767.98px) {
       font-size: 34px;
       line-height: 52px;
+      text-align: start;
       //margin-top: 50px;
     }
   }
@@ -64,6 +71,8 @@
     @media (max-width: 767.98px) {
       font-size: 16px;
       line-height: 26px;
+      margin-left: 0;
+      width: 100%;
     }
   }
 

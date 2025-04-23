@@ -3,10 +3,10 @@
   position: relative;
 
   @media (max-width: 991.98px) {
-    padding: 80px 0 50px;
+    padding: 60px 0 50px;
   }
   @media (max-width: 767.98px) {
-    padding: 80px 0 50px;
+    padding:60px 0 50px;
   }
 
   .row {
@@ -47,6 +47,7 @@
       width: 30%;
       @media (max-width: 768px) {
         width: 100%;
+        font-size: 40px;
       }
     }
   }
