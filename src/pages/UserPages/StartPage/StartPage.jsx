@@ -1,22 +1,36 @@
 import "./StartPage.scss";
-import {useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import backgroundVideo from "../../../assets/WhatsApp Video 2025-04-19 at 09.09.18_b8e957cb.mp4";
+import mobileBackgroundVideo from "../../../assets/Change_Animation Vertical.mp4"; // Import mobile video
 
 const StartPage = () => {
-
-    const videoRef = useRef(null);
+    const desktopVideoRef = useRef(null);
+    const mobileVideoRef = useRef(null);
     const [showContent, setShowContent] = useState(false);
+
     useEffect(() => {
-        const video = videoRef.current;
+        const desktopVideo = desktopVideoRef.current;
+        const mobileVideo = mobileVideoRef.current;
 
         const onVideoEnd = () => {
             setShowContent(true);
         };
 
-        video.addEventListener('ended', onVideoEnd);
+        // Attach event listener to the video that is currently active
+        if (desktopVideo) {
+            desktopVideo.addEventListener("ended", onVideoEnd);
+        }
+        if (mobileVideo) {
+            mobileVideo.addEventListener("ended", onVideoEnd);
+        }
 
         return () => {
-            video.removeEventListener('ended', onVideoEnd);
+            if (desktopVideo) {
+                desktopVideo.removeEventListener("ended", onVideoEnd);
+            }
+            if (mobileVideo) {
+                mobileVideo.removeEventListener("ended", onVideoEnd);
+            }
         };
     }, []);
 
@@ -24,13 +38,23 @@ const StartPage = () => {
         <div className="start-page-container">
             <div className="video-wrapper">
                 <video
-                    ref={videoRef}
-                    className="home-banner-video"
+                    ref={desktopVideoRef}
+                    className="home-banner-video desktop-video"
                     autoPlay
                     muted
                     playsInline
                 >
                     <source src={backgroundVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <video
+                    ref={mobileVideoRef}
+                    className="home-banner-video mobile-video"
+                    autoPlay
+                    muted
+                    playsInline
+                >
+                    <source src={mobileBackgroundVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>

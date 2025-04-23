@@ -12,9 +12,32 @@
     width: 100%;
     height: calc(100vh + 1px);
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     &.hidden {
       display: none;
+    }
+  }
+
+  // Default: Show desktop video, hide mobile video
+  .desktop-video {
+    display: block;
+  }
+
+  .mobile-video {
+    display: none;
+  }
+
+  // Mobile: Show mobile video, hide desktop video
+  @media (max-width: 768px) {
+    .desktop-video {
+      display: none;
+    }
+
+    .mobile-video {
+      display: block;
     }
   }
 }
