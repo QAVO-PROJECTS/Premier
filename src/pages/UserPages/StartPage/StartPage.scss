@@ -21,16 +21,16 @@
     }
   }
 
-  // Default: Show desktop video, hide mobile video
+  // Desktop için göster
   .desktop-video {
     display: block;
   }
 
+  // Mobilde gizle
   .mobile-video {
     display: none;
   }
 
-  // Mobile: Show mobile video, hide desktop video
   @media (max-width: 768px) {
     .desktop-video {
       display: none;
