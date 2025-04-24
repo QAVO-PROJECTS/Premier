@@ -7,12 +7,21 @@ const StartPage = () => {
     const desktopVideoRef = useRef(null);
     const mobileVideoRef = useRef(null);
     const [showContent, setShowContent] = useState(false);
+    const [isSafariOnIphone, setIsSafariOnIphone] = useState(false);
+
+    useEffect(() => {
+        // iPhone ve Safari kontrolü
+        const userAgent = navigator.userAgent;
+        const isIphone = /iPhone/i.test(userAgent);
+        const isSafari = /Safari/i.test(userAgent) && !/Chrome/i.test(userAgent); // Chrome gibi diğer tarayıcıları hariç tut
+        setIsSafariOnIphone(isIphone && isSafari);
+    }, []);
 
     useEffect(() => {
         const desktopVideo = desktopVideoRef.current;
         const mobileVideo = mobileVideoRef.current;
 
-        // Attempt to play; on iOS/Safari may require a touchstart
+        // Video oynatma fonksiyonu
         function tryPlay(videoEl) {
             if (!videoEl) return;
             const p = videoEl.play();
@@ -31,11 +40,12 @@ const StartPage = () => {
             setShowContent(true);
         };
 
+        // iPhone ve Safari'de mobil video oynatılmayacak
         if (desktopVideo) {
             desktopVideo.addEventListener("ended", onVideoEnd);
             tryPlay(desktopVideo);
         }
-        if (mobileVideo) {
+        if (mobileVideo && !isSafariOnIphone) {
             mobileVideo.addEventListener("ended", onVideoEnd);
             tryPlay(mobileVideo);
         }
@@ -48,7 +58,7 @@ const StartPage = () => {
                 mobileVideo.removeEventListener("ended", onVideoEnd);
             }
         };
-    }, []);
+    }, [isSafariOnIphone]);
 
     return (
         <div className="start-page-container">
@@ -66,26 +76,25 @@ const StartPage = () => {
                     <source src={backgroundVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
-                <video
-                    ref={mobileVideoRef}
-                    className="home-banner-video mobile-video"
-                    autoPlay
-                    muted
-                    loop
-                    preload="auto"
-                    playsInline
-                    webkit-playsinline="true"
-                >
-                    <source src={mobileBackgroundVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
+                {/* iPhone ve Safari'de mobil video render edilmesin */}
+                {!isSafariOnIphone && (
+                    <video
+                        ref={mobileVideoRef}
+                        className="home-banner-video mobile-video"
+                        autoPlay
+                        muted
+                        loop
+                        preload="auto"
+                        playsInline
+                        webkit-playsinline="true"
+                    >
+                        <source src={mobileBackgroundVideo} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                )}
             </div>
 
-            {showContent && (
-                <div className="start-content">
-                    {/* Ana içerik burada yer alacak */}
-                </div>
-            )}
+
         </div>
     );
 };

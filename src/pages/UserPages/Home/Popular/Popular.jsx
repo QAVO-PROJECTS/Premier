@@ -24,7 +24,7 @@ function Popular() {
     const modifiedPopulars = populars;
 
     const [swiperInstance, setSwiperInstance] = useState(null);
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(0); // Tracks the center slide index
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [lastWheelTime, setLastWheelTime] = useState(0);
 
@@ -33,14 +33,14 @@ function Popular() {
         AOS.init({ duration: 1000 });
     }, []);
 
-    // Handle window resize for breakpoints
+    // Handle window resize
     useEffect(() => {
         const handleResize = () => setWindowWidth(window.innerWidth);
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Enable throttled horizontal scroll on wheel
+    // Enable throttled horizontal scroll
     useEffect(() => {
         const popularElement = popularRef.current;
         if (!popularElement || !swiperInstance) return;
@@ -73,7 +73,26 @@ function Popular() {
     const isDesktop = windowWidth >= 1024;
     const isTablet = windowWidth >= 768 && windowWidth < 1024;
 
-    // Render
+    // Calculate the center slide index for desktop
+    const getCenterSlideIndex = (swiper) => {
+        if (!swiper || !modifiedPopulars.length) return 0;
+
+        if (isDesktop) {
+            // In desktop mode (slidesPerView: 3), calculate the center slide index
+            // Use realIndex to handle looping correctly
+            let centerIndex = swiper.realIndex +1;
+            // Adjust for the center slide in a 3-slide view
+            return centerIndex % modifiedPopulars.length;
+        } else {
+            // In mobile or tablet mode, use realIndex directly
+            return swiper.realIndex;
+        }
+    };
+
+    // Calculate title offset based on the center slide index
+    const titleHeight = 200; // Height of each title-item
+    const titleOffset = activeIndex * titleHeight;
+
     return (
         <div className="popular" data-aos="fade-up">
             <div className="row" data-aos="fade-in" ref={popularRef}>
@@ -106,8 +125,13 @@ function Popular() {
                             swiper.navigation.init();
                             swiper.navigation.update();
                         }
+                        // Set initial activeIndex based on center slide
+                        setActiveIndex(getCenterSlideIndex(swiper));
                     }}
-                    onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+                    onSlideChange={(swiper) => {
+                        // Update activeIndex to reflect the center slide
+                        setActiveIndex(getCenterSlideIndex(swiper));
+                    }}
                 >
                     {modifiedPopulars.map((item, index) => (
                         <SwiperSlide key={item.id}>
@@ -126,8 +150,8 @@ function Popular() {
                         <div
                             className="titles-wrapper"
                             style={{
-                                transform: `translateY(-${((activeIndex + 1) % populars.length) * 200}px)`, // Start from index 1
-                                transition: 'transform 0.6s ease', // Swiper speed ile uyumlu
+                                transform: `translateY(-${titleOffset}px)`,
+                                transition: 'transform 0.6s ease',
                             }}
                         >
                             {populars.map((item, index) => {
@@ -144,15 +168,20 @@ function Popular() {
                     </div>
                 )}
             </div>
+
+            {/* Custom Pagination */}
             {populars.length > 0 && (
                 <div className="custom-pagination" data-aos="fade-up">
                     {Array.from({ length: populars.length }).map((_, idx) => (
                         <span
                             key={idx}
-                            className={`custom-bullet ${
-                                activeIndex === idx ? "active" : ""
-                            }`}
-                            onClick={() => swiperInstance?.slideTo(idx + 1)}
+                            className={`custom-bullet ${activeIndex === idx ? "active" : ""}`}
+                            onClick={() => {
+                                if (swiperInstance) {
+                                    // Directly use idx for slideToLoop to align with realIndex
+                                    swiperInstance.slideToLoop(idx);
+                                }
+                            }}
                         ></span>
                     ))}
                 </div>
