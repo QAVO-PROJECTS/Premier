@@ -1,27 +1,25 @@
 import "./StartPage.scss";
 import { useEffect, useRef, useState } from "react";
 import backgroundVideo from "../../../assets/WhatsApp Video 2025-04-19 at 09.09.18_b8e957cb.mp4";
-import mobileBackgroundVideo from "../../../assets/Change_Animation Vertical.mp4";
 
 const StartPage = () => {
     const desktopVideoRef = useRef(null);
-    const mobileVideoRef = useRef(null);
     const [showContent, setShowContent] = useState(false);
-    const [isSafariOnIphone, setIsSafariOnIphone] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        // iPhone ve Safari kontrolü
+        // Mobile device detection
         const userAgent = navigator.userAgent;
-        const isIphone = /iPhone/i.test(userAgent);
-        const isSafari = /Safari/i.test(userAgent) && !/Chrome/i.test(userAgent); // Chrome gibi diğer tarayıcıları hariç tut
-        setIsSafariOnIphone(isIphone && isSafari);
+        const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+        setIsMobile(mobileRegex.test(userAgent));
     }, []);
 
     useEffect(() => {
-        const desktopVideo = desktopVideoRef.current;
-        const mobileVideo = mobileVideoRef.current;
+        if (isMobile) return; // Skip video handling for mobile devices
 
-        // Video oynatma fonksiyonu
+        const desktopVideo = desktopVideoRef.current;
+
+        // Video play function
         function tryPlay(videoEl) {
             if (!videoEl) return;
             const p = videoEl.play();
@@ -40,47 +38,25 @@ const StartPage = () => {
             setShowContent(true);
         };
 
-        // iPhone ve Safari'de mobil video oynatılmayacak
         if (desktopVideo) {
             desktopVideo.addEventListener("ended", onVideoEnd);
             tryPlay(desktopVideo);
-        }
-        if (mobileVideo && !isSafariOnIphone) {
-            mobileVideo.addEventListener("ended", onVideoEnd);
-            tryPlay(mobileVideo);
         }
 
         return () => {
             if (desktopVideo) {
                 desktopVideo.removeEventListener("ended", onVideoEnd);
             }
-            if (mobileVideo) {
-                mobileVideo.removeEventListener("ended", onVideoEnd);
-            }
         };
-    }, [isSafariOnIphone]);
+    }, [isMobile]);
 
     return (
         <div className="start-page-container">
             <div className="video-wrapper">
-                <video
-                    ref={desktopVideoRef}
-                    className="home-banner-video desktop-video"
-                    autoPlay
-                    muted
-                    loop
-                    preload="auto"
-                    playsInline
-                    webkit-playsinline="true"
-                >
-                    <source src={backgroundVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                {/* iPhone ve Safari'de mobil video render edilmesin */}
-                {!isSafariOnIphone && (
+                {!isMobile && (
                     <video
-                        ref={mobileVideoRef}
-                        className="home-banner-video mobile-video"
+                        ref={desktopVideoRef}
+                        className="home-banner-video desktop-video"
                         autoPlay
                         muted
                         loop
@@ -88,13 +64,11 @@ const StartPage = () => {
                         playsInline
                         webkit-playsinline="true"
                     >
-                        <source src={mobileBackgroundVideo} type="video/mp4" />
+                        <source src={backgroundVideo} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 )}
             </div>
-
-
         </div>
     );
 };
