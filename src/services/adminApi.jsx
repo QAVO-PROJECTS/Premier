@@ -4,7 +4,7 @@ import Cookies from "js-cookie"
 export const adminApi = createApi({
     reducerPath: 'adminApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://premiert-001-site1.ptempurl.com/api/',
+        baseUrl: 'https://premiertour-production.up.railway.app/api/',
         prepareHeaders: (headers) => {
             const token = Cookies.get('premierTourToken');
             if (token) {
